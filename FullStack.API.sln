@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FullStack.API", "FullStack.API\FullStack.API.csproj", "{CC1FCBF2-79C0-415E-AE68-AB3645CB46C0}"
 EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "FullStack.UI", "FullStack.UI\FullStack.UI.esproj", "{F50EA58B-7514-43B8-A281-2AA73907BED4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,12 @@ Global
 		{CC1FCBF2-79C0-415E-AE68-AB3645CB46C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC1FCBF2-79C0-415E-AE68-AB3645CB46C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC1FCBF2-79C0-415E-AE68-AB3645CB46C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F50EA58B-7514-43B8-A281-2AA73907BED4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F50EA58B-7514-43B8-A281-2AA73907BED4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F50EA58B-7514-43B8-A281-2AA73907BED4}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F50EA58B-7514-43B8-A281-2AA73907BED4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F50EA58B-7514-43B8-A281-2AA73907BED4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F50EA58B-7514-43B8-A281-2AA73907BED4}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
