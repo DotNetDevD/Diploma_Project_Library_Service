@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FullStack.API", "FullStack.API\FullStack.API.csproj", "{CC1FCBF2-79C0-415E-AE68-AB3645CB46C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryAggregator.API", "FullStack.API\LibraryAggregator.API.csproj", "{CC1FCBF2-79C0-415E-AE68-AB3645CB46C0}"
 EndProject
-Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "FullStack.UI", "FullStack.UI\FullStack.UI.esproj", "{F50EA58B-7514-43B8-A281-2AA73907BED4}"
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "LibraryAggregator.WebClient", "FullStack.UI\LibraryAggregator.WebClient.esproj", "{F50EA58B-7514-43B8-A281-2AA73907BED4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
