@@ -34,7 +34,7 @@ namespace LibraryAggregator.API.Controllers
             var Author =  await _db.Authors.FirstOrDefaultAsync(x => x.AuthorId == id);
             if(Author != null)
             {
-                return  Ok(Author);
+                return  Author;
             }
             return NotFound();
         }
@@ -71,7 +71,7 @@ namespace LibraryAggregator.API.Controllers
             if (author != null)
             {
                 _db.Authors.Remove(author);
-               await  _db.SaveChangesAsync();
+                await  _db.SaveChangesAsync();
                 return Ok();
             }
             return NotFound();
