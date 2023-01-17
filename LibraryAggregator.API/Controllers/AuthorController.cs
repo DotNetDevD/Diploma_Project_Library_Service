@@ -59,9 +59,9 @@ namespace LibraryAggregator.API.Controllers
             {
                 _db.Update(author);
                 await _db.SaveChangesAsync();
-                return Ok(author);
+                return Ok();
             }
-            return BadRequest(author);
+            return BadRequest(ModelState);
         }
 
         [HttpDelete("{id}")]
@@ -71,9 +71,10 @@ namespace LibraryAggregator.API.Controllers
             if (author != null)
             {
                 _db.Authors.Remove(author);
-               await _db.SaveChangesAsync();
+               await  _db.SaveChangesAsync();
+                return Ok();
             }
-            return Ok();
+            return NotFound();
         }
     }
 }
