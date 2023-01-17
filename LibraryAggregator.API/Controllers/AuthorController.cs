@@ -29,47 +29,51 @@ namespace LibraryAggregator.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<Author> Get(int id)
+        public async Task<ActionResult<Author>> Get(int id)
         {
-            var Author = _db.Authors.FirstOrDefault(x => x.AuthorId == id);
-            return Author;
+            var Author =  await _db.Authors.FirstOrDefaultAsync(x => x.AuthorId == id);
+            if(Author != null)
+            {
+                return  Ok(Author);
+            }
+            return NotFound();
         }
 
         [HttpPost]
-        public IActionResult Post(Author author)
+        public async Task<ActionResult<Author>> Post(Author author)
         {
             if (ModelState.IsValid)
             {
-                _db.Authors.Add(author);
-                _db.SaveChanges();
-                return Ok(author);
+                 _db.Authors.Add(author);
+                await _db.SaveChangesAsync();
+                return Ok();
 
             }
             return BadRequest(ModelState);
         }
 
         [HttpPut]
-        public IActionResult Put(Author author)
+        public async Task<ActionResult<Author>> Put(Author author)
         {
             if (ModelState.IsValid)
             {
                 _db.Update(author);
-                _db.SaveChanges();
+                await _db.SaveChangesAsync();
                 return Ok(author);
             }
             return BadRequest(author);
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public async Task<ActionResult<Author>> Delete(int id)
         {
             var author = _db.Authors.FirstOrDefault(item => item.AuthorId == id);
             if (author != null)
             {
                 _db.Authors.Remove(author);
-                _db.SaveChanges();
+               await _db.SaveChangesAsync();
             }
-            return Ok(author);
+            return Ok();
         }
     }
 }
