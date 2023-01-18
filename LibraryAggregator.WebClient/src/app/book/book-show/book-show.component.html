@@ -1,0 +1,24 @@
+<table class="table table-striped">
+  <thead>
+    <th>BookId</th>
+    <th>Title</th>
+    <th>Isbn</th>
+    <th>CoverImgPath</th>
+    <th>PublishDate</th>
+    <th>Disctiption</th>
+    <th>PageCount</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of bookList$|async">
+      <td>{{item.BookId}}</td>
+      <!-- <td>{{genreMap.get(item.genreId)}}</td> -->
+      <!-- <td>{{item.inspectionTypeId}}</td> -->
+      <td>{{item.Title}}</td>
+      <td>{{item.Isbn}}</td>
+      <td>{{item.CoverImgPath}}</td>
+      <td>{{item.PublishDate}}</td>
+      <td>{{item.Disctiption}}</td>
+      <td>{{item.PageCount}}</td>
+    </tr>
+  </tbody>
+</table>
