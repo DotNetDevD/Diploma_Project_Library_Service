@@ -17,8 +17,8 @@ namespace LibraryAggregator.API.Controllers
             _db = db;
             if (!db.Authors.Any())
             {
-                db.Authors.Add(new Author { AuthorId = 1, FirstName = "Mark", LastName = "Twain" });
-                db.Authors.Add(new Author { AuthorId = 2, FirstName = "Ernest", LastName = "Hemingway" });
+                db.Authors.Add(new Author { FirstName = "Mark", LastName = "Twain" });
+                db.Authors.Add(new Author { FirstName = "Ernest", LastName = "Hemingway" });
                 db.SaveChanges();
             }
         }
@@ -31,10 +31,10 @@ namespace LibraryAggregator.API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Author>> Get(int id)
         {
-            var Author =  await _db.Authors.FirstOrDefaultAsync(x => x.AuthorId == id);
-            if(Author != null)
+            var Author = await _db.Authors.FirstOrDefaultAsync(x => x.AuthorId == id);
+            if (Author != null)
             {
-                return  Author;
+                return Author;
             }
             return NotFound();
         }
@@ -44,10 +44,9 @@ namespace LibraryAggregator.API.Controllers
         {
             if (ModelState.IsValid)
             {
-                 _db.Authors.Add(author);
+                _db.Authors.Add(author);
                 await _db.SaveChangesAsync();
                 return Ok();
-
             }
             return BadRequest(ModelState);
         }
@@ -71,7 +70,7 @@ namespace LibraryAggregator.API.Controllers
             if (author != null)
             {
                 _db.Authors.Remove(author);
-                await  _db.SaveChangesAsync();
+                await _db.SaveChangesAsync();
                 return Ok();
             }
             return NotFound();
