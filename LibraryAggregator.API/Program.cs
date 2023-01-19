@@ -1,11 +1,16 @@
 using Microsoft.EntityFrameworkCore;
 using LibraryAggregator.DataLayer;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
-
 // Add services to the container.
+builder.Services.AddControllers().
+    AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+});
 
-builder.Services.AddControllers();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<LibraryDataBaseContext>();

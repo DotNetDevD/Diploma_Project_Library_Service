@@ -20,7 +20,7 @@ namespace LibraryAggregator.API.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Book>>> Get()
         {
-            return await _db.Books.ToListAsync();
+            return await _db.Books.Include(u => u.BooksGenres).ToListAsync();
         }
 
         // GET api/<BooksController>/5
@@ -37,10 +37,22 @@ namespace LibraryAggregator.API.Controllers
 
         // POST api/<BooksController>
         [HttpPost]
-        public async Task<ActionResult<Genre>> Post(Book book)
+        public async Task<ActionResult<Book>> Post(Book book)
         {
             if (ModelState.IsValid)
             {
+                //BooksGenre booksGenre = new()
+                //{
+                //    GenreId = 4
+                //};
+                //var genre = book.BooksGenres.Where(u => u.BookId == book.BookId);
+                //book.BooksGenres.Add(genre);
+                var genre = _db.Genres.First(g => g.GenreId == 4);
+                book.BooksGenres.Add(new BooksGenre
+                {
+                    Book = book,
+                    Genre = genre
+                });
                 _db.Books.Add(book);
                 await _db.SaveChangesAsync();
                 return CreatedAtAction("Get", new { id = book.BookId }, book);

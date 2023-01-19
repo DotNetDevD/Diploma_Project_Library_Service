@@ -62,7 +62,7 @@ namespace LibraryAggregator.API.Controllers
                 await _db.SaveChangesAsync();
                 return CreatedAtAction("Get", new { id = genre.GenreId }, genre);
             }
-            return BadRequest(ModelState);                
+            return BadRequest(ModelState);
         }
 
         // PUT api/<GenresController>/5

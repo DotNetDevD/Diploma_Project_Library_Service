@@ -18,95 +18,99 @@ public partial class LibraryDataBaseContext : DbContext
 
     public virtual DbSet<Author> Authors { get; set; }
 
+    public virtual DbSet<AuthorsBook> AuthorsBooks { get; set; }
+
     public virtual DbSet<Book> Books { get; set; }
+
+    public virtual DbSet<BooksGenre> BooksGenres { get; set; }
+
+    public virtual DbSet<BooksLibrary> BooksLibraries { get; set; }
 
     public virtual DbSet<Genre> Genres { get; set; }
 
     public virtual DbSet<Library> Libraries { get; set; }
 
+    public virtual DbSet<Country> Countries { get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB; Database = LibraryDataBase; Integrated Security=True;");
+        => optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database = LibraryDataBase;Integrated Security=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Author>(entity =>
         {
-            entity.HasKey(e => e.AuthorId).HasName("PK__Author__70DAFC340477FA73");
+            entity.HasKey(e => e.AuthorId).HasName("PK__Author__70DAFC34E9BADC14");
 
             entity.ToTable("Author");
 
             entity.Property(e => e.FirstName).HasMaxLength(50);
             entity.Property(e => e.LastName).HasMaxLength(50);
             entity.Property(e => e.MiddleName).HasMaxLength(50);
+        });
 
-            entity.HasMany(d => d.Books).WithMany(p => p.Authors)
-                .UsingEntity<Dictionary<string, object>>(
-                    "AuthorsBook",
-                    r => r.HasOne<Book>().WithMany()
-                        .HasForeignKey("BookId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__AuthorsBo__BookI__3C69FB99"),
-                    l => l.HasOne<Author>().WithMany()
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__AuthorsBo__Autho__3B75D760"),
-                    j =>
-                    {
-                        j.HasKey("AuthorId", "BookId").HasName("PK__AuthorsB__1304F01476A5E937");
-                    });
+        modelBuilder.Entity<AuthorsBook>(entity =>
+        {
+            entity.HasKey(e => e.AuthorsBooksId).HasName("PK__AuthorsB__E0C25E886755A2F4");
+
+            entity.HasOne(d => d.Author).WithMany(p => p.AuthorsBooks)
+                .HasForeignKey(d => d.AuthorId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__AuthorsBo__Autho__3B75D760");
+
+            entity.HasOne(d => d.Book).WithMany(p => p.AuthorsBooks)
+                .HasForeignKey(d => d.BookId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__AuthorsBo__BookI__3C69FB99");
         });
 
         modelBuilder.Entity<Book>(entity =>
         {
-            entity.HasKey(e => e.BookId).HasName("PK__Book__3DE0C20760C1375B");
+            entity.HasKey(e => e.BookId).HasName("PK__Book__3DE0C207BE51473D");
 
             entity.ToTable("Book");
 
-            entity.HasIndex(e => e.Isbn, "UQ__Book__447D36EACD6F2BF4").IsUnique();
+            entity.HasIndex(e => e.Isbn, "UQ__Book__447D36EA06ADE972").IsUnique();
 
             entity.Property(e => e.CoverImgPath).HasMaxLength(50);
-            entity.Property(e => e.Disctiption).HasMaxLength(200);
+            entity.Property(e => e.Description).HasMaxLength(200);
             entity.Property(e => e.Isbn)
                 .HasMaxLength(23)
                 .HasColumnName("ISBN");
             entity.Property(e => e.Title).HasMaxLength(50);
+        });
 
-            entity.HasMany(d => d.Genres).WithMany(p => p.Books)
-                .UsingEntity<Dictionary<string, object>>(
-                    "BooksGenre",
-                    r => r.HasOne<Genre>().WithMany()
-                        .HasForeignKey("GenreId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__BooksGenr__Genre__4BAC3F29"),
-                    l => l.HasOne<Book>().WithMany()
-                        .HasForeignKey("BookId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__BooksGenr__BookI__4AB81AF0"),
-                    j =>
-                    {
-                        j.HasKey("BookId", "GenreId").HasName("PK__BooksGen__CDD89250BBB0595F");
-                    });
+        modelBuilder.Entity<BooksGenre>(entity =>
+        {
+            entity.HasKey(e => e.BooksGenresId).HasName("PK__BooksGen__8D4DA176FE0124EF");
 
-            entity.HasMany(d => d.Libraries).WithMany(p => p.Books)
-                .UsingEntity<Dictionary<string, object>>(
-                    "BooksLibrary",
-                    r => r.HasOne<Library>().WithMany()
-                        .HasForeignKey("LibraryId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__BooksLibr__Libra__440B1D61"),
-                    l => l.HasOne<Book>().WithMany()
-                        .HasForeignKey("BookId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__BooksLibr__BookI__4316F928"),
-                    j =>
-                    {
-                        j.HasKey("BookId", "LibraryId").HasName("PK__BooksLib__D7F3A67265C47720");
-                    });
+            entity.HasOne(d => d.Book).WithMany(p => p.BooksGenres)
+                .HasForeignKey(d => d.BookId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__BooksGenr__BookI__46E78A0C");
+
+            entity.HasOne(d => d.Genre).WithMany(p => p.BooksGenres)
+                .HasForeignKey(d => d.GenreId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__BooksGenr__Genre__47DBAE45");
+        });
+
+        modelBuilder.Entity<BooksLibrary>(entity =>
+        {
+            entity.HasKey(e => e.BooksLibrariesId).HasName("PK__BooksLib__D9FCBEB6058BCAE3");
+
+            entity.HasOne(d => d.Book).WithMany(p => p.BooksLibraries)
+                .HasForeignKey(d => d.BookId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__BooksLibr__BookI__412EB0B6");
+
+            entity.HasOne(d => d.Library).WithMany(p => p.BooksLibraries)
+                .HasForeignKey(d => d.LibraryId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__BooksLibr__Libra__4222D4EF");
         });
 
         modelBuilder.Entity<Genre>(entity =>
         {
-            entity.HasKey(e => e.GenreId).HasName("PK__Genre__0385057E91D54978");
+            entity.HasKey(e => e.GenreId).HasName("PK__Genre__0385057E1C92AF8D");
 
             entity.ToTable("Genre");
 
@@ -115,7 +119,7 @@ public partial class LibraryDataBaseContext : DbContext
 
         modelBuilder.Entity<Library>(entity =>
         {
-            entity.HasKey(e => e.LibraryId).HasName("PK__Library__A136475F301D76A8");
+            entity.HasKey(e => e.LibraryId).HasName("PK__Library__A136475FA23EBF26");
 
             entity.ToTable("Library");
 

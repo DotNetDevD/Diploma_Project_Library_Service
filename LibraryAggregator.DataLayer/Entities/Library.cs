@@ -15,5 +15,5 @@ public partial class Library
 
     public string? Email { get; set; }
 
-    public virtual ICollection<Book> Books { get; } = new List<Book>();
+    public virtual ICollection<BooksLibrary> BooksLibraries { get; } = new List<BooksLibrary>();
 }

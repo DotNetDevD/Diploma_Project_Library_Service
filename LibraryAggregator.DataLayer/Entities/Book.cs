@@ -15,13 +15,13 @@ public partial class Book
 
     public DateTime? PublishDate { get; set; }
 
-    public string? Disctiption { get; set; }
+    public string? Description { get; set; }
 
     public int PageCount { get; set; }
 
-    public virtual ICollection<Author> Authors { get; } = new List<Author>();
+    public virtual ICollection<AuthorsBook> AuthorsBooks { get; } = new List<AuthorsBook>();
 
-    public virtual ICollection<Genre> Genres { get; } = new List<Genre>();
+    public virtual ICollection<BooksGenre> BooksGenres { get; } = new List<BooksGenre>();
 
-    public virtual ICollection<Library> Libraries { get; } = new List<Library>();
+    public virtual ICollection<BooksLibrary> BooksLibraries { get; } = new List<BooksLibrary>();
 }
