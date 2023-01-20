@@ -4,6 +4,7 @@ using LibraryAggregator.DataLayer;
 using LibraryAggregator.DataLayer.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication;
+using LibraryAggregator.DataLayer.Repository;
 
 namespace LibraryAggregator.API.Controllers
 {
@@ -11,69 +12,36 @@ namespace LibraryAggregator.API.Controllers
     [ApiController]
     public class AuthorController : ControllerBase
     {
-        private readonly LibraryDataBaseContext _db;
-        public AuthorController(LibraryDataBaseContext db)
-        {
-            _db = db;
-            if (!db.Authors.Any())
-            {
-                db.Authors.Add(new Author { FirstName = "Mark", LastName = "Twain" });
-                db.Authors.Add(new Author { FirstName = "Ernest", LastName = "Hemingway" });
-                db.SaveChanges();
-            }
-        }
+        private AuthorRepository _dbAuthor = new();
+
         [HttpGet(Name = "Home")]
         public async Task<ActionResult<IEnumerable<Author>>> Get()
         {
-            return await _db.Authors.ToListAsync();
+            return await _dbAuthor.GetAllFullInfoAuthorsAsync();
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Author>> Get(int id)
         {
-            var Author = await _db.Authors.FirstOrDefaultAsync(x => x.AuthorId == id);
-            if (Author != null)
-            {
-                return Author;
-            }
-            return NotFound();
+            return await _dbAuthor.Get(id);
         }
 
         [HttpPost]
-        public async Task<ActionResult<Author>> Post(Author author)
+        public void Post(Author author)
         {
-            if (ModelState.IsValid)
-            {
-                _db.Authors.Add(author);
-                await _db.SaveChangesAsync();
-                return Ok();
-            }
-            return BadRequest(ModelState);
+            _dbAuthor.Create(author);
         }
 
         [HttpPut]
-        public async Task<ActionResult<Author>> Put(Author author)
+        public void Put(int id)
         {
-            if (ModelState.IsValid)
-            {
-                _db.Update(author);
-                await _db.SaveChangesAsync();
-                return Ok();
-            }
-            return BadRequest(ModelState);
+            _dbAuthor.Update(id);
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Author>> Delete(int id)
+        public void Delete(int id)
         {
-            var author = _db.Authors.FirstOrDefault(item => item.AuthorId == id);
-            if (author != null)
-            {
-                _db.Authors.Remove(author);
-                await _db.SaveChangesAsync();
-                return Ok();
-            }
-            return NotFound();
+            _dbAuthor.Delete(id);
         }
     }
 }

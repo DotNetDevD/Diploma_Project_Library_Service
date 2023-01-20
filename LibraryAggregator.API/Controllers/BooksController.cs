@@ -1,5 +1,6 @@
 ﻿using LibraryAggregator.DataLayer;
 using LibraryAggregator.DataLayer.Entities;
+using LibraryAggregator.DataLayer.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,76 +10,47 @@ namespace LibraryAggregator.API.Controllers
     [ApiController]
     public class BooksController : ControllerBase
     {
+        //правильно или через конструктор???
+        private BookRepository _dbBook = new();
+        //public BooksController()
+        //{
+        //    _dbBook = new BookRepository();
+        //}
 
-        private readonly LibraryDataBaseContext _db;
-
-        public BooksController(LibraryDataBaseContext db)
-        {
-            _db = db;
-        }
         // GET: api/<BooksController>
         [HttpGet]
         public async Task<ActionResult<List<Book>>> Get()
         {
-            return await _db.Books.Include(u => u.BooksGenres).ToListAsync();
+            return await _dbBook.GetAllFullInfoBooksAsync();
+                //_db.Books.Include(u => u.BooksGenres).Include(u => u.BooksLibraries).Include(u => u.AuthorsBooks).ToListAsync();
         }
 
         // GET api/<BooksController>/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Book>> Get(int id)
         {
-            var book = await _db.Books.FindAsync(id);
-            if (book != null)
-            {
-                return book;
-            }
-            return NotFound();
+            return await _dbBook.Get(id);
         }
 
         // POST api/<BooksController>
         [HttpPost]
-        public async Task<ActionResult<Book>> Post(Book book)
+        public void Post(Book book)
         {
-            if (ModelState.IsValid)
-            {
-                //BooksGenre booksGenre = new()
-                //{
-                //    GenreId = 4
-                //};
-                //var genre = book.BooksGenres.Where(u => u.BookId == book.BookId);
-                //book.BooksGenres.Add(genre);
-                var genre = _db.Genres.First(g => g.GenreId == 4);
-                book.BooksGenres.Add(new BooksGenre
-                {
-                    Book = book,
-                    Genre = genre
-                });
-                _db.Books.Add(book);
-                await _db.SaveChangesAsync();
-                return CreatedAtAction("Get", new { id = book.BookId }, book);
-            }
-            return BadRequest(ModelState);
+            _dbBook.Create(book);
         }
 
         // PUT api/<BooksController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id)
         {
+            _dbBook.Update(id);
         }
 
         // DELETE api/<BooksController>/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public void Delete(int id)
         {
-            var book = await _db.Books.FindAsync(id);
-            if (book == null)
-            {
-                return NotFound();
-            }
-            _db.Books.Remove(book);
-            await _db.SaveChangesAsync();
-
-            return NoContent();
+            _dbBook.Delete(id);
         }
     }
 }
