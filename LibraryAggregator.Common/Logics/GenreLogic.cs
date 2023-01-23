@@ -1,10 +1,7 @@
 ﻿using LibraryAggregator.DataLayer.Entities;
 using LibraryAggregator.DataLayer.Repository.IRepository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net;
+using System.Web.Http;
 
 namespace LibraryAggregator.Common.Logics
 {
@@ -18,12 +15,22 @@ namespace LibraryAggregator.Common.Logics
 
         public async Task<IEnumerable<Genre>> Get()
         {
-            return await _repositoryWrapper.Genre.GetAllFullInfoGenresAsync();
+            var genreList = await _repositoryWrapper.Genre.GetAllFullInfoGenresAsync();
+            if (genreList is null)
+            {
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
+            }
+            return genreList;
         }
 
         public async Task<Genre> Get(int id)
         {
-            return await _repositoryWrapper.Genre.Get(id);
+            var genre = await _repositoryWrapper.Genre.Get(id);
+            if (genre is null)
+            {
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
+            }
+            return genre;
         }
 
         public void Post(Genre genre)

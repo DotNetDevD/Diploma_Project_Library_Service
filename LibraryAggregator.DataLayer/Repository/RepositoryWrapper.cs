@@ -15,7 +15,6 @@ namespace LibraryAggregator.DataLayer.Repository
         private IBookRepository? _book;
         private IGenreRepository? _genre;
 
-
         public RepositoryWrapper(LibraryDataBaseContext context)
         {
             _context = context;

@@ -1,11 +1,10 @@
 ﻿using LibraryAggregator.DataLayer.Entities;
 using LibraryAggregator.DataLayer.Repository.IRepository;
-
+using System.Net;
+using System.Web.Http;
 
 namespace LibraryAggregator.Common.Logics
 {
-
-    
     public class AuthorLogic
     {
         private readonly IRepositoryWrapper _repositoryWrapper;
@@ -17,12 +16,22 @@ namespace LibraryAggregator.Common.Logics
 
         public async Task<IEnumerable<Author>> Get()
         {
-            return await _repositoryWrapper.Author.GetAllFullInfoAuthorsAsync();
+            var authorList = await _repositoryWrapper.Author.GetAllFullInfoAuthorsAsync();
+            if (authorList is null)
+            {
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
+            }
+            return authorList;
         }
 
         public async Task<Author> Get(int id)
         {
-            return await _repositoryWrapper.Author.Get(id);
+            var author = await _repositoryWrapper.Author.Get(id);
+            if (author is null)
+            {
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
+            }
+            return author;
         }
 
         public void Post(Author author)

@@ -1,11 +1,7 @@
 ﻿using LibraryAggregator.DataLayer.Entities;
 using LibraryAggregator.DataLayer.Repository.IRepository;
-using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net;
+using System.Web.Http;
 
 namespace LibraryAggregator.Common.Logics
 {
@@ -20,12 +16,22 @@ namespace LibraryAggregator.Common.Logics
 
         public async Task<IEnumerable<Book>> Get()
         {
-            return await _repositoryWrapper.Book.GetAllFullInfoBooksAsync();
+            var bookList = await _repositoryWrapper.Book.GetAllFullInfoBooksAsync();
+            if (bookList is null)
+            {
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
+            }
+            return bookList;
         }
 
         public async Task<Book> Get(int id)
         {
-            return await _repositoryWrapper.Book.Get(id);
+            var book = await _repositoryWrapper.Book.Get(id);
+            if (book is null)
+            {
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
+            }
+            return book;
         }
 
         public void Post(Book book)
