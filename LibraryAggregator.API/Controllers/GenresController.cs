@@ -1,8 +1,11 @@
-﻿using LibraryAggregator.DataLayer;
+﻿using LibraryAggregator.Common.Logics;
+using LibraryAggregator.DataLayer;
 using LibraryAggregator.DataLayer.Entities;
 using LibraryAggregator.DataLayer.Repository;
+using LibraryAggregator.DataLayer.Repository.IRepository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace LibraryAggregator.API.Controllers
 {
@@ -10,42 +13,28 @@ namespace LibraryAggregator.API.Controllers
     [ApiController]
     public class GenresController : ControllerBase
     {
-        private GenreRepository _dbGenre = new();
+        private readonly GenreLogic _logic;
 
-        // GET: api/<GenresController>
+        public GenresController(IRepositoryWrapper repositoryWrapper)
+        {
+            _logic = new GenreLogic(repositoryWrapper);
+        }
+
+
         [HttpGet]
-        public async Task<ActionResult<List<Genre>>> Get()
-        {
-            return await _dbGenre.GetAllFullInfoGenresAsync();
-        }
+        public async Task<ActionResult<IEnumerable<Genre>>> Get() => Ok(await _logic.Get());
 
-        // GET api/<GenresController>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Genre>> Get(int id)
-        {
-            return await _dbGenre.Get(id);
-        }
+        public async Task<ActionResult<Genre>> Get(int id) => await _logic.Get(id);
 
-        // POST api/<GenresController>
         [HttpPost]
-        public void Post(Genre genre)
-        {
-            _dbGenre.Create(genre);
-        }
+        public void Post(Genre genre) => _logic.Post(genre);
 
-        // PUT api/<GenresController>/5
         [HttpPut("{id}")]
-        public void Put(int id)
-        {
-            _dbGenre.Update(id);
-        }
+        public void Put(int id) => _logic.Put(id);
 
-        // DELETE api/<GenresController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-            _dbGenre.Delete(id);
-        }
+        public void Delete(int id) => _logic.Delete(id);
 
     }
 }

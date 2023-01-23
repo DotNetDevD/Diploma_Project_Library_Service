@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryAggregator.DataLayer.Repository.IRepository
 {
-    internal interface IRepository<T>
+    public interface IRepository<T>
         where T : class
     {
         Task<IEnumerable<T>> GetList(); // получение всех объектов

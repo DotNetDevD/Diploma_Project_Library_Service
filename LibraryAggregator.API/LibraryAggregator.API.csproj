@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\LibraryAggregator.Common\LibraryAggregator.Common.csproj" />
     <ProjectReference Include="..\LibraryAggregator.DataLayer\LibraryAggregator.DataLayer.csproj" />
   </ItemGroup>
 

@@ -10,11 +10,11 @@ namespace LibraryAggregator.DataLayer.Repository
 {
     public class BaseRepository<T> : IRepository<T> where T : class
     {
-        private readonly LibraryDataBaseContext _db;
-        internal DbSet<T> dbSet;
-        public BaseRepository()
+        protected LibraryDataBaseContext _db { get; set; }
+        protected DbSet<T> dbSet;
+        public BaseRepository(LibraryDataBaseContext libraryDataBaseContext)
         {
-            _db = new LibraryDataBaseContext();
+            _db = libraryDataBaseContext;
             dbSet = _db.Set<T>();
         }
         public async Task<T> Get(int id)

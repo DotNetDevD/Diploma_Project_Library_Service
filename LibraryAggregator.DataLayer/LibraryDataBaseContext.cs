@@ -9,6 +9,7 @@ public partial class LibraryDataBaseContext : DbContext
 {
     public LibraryDataBaseContext()
     {
+        Database.EnsureCreated();
     }
 
     public LibraryDataBaseContext(DbContextOptions<LibraryDataBaseContext> options)
