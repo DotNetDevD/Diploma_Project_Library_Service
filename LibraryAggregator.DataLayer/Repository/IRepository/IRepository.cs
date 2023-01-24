@@ -9,11 +9,11 @@ namespace LibraryAggregator.DataLayer.Repository.IRepository
     public interface IRepository<T>
         where T : class
     {
-        Task<IEnumerable<T>> GetList(); // получение всех объектов
-        Task<T> Get(int id); // получение одного объекта по id
-        void Create(T item); // создание объекта
-        void Update(int id); // обновление объекта
-        void Delete(int id); // удаление объекта по id
-        void Save();  // сохранение изменений
+        Task<IEnumerable<T>> GetListAsync(); // получение всех объектов
+        Task<T> GetByIdAsync(int id); // получение одного объекта по id
+        Task CreateAsync(T item); // создание объекта
+        Task UpdateAsync(int id); // обновление объекта
+        Task DeleteAsync(int id); // удаление объекта по id
+        Task SaveAsync();  // сохранение изменений
     }
 }

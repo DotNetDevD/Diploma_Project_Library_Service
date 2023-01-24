@@ -17,32 +17,30 @@ namespace LibraryAggregator.DataLayer.Repository
             _db = libraryDataBaseContext;
             dbSet = _db.Set<T>();
         }
-        public async Task<T> Get(int id)
+        public async Task<T> GetByIdAsync(int id)
         {
             return await dbSet.FindAsync(id);
         }
-        public async Task<IEnumerable<T>> GetList()
+        public async Task<IEnumerable<T>> GetListAsync()
         {
             return await dbSet.AsNoTracking().ToListAsync();
         }
-        public async void Create(T item)
+        public async Task CreateAsync(T item)
         {
             dbSet.Add(item);
             await _db.SaveChangesAsync();
         }
-        public async void Delete(int id)
+        public async Task DeleteAsync(int id)
         {
             dbSet.Remove(dbSet.Find(id)); 
-            // нужно ли проверять на null?
             await _db.SaveChangesAsync();
         }
-        public async void Update(int id)
+        public async Task UpdateAsync(int id)
         {
             dbSet.Entry(dbSet.Find(id)).State = EntityState.Modified;
             await _db.SaveChangesAsync();
         }
-
-        public async void Save()
+        public async Task SaveAsync()
         {
             await _db.SaveChangesAsync();
         }

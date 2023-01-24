@@ -1,10 +1,6 @@
-﻿using LibraryAggregator.DataLayer;
-using LibraryAggregator.DataLayer.Entities;
-using LibraryAggregator.DataLayer.Repository;
-using LibraryAggregator.DataLayer.Repository.IRepository;
+﻿using LibraryAggregator.DataLayer.Entities;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using LibraryAggregator.Common.Logics;
+using LibraryAggregator.Common.Interface;
 
 namespace LibraryAggregator.API.Controllers
 {
@@ -12,26 +8,42 @@ namespace LibraryAggregator.API.Controllers
     [ApiController]
     public class BooksController : ControllerBase
     {
-        private readonly BookLogic _logic;
-        
-        public BooksController(IRepositoryWrapper repositoryWrapper)
+        private readonly IBookService _bookService;
+
+        public BooksController(IBookService bookService)
         {
-            _logic = new BookLogic(repositoryWrapper);
+            _bookService = bookService;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Book>>> Get() => Ok(await _logic.Get());
+        [HttpGet(Name = "BooksList")]
+        public async Task<ActionResult<IEnumerable<Book>>> GetListAsync()
+        {
+            var books = await _bookService.GetBooksListAsync();
+            return !books?.Any() ?? true ? NotFound() : Ok(await _bookService.GetBooksListAsync());
+        }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Book>> Get(int id) => await _logic.Get(id);
+        public async Task<ActionResult<Book>> GetByIdAsync(int id)
+        {
+            return await _bookService.GetBookByIdAsync(id);
+        }
 
         [HttpPost]
-        public void Post(Book book) => _logic.Post(book);
+        public async Task CreateAsync(Book book)
+        {
+            await _bookService.CreateBookAsync(book);
+        }
 
         [HttpPut("{id}")]
-        public void Put(int id) => _logic.Put(id);
+        public async Task UpdateAsync(int id)
+        {
+            await _bookService.UpdateBookAsync(id);
+        }
 
         [HttpDelete("{id}")]
-        public void Delete(int id) => _logic.Delete(id);
+        public async Task DeleteAsync(int id)
+        {
+            await _bookService.DeleteBookAsync(id);
+        }
     }
 }

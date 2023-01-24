@@ -1,8 +1,5 @@
-using Microsoft.EntityFrameworkCore;
 using LibraryAggregator.DataLayer;
 using System.Text.Json.Serialization;
-using LibraryAggregator.DataLayer.Repository.IRepository;
-using LibraryAggregator.DataLayer.Repository;
 using LibraryAggregator.API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,12 +11,13 @@ builder.Services.AddControllers().
 });
 
 
-
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<LibraryDataBaseContext>();
-builder.Services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
-//builder.Services.ConfigureRepositoryWrapper();
+
+
+builder.Services.ConfigureRepositoryWrapper();
+builder.Services.ConfigureServiceWrapper();
 
 builder.Services.AddCors(c =>
 {

@@ -6,7 +6,6 @@ namespace LibraryAggregator.DataLayer.Repository
 {
     public class BookRepository : BaseRepository<Book> , IBookRepository
     {
-        //нужно ли наследование?
         public BookRepository(LibraryDataBaseContext _db): base(_db)
         {
         }

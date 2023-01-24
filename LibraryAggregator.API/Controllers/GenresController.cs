@@ -1,11 +1,6 @@
-﻿using LibraryAggregator.Common.Logics;
-using LibraryAggregator.DataLayer;
+﻿using LibraryAggregator.Common.Interface;
 using LibraryAggregator.DataLayer.Entities;
-using LibraryAggregator.DataLayer.Repository;
-using LibraryAggregator.DataLayer.Repository.IRepository;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace LibraryAggregator.API.Controllers
 {
@@ -13,28 +8,38 @@ namespace LibraryAggregator.API.Controllers
     [ApiController]
     public class GenresController : ControllerBase
     {
-        private readonly GenreLogic _logic;
+        private readonly IGenreService _genreService;
 
-        public GenresController(IRepositoryWrapper repositoryWrapper)
+        public GenresController(IGenreService genreService)
         {
-            _logic = new GenreLogic(repositoryWrapper);
+            _genreService = genreService;
         }
 
-
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Genre>>> Get() => Ok(await _logic.Get());
-
+        [HttpGet(Name = "GenresList")]
+        public async Task<ActionResult<IEnumerable<Genre>>> GetListAsync()
+        {
+            var genres = await _genreService.GetGenresListAsync();
+            return !genres?.Any() ?? true ? NotFound() : Ok(await _genreService.GetGenresListAsync());
+        }
         [HttpGet("{id}")]
-        public async Task<ActionResult<Genre>> Get(int id) => await _logic.Get(id);
-
+        public async Task<ActionResult<Genre>> GetByIdAsync(int id)
+        {
+            return await _genreService.GetByIdAsync(id);
+        }
         [HttpPost]
-        public void Post(Genre genre) => _logic.Post(genre);
-
+        public async Task CreateAsync(Genre genre)
+        {
+            await _genreService.CreateGenreAsync(genre);
+        }
         [HttpPut("{id}")]
-        public void Put(int id) => _logic.Put(id);
-
+        public async Task UpdateAsync(int id)
+        {
+            await _genreService.UpdateGenreAsync(id);
+        }
         [HttpDelete("{id}")]
-        public void Delete(int id) => _logic.Delete(id);
-
+        public async Task DeleteAsync(int id)
+        {
+            await _genreService.DeleteGenreAsync(id);
+        }
     }
 }

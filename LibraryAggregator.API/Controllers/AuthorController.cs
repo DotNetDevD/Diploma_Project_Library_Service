@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using LibraryAggregator.DataLayer.Entities;
-using LibraryAggregator.DataLayer.Repository.IRepository;
-using LibraryAggregator.Common.Logics;
+using LibraryAggregator.Common.Interface;
 
 namespace LibraryAggregator.API.Controllers
 {
@@ -9,27 +8,43 @@ namespace LibraryAggregator.API.Controllers
     [ApiController]
     public class AuthorController : ControllerBase
     {
-        private readonly AuthorLogic _logic;
+        private readonly IAuthorService _authorService;
 
-        public AuthorController( IRepositoryWrapper repositoryWrapper)
+        public AuthorController(IAuthorService authorService)
         {
-            _logic = new AuthorLogic(repositoryWrapper);
+            _authorService = authorService;
         }
 
+        [HttpGet(Name = "AuthorsList")]
+        public async Task<ActionResult<IEnumerable<Author>>> GetListAsync()
+        {
+            var authors = await _authorService.GetAuthorsListAsync();
 
-        [HttpGet(Name = "Home")]
-        public async Task<ActionResult<IEnumerable<Author>>> Get() => Ok(await _logic.Get());
+            return !authors?.Any() ?? true ? NotFound() : Ok(await _authorService.GetAuthorsListAsync());
+        }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Author>> Get(int id) => await _logic.Get(id);
+        public async Task<ActionResult<Author>> GetByIdAsync(int id)
+        {
+            return await _authorService.GetAuthorByIdAsync(id);
+        }
 
         [HttpPost]
-        public void Post(Author author) => _logic.Post(author);
+        public async Task CreateAsync(Author author)
+        {
+            await _authorService.CreateAuthorAsync(author);
+        }
 
         [HttpPut]
-        public void Put(int id) => _logic.Put(id);
+        public async Task UpdateAsync(int id)
+        {
+            await _authorService.UpdateAuthorAsync(id);
+        }
 
         [HttpDelete("{id}")]
-        public void Delete(int id) => _logic.Delete(id);
+        public async Task DeleteAsync(int id)
+        {
+            await _authorService.DeleteAuthorAsync(id);
+        }
     }
 }
