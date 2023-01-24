@@ -19,7 +19,6 @@ namespace LibraryAggregator.API.Controllers
         public async Task<ActionResult<IEnumerable<Author>>> GetListAsync()
         {
             var authors = await _authorService.GetAuthorsListAsync();
-
             return !authors?.Any() ?? true ? NotFound() : Ok(await _authorService.GetAuthorsListAsync());
         }
 

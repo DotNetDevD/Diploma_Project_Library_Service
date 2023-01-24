@@ -5,15 +5,9 @@ using LibraryAggregator.Common.Implementation;
 
 namespace LibraryAggregator.API.Extensions
 {
-    public static class ApiExtensions
+    public static class AddServiceDependeciesExtensions
     {
-        public static void ConfigureRepositoryWrapper(this IServiceCollection services)
-        {
-            services.AddScoped<IAuthorRepository, AuthorRepository>();
-            services.AddScoped<IBookRepository, BookRepository>();
-            services.AddScoped<IGenreRepository, GenreRepository>();
-        }
-        public static void ConfigureServiceWrapper(this IServiceCollection services)
+        public static void AddServiceDependecies(this IServiceCollection services)
         {
             services.AddScoped<IAuthorService, AuthorService>();
             services.AddScoped<IBookService, BookService>();

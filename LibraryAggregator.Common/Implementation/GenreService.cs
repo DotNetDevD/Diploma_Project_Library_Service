@@ -1,9 +1,6 @@
 ﻿using LibraryAggregator.Common.Interface;
 using LibraryAggregator.DataLayer.Entities;
 using LibraryAggregator.DataLayer.Repository.IRepository;
-using System.Net;
-using System.Web.Http;
-
 namespace LibraryAggregator.Common.Implementation
 {
     public class GenreService : IGenreService

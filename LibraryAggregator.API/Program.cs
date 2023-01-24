@@ -18,8 +18,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<LibraryDataBaseContext>();
 
 
-builder.Services.ConfigureRepositoryWrapper();
-builder.Services.ConfigureServiceWrapper();
+builder.Services.AddRepositoryDependecies();
+builder.Services.AddServiceDependecies();
 
 builder.Services.AddCors(c =>
 {

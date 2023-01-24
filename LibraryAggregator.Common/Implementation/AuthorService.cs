@@ -2,7 +2,6 @@
 using LibraryAggregator.DataLayer.Entities;
 using LibraryAggregator.DataLayer.Repository.IRepository;
 
-
 namespace LibraryAggregator.Common.Implementation
 {
     public class AuthorService : IAuthorService
