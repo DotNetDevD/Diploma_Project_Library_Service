@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using LibraryAggregator.DataLayer.Entities;
-using LibraryAggregator.DataLayer.Repository.IRepository;
-using LibraryAggregator.Common.Logics;
+using LibraryAggregator.Common.Interface;
 
 namespace LibraryAggregator.API.Controllers
 {
@@ -9,27 +8,31 @@ namespace LibraryAggregator.API.Controllers
     [ApiController]
     public class AuthorController : ControllerBase
     {
-        private readonly AuthorLogic _logic;
+        private readonly IAuthorService _authorService;
 
-        public AuthorController( IRepositoryWrapper repositoryWrapper)
+        public AuthorController(IAuthorService authorService)
         {
-            _logic = new AuthorLogic(repositoryWrapper);
+            _authorService = authorService;
         }
 
-
         [HttpGet(Name = "Home")]
-        public async Task<ActionResult<IEnumerable<Author>>> Get() => Ok(await _logic.Get());
+        public async Task<ActionResult<IEnumerable<Author>>> Get()
+        {
+            var authors = await _authorService.Get();
+
+            return !authors?.Any() ?? true ? NotFound() : Ok(await _authorService.Get());
+        }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Author>> Get(int id) => await _logic.Get(id);
+        public async Task<ActionResult<Author>> Get(int id) => await _authorService.GetAsync(id);
 
         [HttpPost]
-        public void Post(Author author) => _logic.Post(author);
+        public void Post(Author author) => _authorService.Add(author);
 
         [HttpPut]
-        public void Put(int id) => _logic.Put(id);
+        public void Put(int id) => _authorService.Update(id);
 
         [HttpDelete("{id}")]
-        public void Delete(int id) => _logic.Delete(id);
+        public void Delete(int id) => _authorService.Delete(id);
     }
 }

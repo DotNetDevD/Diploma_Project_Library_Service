@@ -3,7 +3,7 @@ using LibraryAggregator.DataLayer.Repository.IRepository;
 using System.Net;
 using System.Web.Http;
 
-namespace LibraryAggregator.Common.Logics
+namespace LibraryAggregator.Common.Implementation
 {
     public class BookLogic
     {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryAggregator.DataLayer.Repository.IRepository
 {
-    public   interface IRepositoryWrapper
+    public  interface IRepositoryWrapper
     {
         public IAuthorRepository Author { get;}
         public IBookRepository Book { get; }

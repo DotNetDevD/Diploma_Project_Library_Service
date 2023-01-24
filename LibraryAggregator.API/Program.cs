@@ -4,6 +4,8 @@ using System.Text.Json.Serialization;
 using LibraryAggregator.DataLayer.Repository.IRepository;
 using LibraryAggregator.DataLayer.Repository;
 using LibraryAggregator.API.Extensions;
+using LibraryAggregator.Common.Interface;
+using LibraryAggregator.Common.Implementation;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -19,6 +21,15 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<LibraryDataBaseContext>();
 builder.Services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
+builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
+
+
+
+builder.Services.AddScoped<IAuthorService, AuthorService>();
+
+
+
+
 //builder.Services.ConfigureRepositoryWrapper();
 
 builder.Services.AddCors(c =>

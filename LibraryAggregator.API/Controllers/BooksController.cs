@@ -4,7 +4,7 @@ using LibraryAggregator.DataLayer.Repository;
 using LibraryAggregator.DataLayer.Repository.IRepository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using LibraryAggregator.Common.Logics;
+using LibraryAggregator.Common.Implementation;
 
 namespace LibraryAggregator.API.Controllers
 {

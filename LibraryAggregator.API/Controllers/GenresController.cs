@@ -1,11 +1,7 @@
-﻿using LibraryAggregator.Common.Logics;
-using LibraryAggregator.DataLayer;
+﻿using LibraryAggregator.Common.Implementation;
 using LibraryAggregator.DataLayer.Entities;
-using LibraryAggregator.DataLayer.Repository;
 using LibraryAggregator.DataLayer.Repository.IRepository;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace LibraryAggregator.API.Controllers
 {
