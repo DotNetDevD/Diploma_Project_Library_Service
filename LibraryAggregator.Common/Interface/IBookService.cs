@@ -1,4 +1,5 @@
 ﻿using LibraryAggregator.DataLayer.Entities;
+using LibraryAggregator.DataLayer.ViewModel;
 
 namespace LibraryAggregator.Common.Interface
 {
@@ -9,5 +10,7 @@ namespace LibraryAggregator.Common.Interface
         Task<IEnumerable<Book>> GetBooksListAsync();
         Task<Book> GetBookByIdAsync(int id);
         Task UpdateBookAsync(int id);
+
+        Task<IEnumerable<BookVM>> GetInfoForBookVM();
     }
 }

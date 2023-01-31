@@ -1,4 +1,5 @@
 ﻿using LibraryAggregator.DataLayer.Entities;
+using LibraryAggregator.DataLayer.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,6 @@ namespace LibraryAggregator.DataLayer.Repository.IRepository
     public interface IBookRepository : IRepository<Book>
     {
         Task<List<Book>> GetAllFullInfoBooksAsync();
+        Task<List<BookVM>> GetInfoForBookVM();
     }
 }

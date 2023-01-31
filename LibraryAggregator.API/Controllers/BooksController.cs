@@ -1,6 +1,7 @@
 ﻿using LibraryAggregator.DataLayer.Entities;
 using Microsoft.AspNetCore.Mvc;
 using LibraryAggregator.Common.Interface;
+using LibraryAggregator.DataLayer.ViewModel;
 
 namespace LibraryAggregator.API.Controllers
 {
@@ -16,10 +17,14 @@ namespace LibraryAggregator.API.Controllers
         }
 
         [HttpGet(Name = "BooksList")]
-        public async Task<ActionResult<IEnumerable<Book>>> GetListAsync()
+        //public async Task<ActionResult<IEnumerable<Book>>> GetListAsync()
+        //{
+        //    var books = await _bookService.GetBooksListAsync();
+        //    return !books?.Any() ?? true ? NotFound() : Ok(await _bookService.GetBooksListAsync());
+        //}
+        public async Task<IEnumerable<BookVM>> GetListAsync()
         {
-            var books = await _bookService.GetBooksListAsync();
-            return !books?.Any() ?? true ? NotFound() : Ok(await _bookService.GetBooksListAsync());
+            return await _bookService.GetInfoForBookVM();
         }
 
         [HttpGet("{id}")]

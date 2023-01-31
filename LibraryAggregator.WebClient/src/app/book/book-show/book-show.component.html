@@ -1,24 +1,22 @@
+<div class="container">
 <table class="table table-striped">
   <thead>
-    <th>BookId</th>
-    <th>GenreId</th>
-    <th>Title</th>
     <th>Isbn</th>
-    <th>CoverImgPath</th>
+    <th>Title</th>
     <th>PublishDate</th>
-    <th>Disctiption</th>
-    <th>PageCount</th>
+    <th>Author</th>
+    <th>Genre</th>
+    <th>Page Count</th>
   </thead>
   <tbody>
     <tr *ngFor="let item of bookList$|async">
-      <td>{{item.bookId}}</td>
-      <td *ngFor="let id of genreList$|async">{{id.booksGenresId}}</td>
-      <td>{{item.title}}</td>
       <td>{{item.isbn}}</td>
-      <td>{{item.coverImgPath}}</td>
+      <td>{{item.title}}</td>
       <td>{{item.publishDate}}</td>
-      <td>{{item.disctiption}}</td>
+      <td>{{item.authorFullName}}</td>
+      <td>{{item.genreType}}</td>
       <td>{{item.pageCount}}</td>
     </tr>
   </tbody>
 </table>
+</div>

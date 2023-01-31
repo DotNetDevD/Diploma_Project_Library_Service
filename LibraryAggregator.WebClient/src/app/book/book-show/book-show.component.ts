@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { BookApiService } from 'src/app/book-api.service';
+import { BookApiService } from 'src/app/api-services/book-api.service';
 
 @Component({
   selector: 'app-book-show',
@@ -19,7 +19,6 @@ export class BookShowComponent implements OnInit {
   constructor(private service: BookApiService) { }
 
   ngOnInit(): void {
-    this.bookList$ = this.service.getBookList()
-      .pipe(tap(console.log));
+    this.bookList$ = this.service.getBookList();
   }
 }

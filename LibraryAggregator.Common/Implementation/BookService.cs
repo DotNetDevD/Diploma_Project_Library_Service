@@ -1,6 +1,7 @@
 ﻿using LibraryAggregator.Common.Interface;
 using LibraryAggregator.DataLayer.Entities;
 using LibraryAggregator.DataLayer.Repository.IRepository;
+using LibraryAggregator.DataLayer.ViewModel;
 
 namespace LibraryAggregator.Common.Implementation
 {
@@ -31,6 +32,11 @@ namespace LibraryAggregator.Common.Implementation
         public async Task DeleteBookAsync(int id)
         {
             await _bookRepository.DeleteAsync(id);
+        }
+
+        public async Task<IEnumerable<BookVM>> GetInfoForBookVM()
+        {
+            return await _bookRepository.GetInfoForBookVM();
         }
     }
 }
