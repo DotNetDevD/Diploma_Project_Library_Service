@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryAggregator.DataLayer.Migrations
 {
     [DbContext(typeof(LibraryDataBaseContext))]
-    [Migration("20230119113051_test")]
-    partial class test
+    [Migration("20230201160416_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,6 +51,35 @@ namespace LibraryAggregator.DataLayer.Migrations
                         .HasName("PK__Author__70DAFC34E9BADC14");
 
                     b.ToTable("Author", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            AuthorId = 1,
+                            FirstName = "Лев",
+                            LastName = "Толстой",
+                            MiddleName = "Николаевич"
+                        },
+                        new
+                        {
+                            AuthorId = 2,
+                            FirstName = "Антон",
+                            LastName = "Чехов",
+                            MiddleName = "Павлович"
+                        },
+                        new
+                        {
+                            AuthorId = 3,
+                            FirstName = "Джефри",
+                            LastName = "Рихтер"
+                        },
+                        new
+                        {
+                            AuthorId = 4,
+                            FirstName = "Михаил",
+                            LastName = "Булгаков",
+                            MiddleName = "Афанасьевич"
+                        });
                 });
 
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.AuthorsBook", b =>
@@ -86,12 +115,12 @@ namespace LibraryAggregator.DataLayer.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookId"));
 
                     b.Property<string>("CoverImgPath")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(2147483647)
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasMaxLength(2147483647)
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Isbn")
                         .IsRequired()
@@ -117,6 +146,48 @@ namespace LibraryAggregator.DataLayer.Migrations
                         .IsUnique();
 
                     b.ToTable("Book", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            BookId = 1,
+                            CoverImgPath = "https://yandex.by/images/search?from=tabbar&text=%D0%90%D0%BD%D0%BD%D0%B0%20%D0%9A%D0%B0%D1%80%D0%B5%D0%BD%D0%B8%D0%BD%D0%B0%20%D0%9B%D0%B5%D0%B2%20%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%B9%20%D0%BA%D0%BD%D0%B8%D0%B3%D0%B0&pos=2&img_url=http%3A%2F%2Fzvuk-knigi.ru%2Fuploads%2Fposts%2F2022-05%2F1653796476_2022-05-29_074809.jpg&rpt=simage&lr=157",
+                            Description = "Любовь",
+                            Isbn = "978-5-9268-2544-9",
+                            PageCount = 1130,
+                            PublishDate = new DateTime(1877, 4, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Анна Каренина"
+                        },
+                        new
+                        {
+                            BookId = 2,
+                            CoverImgPath = "https://yandex.by/images/search?from=tabbar&text=%D0%A7%D0%B5%D0%BB%D0%BE%D0%B2%D0%B5%D0%BA%20%D0%B2%20%D1%84%D1%83%D1%82%D0%BB%D1%8F%D1%80%D1%83&pos=2&img_url=http%3A%2F%2Flookaside.fbsbx.com%2Flookaside%2Fcrawler%2Fmedia%2F%3Fmedia_id%3D423641392452979&rpt=simage&lr=157",
+                            Description = "Ошибки",
+                            Isbn = "978-5-389-16173-3",
+                            PageCount = 960,
+                            PublishDate = new DateTime(1898, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Человек в футляре"
+                        },
+                        new
+                        {
+                            BookId = 3,
+                            CoverImgPath = "https://yandex.by/images/search?from=tabbar&text=clr%20via%20c%23&pos=2&img_url=http%3A%2F%2Fplaybook.storage.yandexcloud.net%2Fiblock%2F659%2F65957062197947140c473640bdc33b7e%2F46772ad509f580644212f1610e05b107.jpg&rpt=simage&lr=157",
+                            Description = "Хорошо",
+                            Isbn = "978-5-7502-0348-2",
+                            PageCount = 896,
+                            PublishDate = new DateTime(2008, 2, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "CLR via C#"
+                        },
+                        new
+                        {
+                            BookId = 4,
+                            CoverImgPath = "https://yandex.by/images/search?text=%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%20%D0%B8%20%D0%BC%D0%B0%D1%80%D0%B3%D0%B0%D1%80%D0%B8%D1%82%D0%B0%20%D0%BA%D0%BD%D0%B8%D0%B3%D0%B0&from=tabbar&pos=1&img_url=http%3A%2F%2Fmam4.ru%2Fresize%2F1280x-%2Fhttps%2Fwww.mam4.ru%2Fmedia%2Fupload%2Fuser%2F10807%2Fff%2F1631437479291.jpg%3Fh%3D68QJBhpTmqP34bJHHh-6ig&rpt=simage&lr=157",
+                            Description = "Мастер крут",
+                            Isbn = "978-5-04-102789-6",
+                            PageCount = 1130,
+                            PublishDate = new DateTime(1966, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Мастер и Маргарита"
+                        });
                 });
 
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.BooksGenre", b =>
@@ -167,28 +238,6 @@ namespace LibraryAggregator.DataLayer.Migrations
                     b.ToTable("BooksLibraries");
                 });
 
-            modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.Country", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("LibraryId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LibraryId");
-
-                    b.ToTable("Countries");
-                });
-
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.Genre", b =>
                 {
                     b.Property<int>("GenreId")
@@ -205,6 +254,33 @@ namespace LibraryAggregator.DataLayer.Migrations
                         .HasName("PK__Genre__0385057E1C92AF8D");
 
                     b.ToTable("Genre", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            GenreId = 1,
+                            Type = "Любовный роман"
+                        },
+                        new
+                        {
+                            GenreId = 2,
+                            Type = "Модернизм в литературе"
+                        },
+                        new
+                        {
+                            GenreId = 3,
+                            Type = "Техническая литература"
+                        },
+                        new
+                        {
+                            GenreId = 4,
+                            Type = "роман"
+                        },
+                        new
+                        {
+                            GenreId = 5,
+                            Type = "рассказ"
+                        });
                 });
 
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.Library", b =>
@@ -291,17 +367,6 @@ namespace LibraryAggregator.DataLayer.Migrations
                         .HasConstraintName("FK__BooksLibr__Libra__4222D4EF");
 
                     b.Navigation("Book");
-
-                    b.Navigation("Library");
-                });
-
-            modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.Country", b =>
-                {
-                    b.HasOne("LibraryAggregator.DataLayer.Entities.Library", "Library")
-                        .WithMany()
-                        .HasForeignKey("LibraryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
 
                     b.Navigation("Library");
                 });

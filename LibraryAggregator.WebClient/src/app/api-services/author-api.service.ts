@@ -5,23 +5,23 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class BookApiService {
+export class AuthorApiService {
 
-  readonly bookAPIUrl = "https://localhost:7072/api";
+  readonly APIUrl = "https://localhost:7072/api";
 
   constructor(private http:HttpClient) { }
 
   // Authors
   getAuthorList():Observable<any[]> {
-    return this.http.get<any>(this.bookAPIUrl + '/author');
+    return this.http.get<any>(this.APIUrl + '/author');
   }
   addAuthor(data:any) {
-    return this.http.post(this.bookAPIUrl + '/author', data);
+    return this.http.post(this.APIUrl + '/author', data);
   }
   updateAuthor(id:number|string, data:any) {
-    return this.http.put(this.bookAPIUrl + `/author/${id}`, data);
+    return this.http.put(this.APIUrl + `/author/${id}`, data);
   }
   deleteAuthor(id:number|string) {
-    return this.http.delete(this.bookAPIUrl + `/author/${id}`);
+    return this.http.delete(this.APIUrl + `/author/${id}`);
   }
 }

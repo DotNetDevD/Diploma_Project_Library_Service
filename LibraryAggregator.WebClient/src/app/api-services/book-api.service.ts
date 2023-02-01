@@ -7,20 +7,20 @@ import { Observable } from 'rxjs';
 })
 export class BookApiService {
 
-  readonly bookAPIUrl = "https://localhost:7072/api";
+  readonly APIUrl = "https://localhost:7072/api";
 
   constructor(private http:HttpClient) { }
 
   getBookList():Observable<any[]> {
-    return this.http.get<any>(this.bookAPIUrl + '/books');
+    return this.http.get<any>(this.APIUrl + '/books');
   }
   addBook(data:any) {
-    return this.http.post(this.bookAPIUrl + '/books', data);
+    return this.http.post(this.APIUrl + '/books', data);
   }
   updateBook(id:number|string, data:any) {
-    return this.http.put(this.bookAPIUrl + `/books/${id}`, data);
+    return this.http.put(this.APIUrl + `/books/${id}`, data);
   }
   deleteBook(id:number|string) {
-    return this.http.delete(this.bookAPIUrl + `/books/${id}`);
+    return this.http.delete(this.APIUrl + `/books/${id}`);
   }
 }

@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace LibraryAggregator.DataLayer.Entities;
 
 public partial class Book
 {
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int BookId { get; set; }
 
     public string Title { get; set; } = null!;

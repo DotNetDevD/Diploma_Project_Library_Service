@@ -2,7 +2,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { BookComponent } from './book/book.component';
 import { BookShowComponent } from './book/book-show/book-show.component';
@@ -14,16 +13,8 @@ import { TestComponent } from './test/test.component';
 import { LibraryComponent } from './library/library.component';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AppRoutingModule } from './app.routing.module';
 
-const appRoutes: Routes = [
-{path: 'book/book-show', component: BookShowComponent},
-{path: 'library/test', component: TestComponent},
-{path: 'index', component: MainContentComponent},
-{path: 'test', component: TestComponent},
-{path: 'library', component: LibraryComponent},
-{path: '', redirectTo: '/index', pathMatch: 'full'},
-{path: '**', component: PageNotFoundComponent}
-];
 
 @NgModule({
   declarations: [
@@ -38,12 +29,13 @@ const appRoutes: Routes = [
     PageNotFoundComponent
   ],
   imports: [
-    BrowserModule, 
+    AppRoutingModule,
+    BrowserModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
 
-    RouterModule.forRoot(appRoutes)
+
   ],
   providers: [BookApiService],
   bootstrap: [AppComponent]
