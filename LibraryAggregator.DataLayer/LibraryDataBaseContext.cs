@@ -140,6 +140,10 @@ public partial class LibraryDataBaseContext : DbContext
         modelBuilder.SeedGenre();
         modelBuilder.SeedAuthorsBook();
         modelBuilder.SeedBooksGenre();
+        modelBuilder.SeedLibraries();
+        modelBuilder.SeedOperatingModes();
+        modelBuilder.SeedImagesFourCorusel();
+        modelBuilder.SeedBooksLibrary();
         OnModelCreatingPartial(modelBuilder);
     }
 

@@ -55,7 +55,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                        PublishDate = new DateTime(1966, 12, 03)
 
                    }
-               ); 
+               );
         } // Books
 
         public static void SeedAuthors(this ModelBuilder modelBuilder)
@@ -93,7 +93,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                     LastName = "Булгаков",
                     MiddleName = "Афанасьевич"
                 }
-            ) ;
+            );
         }  // Authors
 
         public static void SeedAuthorsBook(this ModelBuilder modelBuilder)
@@ -101,7 +101,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
             modelBuilder.Entity<AuthorsBook>().HasData(
                     new AuthorsBook
                     {
-                        AuthorsBooksId =1,
+                        AuthorsBooksId = 1,
                         AuthorId = 1,
                         BookId = 1
                     },
@@ -136,7 +136,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
 
                 new Genre
                 {
-                    GenreId =1,
+                    GenreId = 1,
                     Type = "Любовный роман"
                 },
 
@@ -172,7 +172,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
 
                 new BooksGenre
                 {
-                    BooksGenresId =1,
+                    BooksGenresId = 1,
                     BookId = 1,
                     GenreId = 4
                 },
@@ -198,29 +198,117 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
             );
         }// BooksGenre
 
-        //public static void SeedLibraries(this ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Library>().HasData(
+        public static void SeedLibraries(this ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Library>().HasData(
 
-        //        new Library
-        //        {
-        //            LibraryId = 1,
-        //            Name = "Национальная библиотека Минска",
-        //            Address = "просп.Независимости, 11б",
-        //            PhoneNumber = "+375 17 368-37-37",
-        //            Email = "www.nlb.by",
-        //            ChartLink = "https://yandex.by/maps/org/natsionalnaya_biblioteka_belarusi/1087338903/?ll=27.647557%2C53.930867&z=16.48",
-        //            DirectorPhotoLink = "https://yandex.by/images/search?pos=1&img_url=http%3A%2F%2Fculturalforum.ru%2Fcontent%2Fparticipants%2Fcc%2Fccbd7c9088e9e70148120c9eaaa5064b-cropped.jpg&text=%D0%9A%D0%BD%D0%B8%D0%B6%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2%D0%B0%20%D0%9E%D0%BA%D1%81%D0%B0%D0%BD%D0%B0%20%D0%AE%D1%80%D1%8C%D0%B5%D0%B2%D0%BD%D0%B0&lr=157&rpt=simage&source=serp",
-        //            AgeGroup = "Нет ограничений ",
-        //            HistoryOfLibrary = "Национальная библиотека Беларуси (НББ) была основана постановлением Совета народных комиссаров БССР в 1922 году как Белорусская государственная и университетская библиотека Белорусского государственного университета (БГУ). На момент открытия фонды библиотеки насчитывали всего 60 тысяч экземпляров, которыми пользовались 1,1 тысячи человек. Первым собственным зданием библиотеки стал Юбилейный дом на Захарьевской улице (ныне — проспект Независимости). Постановлением СНК БССР от 14 мая 1926 году библиотека была выведена из состава БГУ и реорганизована в Белорусскую государственную библиотеку. В 1932 году библиотеке было присвоено имя В. И. Ленина. В тот же год библиотека получила новое здание архитектора Г. Лаврова в конструктивистском стиле. ",
-        //            ImagesForCorusel = new List<string>{
-        //                ""
-        //            },
+                new Library
+                {
+                    LibraryId = 1,
+                    Name = "Национальная библиотека Минска",
+                    Address = "просп.Независимости, 11б",
+                    PhoneNumber = "+375 17 368-37-37",
+                    Email = "www.nlb.by",
+                    ChartLink = "https://yandex.by/maps/org/natsionalnaya_biblioteka_belarusi/1087338903/?ll=27.647557%2C53.930867&z=16.48",
+                    DirectorPhotoLink = "https://yandex.by/images/search?pos=1&img_url=http%3A%2F%2Fculturalforum.ru%2Fcontent%2Fparticipants%2Fcc%2Fccbd7c9088e9e70148120c9eaaa5064b-cropped.jpg&text=%D0%9A%D0%BD%D0%B8%D0%B6%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2%D0%B0%20%D0%9E%D0%BA%D1%81%D0%B0%D0%BD%D0%B0%20%D0%AE%D1%80%D1%8C%D0%B5%D0%B2%D0%BD%D0%B0&lr=157&rpt=simage&source=serp",
+                    AgeGroup = "Нет ограничений ",
+                    HistoryOfLibrary = "Национальная библиотека Беларуси (НББ) была основана постановлением Совета народных комиссаров БССР в 1922 году как Белорусская государственная и университетская библиотека Белорусского государственного университета (БГУ). На момент открытия фонды библиотеки насчитывали всего 60 тысяч экземпляров, которыми пользовались 1,1 тысячи человек. Первым собственным зданием библиотеки стал Юбилейный дом на Захарьевской улице (ныне — проспект Независимости). Постановлением СНК БССР от 14 мая 1926 году библиотека была выведена из состава БГУ и реорганизована в Белорусскую государственную библиотеку. В 1932 году библиотеке было присвоено имя В. И. Ленина. В тот же год библиотека получила новое здание архитектора Г. Лаврова в конструктивистском стиле. ",
 
+                }
 
-        //        }
+                );
+        } // Library
 
-        //        );
-        //}
+        public static void SeedImagesFourCorusel(this ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ImagesFourCorusel>().HasData(
+
+                    new ImagesFourCorusel
+                    {
+                        ImagesFourCoruselId = 1,
+                        Link = "https://nashaniva.com/photos/generated/fb249647.png",
+                        LibraryId = 1
+                    },
+                    new ImagesFourCorusel
+                    {
+                        ImagesFourCoruselId = 2,
+                        Link = "http://knigoplaneta.ru/wp-content/uploads/2015/05/DSC_0253.jpg",
+                        LibraryId = 1
+                    },
+                    new ImagesFourCorusel
+                    {
+                        ImagesFourCoruselId = 3,
+                        Link = "http://s4.fotokto.ru/photo/full/492/4927138.jpg",
+                        LibraryId = 1
+                    }
+                );
+        } // ImagesFourCorusel
+
+        public static void SeedOperatingModes(this ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<OperatingModes>().HasData(
+
+                    new OperatingModes
+                    {
+                        OperatingModeId = 1,
+                        StartWork = "8:00",
+                        EndWork = "20:00",
+                        CleanUpDay = "Понедельник",
+                        LibraryId = 1
+                    },
+
+                    new OperatingModes
+                    {
+                        OperatingModeId = 2,
+                        StartWork = "10:00",
+                        EndWork = "22:00",
+                        CleanUpDay = "Пятница",
+                        LibraryId = 1
+                    },
+
+                    new OperatingModes
+                    {
+                        OperatingModeId = 3,
+                        StartWork = "10:00",
+                        EndWork = "22:00",
+                        CleanUpDay = "Среда",
+                        LibraryId = 1
+                    }
+                );
+        }  // OperatingModes
+
+        public static void SeedBooksLibrary(this ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<BooksLibrary>().HasData(
+                 new BooksLibrary
+                 {
+                     BooksLibrariesId = 1,
+                     BookId = 1,
+                     LibraryId = 1,
+                 },
+
+                 new BooksLibrary
+                 {
+                     BooksLibrariesId = 2,
+                     BookId = 2,
+                     LibraryId = 1,
+                 },
+
+                 new BooksLibrary
+                 {
+                     BooksLibrariesId = 3,
+                     BookId = 3,
+                     LibraryId = 1,
+                 },
+
+                 new BooksLibrary
+                 {
+                     BooksLibrariesId =4,
+                     BookId = 4,
+                     LibraryId = 1,
+                 }
+
+                );
+        }
     }
 }

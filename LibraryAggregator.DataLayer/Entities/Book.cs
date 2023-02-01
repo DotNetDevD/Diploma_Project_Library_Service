@@ -7,6 +7,13 @@ namespace LibraryAggregator.DataLayer.Entities;
 
 public partial class Book
 {
+
+    public Book()
+    {
+        AuthorsBooks = new List<AuthorsBook>();
+        BooksGenres  = new List<BooksGenre>();
+        BooksLibraries = new List<BooksLibrary>();
+    }
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int BookId { get; set; }
 
@@ -22,9 +29,9 @@ public partial class Book
 
     public int PageCount { get; set; }
 
-    public virtual ICollection<AuthorsBook> AuthorsBooks { get; } = new List<AuthorsBook>();
+    public virtual ICollection<AuthorsBook> AuthorsBooks { get; }
 
-    public virtual ICollection<BooksGenre> BooksGenres { get; } = new List<BooksGenre>();
+    public virtual ICollection<BooksGenre> BooksGenres { get; } 
 
-    public virtual ICollection<BooksLibrary> BooksLibraries { get; } = new List<BooksLibrary>();
+    public virtual ICollection<BooksLibrary> BooksLibraries { get; } 
 }

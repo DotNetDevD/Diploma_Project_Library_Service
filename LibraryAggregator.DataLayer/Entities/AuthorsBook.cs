@@ -14,7 +14,6 @@ public partial class AuthorsBook
 
     public int BookId { get; set; }
 
-    public virtual Author Author { get; set; } = null!;
-
-    public virtual Book Book { get; set; } = null!;
+    public virtual Author? Author { get; set; } 
+    public virtual Book? Book { get; set; } 
 }

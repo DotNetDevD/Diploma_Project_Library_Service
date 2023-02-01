@@ -12,6 +12,7 @@ namespace LibraryAggregator.API.Extensions
             services.AddScoped<IAuthorService, AuthorService>();
             services.AddScoped<IBookService, BookService>();
             services.AddScoped<IGenreService, GenreService>();
+            services.AddScoped<ILibraryService, LibraryService>();
         }
     }
 }

@@ -14,7 +14,7 @@ public partial class BooksGenre
 
     public int GenreId { get; set; }
 
-    public virtual Book Book { get; set; } = null!;
+    public virtual Book? Book { get; set; } 
 
-    public virtual Genre Genre { get; set; } = null!;
+    public virtual Genre? Genre { get; set; } 
 }

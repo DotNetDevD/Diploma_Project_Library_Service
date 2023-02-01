@@ -4,6 +4,7 @@ using LibraryAggregator.DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryAggregator.DataLayer.Migrations
 {
     [DbContext(typeof(LibraryDataBaseContext))]
-    partial class LibraryDataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230201203521_v3")]
+    partial class v3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -285,32 +288,6 @@ namespace LibraryAggregator.DataLayer.Migrations
                     b.HasIndex("LibraryId");
 
                     b.ToTable("BooksLibraries");
-
-                    b.HasData(
-                        new
-                        {
-                            BooksLibrariesId = 1,
-                            BookId = 1,
-                            LibraryId = 1
-                        },
-                        new
-                        {
-                            BooksLibrariesId = 2,
-                            BookId = 2,
-                            LibraryId = 1
-                        },
-                        new
-                        {
-                            BooksLibrariesId = 3,
-                            BookId = 3,
-                            LibraryId = 1
-                        },
-                        new
-                        {
-                            BooksLibrariesId = 4,
-                            BookId = 4,
-                            LibraryId = 1
-                        });
                 });
 
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.Genre", b =>
@@ -377,26 +354,6 @@ namespace LibraryAggregator.DataLayer.Migrations
                     b.HasIndex("LibraryId");
 
                     b.ToTable("ImagesFourCorusel");
-
-                    b.HasData(
-                        new
-                        {
-                            ImagesFourCoruselId = 1,
-                            LibraryId = 1,
-                            Link = "https://nashaniva.com/photos/generated/fb249647.png"
-                        },
-                        new
-                        {
-                            ImagesFourCoruselId = 2,
-                            LibraryId = 1,
-                            Link = "http://knigoplaneta.ru/wp-content/uploads/2015/05/DSC_0253.jpg"
-                        },
-                        new
-                        {
-                            ImagesFourCoruselId = 3,
-                            LibraryId = 1,
-                            Link = "http://s4.fotokto.ru/photo/full/492/4927138.jpg"
-                        });
                 });
 
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.Library", b =>
@@ -439,20 +396,6 @@ namespace LibraryAggregator.DataLayer.Migrations
                         .HasName("PK__Library__A136475FA23EBF26");
 
                     b.ToTable("Library", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            LibraryId = 1,
-                            Address = "просп.Независимости, 11б",
-                            AgeGroup = "Нет ограничений ",
-                            ChartLink = "https://yandex.by/maps/org/natsionalnaya_biblioteka_belarusi/1087338903/?ll=27.647557%2C53.930867&z=16.48",
-                            DirectorPhotoLink = "https://yandex.by/images/search?pos=1&img_url=http%3A%2F%2Fculturalforum.ru%2Fcontent%2Fparticipants%2Fcc%2Fccbd7c9088e9e70148120c9eaaa5064b-cropped.jpg&text=%D0%9A%D0%BD%D0%B8%D0%B6%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2%D0%B0%20%D0%9E%D0%BA%D1%81%D0%B0%D0%BD%D0%B0%20%D0%AE%D1%80%D1%8C%D0%B5%D0%B2%D0%BD%D0%B0&lr=157&rpt=simage&source=serp",
-                            Email = "www.nlb.by",
-                            HistoryOfLibrary = "Национальная библиотека Беларуси (НББ) была основана постановлением Совета народных комиссаров БССР в 1922 году как Белорусская государственная и университетская библиотека Белорусского государственного университета (БГУ). На момент открытия фонды библиотеки насчитывали всего 60 тысяч экземпляров, которыми пользовались 1,1 тысячи человек. Первым собственным зданием библиотеки стал Юбилейный дом на Захарьевской улице (ныне — проспект Независимости). Постановлением СНК БССР от 14 мая 1926 году библиотека была выведена из состава БГУ и реорганизована в Белорусскую государственную библиотеку. В 1932 году библиотеке было присвоено имя В. И. Ленина. В тот же год библиотека получила новое здание архитектора Г. Лаврова в конструктивистском стиле. ",
-                            Name = "Национальная библиотека Минска",
-                            PhoneNumber = "+375 17 368-37-37"
-                        });
                 });
 
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.OperatingModes", b =>
@@ -480,32 +423,6 @@ namespace LibraryAggregator.DataLayer.Migrations
                     b.HasIndex("LibraryId");
 
                     b.ToTable("OperatingModes");
-
-                    b.HasData(
-                        new
-                        {
-                            OperatingModeId = 1,
-                            CleanUpDay = "Понедельник",
-                            EndWork = "20:00",
-                            LibraryId = 1,
-                            StartWork = "8:00"
-                        },
-                        new
-                        {
-                            OperatingModeId = 2,
-                            CleanUpDay = "Пятница",
-                            EndWork = "22:00",
-                            LibraryId = 1,
-                            StartWork = "10:00"
-                        },
-                        new
-                        {
-                            OperatingModeId = 3,
-                            CleanUpDay = "Среда",
-                            EndWork = "22:00",
-                            LibraryId = 1,
-                            StartWork = "10:00"
-                        });
                 });
 
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.AuthorsBook", b =>

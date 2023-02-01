@@ -12,5 +12,10 @@ public partial class Genre
 
     public string? Type { get; set; }
 
-    public virtual ICollection<BooksGenre> BooksGenres { get; } = new List<BooksGenre>();
+    public virtual ICollection<BooksGenre> BooksGenres { get; } 
+
+    public Genre()
+    {
+        BooksGenres = new List<BooksGenre>();
+    }
 }

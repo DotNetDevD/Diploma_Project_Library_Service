@@ -7,7 +7,7 @@ public partial class Library
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int LibraryId { get; set; }
-    public string Name { get; set; } = null!;
+    public string? Name { get; set; }
     public string? Address { get; set; }
     public string? PhoneNumber { get; set; }
     public string? Email { get; set; }
@@ -15,7 +15,14 @@ public partial class Library
     public string? DirectorPhotoLink { get; set; }
     public string? AgeGroup  { get; set; }
     public string? HistoryOfLibrary { get; set; }
-    //public List<string>? ImagesForCorusel { get; set; }
-    //public List<string>? OperatingModes { get; set; } 
-    public virtual ICollection<BooksLibrary> BooksLibraries { get; } = new List<BooksLibrary>();
+    public virtual ICollection<ImagesFourCorusel>? ImagesForCorusel { get; set; }
+    public virtual ICollection<OperatingModes>? OperatingModes { get; set; } 
+    public virtual ICollection<BooksLibrary> BooksLibraries { get; } 
+
+    public Library()
+    {
+        ImagesForCorusel = new List<ImagesFourCorusel>();
+        OperatingModes = new List<OperatingModes>();
+        BooksLibraries = new List<BooksLibrary>();
+    }
 }
