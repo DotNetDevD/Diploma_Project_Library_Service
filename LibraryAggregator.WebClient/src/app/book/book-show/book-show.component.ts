@@ -10,11 +10,6 @@ import { BookApiService } from 'src/app/api-services/book-api.service';
 export class BookShowComponent implements OnInit {
 
   bookList$!: Observable<any>;
-  genreList$!: Observable<any>;
-  // genreList: any = [];
-
-  // Map to display data associate with foreign keys
-  genreMap: Map<number, string> = new Map()
 
   constructor(private service: BookApiService) { }
 

@@ -210,12 +210,27 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                     PhoneNumber = "+375 17 368-37-37",
                     Email = "www.nlb.by",
                     ChartLink = "https://yandex.by/maps/org/natsionalnaya_biblioteka_belarusi/1087338903/?ll=27.647557%2C53.930867&z=16.48",
-                    DirectorPhotoLink = "https://yandex.by/images/search?pos=1&img_url=http%3A%2F%2Fculturalforum.ru%2Fcontent%2Fparticipants%2Fcc%2Fccbd7c9088e9e70148120c9eaaa5064b-cropped.jpg&text=%D0%9A%D0%BD%D0%B8%D0%B6%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2%D0%B0%20%D0%9E%D0%BA%D1%81%D0%B0%D0%BD%D0%B0%20%D0%AE%D1%80%D1%8C%D0%B5%D0%B2%D0%BD%D0%B0&lr=157&rpt=simage&source=serp",
+                    ShortDiscription = "Национальная библиотека Беларуси (НББ)",
+                    CoverImage = "https://www.belarus.by/dadvimages/001339_318669.jpg",
+                    DirectorPhotoLink = "https://www.belarus.by/dadvimages/001339_318669.jpg",
                     AgeGroup = "Нет ограничений ",
                     HistoryOfLibrary = "Национальная библиотека Беларуси (НББ) была основана постановлением Совета народных комиссаров БССР в 1922 году как Белорусская государственная и университетская библиотека Белорусского государственного университета (БГУ). На момент открытия фонды библиотеки насчитывали всего 60 тысяч экземпляров, которыми пользовались 1,1 тысячи человек. Первым собственным зданием библиотеки стал Юбилейный дом на Захарьевской улице (ныне — проспект Независимости). Постановлением СНК БССР от 14 мая 1926 году библиотека была выведена из состава БГУ и реорганизована в Белорусскую государственную библиотеку. В 1932 году библиотеке было присвоено имя В. И. Ленина. В тот же год библиотека получила новое здание архитектора Г. Лаврова в конструктивистском стиле. ",
 
-                }
-
+                },
+                 new Library
+                 {
+                     LibraryId = 2,
+                     Name = "Библиотека им. Янки Купалы",
+                     Address = "Улица Веры Хоружей 16",
+                     PhoneNumber = "8 017 242-21-15",
+                     Email = "www.publib.by/",
+                     ChartLink = "https://yandex.by/maps/org/natsionalnaya_biblioteka_belarusi/1087338903/?ll=27.647557%2C53.930867&z=16.48",
+                     ShortDiscription = "Цэнтральная бібліятэка імя Янкі Купалы",
+                     CoverImage = "https://publib.by/wp-content/uploads/2022/06/czentralnaya-biblioteka-imeni-yanki-kupaly-1.jpg",
+                     DirectorPhotoLink = "https://publib.by/wp-content/uploads/2022/06/czentralnaya-biblioteka-imeni-yanki-kupaly-1.jpg",
+                     AgeGroup = "Нет ограничений",
+                     HistoryOfLibrary = "Сёння Цэнтральная бібліятэка імя Янкі Купалы – гэта: ТРАДЫЦЫЯ БЫЦЬ ПАТРЭБНАЙ",
+                 }
                 );
         } // Library
 

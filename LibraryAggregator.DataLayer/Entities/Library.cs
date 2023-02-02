@@ -14,6 +14,8 @@ public partial class Library
     public string? ChartLink { get; set; }
     public string? DirectorPhotoLink { get; set; }
     public string? AgeGroup  { get; set; }
+    public string? ShortDiscription { get; set; }
+    public string? CoverImage { get; set; }
     public string? HistoryOfLibrary { get; set; }
     public virtual ICollection<ImagesFourCorusel>? ImagesForCorusel { get; set; }
     public virtual ICollection<OperatingModes>? OperatingModes { get; set; } 
