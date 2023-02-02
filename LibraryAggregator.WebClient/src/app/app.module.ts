@@ -16,6 +16,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AppRoutingModule } from './app.routing.module';
 import { LibraryCardComponent } from './library/library-card/library-card.component';
 import { LibraryApiService } from './api-services/library-api.service';
+import { LibraryInfoComponent } from './library/library-info/library-info.component';
+import { AuthorShowComponent } from './author/author-show/author-show.component';
+import { AuthorApiService } from './api-services/author-api.service';
+import { GenreShowComponent } from './genre/genre-show/genre-show.component';
+import { GenreComponent } from './genre/genre.component';
+import { GenreApiService } from './api-services/genre-api.service';
 
 
 @NgModule({
@@ -29,7 +35,10 @@ import { LibraryApiService } from './api-services/library-api.service';
     TestComponent,
     LibraryComponent,
     LibraryCardComponent,
-    PageNotFoundComponent
+    LibraryInfoComponent,
+    PageNotFoundComponent,
+    AuthorShowComponent,
+    GenreShowComponent
   ],
   imports: [
     AppRoutingModule,
@@ -40,7 +49,7 @@ import { LibraryApiService } from './api-services/library-api.service';
 
 
   ],
-  providers: [BookApiService , LibraryApiService],
+  providers: [BookApiService , LibraryApiService , AuthorApiService , GenreApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
