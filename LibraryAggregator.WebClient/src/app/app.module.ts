@@ -14,6 +14,8 @@ import { LibraryComponent } from './library/library.component';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app.routing.module';
+import { LibraryCardComponent } from './library/library-card/library-card.component';
+import { LibraryApiService } from './api-services/library-api.service';
 
 
 @NgModule({
@@ -26,6 +28,7 @@ import { AppRoutingModule } from './app.routing.module';
     MainContentComponent,
     TestComponent,
     LibraryComponent,
+    LibraryCardComponent,
     PageNotFoundComponent
   ],
   imports: [
@@ -37,7 +40,7 @@ import { AppRoutingModule } from './app.routing.module';
 
 
   ],
-  providers: [BookApiService],
+  providers: [BookApiService , LibraryApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
