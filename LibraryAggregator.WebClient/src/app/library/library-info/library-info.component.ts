@@ -22,6 +22,7 @@ export class LibraryInfoComponent {
 
     ngOnInit(): void {
         this.getTutorial(this.route.snapshot.params["id"]);
+        console.log(this.route.snapshot)
     }
 
     getTutorial(id: number): void {

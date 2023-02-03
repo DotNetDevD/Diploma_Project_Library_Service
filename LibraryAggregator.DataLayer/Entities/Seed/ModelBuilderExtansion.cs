@@ -318,11 +318,10 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
 
                  new BooksLibrary
                  {
-                     BooksLibrariesId =4,
+                     BooksLibrariesId = 4,
                      BookId = 4,
                      LibraryId = 1,
                  }
-
                 );
         }
     }

@@ -17,7 +17,7 @@ export class LibraryApiService {
     return this.http.get<Library[]>(this.APIUrl + '/library');
   }
   getLibraryById(id: number): Observable<Library> {
-    return this.http.get<Library>(this.APIUrl + `/library${id}`)
+    return this.http.get<Library>(this.APIUrl + `/library/${id}`)
   }
   addLibrary(data: any) {
     return this.http.post(this.APIUrl + '/library', data);
