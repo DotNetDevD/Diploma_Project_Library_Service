@@ -1,17 +1,24 @@
-﻿namespace LibraryAggregator.DataLayer.ViewModel
+﻿using LibraryAggregator.DataLayer.Entities;
+
+namespace LibraryAggregator.DataLayer.ViewModel
 {
     public class BookVM
     {
-        public string Isbn { get; set; } = null!;
+        public string? Isbn { get; set; } 
 
-        public string Title { get; set; } = null!;
+        public string? Title { get; set; } 
 
         public DateTime? PublishDate { get; set; }
 
-        public string AuthorFullName { get; set; } = null!;
+        public string? AuthorFullName { get; set; }
 
-        public string GenreType { get; set; } = null!;
-
+        public List<Genre> GenreList { get; set; } 
         public int PageCount { get; set; }
+
+        public BookVM()
+        {
+            GenreList = new List<Genre>();
+
+        }
     }
 }

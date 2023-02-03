@@ -14,7 +14,12 @@
       <td>{{item.title}}</td>
       <td>{{item.publishDate}}</td>
       <td>{{item.authorFullName}}</td>
-      <td>{{item.genreType}}</td>
+      <td>
+        <p *ngFor="let element of item.genreList">{{element.type}}</p>
+        <option *ngFor="let title of item.genreList">
+          {{title.type}}
+        </option>
+      </td>
       <td>{{item.pageCount}}</td>
     </tr>
   </tbody>

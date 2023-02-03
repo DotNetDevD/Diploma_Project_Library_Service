@@ -36,7 +36,35 @@ namespace LibraryAggregator.Common.Implementation
 
         public async Task<IEnumerable<BookVM>> GetInfoForBookVM()
         {
-            return await _bookRepository.GetInfoForBookVM();
+            List<Book> books = await _bookRepository.GetAllFullInfoBooksAsync();
+
+            List<BookVM> listBookVM = new();
+
+            foreach (var item in books)
+            {
+                BookVM bookForVM = new BookVM
+                {
+                    Isbn = item.Isbn,
+                    Title = item.Title,
+                    PageCount = item.PageCount,
+                    PublishDate = item.PublishDate,
+                };
+
+
+                foreach (var autor in item.AuthorsBooks)
+                {
+                    bookForVM.AuthorFullName += $"{autor.Author.FirstName} {autor.Author.LastName}; ";
+                }
+                foreach (var genre in item.BooksGenres)
+                {
+                    bookForVM.GenreList.Add(genre.Genre);
+                }
+                listBookVM.Add(bookForVM);
+            }
+
+            return listBookVM;
         }
+
     }
 }
+
