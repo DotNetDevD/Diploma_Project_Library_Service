@@ -8,19 +8,17 @@ import { LibraryInfoComponent } from "./library/library-info/library-info.compon
 import { LibraryComponent } from "./library/library.component";
 import { MainContentComponent } from "./main-content/main-content.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
-import { TestComponent } from "./test/test.component";
 
 const appRoutes: Routes = [
     { path: 'book/book-show', component: BookShowComponent },
     { path: 'library', component: LibraryComponent },
-    { path: 'library/library-info', component: LibraryInfoComponent },
-    { path: 'library/library-card', component: LibraryCardComponent },
+    { path: 'library-info/:id', component: LibraryInfoComponent },
+    { path: 'library-card', component: LibraryCardComponent },
     { path: 'author/author-show', component: AuthorShowComponent },
     { path: 'genre/genre-show', component: GenreShowComponent },
     { path: 'index', component: MainContentComponent },
     { path: '', redirectTo: '/index', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
-    
 ];
 
 @NgModule({
@@ -29,5 +27,4 @@ const appRoutes: Routes = [
 })
 
 export class AppRoutingModule {
-
 }

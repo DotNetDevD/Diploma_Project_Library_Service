@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { observable, Observable, tap } from 'rxjs';
 import { LibraryApiService } from 'src/app/api-services/library-api.service';
+import { Library } from '../models/library';
 
 @Component({
     selector: 'app-library',
@@ -9,11 +10,22 @@ import { LibraryApiService } from 'src/app/api-services/library-api.service';
 })
 export class LibraryComponent implements OnInit {
 
-    libraryList$!: Observable<any>;
-
+    libraryList: Library[] = [];
+    
     constructor(private readonly libraryService: LibraryApiService) { }
 
     ngOnInit(): void {
-        this.libraryList$ = this.libraryService.getLibraryList();
+        this.retrievelibraryList();
     }
+    
+    retrievelibraryList(): void {
+        this.libraryService.getLibraryList()
+          .subscribe({
+            next: (data) => {
+              this.libraryList = data;
+              console.log(data);
+            },
+            error: (e) => console.error(e)
+          });
+      }
 }
