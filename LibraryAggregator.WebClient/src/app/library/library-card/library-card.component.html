@@ -1,16 +1,12 @@
 <div class="container">
-  <div class="card mb-4 box-shadow">
-    <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-      alt="{{library.name}}" src="{{library.coverImage}}"
-      data-holder-rendered="true">
-    <div class="card-body">
-      <p class="card-text">{{library.shortDescription}}</p>
-      <div class="d-flex justify-content-between align-items-center">
-        <div   class="btn-group">
-          <a  routerLink="library-info"><button  type="button"
-              class="btn btn-sm btn-outline-secondary"><app-library-info [library] = "library"></app-library-info>View</button></a>
+    <div class="card mb-4 box-shadow">
+        <img class="card-img-top"
+            data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+            alt="{{library.name}}" src="{{library.coverImage}}" data-holder-rendered="true">
+        <div class="card-body">
+            <h5 class="card-title">Описание</h5>
+            <p class="card-text">{{library.shortDiscription}}</p>
+            <a [routerLink]="['/library-info', library.libraryId]" class="btn btn-primary">Подробнее</a>
         </div>
-      </div>
     </div>
-  </div>
 </div>

@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-4" *ngFor="let library of libraryList$|async">
-      <app-library-card [library]="library"></app-library-card>
+    <div class="row">
+        <div class="col-md-4" *ngFor="let library of libraryList">
+            <app-library-card [library]="library"></app-library-card>
+        </div>
     </div>
-  </div>
 </div>

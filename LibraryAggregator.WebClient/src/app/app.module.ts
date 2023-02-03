@@ -11,7 +11,6 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MainContentComponent } from './main-content/main-content.component';
 import { TestComponent } from './test/test.component';
 import { LibraryComponent } from './library/library.component';
-import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app.routing.module';
 import { LibraryCardComponent } from './library/library-card/library-card.component';
@@ -22,7 +21,6 @@ import { AuthorApiService } from './api-services/author-api.service';
 import { GenreShowComponent } from './genre/genre-show/genre-show.component';
 import { GenreComponent } from './genre/genre.component';
 import { GenreApiService } from './api-services/genre-api.service';
-
 
 @NgModule({
   declarations: [
@@ -38,7 +36,7 @@ import { GenreApiService } from './api-services/genre-api.service';
     LibraryInfoComponent,
     PageNotFoundComponent,
     AuthorShowComponent,
-    GenreShowComponent
+    GenreShowComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -46,8 +44,6 @@ import { GenreApiService } from './api-services/genre-api.service';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-
-
   ],
   providers: [BookApiService , LibraryApiService , AuthorApiService , GenreApiService],
   bootstrap: [AppComponent]

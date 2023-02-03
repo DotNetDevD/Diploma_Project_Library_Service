@@ -8,14 +8,11 @@ public partial class LibraryDataBaseContext : DbContext
 {
     public LibraryDataBaseContext()
     {
-        
-      
     }
 
     public LibraryDataBaseContext(DbContextOptions<LibraryDataBaseContext> options)
         : base(options)
     {
-   
         Database.EnsureCreated();
     }
 
@@ -32,7 +29,6 @@ public partial class LibraryDataBaseContext : DbContext
     public virtual DbSet<Genre> Genres { get; set; }
 
     public virtual DbSet<Library> Libraries { get; set; }
-
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database = LibraryDataBase;Integrated Security=True;");
@@ -48,9 +44,7 @@ public partial class LibraryDataBaseContext : DbContext
             entity.Property(e => e.FirstName).HasMaxLength(50);
             entity.Property(e => e.LastName).HasMaxLength(50);
             entity.Property(e => e.MiddleName).HasMaxLength(50);
-        });
-
-        
+        }); 
 
         modelBuilder.Entity<AuthorsBook>(entity =>
         {
@@ -146,6 +140,5 @@ public partial class LibraryDataBaseContext : DbContext
         modelBuilder.SeedBooksLibrary();
         OnModelCreatingPartial(modelBuilder);
     }
-
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }

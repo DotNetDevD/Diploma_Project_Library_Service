@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Library } from '../models/library';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,11 @@ export class LibraryApiService {
   constructor(private http: HttpClient) { }
 
   // Library
-  getLibraryList(): Observable<any[]> {
-    return this.http.get<any>(this.APIUrl + '/library');
+  getLibraryList(): Observable<Library[]> {
+    return this.http.get<Library[]>(this.APIUrl + '/library');
+  }
+  getLibraryById(id: number): Observable<Library> {
+    return this.http.get<Library>(this.APIUrl + `/library${id}`)
   }
   addLibrary(data: any) {
     return this.http.post(this.APIUrl + '/library', data);
