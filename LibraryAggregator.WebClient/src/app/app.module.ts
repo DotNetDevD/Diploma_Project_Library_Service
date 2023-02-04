@@ -8,7 +8,6 @@ import { BookAddEditComponent } from './book/book-add-edit/book-add-edit.compone
 import { BookApiService } from './api-services/book-api.service';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MainContentComponent } from './main-content/main-content.component';
-import { TestComponent } from './test/test.component';
 import { LibraryComponent } from './library/library.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app.routing.module';
@@ -34,7 +33,6 @@ import { AuthorComponent } from './author/author.component';
     BookCardComponent,
     NavBarComponent,
     MainContentComponent,
-    TestComponent,
     LibraryComponent,
     LibraryCardComponent,
     LibraryInfoComponent,
