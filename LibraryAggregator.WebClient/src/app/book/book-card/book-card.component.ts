@@ -8,5 +8,5 @@ import { Book } from 'src/app/models/book';
 })
 export class BookCardComponent {
   @Input()
-  book!: any;
+  book!: Book;
 }

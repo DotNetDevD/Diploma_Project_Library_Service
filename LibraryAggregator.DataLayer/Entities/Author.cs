@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
 namespace LibraryAggregator.DataLayer.Entities;
@@ -15,6 +13,12 @@ public partial class Author
     public string LastName { get; set; } = null!;
 
     public string? MiddleName { get; set; }
+
+    public DateTime? DateOfBirth { get; set; }
+
+    public string? CoverImg { get; set; }
+
+    public string? Biography { get; set; }
 
     public virtual ICollection<AuthorsBook> AuthorsBooks { get; } = new List<AuthorsBook>();
 }

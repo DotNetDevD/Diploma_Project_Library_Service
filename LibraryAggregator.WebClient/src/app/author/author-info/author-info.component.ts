@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
-import { AuthorApiService } from '../api-services/author-api.service';
-import { Author } from '../models/author';
+import { AuthorApiService } from 'src/app/api-services/author-api.service';
+import { Author } from 'src/app/models/author';
 
 @Component({
-  selector: 'app-author',
-  templateUrl: './author.component.html',
-  styleUrls: ['./author.component.css']
+  selector: 'app-author-info',
+  templateUrl: './author-info.component.html',
+  styleUrls: ['./author-info.component.css']
 })
-export class AuthorComponent {
+export class AuthorInfoComponent {
   authorList: Author[] = [];
-
+  
   constructor(private readonly authorService: AuthorApiService) { }
 
   ngOnInit(): void {

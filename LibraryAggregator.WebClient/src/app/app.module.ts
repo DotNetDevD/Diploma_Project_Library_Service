@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BookComponent } from './book/book.component';
-import { BookShowComponent } from './book/book-show/book-show.component';
 import { BookAddEditComponent } from './book/book-add-edit/book-add-edit.component';
 import { BookApiService } from './api-services/book-api.service';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -16,18 +15,21 @@ import { AppRoutingModule } from './app.routing.module';
 import { LibraryCardComponent } from './library/library-card/library-card.component';
 import { LibraryApiService } from './api-services/library-api.service';
 import { LibraryInfoComponent } from './library/library-info/library-info.component';
-import { AuthorShowComponent } from './author/author-show/author-show.component';
 import { AuthorApiService } from './api-services/author-api.service';
 import { GenreShowComponent } from './genre/genre-show/genre-show.component';
-import { GenreComponent } from './genre/genre.component';
 import { GenreApiService } from './api-services/genre-api.service';
 import { BookCardComponent } from './book/book-card/book-card.component';
+import { AuthorCardComponent } from './author/author-card/author-card.component';
+import { AuthorInfoComponent } from './author/author-info/author-info.component';
+import { AuthorComponent } from './author/author.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    AuthorCardComponent,
+    AuthorInfoComponent,
+    AuthorComponent,
     BookComponent,
-    BookShowComponent,
     BookAddEditComponent,
     BookCardComponent,
     NavBarComponent,
@@ -37,7 +39,6 @@ import { BookCardComponent } from './book/book-card/book-card.component';
     LibraryCardComponent,
     LibraryInfoComponent,
     PageNotFoundComponent,
-    AuthorShowComponent,
     GenreShowComponent,
   ],
   imports: [

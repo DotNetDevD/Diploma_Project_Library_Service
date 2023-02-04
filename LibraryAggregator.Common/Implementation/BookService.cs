@@ -44,10 +44,12 @@ namespace LibraryAggregator.Common.Implementation
             {
                 BookVM bookForVM = new BookVM
                 {
+                    BookId = item.BookId,
                     Isbn = item.Isbn,
                     Title = item.Title,
                     PageCount = item.PageCount,
                     PublishDate = item.PublishDate,
+                    CoverImgPath = item.CoverImgPath
                 };
 
 

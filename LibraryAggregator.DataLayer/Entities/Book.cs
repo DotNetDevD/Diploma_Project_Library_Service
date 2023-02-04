@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
 namespace LibraryAggregator.DataLayer.Entities;
 
 public partial class Book
 {
-
     public Book()
     {
         AuthorsBooks = new List<AuthorsBook>();

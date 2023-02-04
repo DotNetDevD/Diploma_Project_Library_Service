@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { LibraryApiService } from 'src/app/api-services/library-api.service';
 import { Library } from 'src/app/models/library';
 

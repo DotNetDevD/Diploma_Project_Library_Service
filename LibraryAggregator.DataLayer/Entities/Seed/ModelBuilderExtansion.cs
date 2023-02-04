@@ -15,7 +15,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                     BookId = 1,
                     Title = "Анна Каренина",
                     Isbn = "978-5-9268-2544-9",
-                    CoverImgPath = "https://yandex.by/images/search?from=tabbar&text=%D0%90%D0%BD%D0%BD%D0%B0%20%D0%9A%D0%B0%D1%80%D0%B5%D0%BD%D0%B8%D0%BD%D0%B0%20%D0%9B%D0%B5%D0%B2%20%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%B9%20%D0%BA%D0%BD%D0%B8%D0%B3%D0%B0&pos=2&img_url=http%3A%2F%2Fzvuk-knigi.ru%2Fuploads%2Fposts%2F2022-05%2F1653796476_2022-05-29_074809.jpg&rpt=simage&lr=157",
+                    CoverImgPath = "https://cache3.youla.io/files/images/780_780/5b/a5/5ba5eb0780e08eb32e7dd903.jpg",
                     Description = "Любовь",
                     PageCount = 1130,
                     PublishDate = new DateTime(1877, 04, 17)
@@ -27,7 +27,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                      BookId = 2,
                      Title = "Человек в футляре",
                      Isbn = "978-5-389-16173-3",
-                     CoverImgPath = "https://yandex.by/images/search?from=tabbar&text=%D0%A7%D0%B5%D0%BB%D0%BE%D0%B2%D0%B5%D0%BA%20%D0%B2%20%D1%84%D1%83%D1%82%D0%BB%D1%8F%D1%80%D1%83&pos=2&img_url=http%3A%2F%2Flookaside.fbsbx.com%2Flookaside%2Fcrawler%2Fmedia%2F%3Fmedia_id%3D423641392452979&rpt=simage&lr=157",
+                     CoverImgPath = "https://images.onlinetestpad.com/e7/1c/4b158ed94c1280f7d5598a4db559.jpg",
                      Description = "Ошибки",
                      PageCount = 960,
                      PublishDate = new DateTime(1898, 06, 15)
@@ -38,7 +38,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                       BookId = 3,
                       Title = "CLR via C#",
                       Isbn = "978-5-7502-0348-2",
-                      CoverImgPath = "https://yandex.by/images/search?from=tabbar&text=clr%20via%20c%23&pos=2&img_url=http%3A%2F%2Fplaybook.storage.yandexcloud.net%2Fiblock%2F659%2F65957062197947140c473640bdc33b7e%2F46772ad509f580644212f1610e05b107.jpg&rpt=simage&lr=157",
+                      CoverImgPath = "https://i.simpalsmedia.com/999.md/BoardImages/900x900/e059d58b94220cddeed88f43785317f2.jpg",
                       Description = "Хорошо",
                       PageCount = 896,
                       PublishDate = new DateTime(2008, 02, 11)
@@ -49,7 +49,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                        BookId = 4,
                        Title = "Мастер и Маргарита",
                        Isbn = "978-5-04-102789-6",
-                       CoverImgPath = "https://yandex.by/images/search?text=%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%20%D0%B8%20%D0%BC%D0%B0%D1%80%D0%B3%D0%B0%D1%80%D0%B8%D1%82%D0%B0%20%D0%BA%D0%BD%D0%B8%D0%B3%D0%B0&from=tabbar&pos=1&img_url=http%3A%2F%2Fmam4.ru%2Fresize%2F1280x-%2Fhttps%2Fwww.mam4.ru%2Fmedia%2Fupload%2Fuser%2F10807%2Fff%2F1631437479291.jpg%3Fh%3D68QJBhpTmqP34bJHHh-6ig&rpt=simage&lr=157",
+                       CoverImgPath = "https://avatars.dzeninfra.ru/get-zen_doc/2816669/pub_5ee20b1557defd169d7c3d5d_5ee20b4247f3067b1b8556af/scale_1200",
                        Description = "Мастер крут",
                        PageCount = 1130,
                        PublishDate = new DateTime(1966, 12, 03)
@@ -67,7 +67,12 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                     AuthorId = 1,
                     FirstName = "Лев",
                     LastName = "Толстой",
-                    MiddleName = "Николаевич"
+                    MiddleName = "Николаевич",
+                    DateOfBirth = new DateTime(1828,09,9),
+                    CoverImg = "https://cdnn1.inosmi.ru/img/15742/32/157423296_0:0:0:0_1240x0_80_0_0_9490582cecae850e760624f47427f8b7.jpg",
+                    Biography = "Один из наиболее широко известных русских писателей и мыслителей, почитаемый как один из величайших писателей мира. Участник обороны Севастополя. Просветитель, публицист, религиозный мыслитель, чьё авторитетное мнение послужило причиной возникновения нового религиозно-нравственного течения — толстовства. Член-корреспондент Императорской Академии наук (1873), почётный академик по разряду изящной словесности (1900)."
+
+
                 },
 
                 new Author
@@ -75,7 +80,12 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                     AuthorId = 2,
                     FirstName = "Антон",
                     LastName = "Чехов",
-                    MiddleName = "Павлович"
+                    MiddleName = "Павлович",
+                    DateOfBirth = new DateTime(1860,01,29),
+                    CoverImg = "https://s13.stc.yc.kpcdn.net/share/i/12/10343093/wr-960.webp",
+                    Biography = "Антон Павлович Чехов родился в Таганроге. Обучался в греческой школе, затем в классической гимназии. В 1876 году отец Чехова разорился и был вынужден бежать в Москву, а Антон Павлович остался в Таганроге. Свои первые литературные работы Чехов под разными псевдонимами посылает в столичные журналы; среди его первых произведений не сохранившиеся комедии \"Нашла коса на камень\" и \"Недаром курица пела\", в так же солидная драма \"Безотцовщина\"."
+
+
                 },
 
                 new Author
@@ -83,7 +93,11 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                     AuthorId = 3,
                     FirstName = "Джефри",
                     LastName = "Рихтер",
-                    MiddleName = null
+                    MiddleName = null,
+                    DateOfBirth = new DateTime(1964,07,27),
+                    Biography = "Джеффри Рихтер – программист, автор самых известных книг о Win32 и .NET. Рихтер – один из учредителей компании Wintellect, занимающейся подготовкой IT-специалистов и предоставлением консалтинговых услуг фирмам-разработчикам ПО. Рихтер работал с такими компаниями как Intel, DreamWorks и Microsoft.",
+                    CoverImg = "https://m.media-amazon.com/images/I/815BcutlJoL._SY600_.jpg",
+
                 },
 
                 new Author
@@ -91,7 +105,10 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                     AuthorId = 4,
                     FirstName = "Михаил",
                     LastName = "Булгаков",
-                    MiddleName = "Афанасьевич"
+                    MiddleName = "Афанасьевич",
+                    DateOfBirth = new DateTime(1891,05,03),
+                    Biography = "Учился в Первой Киевской гимназии, позднее — на медицинском факультете Киевского университета. Первую пробу пера совершил в семилетнем возрасте, написав рассказ «Похождения Светланы».",
+                    CoverImg = "https://rus.team/images/article/4579/2019-03-07-373_15367-1_766329.webp"
                 }
             );
         }  // Authors
