@@ -9,21 +9,19 @@ import { Book } from 'src/app/models/book';
   styleUrls: ['./book-info.component.css']
 })
 export class BookInfoComponent {
-  bookList: Book = {};
+  book: Book = {};
   constructor(private readonly bookService: BookApiService,
-    private route: ActivatedRoute,
-    private router: Router) { }
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getTutorial(this.route.snapshot.params["id"]);
-    console.log(this.route.snapshot)
   }
 
   getTutorial(id: number): void {
     this.bookService.getBookById(id)
       .subscribe({
         next: (data) => {
-          this.bookList = data;
+          this.book = data;
           console.log(data);
         },
         error: (e) => console.error(e)

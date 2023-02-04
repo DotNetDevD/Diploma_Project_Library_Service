@@ -15,6 +15,8 @@ namespace LibraryAggregator.DataLayer.ViewModel
 
         public string? CoverImgPath { get; set; }
 
+        public string? Description { get; set; }
+
         public List<Genre> GenreList { get; set; } 
         public int PageCount { get; set; }
 

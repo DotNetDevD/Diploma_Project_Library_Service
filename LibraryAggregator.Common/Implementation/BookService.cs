@@ -49,7 +49,8 @@ namespace LibraryAggregator.Common.Implementation
                     Title = item.Title,
                     PageCount = item.PageCount,
                     PublishDate = item.PublishDate,
-                    CoverImgPath = item.CoverImgPath
+                    CoverImgPath = item.CoverImgPath,
+                    Description = item.Description
                 };
 
 
