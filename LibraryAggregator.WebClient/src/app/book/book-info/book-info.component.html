@@ -12,7 +12,7 @@
     <hr class="featurette-divider">
     <div class="row featurette">
         <div class="col-md-7">
-            <table class="table table-striped">
+            <!-- <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>ISBN</th>
@@ -31,15 +31,18 @@
                         <td>{{book.authorFullName}}</td>
                     </tr>
                     <tr>
-                        <th>Жанр</th>
-                        <p *ngFor="let element of book.genreList">{{element.type}} </p>
+                        <th>Жанр </th>
+                        <th>11</th>
                     </tr>
                     <tr>
                         <th>Количество страниц</th>
                         <td>{{book.pageCount}}</td>
                     </tr>
                 </thead>
-            </table>
+            </table> -->
+            <ul *ngFor="let element of book.booksGenres">
+                <li >{{element.genre.type}}111</li>
+            </ul>
         </div>
         <div class="col-md-5">
             <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"

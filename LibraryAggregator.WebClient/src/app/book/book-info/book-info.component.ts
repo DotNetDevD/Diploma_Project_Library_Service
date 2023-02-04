@@ -10,6 +10,7 @@ import { Book } from 'src/app/models/book';
 })
 export class BookInfoComponent {
   book: Book = {};
+
   constructor(private readonly bookService: BookApiService,
     private route: ActivatedRoute) { }
 

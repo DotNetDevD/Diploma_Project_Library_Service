@@ -9,7 +9,6 @@ namespace LibraryAggregator.DataLayer.Repository
     {
         public GenreRepository(LibraryDataBaseContext _db) : base(_db)
         {
-           
         }
         public async Task<List<Genre>> GetAllFullInfoGenresAsync()
         {

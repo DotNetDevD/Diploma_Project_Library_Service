@@ -19,7 +19,7 @@ namespace LibraryAggregator.Common.Implementation
         }
         public async Task<Book> GetBookByIdAsync(int id)
         {
-            return await _bookRepository.GetByIdAsync(id);
+            return await _bookRepository.GetAllFullInfoBookAsync(id);
         }
         public async Task CreateBookAsync(Book book)
         {

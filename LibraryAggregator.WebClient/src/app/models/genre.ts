@@ -1,5 +1,5 @@
-export interface Genre{
-  genreId:number;
-  type:string;
-  booksGenres:[];
+export interface Genre {
+    genreId: number;
+    type: string;
+    booksGenres: [];
 }
