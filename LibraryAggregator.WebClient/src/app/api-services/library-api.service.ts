@@ -23,9 +23,9 @@ export class LibraryApiService {
     return this.http.post(this.APIUrl + '/library', data);
   }
   updateLibrary(id: number | string, data: any) {
-    return this.http.put(this.APIUrl + `/library${id}`, data);
+    return this.http.put(this.APIUrl + `/library/${id}`, data);
   }
   deleteLibrary(id: number | string) {
-    return this.http.delete(this.APIUrl + `/library${id}`);
+    return this.http.delete(this.APIUrl + `/library/${id}`);
   }
 }

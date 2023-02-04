@@ -10,6 +10,13 @@ namespace LibraryAggregator.DataLayer.Repository
         {
         }
 
+        public async Task<Author> GetAllFullInfoAuthorAsync(int id)
+        {
+            return await dbSet.Include(u => u.AuthorsBooks)
+                .ThenInclude(b => b.Book)
+                .FirstOrDefaultAsync(a => a.AuthorId == id);
+        }
+
         public async Task<List<Author>> GetAllFullInfoAuthorsAsync()
         {
             return await dbSet.Include(u => u.AuthorsBooks).ToListAsync();
