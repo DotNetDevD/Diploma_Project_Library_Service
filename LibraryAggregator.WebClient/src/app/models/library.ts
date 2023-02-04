@@ -1,3 +1,4 @@
+import { imagesForCarousel } from "./imagesForCarousel";
 export interface Library {
     libraryId?: any;
     name?: string;
@@ -10,4 +11,5 @@ export interface Library {
     shortDiscription?: string;
     coverImage?: string;
     historyOfLibrary?: string;
+   imagesForCarousel?: imagesForCarousel[];
   }

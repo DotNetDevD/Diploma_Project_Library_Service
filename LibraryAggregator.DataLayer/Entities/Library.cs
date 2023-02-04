@@ -17,13 +17,13 @@ public partial class Library
     public string? ShortDiscription { get; set; }
     public string? CoverImage { get; set; }
     public string? HistoryOfLibrary { get; set; }
-    public virtual ICollection<ImagesFourCorusel>? ImagesForCorusel { get; set; }
+    public virtual ICollection<ImagesForCarousel>? ImagesForCarousel { get; set; }
     public virtual ICollection<OperatingModes>? OperatingModes { get; set; } 
     public virtual ICollection<BooksLibrary> BooksLibraries { get; } 
 
     public Library()
     {
-        ImagesForCorusel = new List<ImagesFourCorusel>();
+        ImagesForCarousel = new List<ImagesForCarousel>();
         OperatingModes = new List<OperatingModes>();
         BooksLibraries = new List<BooksLibrary>();
     }

@@ -214,8 +214,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                     CoverImage = "https://www.belarus.by/dadvimages/001339_318669.jpg",
                     DirectorPhotoLink = "https://www.belarus.by/dadvimages/001339_318669.jpg",
                     AgeGroup = "Нет ограничений ",
-                    HistoryOfLibrary = "Национальная библиотека Беларуси (НББ) была основана постановлением Совета народных комиссаров БССР в 1922 году как Белорусская государственная и университетская библиотека Белорусского государственного университета (БГУ). На момент открытия фонды библиотеки насчитывали всего 60 тысяч экземпляров, которыми пользовались 1,1 тысячи человек. Первым собственным зданием библиотеки стал Юбилейный дом на Захарьевской улице (ныне — проспект Независимости). Постановлением СНК БССР от 14 мая 1926 году библиотека была выведена из состава БГУ и реорганизована в Белорусскую государственную библиотеку. В 1932 году библиотеке было присвоено имя В. И. Ленина. В тот же год библиотека получила новое здание архитектора Г. Лаврова в конструктивистском стиле. ",
-
+                    HistoryOfLibrary = "Национальная библиотека Беларуси (НББ) была основана постановлением Совета народных комиссаров БССР в 1922 году как Белорусская государственная и университетская библиотека Белорусского государственного университета (БГУ). На момент открытия фонды библиотеки насчитывали всего 60 тысяч экземпляров, которыми пользовались 1,1 тысячи человек. Первым собственным зданием библиотеки стал Юбилейный дом на Захарьевской улице (ныне — проспект Независимости). Постановлением СНК БССР от 14 мая 1926 году библиотека была выведена из состава БГУ и реорганизована в Белорусскую государственную библиотеку. В 1932 году библиотеке было присвоено имя В. И. Ленина. В тот же год библиотека получила новое здание архитектора Г. Лаврова в конструктивистском стиле. ",                   
                 },
                  new Library
                  {
@@ -231,29 +230,29 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                      AgeGroup = "Нет ограничений",
                      HistoryOfLibrary = "Сёння Цэнтральная бібліятэка імя Янкі Купалы – гэта: ТРАДЫЦЫЯ БЫЦЬ ПАТРЭБНАЙ",
                  }
-                );
+                ) ;
         } // Library
 
         public static void SeedImagesFourCorusel(this ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ImagesFourCorusel>().HasData(
+            modelBuilder.Entity<ImagesForCarousel>().HasData(
 
-                    new ImagesFourCorusel
+                    new ImagesForCarousel
                     {
-                        ImagesFourCoruselId = 1,
-                        Link = "https://nashaniva.com/photos/generated/fb249647.png",
+                        ImagesForCarouselId = 1,
+                        Link = "https://pbs.twimg.com/media/FCjAA-kXEAQbwqC?format=jpg&name=medium",
                         LibraryId = 1
                     },
-                    new ImagesFourCorusel
+                    new ImagesForCarousel
                     {
-                        ImagesFourCoruselId = 2,
-                        Link = "http://knigoplaneta.ru/wp-content/uploads/2015/05/DSC_0253.jpg",
+                        ImagesForCarouselId = 2,
+                        Link = "https://extraguide.ru/images/blog/2020/12-12-3iz798-natsionalnaya-biblioteka-belarusi.jpeg",
                         LibraryId = 1
                     },
-                    new ImagesFourCorusel
+                    new ImagesForCarousel
                     {
-                        ImagesFourCoruselId = 3,
-                        Link = "http://s4.fotokto.ru/photo/full/492/4927138.jpg",
+                        ImagesForCarouselId = 3,
+                        Link = "https://teenage.by/uploads/articlesImage/1552289035",
                         LibraryId = 1
                     }
                 );

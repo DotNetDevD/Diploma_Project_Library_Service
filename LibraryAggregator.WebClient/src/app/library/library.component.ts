@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { observable, Observable, tap } from 'rxjs';
 import { LibraryApiService } from 'src/app/api-services/library-api.service';
 import { Library } from '../models/library';
 

@@ -16,7 +16,7 @@ namespace LibraryAggregator.DataLayer.Repository
 
             return await dbSet.Include(item => item.BooksLibraries)
                               .ThenInclude(item => item.Book)
-                              .Include(item => item.ImagesForCorusel)
+                              .Include(item => item.ImagesForCarousel)
                               .Include(item => item.OperatingModes).ToListAsync();
                              
         }

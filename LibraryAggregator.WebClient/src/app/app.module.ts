@@ -21,6 +21,7 @@ import { AuthorApiService } from './api-services/author-api.service';
 import { GenreShowComponent } from './genre/genre-show/genre-show.component';
 import { GenreComponent } from './genre/genre.component';
 import { GenreApiService } from './api-services/genre-api.service';
+import { BookCardComponent } from './book/book-card/book-card.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { GenreApiService } from './api-services/genre-api.service';
     BookComponent,
     BookShowComponent,
     BookAddEditComponent,
+    BookCardComponent,
     NavBarComponent,
     MainContentComponent,
     TestComponent,
