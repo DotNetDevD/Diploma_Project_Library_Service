@@ -20,7 +20,7 @@ namespace LibraryAggregator.Common.Implementation
 
         public async Task<Author> GetAuthorByIdAsync(int id)
         {
-            return await _authorRepository.GetByIdAsync(id);
+            return await _authorRepository.GetAllFullInfoAuthorAsync(id);
         }
 
         public async Task CreateAuthorAsync(Author author)
