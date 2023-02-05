@@ -1,6 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BookComponent } from './book/book.component';
@@ -21,35 +20,45 @@ import { BookCardComponent } from './book/book-card/book-card.component';
 import { AuthorCardComponent } from './author/author-card/author-card.component';
 import { AuthorInfoComponent } from './author/author-info/author-info.component';
 import { AuthorComponent } from './author/author.component';
-import { BookInfoComponent } from './book/book-info/book-info.component';
+import { AuthorPopularBooksComponent } from './author/author-popular-books/author-popular-books.component';
+import { registerLocaleData } from '@angular/common';
+import localeRu from '@angular/common/locales/ru';
+import { LOCALE_ID, NgModule } from '@angular/core';
 
+registerLocaleData(localeRu);
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AuthorCardComponent,
-    AuthorInfoComponent,
-    AuthorComponent,
-    BookComponent,
-    BookAddEditComponent,
-    BookCardComponent,
-    BookInfoComponent,
-    NavBarComponent,
-    MainContentComponent,
-    LibraryComponent,
-    LibraryCardComponent,
-    LibraryInfoComponent,
-    PageNotFoundComponent,
-    GenreShowComponent,
-  ],
-  imports: [
-    AppRoutingModule,
-    BrowserModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-  ],
-  providers: [BookApiService , LibraryApiService , AuthorApiService , GenreApiService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        AuthorCardComponent,
+        AuthorInfoComponent,
+        AuthorComponent,
+        AuthorPopularBooksComponent,
+        BookComponent,
+        BookAddEditComponent,
+        BookCardComponent,
+        NavBarComponent,
+        MainContentComponent,
+        LibraryComponent,
+        LibraryCardComponent,
+        LibraryInfoComponent,
+        PageNotFoundComponent,
+        GenreShowComponent,
+    ],
+    imports: [
+        AppRoutingModule,
+        BrowserModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+    ],
+    providers: [
+        BookApiService,
+        LibraryApiService,
+        AuthorApiService,
+        GenreApiService,
+        { provide: LOCALE_ID, useValue: 'ru' }
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
