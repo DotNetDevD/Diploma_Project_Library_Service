@@ -24,6 +24,7 @@ import { AuthorPopularBooksComponent } from './author/author-popular-books/autho
 import { registerLocaleData } from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
 import { LOCALE_ID, NgModule } from '@angular/core';
+import { BookInfoComponent } from './book/book-info/book-info.component';
 
 registerLocaleData(localeRu);
 
@@ -37,6 +38,7 @@ registerLocaleData(localeRu);
         BookComponent,
         BookAddEditComponent,
         BookCardComponent,
+        BookInfoComponent,
         NavBarComponent,
         MainContentComponent,
         LibraryComponent,

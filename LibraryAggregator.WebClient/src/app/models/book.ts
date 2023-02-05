@@ -1,16 +1,16 @@
-import { AuthorsBooks } from "./authorsBook";
+import { AuthorsBooks } from "./authorsBooks";
 import { BooksGenres } from "./booksGenres";
 
-export interface Book{
-  bookId?:number;
-  title?:string;
-  isbn?:string;
-  coverImgPath?:string;
-  publishDate?:Date;
-  description?:string;
-  pageCount?:number;
-  authorFullName?:string;
-  authorsBooks?:string[];
-  booksGenres?: string[];
-  booksLibraries?:[];
+export interface Book {
+    bookId?: number;
+    title?: string;
+    isbn?: string;
+    coverImgPath?: string;
+    publishDate?: Date;
+    description?: string;
+    pageCount?: number;
+    authorFullName?: string;
+    authorsBooks?: string[];
+    booksGenres?: string[];
+    booksLibraries?: [];
 }
