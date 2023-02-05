@@ -1,3 +1,6 @@
+import { AuthorsBooks } from "./authorsBook";
+import { BooksGenres } from "./booksGenres";
+
 export interface Book{
   bookId?:number;
   title?:string;
@@ -7,7 +10,7 @@ export interface Book{
   description?:string;
   pageCount?:number;
   authorFullName?:string;
-  authorsBooks?:[];
-  booksGenres?:[];
+  authorsBooks?:string[];
+  booksGenres?: string[];
   booksLibraries?:[];
 }

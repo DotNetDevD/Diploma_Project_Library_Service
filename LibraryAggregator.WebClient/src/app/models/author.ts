@@ -1,9 +1,12 @@
+import { AuthorsBooks } from "./authorsBook";
+
 export interface Author{
-  authorId : number;
-  firstName : string;
-  lastName : string;
-  middleName : string;
-  dateOfBirth : Date;
-  coverImg : string;
-  biography : string;
+     authorId?:number;
+     firstName?:string;
+     lastName?:string;
+     MiddleName?:string;
+     DateOfBirth?:Date;
+     CoverImg?:string;
+     Biography?:string;
+     AuthorsBook?:AuthorsBooks[];
 }

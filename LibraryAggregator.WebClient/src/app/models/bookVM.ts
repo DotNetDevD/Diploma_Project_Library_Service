@@ -1,3 +1,4 @@
+import { Author } from "./author";
 import { Genre } from "./genre";
 
 export interface BookVM {
@@ -9,5 +10,6 @@ export interface BookVM {
     description?: string;
     pageCount?: number;
     authorFullName?: string;
-    genreList?: Genre [];
+    genreList: Genre [];
+    authorList: Author [];
 }

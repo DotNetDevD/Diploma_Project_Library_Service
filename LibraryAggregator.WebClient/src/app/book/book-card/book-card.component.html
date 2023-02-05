@@ -4,6 +4,7 @@
       alt="{{book.title}}" src="{{book.coverImgPath}}" data-holder-rendered="true">
     <div class="card-body">
       <h5 class="card-title">Описание</h5>
+      <!-- <h5 *ngFor="let item of book.booksGenres.genre.type"></h5> -->
       <p class="card-text">{{book.title}}</p>
       <a [routerLink]="['/book-info', book.bookId]" class="btn btn-primary">Подробнее</a>
     </div>

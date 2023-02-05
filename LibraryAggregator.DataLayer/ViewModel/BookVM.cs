@@ -18,12 +18,13 @@ namespace LibraryAggregator.DataLayer.ViewModel
         public string? Description { get; set; }
 
         public List<Genre> GenreList { get; set; } 
+        public List<Author> AuthorList { get; set; }
         public int PageCount { get; set; }
 
         public BookVM()
         {
             GenreList = new List<Genre>();
-
+            AuthorList = new List<Author>();
         }
     }
 }

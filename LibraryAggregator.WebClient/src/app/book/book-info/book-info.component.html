@@ -24,16 +24,21 @@
                     </tr>
                     <tr>
                         <th>Дата Публикации</th>
-                        <td>{{book.publishDate}}</td>
+                        <td>{{book.publishDate| date: 'longDate'}}</td>
                     </tr>
-                    <tr>
+                    <tr >
                         <th>Автор</th>
-                        <td>{{book.authorFullName}}</td>
+                        <td *ngFor="let book of book.authorList">
+                          {{book.lastName}} {{book.firstName}} {{book.MiddleName}}
+                        </td>
                     </tr>
-                    <tr>
+                    <tr> 
                         <th>Жанр</th>
-                        <!-- <th>{{book.genreList[0].type}}</th> -->
-                        <!-- <th *ngFor="let genre of book.genreList">{{genre.type}}</th> -->
+                        <td>
+                        <select name="" id="">
+                        <option *ngFor="let book of book.genreList">{{book.type}}</option> 
+                        </select>
+                        </td>
                     </tr>
                     <tr>
                         <th>Количество страниц</th>

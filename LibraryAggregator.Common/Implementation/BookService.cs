@@ -57,7 +57,7 @@ namespace LibraryAggregator.Common.Implementation
                 };
                 foreach (var autor in item.AuthorsBooks)
                 {
-                    bookForVM.AuthorFullName += $"{autor.Author.FirstName} {autor.Author.LastName}; ";
+                    bookForVM.AuthorList.Add(autor.Author);
                 }
                 foreach (var genre in item.BooksGenres)
                 {
@@ -84,7 +84,7 @@ namespace LibraryAggregator.Common.Implementation
             };
             foreach (var autor in book.AuthorsBooks)
             {
-                bookForVM.AuthorFullName += $"{autor.Author.FirstName} {autor.Author.LastName}; ";
+                bookForVM.AuthorList.Add(autor.Author);
             }
             foreach (var genre in book.BooksGenres)
             {

@@ -21,6 +21,8 @@ import { BookCardComponent } from './book/book-card/book-card.component';
 import { AuthorCardComponent } from './author/author-card/author-card.component';
 import { AuthorInfoComponent } from './author/author-info/author-info.component';
 import { AuthorComponent } from './author/author.component';
+import { BookInfoComponent } from './book/book-info/book-info.component';
+
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { AuthorComponent } from './author/author.component';
     BookComponent,
     BookAddEditComponent,
     BookCardComponent,
+    BookInfoComponent,
     NavBarComponent,
     MainContentComponent,
     LibraryComponent,

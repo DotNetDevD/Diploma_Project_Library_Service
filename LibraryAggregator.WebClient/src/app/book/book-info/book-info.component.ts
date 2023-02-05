@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BookApiService } from 'src/app/api-services/book-api.service';
-import { Book } from 'src/app/models/book';
+import { Genre } from 'src/app/models/genre';
 import { BookVM } from 'src/app/models/bookVM';
 
 @Component({
@@ -11,7 +11,8 @@ import { BookVM } from 'src/app/models/bookVM';
 })
 export class BookInfoComponent {
   book: BookVM = {
-    genreList: []
+    genreList: [],
+    authorList: []
   };
 
   constructor(private readonly bookService: BookApiService,
