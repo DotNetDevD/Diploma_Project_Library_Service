@@ -28,9 +28,9 @@ namespace LibraryAggregator.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Book>> GetByIdAsync(int id)
+        public async Task<ActionResult<BookVM>> GetByIdAsync(int id)
         {
-            return await _bookService.GetBookByIdAsync(id);
+            return await _bookService.GetInfoForBookVM(id);
         }
 
         [HttpPost]

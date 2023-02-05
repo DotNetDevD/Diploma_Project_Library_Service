@@ -12,5 +12,6 @@ namespace LibraryAggregator.Common.Interface
         Task UpdateBookAsync(int id);
 
         Task<IEnumerable<BookVM>> GetInfoForBookVM();
+        Task<BookVM> GetInfoForBookVM(int id);
     }
 }

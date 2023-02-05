@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BookApiService } from 'src/app/api-services/book-api.service';
 import { Book } from 'src/app/models/book';
+import { BookVM } from 'src/app/models/bookVM';
 
 @Component({
   selector: 'app-book-info',
@@ -9,7 +10,9 @@ import { Book } from 'src/app/models/book';
   styleUrls: ['./book-info.component.css']
 })
 export class BookInfoComponent {
-  book: Book = {};
+  book: BookVM = {
+    genreList: []
+  };
 
   constructor(private readonly bookService: BookApiService,
     private route: ActivatedRoute) { }
