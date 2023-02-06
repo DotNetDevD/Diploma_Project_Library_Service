@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Book } from '../models/book';
-import { BookVM } from '../models/bookVM';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +15,8 @@ export class BookApiService {
   getBookList():Observable<any[]> {
     return this.http.get<any>(this.APIUrl + '/books');
   }
-  getBookById(id: number): Observable<BookVM> {
-    return this.http.get<BookVM>(this.APIUrl + `/books/${id}`)
+  getBookById(id: number): Observable<Book> {
+    return this.http.get<Book>(this.APIUrl + `/books/${id}`)
   }
   addBook(data:any) {
     return this.http.post(this.APIUrl + '/book', data);

@@ -2,9 +2,9 @@ import { Author } from "./author";
 import { Book } from "./book";
 
 export interface AuthorsBooks {
-    AuthorsBooksId?: number;
-    AuthorId?: number;
-    BookId?: number;
-    Author?: Author;
-    Book?: Book;
+    authorsBooksId?: number;
+    authorId?: number;
+    bookId?: number;
+    author?: Author;
+    book?: Book;
 }

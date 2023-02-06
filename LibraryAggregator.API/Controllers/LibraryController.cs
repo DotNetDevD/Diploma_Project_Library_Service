@@ -4,9 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryAggregator.API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class LibraryController : ControllerBase
+    
+    public class LibraryController : ApiBaseController
     {
         private readonly ILibraryService _libraryService;
 

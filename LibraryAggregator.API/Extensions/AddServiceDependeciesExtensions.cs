@@ -7,7 +7,7 @@ namespace LibraryAggregator.API.Extensions
 {
     public static class AddServiceDependeciesExtensions
     {
-        public static void AddServiceDependecies(this IServiceCollection services)
+        public static void AddServicesDependecies(this IServiceCollection services)
         {
             services.AddScoped<IAuthorService, AuthorService>();
             services.AddScoped<IBookService, BookService>();

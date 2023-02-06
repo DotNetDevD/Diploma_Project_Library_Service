@@ -4,9 +4,7 @@ using LibraryAggregator.Common.Interface;
 
 namespace LibraryAggregator.API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class AuthorController : ControllerBase
+    public class AuthorController : ApiBaseController
     {
         private readonly IAuthorService _authorService;
 

@@ -4,9 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryAggregator.API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class GenresController : ControllerBase
+    public class GenresController : ApiBaseController
     {
         private readonly IGenreService _genreService;
 

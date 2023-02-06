@@ -24,7 +24,7 @@ namespace LibraryAggregator.DataLayer.Repository
             return await dbSet.FindAsync(id);
         }
 
-        public async Task<IEnumerable<T>> GetListAsync()
+        public async Task<List<T>> GetListAsync()
         {
             return await dbSet.AsNoTracking().ToListAsync();
         }

@@ -1,13 +1,11 @@
 ﻿using LibraryAggregator.DataLayer.Entities;
 using Microsoft.AspNetCore.Mvc;
 using LibraryAggregator.Common.Interface;
-using LibraryAggregator.DataLayer.ViewModel;
+
 
 namespace LibraryAggregator.API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class BooksController : ControllerBase
+    public class BooksController : ApiBaseController
     {
         private readonly IBookService _bookService;
 
@@ -17,20 +15,15 @@ namespace LibraryAggregator.API.Controllers
         }
 
         [HttpGet(Name = "BooksList")]
-        //public async Task<ActionResult<IEnumerable<Book>>> GetListAsync()
-        //{
-        //    var books = await _bookService.GetBooksListAsync();
-        //    return !books?.Any() ?? true ? NotFound() : Ok(await _bookService.GetBooksListAsync());
-        //}
-        public async Task<IEnumerable<BookVM>> GetListAsync()
+        public async Task<IEnumerable<Book>> GetListAsync()
         {
-            return await _bookService.GetInfoForBookVM();
+            return await _bookService.GetBooksListAsync();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<BookVM>> GetByIdAsync(int id)
+        public async Task<ActionResult<Book>> GetByIdAsync(int id)
         {
-            return await _bookService.GetInfoForBookVM(id);
+            return await _bookService.GetBookByIdAsync(id);
         }
 
         [HttpPost]

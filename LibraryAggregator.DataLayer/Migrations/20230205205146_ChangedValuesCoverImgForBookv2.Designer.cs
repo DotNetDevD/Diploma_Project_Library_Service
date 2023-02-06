@@ -4,6 +4,7 @@ using LibraryAggregator.DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryAggregator.DataLayer.Migrations
 {
     [DbContext(typeof(LibraryDataBaseContext))]
-    partial class LibraryDataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230205205146_ChangedValuesCoverImgForBookv2")]
+    partial class ChangedValuesCoverImgForBookv2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -201,7 +204,7 @@ namespace LibraryAggregator.DataLayer.Migrations
                         new
                         {
                             BookId = 1,
-                            CoverImgPath = "~/Assets/Images/Anna_Karenina.jpg",
+                            CoverImgPath = "~/Images/Anna_Karenina.jpg",
                             Description = "Роман Льва Толстого о трагической любви замужней дамы Анны Карениной и \r\nблестящего офицера Алексея Вронского на фоне счастливой семейной жизни дворян Константина Лёвина\r\n и Кити Щербацкой. Масштабная картина нравов и быта дворянской среды Петербурга и Москвы второй половины XIX века, \r\nсочетающая философские размышления авторского alter ego Лёвина с передовыми в русской литературе психологическими зарисовками, а также сценами из жизни крестьян.",
                             Isbn = "978-5-9268-2544-9",
                             PageCount = 1130,

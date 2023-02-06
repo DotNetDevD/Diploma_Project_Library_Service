@@ -1,4 +1,5 @@
 import { AuthorsBooks } from "./authorsBooks";
+import { BookLibrary } from "./bookLibrary";
 import { BooksGenres } from "./booksGenres";
 
 export interface Book {
@@ -10,7 +11,7 @@ export interface Book {
     description?: string;
     pageCount?: number;
     authorFullName?: string;
-    authorsBooks?: string[];
-    booksGenres?: string[];
-    booksLibraries?: [];
+    authorsBooks: AuthorsBooks[];
+    booksGenres: BooksGenres[];
+    booksLibraries: BookLibrary[];
 }

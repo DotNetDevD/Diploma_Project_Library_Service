@@ -1,6 +1,5 @@
 ﻿using LibraryAggregator.DataLayer.Entities;
 using LibraryAggregator.DataLayer.Repository.IRepository;
-using LibraryAggregator.DataLayer.ViewModel;
 using Microsoft.EntityFrameworkCore;
 
 namespace LibraryAggregator.DataLayer.Repository

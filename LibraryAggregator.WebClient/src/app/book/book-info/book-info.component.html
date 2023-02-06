@@ -28,15 +28,15 @@
                     </tr>
                     <tr >
                         <th>Автор</th>
-                        <td *ngFor="let book of book.authorList">
-                          {{book.lastName}} {{book.firstName}} {{book.middleName}}
+                        <td *ngFor="let book of book.authorsBooks">
+                          {{book.author?.lastName}} {{book.author?.firstName}} {{book.author?.middleName}}
                         </td>
                     </tr>
                     <tr> 
                         <th>Жанр</th>
                         <td>
                         <select name="" id="">
-                        <option *ngFor="let book of book.genreList">{{book.type}}</option> 
+                        <option *ngFor="let book of book.booksGenres">{{book.genre?.type}}</option> 
                         </select>
                         </td>
                     </tr>

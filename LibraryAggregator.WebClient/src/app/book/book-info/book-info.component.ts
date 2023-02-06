@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BookApiService } from 'src/app/api-services/book-api.service';
-import { Genre } from 'src/app/models/genre';
-import { BookVM } from 'src/app/models/bookVM';
+import { Book } from 'src/app/models/book';
 
 @Component({
   selector: 'app-book-info',
@@ -10,9 +9,10 @@ import { BookVM } from 'src/app/models/bookVM';
   styleUrls: ['./book-info.component.css']
 })
 export class BookInfoComponent {
-  book: BookVM = {
-    genreList: [],
-    authorList: []
+  book: Book = {
+    authorsBooks: [],
+    booksGenres: [],
+    booksLibraries: []
   };
 
   constructor(private readonly bookService: BookApiService,
