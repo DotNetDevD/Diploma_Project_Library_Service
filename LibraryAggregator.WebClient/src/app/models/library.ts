@@ -11,5 +11,5 @@ export interface Library {
     shortDiscription?: string;
     coverImage?: string;
     historyOfLibrary?: string;
-   imagesForCarousel?: imagesForCarousel[];
-  }
+    imagesForCarousel?: imagesForCarousel[];
+}

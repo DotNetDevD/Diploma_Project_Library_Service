@@ -11,12 +11,11 @@ builder.Services.AddControllers().
     options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
 });
 
-
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<LibraryDataBaseContext>();
 
-builder.Services.AddDirectoryBrowser(); // 
+builder.Services.AddDirectoryBrowser(); 
 builder.Services.AddRepositoriesDependecies();
 builder.Services.AddServicesDependecies();
 
@@ -40,7 +39,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
 app.UseHttpsRedirection();
 var fileProvider = new PhysicalFileProvider(Path.Combine(builder.Environment.ContentRootPath, "Assets"));
 var requestPath = "/MyImages";
@@ -57,12 +55,6 @@ app.UseDirectoryBrowser(new DirectoryBrowserOptions
     FileProvider = fileProvider,
     RequestPath = requestPath
 });
-
-//app.UseStaticFiles(new StaticFileOptions
-//{
-//    FileProvider = new PhysicalFileProvider(
-//        Path.Combine(builder.Environment.ContentRootPath, "Assets/Images"))
-//});
 
 app.UseAuthorization();
 

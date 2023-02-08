@@ -14,8 +14,8 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                 {
                     BookId = 1,
                     Title = "Анна Каренина",
-                    Isbn = "978-5-9268-2544-9",
-                    CoverImgPath = "https://localhost:7072/MyImages/Images/Anna_Karenina.jpg",
+                    Isbn = "978-5-9268-2544-1",
+                    CoverImgPath = "https://localhost:7072/MyImages/Images/Books/Anna_Karenina.jpg",
                     Description = "Роман Льва Толстого о трагической любви замужней дамы Анны Карениной и \r\nблестящего офицера Алексея Вронского на фоне счастливой семейной жизни дворян Константина Лёвина\r\n и Кити Щербацкой. Масштабная картина нравов и быта дворянской среды Петербурга и Москвы второй половины XIX века, \r\nсочетающая философские размышления авторского alter ego Лёвина с передовыми в русской литературе психологическими зарисовками, а также сценами из жизни крестьян.",
                     PageCount = 1130,
                     PublishDate = new DateTime(1877, 04, 17)
@@ -25,8 +25,8 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                  {
                      BookId = 2,
                      Title = "Человек в футляре",
-                     Isbn = "978-5-389-16173-3",
-                     CoverImgPath = "https://localhost:7072/MyImages/Images/TheManInTheCase.jpg",
+                     Isbn = "978-5-389-16173-2",
+                     CoverImgPath = "https://localhost:7072/MyImages/Images/Books/TheManInTheCase.jpg",
                      Description = "Серия «Маленькая трилогия», состоящая из трёх рассказов — «Человек в футляре», \r\n«Крыжовник», «О любви» — не должна была оканчиваться рассказом «О любви». \r\nВо время написания рассказов произошёл спад активности творчества, а позднее Чехова отвлекло заболевание туберкулезом.\r\nНад рассказом Чехов работал в мае — июне 1898 года в Мелихове. В начале июня 1898 года рассказ готовился к печати, а 15 июня 1898 года рукопись была отправлена в ж",
                      PageCount = 960,
                      PublishDate = new DateTime(1898, 06, 15)
@@ -36,8 +36,8 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                   {
                       BookId = 3,
                       Title = "CLR via C#",
-                      Isbn = "978-5-7502-0348-2",
-                      CoverImgPath = "https://localhost:7072/MyImages/Images/CLR%20via%20C#.jpg",
+                      Isbn = "978-5-7502-0348-1",
+                      CoverImgPath = "https://localhost:7072/MyImages/Images/Books/CLR-via-C.jpg",
                       Description = "Эта книга, выходящая в третьем издании и уже ставшая классическим учебником по программированию,\r\n подробно описывает внутреннее устройство и функционирование общеязыковой исполняющей среды (CLR) Microsoft .NET Framework версии 4.0. \r\nНаписанная признанным экспертом в области программирования Джеффри Рихтером, много лет являющимся консультантом команды разработчиков .NET Framework компании Microsoft, \r\nкнига научит вас создавать по-настоящему надежные приложения любого вида, в том числе с использованием Microsoft Silverlight, ASP.NET, Windows Presentation Foundation и т.д.\r\nТретье издание полностью обновлено в соответствии со спецификацией платформы .NET Framework 4.0 и принципами многоядерного программирования.",
                       PageCount = 896,
                       PublishDate = new DateTime(2008, 02, 11)
@@ -47,8 +47,8 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                    {
                        BookId = 4,
                        Title = "Мастер и Маргарита",
-                       Isbn = "978-5-04-102789-6",
-                       CoverImgPath = "https://localhost:7072/MyImages/Images/The%20master%20and%20margarita.webp",
+                       Isbn = "978-5-04-102789-1",
+                       CoverImgPath = "https://localhost:7072/MyImages/Images/Books/The%20master%20and%20margarita.jpg",
                        Description = "«Ма́стер и Маргари́та» — роман Михаила Афанасьевича Булгакова, работа над которым началась в декабре 1928 года и продолжалась вплоть до смерти писателя в марте 1940 года.\r\n Роман относится к незавершённым произведениям; редактирование и сведение воедино черновых записей осуществляла после смерти мужа вдова писателя — Елена Сергеевна. \r\nПервая версия романа, имевшая названия «Копыто инженера», «Чёрный маг» и другие, была уничтожена Булгаковым в 1930 году. \r\nВ последующих редакциях среди героев произведения появились автор романа о Понтии Пилате и его возлюбленная. Окончательное название — «Мастер и Маргарита» — оформилось в 1937 году.\r\n\r\nПервая публикация произведения в сокращённом виде была осуществлена в 1966—1967 годах (журнал «Москва», предисловие Константина Симонова, послесловие Абрама Вулиса). \r\nПервое полное издание книги на русском языке вышло в 1967 году (издательство «YMCA-Press», Париж).\r\n В СССР книжный вариант без купюр увидел свет в 1973 году (издательство «Художественная литература», тираж 30 000 экземпляров). \r\nПроизведение неоднократно экранизировано и инсценировано.",
                        PageCount = 1130,
                        PublishDate = new DateTime(1966, 12, 03)
@@ -58,8 +58,8 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                    {
                        BookId = 5,
                        Title = "Смерть Ивана Ильича",
-                       Isbn = "978-5-699-15152-3",
-                       CoverImgPath = "https://localhost:7072/MyImages/Images/The%20death%20of%20Ivan%20Ilyich.jpeg",
+                       Isbn = "978-5-699-15152-2",
+                       CoverImgPath = "https://localhost:7072/MyImages/Images/Books/The%20death%20of%20Ivan%20Ilyich.jpeg",
                        Description = "Повесть Л. Н. Толстого, над которой он работал с 1882 по 1886 год, внПовесть широко признана одной из вершин мировой литературы[1] и величайшим свершением Толстого в области малой литературной формы.Входит во Всемирную библиотеку(серия книг Норвежского книжного клуба)",
                        PageCount = 543,
                        PublishDate = new DateTime(1886, 10, 12)
@@ -78,7 +78,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                     LastName = "Толстой",
                     MiddleName = "Николаевич",
                     DateOfBirth = new DateTime(1828, 09, 9),
-                    CoverImg = "https://cdnn1.inosmi.ru/img/15742/32/157423296_0:0:0:0_1240x0_80_0_0_9490582cecae850e760624f47427f8b7.jpg",
+                    CoverImg = "https://localhost:7072/MyImages/Images/Authors/lev-tolstoy.jpg",
                     Biography = "Один из наиболее широко известных русских писателей и мыслителей, почитаемый как один из величайших писателей мира. Участник обороны Севастополя. Просветитель, публицист, религиозный мыслитель, чьё авторитетное мнение послужило причиной возникновения нового религиозно-нравственного течения — толстовства. Член-корреспондент Императорской Академии наук (1873), почётный академик по разряду изящной словесности (1900)."
                 },
 
@@ -89,7 +89,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                     LastName = "Чехов",
                     MiddleName = "Павлович",
                     DateOfBirth = new DateTime(1860, 01, 29),
-                    CoverImg = "https://s13.stc.yc.kpcdn.net/share/i/12/10343093/wr-960.webp",
+                    CoverImg = "https://localhost:7072/MyImages/Images/Authors/anton-chekhov.jpg",
                     Biography = "Антон Павлович Чехов родился в Таганроге. Обучался в греческой школе, затем в классической гимназии. В 1876 году отец Чехова разорился и был вынужден бежать в Москву, а Антон Павлович остался в Таганроге. Свои первые литературные работы Чехов под разными псевдонимами посылает в столичные журналы; среди его первых произведений не сохранившиеся комедии \"Нашла коса на камень\" и \"Недаром курица пела\", в так же солидная драма \"Безотцовщина\"."
                 },
 
@@ -101,7 +101,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                     MiddleName = null,
                     DateOfBirth = new DateTime(1964, 07, 27),
                     Biography = "Джеффри Рихтер – программист, автор самых известных книг о Win32 и .NET. Рихтер – один из учредителей компании Wintellect, занимающейся подготовкой IT-специалистов и предоставлением консалтинговых услуг фирмам-разработчикам ПО. Рихтер работал с такими компаниями как Intel, DreamWorks и Microsoft.",
-                    CoverImg = "https://m.media-amazon.com/images/I/815BcutlJoL._SY600_.jpg",
+                    CoverImg = "https://localhost:7072/MyImages/Images/Authors/dzheffri-rihter.jpg",
                 },
 
                 new Author
@@ -112,7 +112,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                     MiddleName = "Афанасьевич",
                     DateOfBirth = new DateTime(1891, 05, 03),
                     Biography = "Учился в Первой Киевской гимназии, позднее — на медицинском факультете Киевского университета. Первую пробу пера совершил в семилетнем возрасте, написав рассказ «Похождения Светланы».",
-                    CoverImg = "https://rus.team/images/article/4579/2019-03-07-373_15367-1_766329.webp"
+                    CoverImg = "https://localhost:7072/MyImages/Images/Authors/mikhail-bulgakov.jpg"
                 }
             );
         }  // Authors
@@ -182,13 +182,13 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                 new Genre
                 {
                     GenreId = 4,
-                    Type = "роман"
+                    Type = "Роман"
                 },
 
                 new Genre
                 {
                     GenreId = 5,
-                    Type = "рассказ"
+                    Type = "Рассказ"
                 }
              );
         }// Genre
@@ -238,8 +238,8 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                     Email = "www.nlb.by",
                     ChartLink = "https://yandex.by/maps/org/natsionalnaya_biblioteka_belarusi/1087338903/?ll=27.647557%2C53.930867&z=16.48",
                     ShortDiscription = "Национальная библиотека Беларуси (НББ)",
-                    CoverImage = "https://www.belarus.by/dadvimages/001339_318669.jpg",
-                    DirectorPhotoLink = "https://www.belarus.by/dadvimages/001339_318669.jpg",
+                    CoverImage = "https://localhost:7072/MyImages/Images/Libraries/natsionalnaya_biblioteka.jpg",
+                    DirectorPhotoLink = "https://localhost:7072/MyImages/Images/Libraries/natsionalnaya_biblioteka.jpg",
                     AgeGroup = "Нет ограничений ",
                     HistoryOfLibrary = "Национальная библиотека Беларуси (НББ) была основана постановлением Совета народных комиссаров БССР в 1922 году как Белорусская государственная и университетская библиотека Белорусского государственного университета (БГУ). На момент открытия фонды библиотеки насчитывали всего 60 тысяч экземпляров, которыми пользовались 1,1 тысячи человек. Первым собственным зданием библиотеки стал Юбилейный дом на Захарьевской улице (ныне — проспект Независимости). Постановлением СНК БССР от 14 мая 1926 году библиотека была выведена из состава БГУ и реорганизована в Белорусскую государственную библиотеку. В 1932 году библиотеке было присвоено имя В. И. Ленина. В тот же год библиотека получила новое здание архитектора Г. Лаврова в конструктивистском стиле. ",
                 },
@@ -252,8 +252,8 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                      Email = "www.publib.by/",
                      ChartLink = "https://yandex.by/maps/org/natsionalnaya_biblioteka_belarusi/1087338903/?ll=27.647557%2C53.930867&z=16.48",
                      ShortDiscription = "Цэнтральная бібліятэка імя Янкі Купалы",
-                     CoverImage = "https://publib.by/wp-content/uploads/2022/06/czentralnaya-biblioteka-imeni-yanki-kupaly-1.jpg",
-                     DirectorPhotoLink = "https://publib.by/wp-content/uploads/2022/06/czentralnaya-biblioteka-imeni-yanki-kupaly-1.jpg",
+                     CoverImage = "https://localhost:7072/MyImages/Images/Libraries/czentralnaya-biblioteka-imeni-yanki-kupaly.jpg",
+                     DirectorPhotoLink = "https://localhost:7072/MyImages/Images/Libraries/czentralnaya-biblioteka-imeni-yanki-kupaly.jpg",
                      AgeGroup = "Нет ограничений",
                      HistoryOfLibrary = "Сёння Цэнтральная бібліятэка імя Янкі Купалы – гэта: ТРАДЫЦЫЯ БЫЦЬ ПАТРЭБНАЙ",
                  }
@@ -267,19 +267,19 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                     new ImagesForCarousel
                     {
                         ImagesForCarouselId = 1,
-                        Link = "https://pbs.twimg.com/media/FCjAA-kXEAQbwqC?format=jpg&name=medium",
+                        Link = "https://localhost:7072/MyImages/Images/Libraries/natsionalnaya_biblioteka-1.jpg",
                         LibraryId = 1
                     },
                     new ImagesForCarousel
                     {
                         ImagesForCarouselId = 2,
-                        Link = "https://extraguide.ru/images/blog/2020/12-12-3iz798-natsionalnaya-biblioteka-belarusi.jpeg",
+                        Link = "https://localhost:7072/MyImages/Images/Libraries/natsionalnaya_biblioteka-2.jpg",
                         LibraryId = 1
                     },
                     new ImagesForCarousel
                     {
                         ImagesForCarouselId = 3,
-                        Link = "https://teenage.by/uploads/articlesImage/1552289035",
+                        Link = "https://localhost:7072/MyImages/Images/Libraries/natsionalnaya_biblioteka-3.jpg",
                         LibraryId = 1
                     }
                 );
