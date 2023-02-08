@@ -4,6 +4,7 @@ using LibraryAggregator.DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryAggregator.DataLayer.Migrations
 {
     [DbContext(typeof(LibraryDataBaseContext))]
-    partial class LibraryDataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230208123333_AddWWWroot")]
+    partial class AddWWWroot
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -211,7 +214,7 @@ namespace LibraryAggregator.DataLayer.Migrations
                         new
                         {
                             BookId = 2,
-                            CoverImgPath = "https://localhost:7072/MyImages/Images/TheManInTheCase.jpg",
+                            CoverImgPath = "https://images.onlinetestpad.com/e7/1c/4b158ed94c1280f7d5598a4db559.jpg",
                             Description = "Серия «Маленькая трилогия», состоящая из трёх рассказов — «Человек в футляре», \r\n«Крыжовник», «О любви» — не должна была оканчиваться рассказом «О любви». \r\nВо время написания рассказов произошёл спад активности творчества, а позднее Чехова отвлекло заболевание туберкулезом.\r\nНад рассказом Чехов работал в мае — июне 1898 года в Мелихове. В начале июня 1898 года рассказ готовился к печати, а 15 июня 1898 года рукопись была отправлена в ж",
                             Isbn = "978-5-389-16173-3",
                             PageCount = 960,
@@ -221,7 +224,7 @@ namespace LibraryAggregator.DataLayer.Migrations
                         new
                         {
                             BookId = 3,
-                            CoverImgPath = "https://localhost:7072/MyImages/Images/CLR%20via%20C#.jpg",
+                            CoverImgPath = "https://i.simpalsmedia.com/999.md/BoardImages/900x900/e059d58b94220cddeed88f43785317f2.jpg",
                             Description = "Эта книга, выходящая в третьем издании и уже ставшая классическим учебником по программированию,\r\n подробно описывает внутреннее устройство и функционирование общеязыковой исполняющей среды (CLR) Microsoft .NET Framework версии 4.0. \r\nНаписанная признанным экспертом в области программирования Джеффри Рихтером, много лет являющимся консультантом команды разработчиков .NET Framework компании Microsoft, \r\nкнига научит вас создавать по-настоящему надежные приложения любого вида, в том числе с использованием Microsoft Silverlight, ASP.NET, Windows Presentation Foundation и т.д.\r\nТретье издание полностью обновлено в соответствии со спецификацией платформы .NET Framework 4.0 и принципами многоядерного программирования.",
                             Isbn = "978-5-7502-0348-2",
                             PageCount = 896,
@@ -231,7 +234,7 @@ namespace LibraryAggregator.DataLayer.Migrations
                         new
                         {
                             BookId = 4,
-                            CoverImgPath = "https://localhost:7072/MyImages/Images/The%20master%20and%20margarita.webp",
+                            CoverImgPath = "https://avatars.dzeninfra.ru/get-zen_doc/2816669/pub_5ee20b1557defd169d7c3d5d_5ee20b4247f3067b1b8556af/scale_1200",
                             Description = "«Ма́стер и Маргари́та» — роман Михаила Афанасьевича Булгакова, работа над которым началась в декабре 1928 года и продолжалась вплоть до смерти писателя в марте 1940 года.\r\n Роман относится к незавершённым произведениям; редактирование и сведение воедино черновых записей осуществляла после смерти мужа вдова писателя — Елена Сергеевна. \r\nПервая версия романа, имевшая названия «Копыто инженера», «Чёрный маг» и другие, была уничтожена Булгаковым в 1930 году. \r\nВ последующих редакциях среди героев произведения появились автор романа о Понтии Пилате и его возлюбленная. Окончательное название — «Мастер и Маргарита» — оформилось в 1937 году.\r\n\r\nПервая публикация произведения в сокращённом виде была осуществлена в 1966—1967 годах (журнал «Москва», предисловие Константина Симонова, послесловие Абрама Вулиса). \r\nПервое полное издание книги на русском языке вышло в 1967 году (издательство «YMCA-Press», Париж).\r\n В СССР книжный вариант без купюр увидел свет в 1973 году (издательство «Художественная литература», тираж 30 000 экземпляров). \r\nПроизведение неоднократно экранизировано и инсценировано.",
                             Isbn = "978-5-04-102789-6",
                             PageCount = 1130,
@@ -241,7 +244,7 @@ namespace LibraryAggregator.DataLayer.Migrations
                         new
                         {
                             BookId = 5,
-                            CoverImgPath = "https://localhost:7072/MyImages/Images/The%20death%20of%20Ivan%20Ilyich.jpeg",
+                            CoverImgPath = "https://ieducations.ru/wp-content/uploads/a/5/c/a5c57a4e7be1d79bb9a00a2ca6212d72.jpeg",
                             Description = "Повесть Л. Н. Толстого, над которой он работал с 1882 по 1886 год, внПовесть широко признана одной из вершин мировой литературы[1] и величайшим свершением Толстого в области малой литературной формы.Входит во Всемирную библиотеку(серия книг Норвежского книжного клуба)",
                             Isbn = "978-5-699-15152-3",
                             PageCount = 543,

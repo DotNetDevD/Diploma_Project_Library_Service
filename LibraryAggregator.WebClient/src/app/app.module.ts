@@ -26,6 +26,7 @@ import localeRu from '@angular/common/locales/ru';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BookInfoComponent } from './book/book-info/book-info.component';
 
+
 registerLocaleData(localeRu);
 
 @NgModule({

@@ -25,4 +25,8 @@
     <ProjectReference Include="..\LibraryAggregator.DataLayer\LibraryAggregator.DataLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Assets\Images\" />
+  </ItemGroup>
+
 </Project>

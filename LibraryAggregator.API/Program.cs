@@ -1,6 +1,7 @@
 using LibraryAggregator.DataLayer;
 using System.Text.Json.Serialization;
 using LibraryAggregator.API.Extensions;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -15,7 +16,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<LibraryDataBaseContext>();
 
-
+builder.Services.AddDirectoryBrowser(); // 
 builder.Services.AddRepositoriesDependecies();
 builder.Services.AddServicesDependecies();
 
@@ -41,6 +42,27 @@ if (app.Environment.IsDevelopment())
 
 
 app.UseHttpsRedirection();
+var fileProvider = new PhysicalFileProvider(Path.Combine(builder.Environment.ContentRootPath, "Assets"));
+var requestPath = "/MyImages";
+
+// Enable displaying browser links.
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = fileProvider,
+    RequestPath = requestPath
+});
+
+app.UseDirectoryBrowser(new DirectoryBrowserOptions
+{
+    FileProvider = fileProvider,
+    RequestPath = requestPath
+});
+
+//app.UseStaticFiles(new StaticFileOptions
+//{
+//    FileProvider = new PhysicalFileProvider(
+//        Path.Combine(builder.Environment.ContentRootPath, "Assets/Images"))
+//});
 
 app.UseAuthorization();
 
