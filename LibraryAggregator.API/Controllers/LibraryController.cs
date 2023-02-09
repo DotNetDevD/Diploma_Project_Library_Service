@@ -23,7 +23,7 @@ namespace LibraryAggregator.API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Library>> GetFullInformationLibraryByIdAsync(int id)
         {
-            return await _libraryService.GetLibrariesListAsync(id);
+            return await _libraryService.GetLibraryInfoAsync(id);
         }
 
         [HttpPost]

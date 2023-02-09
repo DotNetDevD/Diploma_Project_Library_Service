@@ -36,7 +36,7 @@ namespace LibraryAggregator.Common.Implementation
         {
             await _libraryRepository.UpdateAsync(id);
         }
-        public async Task<Library> GetLibrariesListAsync(int id)
+        public async Task<Library> GetLibraryInfoAsync(int id)
         {
             return await _libraryRepository.GetFullInfoLibraryAsync(id);
         }

@@ -9,6 +9,6 @@ namespace LibraryAggregator.Common.Interface
         Task<Library> GetByIdAsync(int id);
         Task<IEnumerable<Library>> GetLibrariesListAsync();
         Task UpdateLibraryAsync(int id);
-        Task<Library> GetLibrariesListAsync(int id);
+        Task<Library> GetLibraryInfoAsync(int id);
     }
 }
