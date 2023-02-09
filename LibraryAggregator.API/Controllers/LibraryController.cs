@@ -15,16 +15,15 @@ namespace LibraryAggregator.API.Controllers
         }
 
         [HttpGet(Name = "LibrariesList")]
-        public async Task<ActionResult<IEnumerable<Library>>> GetListAsync()
+        public async Task<IEnumerable<Library>> GetListAsync()
         {
-            var library = await _libraryService.GetLibrariesListAsync();
-            return !library?.Any() ?? true ? NotFound() : Ok(await _libraryService.GetLibrariesListAsync());
+            return await _libraryService.GetLibrariesListAsync(); 
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Library>> GetByIdAsync(int id)
+        public async Task<ActionResult<Library>> GetFullInformationLibraryByIdAsync(int id)
         {
-            return await _libraryService.GetByIdAsync(id);
+            return await _libraryService.GetLibrariesListAsync(id);
         }
 
         [HttpPost]

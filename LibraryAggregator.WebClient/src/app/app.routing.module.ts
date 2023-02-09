@@ -14,6 +14,7 @@ import { MainContentComponent } from "./main-content/main-content.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 const appRoutes: Routes = [
+
     { path: 'book', component: BookComponent },
     { path: 'book-info/:id', component: BookInfoComponent },
     { path: 'book-card', component: BookCardComponent },
@@ -27,6 +28,7 @@ const appRoutes: Routes = [
     { path: 'index', component: MainContentComponent },
     { path: '', redirectTo: '/index', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
+    
 ];
 
 @NgModule({

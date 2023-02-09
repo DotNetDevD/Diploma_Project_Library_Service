@@ -29,12 +29,16 @@ namespace LibraryAggregator.Common.Implementation
 
         public async Task<IEnumerable<Library>> GetLibrariesListAsync()
         {
-            return await _libraryRepository.GetAllFullInfoLibrariesAsync();
+            return await _libraryRepository.GetFullInfoLibrariesAsync();
         }
 
         public async Task UpdateLibraryAsync(int id)
         {
             await _libraryRepository.UpdateAsync(id);
+        }
+        public async Task<Library> GetLibrariesListAsync(int id)
+        {
+            return await _libraryRepository.GetFullInfoLibraryAsync(id);
         }
     }
 }
