@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Author } from '../models/author';
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { Author } from '../models/author';
 export class AuthorApiService {
 
   readonly APIUrl = "https://localhost:7072/api";
-
+  
   constructor(private http:HttpClient) { }
 
   // Authors
