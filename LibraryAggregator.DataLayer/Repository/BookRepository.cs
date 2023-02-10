@@ -17,7 +17,7 @@ namespace LibraryAggregator.DataLayer.Repository
                 .ThenInclude(u => u.Author)
                 .FirstOrDefaultAsync(b => b.BookId == id);
         }
-        public async Task<List<Book>> GetFullInfoBooksAsync()
+        public async Task<IEnumerable<Book>> GetFullInfoBooksAsync()
         {
             return await dbSet.Include(u => u.BooksGenres)
                 .ThenInclude(bl => bl.Genre)

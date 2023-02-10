@@ -66,7 +66,7 @@ namespace LibraryAggregator.DataLayer.Migrations
                         {
                             AuthorId = 1,
                             Biography = "Один из наиболее широко известных русских писателей и мыслителей, почитаемый как один из величайших писателей мира. Участник обороны Севастополя. Просветитель, публицист, религиозный мыслитель, чьё авторитетное мнение послужило причиной возникновения нового религиозно-нравственного течения — толстовства. Член-корреспондент Императорской Академии наук (1873), почётный академик по разряду изящной словесности (1900).",
-                            CoverImgPath = "MyImages/Images/Authors/lev-tolstoy.jpg",
+                            CoverImgPath = "Assets/Images/Authors/lev-tolstoy.jpg",
                             DateOfBirth = new DateTime(1828, 9, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Лев",
                             LastName = "Толстой",
@@ -76,7 +76,7 @@ namespace LibraryAggregator.DataLayer.Migrations
                         {
                             AuthorId = 2,
                             Biography = "Антон Павлович Чехов родился в Таганроге. Обучался в греческой школе, затем в классической гимназии. В 1876 году отец Чехова разорился и был вынужден бежать в Москву, а Антон Павлович остался в Таганроге. Свои первые литературные работы Чехов под разными псевдонимами посылает в столичные журналы; среди его первых произведений не сохранившиеся комедии \"Нашла коса на камень\" и \"Недаром курица пела\", в так же солидная драма \"Безотцовщина\".",
-                            CoverImgPath = "MyImages/Images/Authors/anton-chekhov.jpg",
+                            CoverImgPath = "Assets/Images/Authors/anton-chekhov.jpg",
                             DateOfBirth = new DateTime(1860, 1, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Антон",
                             LastName = "Чехов",
@@ -86,7 +86,7 @@ namespace LibraryAggregator.DataLayer.Migrations
                         {
                             AuthorId = 3,
                             Biography = "Джеффри Рихтер – программист, автор самых известных книг о Win32 и .NET. Рихтер – один из учредителей компании Wintellect, занимающейся подготовкой IT-специалистов и предоставлением консалтинговых услуг фирмам-разработчикам ПО. Рихтер работал с такими компаниями как Intel, DreamWorks и Microsoft.",
-                            CoverImgPath = "MyImages/Images/Authors/dzheffri-rihter.jpg",
+                            CoverImgPath = "Assets/Images/Authors/dzheffri-rihter.jpg",
                             DateOfBirth = new DateTime(1964, 7, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Джефри",
                             LastName = "Рихтер"
@@ -95,7 +95,7 @@ namespace LibraryAggregator.DataLayer.Migrations
                         {
                             AuthorId = 4,
                             Biography = "Учился в Первой Киевской гимназии, позднее — на медицинском факультете Киевского университета. Первую пробу пера совершил в семилетнем возрасте, написав рассказ «Похождения Светланы».",
-                            CoverImgPath = "MyImages/Images/Authors/mikhail-bulgakov.jpg",
+                            CoverImgPath = "Assets/Images/Authors/mikhail-bulgakov.jpg",
                             DateOfBirth = new DateTime(1891, 5, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Михаил",
                             LastName = "Булгаков",
@@ -207,7 +207,7 @@ namespace LibraryAggregator.DataLayer.Migrations
                         new
                         {
                             BookId = 1,
-                            CoverImgPath = "MyImages/Images/Books/Anna_Karenina.jpg",
+                            CoverImgPath = "Assets/Images/Books/Anna_Karenina.jpg",
                             Description = "Роман Льва Толстого о трагической любви замужней дамы Анны Карениной и \r\nблестящего офицера Алексея Вронского на фоне счастливой семейной жизни дворян Константина Лёвина\r\n и Кити Щербацкой. Масштабная картина нравов и быта дворянской среды Петербурга и Москвы второй половины XIX века, \r\nсочетающая философские размышления авторского alter ego Лёвина с передовыми в русской литературе психологическими зарисовками, а также сценами из жизни крестьян.",
                             Isbn = "978-5-9268-2544-1",
                             PageCount = 1130,
@@ -217,7 +217,7 @@ namespace LibraryAggregator.DataLayer.Migrations
                         new
                         {
                             BookId = 2,
-                            CoverImgPath = "MyImages/Images/Books/TheManInTheCase.jpg",
+                            CoverImgPath = "Assets/Images/Books/TheManInTheCase.jpg",
                             Description = "Серия «Маленькая трилогия», состоящая из трёх рассказов — «Человек в футляре», \r\n«Крыжовник», «О любви» — не должна была оканчиваться рассказом «О любви». \r\nВо время написания рассказов произошёл спад активности творчества, а позднее Чехова отвлекло заболевание туберкулезом.\r\nНад рассказом Чехов работал в мае — июне 1898 года в Мелихове. В начале июня 1898 года рассказ готовился к печати, а 15 июня 1898 года рукопись была отправлена в ж",
                             Isbn = "978-5-389-16173-2",
                             PageCount = 960,
@@ -227,7 +227,7 @@ namespace LibraryAggregator.DataLayer.Migrations
                         new
                         {
                             BookId = 3,
-                            CoverImgPath = "MyImages/Images/Books/CLR-via-C.jpg",
+                            CoverImgPath = "Assets/Images/Books/CLR-via-C.jpg",
                             Description = "Эта книга, выходящая в третьем издании и уже ставшая классическим учебником по программированию,\r\n подробно описывает внутреннее устройство и функционирование общеязыковой исполняющей среды (CLR) Microsoft .NET Framework версии 4.0. \r\nНаписанная признанным экспертом в области программирования Джеффри Рихтером, много лет являющимся консультантом команды разработчиков .NET Framework компании Microsoft, \r\nкнига научит вас создавать по-настоящему надежные приложения любого вида, в том числе с использованием Microsoft Silverlight, ASP.NET, Windows Presentation Foundation и т.д.\r\nТретье издание полностью обновлено в соответствии со спецификацией платформы .NET Framework 4.0 и принципами многоядерного программирования.",
                             Isbn = "978-5-7502-0348-1",
                             PageCount = 896,
@@ -237,7 +237,7 @@ namespace LibraryAggregator.DataLayer.Migrations
                         new
                         {
                             BookId = 4,
-                            CoverImgPath = "MyImages/Images/Books/The%20master%20and%20margarita.jpg",
+                            CoverImgPath = "Assets/Images/Books/The%20master%20and%20margarita.jpg",
                             Description = "«Ма́стер и Маргари́та» — роман Михаила Афанасьевича Булгакова, работа над которым началась в декабре 1928 года и продолжалась вплоть до смерти писателя в марте 1940 года.\r\n Роман относится к незавершённым произведениям; редактирование и сведение воедино черновых записей осуществляла после смерти мужа вдова писателя — Елена Сергеевна. \r\nПервая версия романа, имевшая названия «Копыто инженера», «Чёрный маг» и другие, была уничтожена Булгаковым в 1930 году. \r\nВ последующих редакциях среди героев произведения появились автор романа о Понтии Пилате и его возлюбленная. Окончательное название — «Мастер и Маргарита» — оформилось в 1937 году.\r\n\r\nПервая публикация произведения в сокращённом виде была осуществлена в 1966—1967 годах (журнал «Москва», предисловие Константина Симонова, послесловие Абрама Вулиса). \r\nПервое полное издание книги на русском языке вышло в 1967 году (издательство «YMCA-Press», Париж).\r\n В СССР книжный вариант без купюр увидел свет в 1973 году (издательство «Художественная литература», тираж 30 000 экземпляров). \r\nПроизведение неоднократно экранизировано и инсценировано.",
                             Isbn = "978-5-04-102789-1",
                             PageCount = 1130,
@@ -247,7 +247,7 @@ namespace LibraryAggregator.DataLayer.Migrations
                         new
                         {
                             BookId = 5,
-                            CoverImgPath = "MyImages/Images/Books/The%20death%20of%20Ivan%20Ilyich.jpeg",
+                            CoverImgPath = "Assets/Images/Books/The%20death%20of%20Ivan%20Ilyich.jpeg",
                             Description = "Повесть Л. Н. Толстого, над которой он работал с 1882 по 1886 год, внПовесть широко признана одной из вершин мировой литературы[1] и величайшим свершением Толстого в области малой литературной формы.Входит во Всемирную библиотеку(серия книг Норвежского книжного клуба)",
                             Isbn = "978-5-699-15152-2",
                             PageCount = 543,
@@ -398,6 +398,11 @@ namespace LibraryAggregator.DataLayer.Migrations
                         {
                             GenreId = 5,
                             Type = "Рассказ"
+                        },
+                        new
+                        {
+                            GenreId = 6,
+                            Type = "Детектив"
                         });
                 });
 
@@ -428,37 +433,37 @@ namespace LibraryAggregator.DataLayer.Migrations
                         new
                         {
                             ImagesForCarouselId = 1,
-                            CoverImgPath = "MyImages/Images/Libraries/Carousel/natsionalnaya_biblioteka-1.jpg",
+                            CoverImgPath = "Assets/Images/Libraries/Carousel/natsionalnaya_biblioteka-1.jpg",
                             LibraryId = 1
                         },
                         new
                         {
                             ImagesForCarouselId = 2,
-                            CoverImgPath = "MyImages/Images/Libraries/Carousel/natsionalnaya_biblioteka-2.jpg",
+                            CoverImgPath = "Assets/Images/Libraries/Carousel/natsionalnaya_biblioteka-2.jpg",
                             LibraryId = 1
                         },
                         new
                         {
                             ImagesForCarouselId = 3,
-                            CoverImgPath = "MyImages/Images/Libraries/Carousel/natsionalnaya_biblioteka-3.jpg",
+                            CoverImgPath = "Assets/Images/Libraries/Carousel/natsionalnaya_biblioteka-3.jpg",
                             LibraryId = 1
                         },
                         new
                         {
                             ImagesForCarouselId = 4,
-                            CoverImgPath = "MyImages/Images/Libraries/Carousel/imeni-yanki-kupaly-3.jpg",
+                            CoverImgPath = "Assets/Images/Libraries/Carousel/imeni-yanki-kupaly-3.jpg",
                             LibraryId = 2
                         },
                         new
                         {
                             ImagesForCarouselId = 5,
-                            CoverImgPath = "MyImages/Images/Libraries/Carousel/imeni-yanki-kupaly-2.jpg",
+                            CoverImgPath = "Assets/Images/Libraries/Carousel/imeni-yanki-kupaly-2.jpg",
                             LibraryId = 2
                         },
                         new
                         {
                             ImagesForCarouselId = 6,
-                            CoverImgPath = "MyImages/Images/Libraries/Carousel/imeni-yanki-kupaly-3.jpg",
+                            CoverImgPath = "Assets/Images/Libraries/Carousel/imeni-yanki-kupaly-3.jpg",
                             LibraryId = 2
                         });
                 });
@@ -519,8 +524,8 @@ namespace LibraryAggregator.DataLayer.Migrations
                             LibraryId = 1,
                             Address = "просп.Независимости, 11б",
                             AgeGroup = "Нет ограничений ",
-                            CoverImgPath = "MyImages/Images/Libraries/natsionalnaya_biblioteka.jpg",
-                            DirectorPhotoLink = "MyImages/Images/Libraries/natsionalnaya_biblioteka.jpg",
+                            CoverImgPath = "Assets/Images/Libraries/natsionalnaya_biblioteka.jpg",
+                            DirectorPhotoLink = "Assets/Images/Libraries/natsionalnaya_biblioteka.jpg",
                             Email = "www.nlb.by",
                             HistoryOfLibrary = "Национальная библиотека Беларуси (НББ) была основана постановлением Совета народных комиссаров БССР в 1922 году как Белорусская государственная и университетская библиотека Белорусского государственного университета (БГУ). На момент открытия фонды библиотеки насчитывали всего 60 тысяч экземпляров, которыми пользовались 1,1 тысячи человек. Первым собственным зданием библиотеки стал Юбилейный дом на Захарьевской улице (ныне — проспект Независимости). Постановлением СНК БССР от 14 мая 1926 году библиотека была выведена из состава БГУ и реорганизована в Белорусскую государственную библиотеку. В 1932 году библиотеке было присвоено имя В. И. Ленина. В тот же год библиотека получила новое здание архитектора Г. Лаврова в конструктивистском стиле. ",
                             MapLink = "https://yandex.by/maps/org/natsionalnaya_biblioteka_belarusi/1087338903/?ll=27.647557%2C53.930867&z=16.48",
@@ -533,8 +538,8 @@ namespace LibraryAggregator.DataLayer.Migrations
                             LibraryId = 2,
                             Address = "Улица Веры Хоружей 16",
                             AgeGroup = "Нет ограничений",
-                            CoverImgPath = "MyImages/Images/Libraries/czentralnaya-biblioteka-imeni-yanki-kupaly.jpg",
-                            DirectorPhotoLink = "MyImages/Images/Libraries/czentralnaya-biblioteka-imeni-yanki-kupaly.jpg",
+                            CoverImgPath = "Assets/Images/Libraries/czentralnaya-biblioteka-imeni-yanki-kupaly.jpg",
+                            DirectorPhotoLink = "Assets/Images/Libraries/czentralnaya-biblioteka-imeni-yanki-kupaly.jpg",
                             Email = "www.publib.by/",
                             HistoryOfLibrary = "Сёння Цэнтральная бібліятэка імя Янкі Купалы – гэта: ТРАДЫЦЫЯ БЫЦЬ ПАТРЭБНАЙ",
                             MapLink = "https://yandex.by/maps/org/natsionalnaya_biblioteka_belarusi/1087338903/?ll=27.647557%2C53.930867&z=16.48",

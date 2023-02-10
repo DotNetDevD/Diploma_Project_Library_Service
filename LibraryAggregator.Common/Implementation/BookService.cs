@@ -8,31 +8,28 @@ namespace LibraryAggregator.Common.Implementation
     public class BookService : IBookService
     {
         private readonly IBookRepository _bookRepository;
-        private readonly IConfiguration _configuration;
-        public BookService(IBookRepository bookRepository, IConfiguration configuration)
+        private readonly IUrlProviderService _urlProviderService;
+        public BookService(IBookRepository bookRepository, IUrlProviderService urlProviderService)
         {
             _bookRepository = bookRepository;
-            _configuration = configuration;
+            _urlProviderService = urlProviderService;
         }
 
         public async Task<IEnumerable<Book>> GetBooksListAsync()
         {
-            List<Book> books = await _bookRepository.GetFullInfoBooksAsync();
-            books.ForEach(b => ConcatStaticUrl(b));
+            IEnumerable<Book> books = await _bookRepository.GetFullInfoBooksAsync();
+            foreach (var book in books)
+            {
+                book.Url = _urlProviderService.ConcatHostUrl(book.CoverImgPath);
+            }    
             return books;
         }
 
         public async Task<Book> GetBookByIdAsync(int id)
         {
             Book book = await _bookRepository.GetFullInfoBookAsync(id);
-            ConcatStaticUrl(book);
+            book.Url = _urlProviderService.ConcatHostUrl(book.CoverImgPath);
             return book;
-        }
-
-        private void ConcatStaticUrl(Book book)
-        {
-            var imageStorageHost = _configuration["ImageStorageHost"];
-            book.Url = $"{imageStorageHost}{book.CoverImgPath}";
         }
 
         public async Task CreateBookAsync(Book book)

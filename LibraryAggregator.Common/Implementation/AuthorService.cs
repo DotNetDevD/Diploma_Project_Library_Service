@@ -1,39 +1,35 @@
 ﻿using LibraryAggregator.Common.Interface;
 using LibraryAggregator.DataLayer.Entities;
 using LibraryAggregator.DataLayer.Repository.IRepository;
-using Microsoft.Extensions.Configuration;
 
 namespace LibraryAggregator.Common.Implementation
 {
     public class AuthorService : IAuthorService
     {
         private readonly IAuthorRepository _authorRepository;
-        private readonly IConfiguration _configuration;
+        private readonly IUrlProviderService _urlProviderService;
 
-        public AuthorService(IAuthorRepository authorRepository, IConfiguration configuration)
+        public AuthorService(IAuthorRepository authorRepository, IUrlProviderService urlProviderService)
         {
             _authorRepository = authorRepository;
-            _configuration = configuration;
+            _urlProviderService = urlProviderService;
         }
 
         public async Task<IEnumerable<Author>> GetAuthorsListAsync()
         {
-            List<Author> authors = await _authorRepository.GetFullInfoAuthorsAsync();
-            authors.ForEach(a => ConcatStaticUrl(a));
+            IEnumerable<Author> authors = await _authorRepository.GetFullInfoAuthorsAsync();
+            foreach(var author in authors)
+            {
+                author.Url = _urlProviderService.ConcatHostUrl(author.CoverImgPath);
+            }
             return authors;
         }
 
         public async Task<Author> GetAuthorByIdAsync(int id)
         {
             var author = await _authorRepository.GetFullInfoAuthorAsync(id);
-            ConcatStaticUrl(author);
+            author.Url = _urlProviderService.ConcatHostUrl(author.CoverImgPath);
             return author;
-        }
-
-        private void ConcatStaticUrl(Author author)
-        {
-            var imageStorageHost = _configuration["ImageStorageHost"];
-            author.Url = $"{imageStorageHost}{author.CoverImgPath}";
         }
 
         public async Task CreateAuthorAsync(Author author)

@@ -108,7 +108,6 @@ public partial class LibraryDataBaseContext : DbContext
             entity.HasKey(e => e.LibraryId).HasName("PK__Library__A136475FA23EBF26");
 
             entity.ToTable("Library");
-
             entity.Property(e => e.Address).HasMaxLength(50);
             entity.Property(e => e.Email).HasMaxLength(50);
             entity.Property(e => e.Name).HasMaxLength(50);

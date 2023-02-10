@@ -4,7 +4,7 @@ namespace LibraryAggregator.DataLayer.Repository.IRepository
 {
     public interface IAuthorRepository : IRepository<Author>
     {
-        Task<List<Author>> GetFullInfoAuthorsAsync();
+        Task<IEnumerable<Author>> GetFullInfoAuthorsAsync();
         Task<Author> GetFullInfoAuthorAsync(int id);
     }
 }

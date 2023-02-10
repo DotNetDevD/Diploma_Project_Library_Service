@@ -9,7 +9,7 @@ namespace LibraryAggregator.DataLayer.Repository
         public LibraryRepository(LibraryDataBaseContext db) : base( db)
         {
         }
-        public async Task<List<Library>> GetFullInfoLibrariesAsync()
+        public async Task<IEnumerable<Library>> GetFullInfoLibrariesAsync()
         {
             return await dbSet.Include(item => item.BooksLibraries)
                               .ThenInclude(item => item.Book)

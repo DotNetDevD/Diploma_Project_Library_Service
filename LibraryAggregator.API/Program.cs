@@ -46,16 +46,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 var fileProvider = new PhysicalFileProvider(Path.Combine(builder.Environment.ContentRootPath, "Assets"));
-var requestPath = "/MyImages";
+var requestPath = "/Assets";
 
 // Enable displaying browser links.
 app.UseStaticFiles(new StaticFileOptions
-{
-    FileProvider = fileProvider,
-    RequestPath = requestPath
-});
-
-app.UseDirectoryBrowser(new DirectoryBrowserOptions
 {
     FileProvider = fileProvider,
     RequestPath = requestPath

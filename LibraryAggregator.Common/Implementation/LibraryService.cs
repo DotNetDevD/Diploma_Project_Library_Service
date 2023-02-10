@@ -1,18 +1,17 @@
 ﻿using LibraryAggregator.Common.Interface;
 using LibraryAggregator.DataLayer.Entities;
 using LibraryAggregator.DataLayer.Repository.IRepository;
-using Microsoft.Extensions.Configuration;
 
 namespace LibraryAggregator.Common.Implementation
 {
     public class LibraryService : ILibraryService
     {
         private readonly ILibraryRepository _libraryRepository;
-        private readonly IConfiguration _configuration;
-        public LibraryService(ILibraryRepository libraryRepository, IConfiguration configuration)
+        private readonly IUrlProviderService _urlProviderService;
+        public LibraryService(ILibraryRepository libraryRepository, IUrlProviderService urlProviderService)
         {
             _libraryRepository = libraryRepository;
-            _configuration = configuration;
+            _urlProviderService = urlProviderService;
         }
 
         public async Task CreateLibraryAsync(Library library)
@@ -32,29 +31,30 @@ namespace LibraryAggregator.Common.Implementation
 
         public async Task<Library> GetLibraryInfoAsync(int id)
         {
+            // TODO: extension method 
             Library library = await _libraryRepository.GetFullInfoLibraryAsync(id);
-            ConcatStaticUrl(library);
+            library.Url = _urlProviderService.ConcatHostUrl(library.CoverImgPath);
+            library.DirectorPhotoLink = _urlProviderService.ConcatHostUrl(library.DirectorPhotoLink);
+            foreach (var imagesForCarousel in library.ImagesForCarousel)
+            {
+                imagesForCarousel.Url = _urlProviderService.ConcatHostUrl(imagesForCarousel.CoverImgPath);
+            }
             return library;
         }
 
         public async Task<IEnumerable<Library>> GetLibrariesListAsync()
         {
-            List<Library> libraries = await _libraryRepository.GetFullInfoLibrariesAsync();
-            libraries.ForEach(l => ConcatStaticUrl(l));
-            return libraries;
-        }
-
-        private void ConcatStaticUrl(Library library)
-        {
-            var imageStorageHost = _configuration["ImageStorageHost"];
-
-            // library.ImagesForCarousel.ForEach не работает из-за интерфест ICollection не имеет доступного расширеня
-            foreach (var imagesForCarousel in library.ImagesForCarousel)
+            IEnumerable<Library> libraries = await _libraryRepository.GetFullInfoLibrariesAsync();
+            foreach (var library in libraries)
             {
-                imagesForCarousel.Url = $"{imageStorageHost}{imagesForCarousel.CoverImgPath}";
+                library.Url = _urlProviderService.ConcatHostUrl(library.CoverImgPath);
+                library.DirectorPhotoLink = _urlProviderService.ConcatHostUrl(library.DirectorPhotoLink);
+                foreach (var imagesForCarousel in library.ImagesForCarousel)
+                {
+                    imagesForCarousel.Url = _urlProviderService.ConcatHostUrl(imagesForCarousel.CoverImgPath);
+                }
             }
-            library.DirectorPhotoLink = $"{imageStorageHost}{library.DirectorPhotoLink}";
-            library.Url = $"{imageStorageHost}{library.CoverImgPath}";
+            return libraries;
         }
 
         public async Task UpdateLibraryAsync(int id)

@@ -10,6 +10,6 @@ namespace LibraryAggregator.DataLayer.Repository.IRepository
     public interface IBookRepository : IRepository<Book>
     {
         Task<Book> GetFullInfoBookAsync(int id);
-        Task<List<Book>> GetFullInfoBooksAsync();
+        Task<IEnumerable<Book>> GetFullInfoBooksAsync();
     }
 }
