@@ -18,7 +18,7 @@ namespace LibraryAggregator.Common.Implementation
         public async Task<IEnumerable<Author>> GetAuthorsListAsync()
         {
             IEnumerable<Author> authors = await _authorRepository.GetFullInfoAuthorsAsync();
-            foreach(var author in authors)
+            foreach (var author in authors)
             {
                 author.Url = _urlProviderService.ConcatHostUrl(author.CoverImgPath);
             }
@@ -29,6 +29,10 @@ namespace LibraryAggregator.Common.Implementation
         {
             var author = await _authorRepository.GetFullInfoAuthorAsync(id);
             author.Url = _urlProviderService.ConcatHostUrl(author.CoverImgPath);
+            foreach (var books in author.AuthorsBooks)
+            {
+                books.Book.Url = _urlProviderService.ConcatHostUrl(books.Book.CoverImgPath);
+            }
             return author;
         }
 

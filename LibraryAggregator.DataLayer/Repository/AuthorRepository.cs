@@ -19,7 +19,8 @@ namespace LibraryAggregator.DataLayer.Repository
 
         public async Task<IEnumerable<Author>> GetFullInfoAuthorsAsync()
         {
-            return await dbSet.Include(u => u.AuthorsBooks).ToListAsync();
+            return await dbSet.Include(u => u.AuthorsBooks)
+                .ToListAsync();
         }
     }
 }
