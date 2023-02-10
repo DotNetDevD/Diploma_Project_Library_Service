@@ -7,9 +7,10 @@ namespace LibraryAggregator.DataLayer.Entities
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ImagesForCarouselId { get; set; }
-        public string? Link { get; set; }
+        public string? CoverImgPath { get; set; }
+        public string? Url { get; set; }
         public int? LibraryId { get; set; }
-        public Library? Library { get; set; }
+        public Library Library { get; set; }
     }
 }
 

@@ -5,11 +5,12 @@ export interface Library {
     address?: string;
     phoneNumber?: string;
     email?: string;
-    chartLink?: string;
+    mapLink?: string;
     ageGroup?: string;
     directorPhotoLink?: string;
     shortDiscription?: string;
-    coverImage?: string;
+    coverImagePath?: string;
+    url?: string;
     historyOfLibrary?: string;
     imagesForCarousel?: imagesForCarousel[];
 }

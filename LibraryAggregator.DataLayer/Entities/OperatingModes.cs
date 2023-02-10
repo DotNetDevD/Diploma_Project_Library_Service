@@ -11,6 +11,6 @@ namespace LibraryAggregator.DataLayer.Entities
         public string? EndWork { get; set; }
         public string? CleanUpDay { get; set; }
         public int? LibraryId { get; set; }
-        public Library? Libraries { get; set; }
+        public Library Libraries { get; set; }
     }
 }

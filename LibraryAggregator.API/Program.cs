@@ -2,6 +2,7 @@ using LibraryAggregator.DataLayer;
 using System.Text.Json.Serialization;
 using LibraryAggregator.API.Extensions;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -13,7 +14,11 @@ builder.Services.AddControllers().
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<LibraryDataBaseContext>();
+
+builder.Services.AddDbContext<LibraryDataBaseContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
 
 builder.Services.AddDirectoryBrowser(); 
 builder.Services.AddRepositoriesDependecies();

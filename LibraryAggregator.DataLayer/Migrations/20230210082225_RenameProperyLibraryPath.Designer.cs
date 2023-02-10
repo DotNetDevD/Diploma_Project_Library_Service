@@ -4,6 +4,7 @@ using LibraryAggregator.DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryAggregator.DataLayer.Migrations
 {
     [DbContext(typeof(LibraryDataBaseContext))]
-    partial class LibraryDataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230210082225_RenameProperyLibraryPath")]
+    partial class RenameProperyLibraryPath
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -95,7 +98,7 @@ namespace LibraryAggregator.DataLayer.Migrations
                         {
                             AuthorId = 4,
                             Biography = "Учился в Первой Киевской гимназии, позднее — на медицинском факультете Киевского университета. Первую пробу пера совершил в семилетнем возрасте, написав рассказ «Похождения Светланы».",
-                            CoverImgPath = "MyImages/Images/Authors/mikhail-bulgakov.jpg",
+                            CoverImgPath = "MyImages/Images/Authors/mikhail-bulgakov.jpg ",
                             DateOfBirth = new DateTime(1891, 5, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Михаил",
                             LastName = "Булгаков",
@@ -428,38 +431,20 @@ namespace LibraryAggregator.DataLayer.Migrations
                         new
                         {
                             ImagesForCarouselId = 1,
-                            CoverImgPath = "MyImages/Images/Libraries/Carousel/natsionalnaya_biblioteka-1.jpg",
+                            CoverImgPath = "MyImages/Images/Libraries/natsionalnaya_biblioteka-1.jpg",
                             LibraryId = 1
                         },
                         new
                         {
                             ImagesForCarouselId = 2,
-                            CoverImgPath = "MyImages/Images/Libraries/Carousel/natsionalnaya_biblioteka-2.jpg",
+                            CoverImgPath = "MyImages/Images/Libraries/natsionalnaya_biblioteka-2.jpg ",
                             LibraryId = 1
                         },
                         new
                         {
                             ImagesForCarouselId = 3,
-                            CoverImgPath = "MyImages/Images/Libraries/Carousel/natsionalnaya_biblioteka-3.jpg",
+                            CoverImgPath = "MyImages/Images/Libraries/natsionalnaya_biblioteka-3.jpg ",
                             LibraryId = 1
-                        },
-                        new
-                        {
-                            ImagesForCarouselId = 4,
-                            CoverImgPath = "MyImages/Images/Libraries/Carousel/imeni-yanki-kupaly-3.jpg",
-                            LibraryId = 2
-                        },
-                        new
-                        {
-                            ImagesForCarouselId = 5,
-                            CoverImgPath = "MyImages/Images/Libraries/Carousel/imeni-yanki-kupaly-2.jpg",
-                            LibraryId = 2
-                        },
-                        new
-                        {
-                            ImagesForCarouselId = 6,
-                            CoverImgPath = "MyImages/Images/Libraries/Carousel/imeni-yanki-kupaly-3.jpg",
-                            LibraryId = 2
                         });
                 });
 
@@ -505,9 +490,6 @@ namespace LibraryAggregator.DataLayer.Migrations
                     b.Property<string>("ShortDiscription")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Url")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("LibraryId")
                         .HasName("PK__Library__A136475FA23EBF26");
 
@@ -519,8 +501,8 @@ namespace LibraryAggregator.DataLayer.Migrations
                             LibraryId = 1,
                             Address = "просп.Независимости, 11б",
                             AgeGroup = "Нет ограничений ",
-                            CoverImgPath = "MyImages/Images/Libraries/natsionalnaya_biblioteka.jpg",
-                            DirectorPhotoLink = "MyImages/Images/Libraries/natsionalnaya_biblioteka.jpg",
+                            CoverImgPath = "MyImages/Images/Libraries/natsionalnaya_biblioteka.jpg ",
+                            DirectorPhotoLink = "MyImages/Images/Libraries/natsionalnaya_biblioteka.jpg ",
                             Email = "www.nlb.by",
                             HistoryOfLibrary = "Национальная библиотека Беларуси (НББ) была основана постановлением Совета народных комиссаров БССР в 1922 году как Белорусская государственная и университетская библиотека Белорусского государственного университета (БГУ). На момент открытия фонды библиотеки насчитывали всего 60 тысяч экземпляров, которыми пользовались 1,1 тысячи человек. Первым собственным зданием библиотеки стал Юбилейный дом на Захарьевской улице (ныне — проспект Независимости). Постановлением СНК БССР от 14 мая 1926 году библиотека была выведена из состава БГУ и реорганизована в Белорусскую государственную библиотеку. В 1932 году библиотеке было присвоено имя В. И. Ленина. В тот же год библиотека получила новое здание архитектора Г. Лаврова в конструктивистском стиле. ",
                             MapLink = "https://yandex.by/maps/org/natsionalnaya_biblioteka_belarusi/1087338903/?ll=27.647557%2C53.930867&z=16.48",
@@ -533,8 +515,8 @@ namespace LibraryAggregator.DataLayer.Migrations
                             LibraryId = 2,
                             Address = "Улица Веры Хоружей 16",
                             AgeGroup = "Нет ограничений",
-                            CoverImgPath = "MyImages/Images/Libraries/czentralnaya-biblioteka-imeni-yanki-kupaly.jpg",
-                            DirectorPhotoLink = "MyImages/Images/Libraries/czentralnaya-biblioteka-imeni-yanki-kupaly.jpg",
+                            CoverImgPath = "MyImages/Images/Libraries/czentralnaya-biblioteka-imeni-yanki-kupaly.jpg ",
+                            DirectorPhotoLink = "MyImages/Images/Libraries/czentralnaya-biblioteka-imeni-yanki-kupaly.jpg ",
                             Email = "www.publib.by/",
                             HistoryOfLibrary = "Сёння Цэнтральная бібліятэка імя Янкі Купалы – гэта: ТРАДЫЦЫЯ БЫЦЬ ПАТРЭБНАЙ",
                             MapLink = "https://yandex.by/maps/org/natsionalnaya_biblioteka_belarusi/1087338903/?ll=27.647557%2C53.930867&z=16.48",

@@ -10,7 +10,7 @@ namespace LibraryAggregator.DataLayer.Repository
         public GenreRepository(LibraryDataBaseContext _db) : base(_db)
         {
         }
-        public async Task<List<Genre>> GetAllFullInfoGenresAsync()
+        public async Task<List<Genre>> GetFullInfoGenresAsync()
         {
             return await dbSet.Include(u => u.BooksGenres).ToListAsync();
         }

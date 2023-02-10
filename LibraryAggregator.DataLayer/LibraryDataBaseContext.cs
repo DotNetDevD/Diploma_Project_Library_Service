@@ -6,10 +6,6 @@ namespace LibraryAggregator.DataLayer;
 
 public partial class LibraryDataBaseContext : DbContext
 {
-    public LibraryDataBaseContext()
-    {
-    }
-
     public LibraryDataBaseContext(DbContextOptions<LibraryDataBaseContext> options)
         : base(options)
     {
@@ -17,21 +13,12 @@ public partial class LibraryDataBaseContext : DbContext
     }
 
     public virtual DbSet<Author> Authors { get; set; }
-
     public virtual DbSet<AuthorsBook> AuthorsBooks { get; set; }
-
     public virtual DbSet<Book> Books { get; set; }
-
     public virtual DbSet<BooksGenre> BooksGenres { get; set; }
-
     public virtual DbSet<BooksLibrary> BooksLibraries { get; set; }
-
     public virtual DbSet<Genre> Genres { get; set; }
-
     public virtual DbSet<Library> Libraries { get; set; }
-    
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database = LibraryDataBase;Integrated Security=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -69,8 +56,8 @@ public partial class LibraryDataBaseContext : DbContext
 
             entity.HasIndex(e => e.Isbn, "UQ__Book__447D36EA06ADE972").IsUnique();
 
-            entity.Property(e => e.CoverImgPath).HasMaxLength(int.MaxValue);
-            entity.Property(e => e.Description).HasMaxLength(int.MaxValue);
+            entity.Property(e => e.CoverImgPath).HasMaxLength(3000);
+            entity.Property(e => e.Description).HasMaxLength(3000);
             entity.Property(e => e.Isbn)
                 .HasMaxLength(23)
                 .HasColumnName("ISBN");

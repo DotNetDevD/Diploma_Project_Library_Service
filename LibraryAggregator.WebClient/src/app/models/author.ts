@@ -6,7 +6,8 @@ export interface Author {
     lastName?: string;
     middleName?: string;
     dateOfBirth?: Date;
-    coverImg?: string;
+    coverImgPath?: string;
+    url?: string;
     biography?: string;
     authorsBooks: AuthorsBooks[];
 }

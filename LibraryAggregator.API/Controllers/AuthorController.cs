@@ -14,30 +14,32 @@ namespace LibraryAggregator.API.Controllers
         }
 
         [HttpGet(Name = "AuthorsList")]
-        public async Task<ActionResult<IEnumerable<Author>>> GetListAsync()
+        public async Task<IEnumerable<Author>> GetListAsync()
         {
-            var authors = await _authorService.GetAuthorsListAsync();
-            return !authors?.Any() ?? true ? NotFound() : Ok(await _authorService.GetAuthorsListAsync());
+            return await _authorService.GetAuthorsListAsync();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Author>> GetByIdAsync(int id)
+        public async Task<Author> GetByIdAsync(int id)
         {
             return await _authorService.GetAuthorByIdAsync(id);
         }
 
+        //TODO: POST UI and Attribute authorize
         [HttpPost]
         public async Task CreateAsync(Author author)
         {
             await _authorService.CreateAuthorAsync(author);
         }
 
+        //TODO: PUT and Attribute authorize
         [HttpPut]
         public async Task UpdateAsync(int id)
         {
             await _authorService.UpdateAuthorAsync(id);
         }
 
+        //TODO: DELETE UI and Attribute authorize
         [HttpDelete("{id}")]
         public async Task DeleteAsync(int id)
         {

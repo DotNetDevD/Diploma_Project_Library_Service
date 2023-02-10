@@ -9,6 +9,6 @@ namespace LibraryAggregator.DataLayer.Repository.IRepository
 {
     public interface IGenreRepository : IRepository<Genre>
     {
-        Task<List<Genre>> GetAllFullInfoGenresAsync();
+        Task<List<Genre>> GetFullInfoGenresAsync();
     }
 }

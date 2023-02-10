@@ -2,7 +2,8 @@ import { Library } from "./library";
 
 export interface imagesForCarousel {
     imagesFourCarouselId: number;
-    link: string;
+    CoverImgPath?: string;
+    url?: string;
     libraryId: number;
     library: Library;
 } 

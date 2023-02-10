@@ -7,6 +7,7 @@ export interface Book {
     title?: string;
     isbn?: string;
     coverImgPath?: string;
+    url?: string;
     publishDate?: Date;
     description?: string;
     pageCount?: number;

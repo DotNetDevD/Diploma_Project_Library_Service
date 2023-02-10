@@ -4,6 +4,7 @@ using LibraryAggregator.DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryAggregator.DataLayer.Migrations
 {
     [DbContext(typeof(LibraryDataBaseContext))]
-    partial class LibraryDataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230210092117_addSeconLibraryCarouselImg")]
+    partial class addSeconLibraryCarouselImg
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -428,37 +431,37 @@ namespace LibraryAggregator.DataLayer.Migrations
                         new
                         {
                             ImagesForCarouselId = 1,
-                            CoverImgPath = "MyImages/Images/Libraries/Carousel/natsionalnaya_biblioteka-1.jpg",
+                            CoverImgPath = "MyImages/Images/Libraries/natsionalnaya_biblioteka-1.jpg",
                             LibraryId = 1
                         },
                         new
                         {
                             ImagesForCarouselId = 2,
-                            CoverImgPath = "MyImages/Images/Libraries/Carousel/natsionalnaya_biblioteka-2.jpg",
+                            CoverImgPath = "MyImages/Images/Libraries/natsionalnaya_biblioteka-2.jpg",
                             LibraryId = 1
                         },
                         new
                         {
                             ImagesForCarouselId = 3,
-                            CoverImgPath = "MyImages/Images/Libraries/Carousel/natsionalnaya_biblioteka-3.jpg",
+                            CoverImgPath = "MyImages/Carousel/Images/Libraries/natsionalnaya_biblioteka-3.jpg",
                             LibraryId = 1
                         },
                         new
                         {
                             ImagesForCarouselId = 4,
-                            CoverImgPath = "MyImages/Images/Libraries/Carousel/imeni-yanki-kupaly-3.jpg",
+                            CoverImgPath = "MyImages/Images/Libraries/imeni-yanki-kupaly-3.jpg",
                             LibraryId = 2
                         },
                         new
                         {
                             ImagesForCarouselId = 5,
-                            CoverImgPath = "MyImages/Images/Libraries/Carousel/imeni-yanki-kupaly-2.jpg",
+                            CoverImgPath = "MyImages/Images/Libraries/imeni-yanki-kupaly-2.jpg",
                             LibraryId = 2
                         },
                         new
                         {
                             ImagesForCarouselId = 6,
-                            CoverImgPath = "MyImages/Images/Libraries/Carousel/imeni-yanki-kupaly-3.jpg",
+                            CoverImgPath = "MyImages/Carousel/Images/Libraries/imeni-yanki-kupaly-3.jpg",
                             LibraryId = 2
                         });
                 });

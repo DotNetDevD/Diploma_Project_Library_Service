@@ -6,6 +6,5 @@ namespace LibraryAggregator.API.Controllers
     [ApiController]
     public class ApiBaseController : ControllerBase
     {
-       
     }
 }

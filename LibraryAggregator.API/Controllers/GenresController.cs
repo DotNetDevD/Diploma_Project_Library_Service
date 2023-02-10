@@ -14,30 +14,32 @@ namespace LibraryAggregator.API.Controllers
         }
 
         [HttpGet(Name = "GenresList")]
-        public async Task<ActionResult<IEnumerable<Genre>>> GetListAsync()
+        public async Task<IEnumerable<Genre>> GetListAsync()
         {
-            var genres = await _genreService.GetGenresListAsync();
-            return !genres?.Any() ?? true ? NotFound() : Ok(await _genreService.GetGenresListAsync());
+            return await _genreService.GetGenresListAsync();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Genre>> GetByIdAsync(int id)
+        public async Task<Genre> GetByIdAsync(int id)
         {
             return await _genreService.GetByIdAsync(id);
         }
 
+        //TODO: POST UI and Attribute authorize
         [HttpPost]
         public async Task CreateAsync(Genre genre)
         {
             await _genreService.CreateGenreAsync(genre);
         }
 
+        //TODO: PUT and Attribute authorize
         [HttpPut("{id}")]
         public async Task UpdateAsync(int id)
         {
             await _genreService.UpdateGenreAsync(id);
         }
 
+        //TODO: DELETE UI and Attribute authorize
         [HttpDelete("{id}")]
         public async Task DeleteAsync(int id)
         {

@@ -21,23 +21,26 @@ namespace LibraryAggregator.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Book>> GetByIdAsync(int id)
+        public async Task<Book> GetByIdAsync(int id)
         {
             return await _bookService.GetBookByIdAsync(id);
         }
 
+        //TODO: POST UI and Attribute authorize
         [HttpPost]
         public async Task CreateAsync(Book book)
         {
             await _bookService.CreateBookAsync(book);
         }
 
+        //TODO: PUT and Attribute authorize
         [HttpPut("{id}")]
         public async Task UpdateAsync(int id)
         {
             await _bookService.UpdateBookAsync(id);
         }
 
+        //TODO: DELETE UI and Attribute authorize
         [HttpDelete("{id}")]
         public async Task DeleteAsync(int id)
         {
