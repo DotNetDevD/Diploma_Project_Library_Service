@@ -1,7 +1,7 @@
 ﻿using LibraryAggregator.DataLayer.Entities;
 using Microsoft.AspNetCore.Mvc;
 using LibraryAggregator.Common.Interface;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace LibraryAggregator.API.Controllers
 {
@@ -28,6 +28,7 @@ namespace LibraryAggregator.API.Controllers
 
         //TODO: POST UI and Attribute authorize
         [HttpPost]
+        [Authorize]
         public async Task CreateAsync(Book book)
         {
             await _bookService.CreateBookAsync(book);
@@ -35,6 +36,7 @@ namespace LibraryAggregator.API.Controllers
 
         //TODO: PUT and Attribute authorize
         [HttpPut("{id}")]
+        [Authorize]
         public async Task UpdateAsync(int id)
         {
             await _bookService.UpdateBookAsync(id);
@@ -42,6 +44,7 @@ namespace LibraryAggregator.API.Controllers
 
         //TODO: DELETE UI and Attribute authorize
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task DeleteAsync(int id)
         {
             await _bookService.DeleteBookAsync(id);
