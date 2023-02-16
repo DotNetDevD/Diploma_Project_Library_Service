@@ -20,11 +20,15 @@ namespace LibraryAggregator.API.Controllers
             return await _bookService.GetBooksListAsync();
         }
 
+
         [HttpGet("{id}")]
         public async Task<Book> GetByIdAsync(int id)
         {
             return await _bookService.GetBookByIdAsync(id);
         }
+
+
+       
 
         //TODO: POST UI and Attribute authorize
         [HttpPost]

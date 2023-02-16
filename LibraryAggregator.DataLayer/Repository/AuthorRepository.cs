@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LibraryAggregator.DataLayer.Repository
 {
-    public class AuthorRepository : BaseRepository<Author>, IAuthorRepository
+    public class AuthorRepository : BaseRepository<Author>, IAuthorRepository , IGenericSearchRepository<Author>
     {
         public AuthorRepository(LibraryDataBaseContext _db) : base(_db)
         {
@@ -21,6 +21,14 @@ namespace LibraryAggregator.DataLayer.Repository
         {
             return await dbSet.Include(u => u.AuthorsBooks)
                 .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Author>> SearchSomeEntityByTitle(string title)
+        {
+            return await dbSet.Include(item => item.AuthorsBooks)
+                                 .ThenInclude(item => item.Book)
+                              .Where(item => item.FirstName + item.MiddleName + item.LastName == title)
+                              .ToListAsync();
         }
     }
 }

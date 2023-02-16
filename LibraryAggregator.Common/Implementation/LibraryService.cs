@@ -56,7 +56,6 @@ namespace LibraryAggregator.Common.Implementation
             }
             return libraries;
         }
-
         public async Task UpdateLibraryAsync(int id)
         {
             await _libraryRepository.UpdateAsync(id);

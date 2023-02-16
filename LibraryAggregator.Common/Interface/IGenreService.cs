@@ -9,5 +9,6 @@ namespace LibraryAggregator.Common.Interface
         Task<Genre> GetByIdAsync(int id);
         Task<IEnumerable<Genre>> GetGenresListAsync();
         Task UpdateGenreAsync(int id);
+       
     }
 }

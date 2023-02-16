@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LibraryAggregator.DataLayer.Repository.IRepository
 {
-    public interface IGenreRepository : IRepository<Genre>
+    public interface IGenreRepository : IRepository<Genre> , IGenericSearchRepository<Genre>
     {
         Task<IEnumerable<Genre>> GetFullInfoGenresAsync();
     }

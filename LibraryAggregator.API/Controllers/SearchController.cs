@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿//using Microsoft.AspNetCore.Mvc;
 using LibraryAggregator.DataLayer.Entities;
 using LibraryAggregator.Common.Interface;
+using LibraryAggregator.Common.Implementation;
+using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryAggregator.API.Controllers
 {
@@ -11,12 +13,13 @@ namespace LibraryAggregator.API.Controllers
         {
             _searchService = searchService;
         }
+
         [HttpGet("{title}")]
-        public Task<IEnumerable<Book>> SearchBooks(string title)
+        public async Task<IEnumerable<Book>> SearchListBookByTitle(string title)
         {
-            return _searchService.GetSomeBooks(title);
+            return await _searchService.SearchBooksByTitle(title);
         }
 
-      
+
     }
 }

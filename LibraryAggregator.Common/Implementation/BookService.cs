@@ -2,6 +2,7 @@
 using LibraryAggregator.DataLayer.Entities;
 using LibraryAggregator.DataLayer.Repository.IRepository;
 using Microsoft.Extensions.Configuration;
+using System.Security.Cryptography.X509Certificates;
 
 namespace LibraryAggregator.Common.Implementation
 {
@@ -24,7 +25,6 @@ namespace LibraryAggregator.Common.Implementation
             }    
             return books;
         }
-
         public async Task<Book> GetBookByIdAsync(int id)
         {
             Book book = await _bookRepository.GetFullInfoBookAsync(id);

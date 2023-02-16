@@ -24,7 +24,6 @@ namespace LibraryAggregator.Common.Implementation
             }
             return authors;
         }
-
         public async Task<Author> GetAuthorByIdAsync(int id)
         {
             var author = await _authorRepository.GetFullInfoAuthorAsync(id);

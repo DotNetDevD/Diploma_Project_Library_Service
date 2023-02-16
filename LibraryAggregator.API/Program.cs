@@ -45,6 +45,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
 var fileProvider = new PhysicalFileProvider(Path.Combine(builder.Environment.ContentRootPath, "Assets"));
 var requestPath = "/Assets";
 
@@ -54,6 +55,7 @@ app.UseStaticFiles(new StaticFileOptions
     FileProvider = fileProvider,
     RequestPath = requestPath
 });
+
 
 app.UseAuthorization();
 
