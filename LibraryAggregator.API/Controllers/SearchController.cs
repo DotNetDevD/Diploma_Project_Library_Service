@@ -1,7 +1,5 @@
-﻿//using Microsoft.AspNetCore.Mvc;
-using LibraryAggregator.DataLayer.Entities;
+﻿using LibraryAggregator.DataLayer.Entities;
 using LibraryAggregator.Common.Interface;
-using LibraryAggregator.Common.Implementation;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryAggregator.API.Controllers

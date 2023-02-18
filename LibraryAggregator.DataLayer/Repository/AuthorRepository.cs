@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LibraryAggregator.DataLayer.Repository
 {
-    public class AuthorRepository : BaseRepository<Author>, IAuthorRepository , IGenericSearchRepository<Author>
+    public class AuthorRepository : BaseRepository<Author>, IAuthorRepository 
     {
         public AuthorRepository(LibraryDataBaseContext _db) : base(_db)
         {

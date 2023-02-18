@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { SearchApiService } from 'src/app/api-services/search-api.service';
 import { Book } from 'src/app/models/book';
@@ -21,7 +20,6 @@ export class ButtonForFindBookComponent implements OnInit {
     if(!this.bookTitle.trim()){
       return 
     }
-
     this.searchService.searchSomeBooks(this.bookTitle)
       .subscribe({
         next: (data) => {

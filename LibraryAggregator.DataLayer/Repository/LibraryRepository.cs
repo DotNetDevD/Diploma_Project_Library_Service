@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LibraryAggregator.DataLayer.Repository
 {
-    public class LibraryRepository : BaseRepository<Library>, ILibraryRepository , IGenericSearchRepository<Library>
+    public class LibraryRepository : BaseRepository<Library>, ILibraryRepository
     {
         public LibraryRepository(LibraryDataBaseContext db) : base( db)
         {

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LibraryAggregator.DataLayer.Repository
 {
-    public class GenreRepository : BaseRepository<Genre>, IGenreRepository , IGenericSearchRepository<Genre>
+    public class GenreRepository : BaseRepository<Genre>, IGenreRepository 
     {
         public GenreRepository(LibraryDataBaseContext _db) : base(_db)
         {

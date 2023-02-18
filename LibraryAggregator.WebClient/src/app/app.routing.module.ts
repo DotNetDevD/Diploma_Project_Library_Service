@@ -6,6 +6,7 @@ import { AuthorComponent } from "./author/author.component";
 import { BookCardComponent } from "./book/book-card/book-card.component";
 import { BookInfoComponent } from "./book/book-info/book-info.component";
 import { BookComponent } from "./book/book.component";
+import { FoundBooksComponent } from "./book/found-books/found-books.component";
 import { GenreShowComponent } from "./genre/genre-show/genre-show.component";
 import { LibraryCardComponent } from "./library/library-card/library-card.component";
 import { LibraryInfoComponent } from "./library/library-info/library-info.component";
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
     { path: 'book', component: BookComponent },
     { path: 'book-info/:id', component: BookInfoComponent },
     { path: 'book-card', component: BookCardComponent },
+    { path: 'found-books', component: FoundBooksComponent},
     { path: 'library', component: LibraryComponent },
     { path: 'library-info/:id', component: LibraryInfoComponent },
     { path: 'library-card', component: LibraryCardComponent },

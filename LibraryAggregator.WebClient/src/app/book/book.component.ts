@@ -25,7 +25,4 @@ export class BookComponent implements OnInit{
         error: (e) => console.error(e)
       });
   }
-
-
-
 }
