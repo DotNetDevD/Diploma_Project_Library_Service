@@ -19,7 +19,7 @@ namespace LibraryAggregator.API.Controllers
             return await _searchService.SearchBooksByTitle(title);
         }
 
-        [ActionName("SearchAuthors")]
+        [ActionName("Authors")]
         [HttpGet("{fullName}")]
         public async Task<IEnumerable<Author>> SearchAuthorsByFullName(string fullName)
         {

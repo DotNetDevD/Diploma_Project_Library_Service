@@ -28,7 +28,7 @@ import { BookInfoComponent } from './book/book-info/book-info.component';
 import { FoundBooksComponent } from "./book/found-books/found-books.component";
 import { ButtonForFindBookComponent } from './book/button-for-find-book/button-for-find-book.component';
 import { SearchApiService } from './api-services/search-api.service';
-
+import { ButtonForFindAuthorComponent } from './author/button-for-find-author/button-for-find-author.component';
 
 registerLocaleData(localeRu);
 
@@ -45,6 +45,7 @@ registerLocaleData(localeRu);
         BookCardComponent,
         BookInfoComponent,
         ButtonForFindBookComponent,
+        ButtonForFindAuthorComponent,
         NavBarComponent,
         MainContentComponent,
         LibraryComponent,
