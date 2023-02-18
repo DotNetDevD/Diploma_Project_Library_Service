@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { SearchApiService } from 'src/app/api-services/search-api.service';
 import { Book } from 'src/app/models/book';
 
@@ -8,12 +8,12 @@ import { Book } from 'src/app/models/book';
   styleUrls: ['./button-for-find-book.component.css']
 })
 export class ButtonForFindBookComponent implements OnInit {
-  bookList: Book[] = [];
-
+  @Output() bookList: Book[] = [];
   bookTitle = '';
-  constructor(private readonly searchService :SearchApiService){}
-
-  ngOnInit() {
+  constructor(private readonly searchService :SearchApiService){
+  }
+  ngOnInit(): void {
+    
     this.searchService.searchSomeBooks(this.bookTitle)
   }
   search(){
@@ -28,8 +28,9 @@ export class ButtonForFindBookComponent implements OnInit {
         },
         error: (e) => console.error(e)
       });
-    
+     
       this.bookTitle = '';
+     
   }
 
 }
