@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryAggregator.API.Controllers
 {
+    [Route("api/[controller]/[action]")]
     public class SearchController : ApiBaseController
     {
         private readonly ISearchService _searchService;
@@ -18,6 +19,11 @@ namespace LibraryAggregator.API.Controllers
             return await _searchService.SearchBooksByTitle(title);
         }
 
-
+        [ActionName("SearchAuthors")]
+        [HttpGet("{fullName}")]
+        public async Task<IEnumerable<Author>> SearchAuthorsByFullName(string fullName)
+        {
+            return await _searchService.SearchAuthorsByFullName(fullName);
+        }
     }
 }

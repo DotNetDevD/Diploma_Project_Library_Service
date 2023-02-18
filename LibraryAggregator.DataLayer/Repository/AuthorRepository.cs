@@ -27,7 +27,7 @@ namespace LibraryAggregator.DataLayer.Repository
         {
             return await dbSet.Include(item => item.AuthorsBooks)
                                  .ThenInclude(item => item.Book)
-                              .Where(item => item.FirstName + item.MiddleName + item.LastName == title)
+                              .Where(item => (item.FirstName + item.MiddleName + item.LastName).Contains(title))
                               .ToListAsync();
         }
     }

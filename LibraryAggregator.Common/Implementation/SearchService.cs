@@ -6,7 +6,6 @@ namespace LibraryAggregator.Common.Implementation
 {
     public class SearchService : ISearchService
     {
-
         private readonly IAuthorRepository _authorRepository;
         private readonly IBookRepository _bookRepository;
         private readonly IGenreRepository _genreRepository;
@@ -33,6 +32,7 @@ namespace LibraryAggregator.Common.Implementation
             }
             return authors;
         }
+
         public async Task<IEnumerable<Book>> SearchBooksByTitle(string title)
         {
             IEnumerable<Book> books = await _bookRepository.SearchSomeEntityByTitle(title);
@@ -42,10 +42,12 @@ namespace LibraryAggregator.Common.Implementation
             }
             return books;
         }
+
         public async Task<IEnumerable<Genre>> SearchGenreByType(string type)
         {
             return await _genreRepository.SearchSomeEntityByTitle(type);
         }
+
         public async Task<IEnumerable<Library>> SearchLibrariesByName(string name)
         {
             IEnumerable<Library> libraries = await _libraryRepository.SearchSomeEntityByTitle(name);
@@ -60,7 +62,5 @@ namespace LibraryAggregator.Common.Implementation
             }
             return libraries;
         }
-
-
     }
 }
