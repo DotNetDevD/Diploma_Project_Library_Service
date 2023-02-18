@@ -14,13 +14,13 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                     DisplayName = "user",
                     Email = "user@user.com",
                     UserName = "user@user.com",
-                    Address = new Address()
-                    {
-                        FirstName = "user",
-                        LastName = "user",
-                        Street = "Zavodskaya",
-                        City = "Minsk"
-                    }
+                    //Address = new Address()
+                    //{
+                    //    FirstName = "user",
+                    //    LastName = "user",
+                    //    Street = "Zavodskaya",
+                    //    City = "Minsk"
+                    //}
                 };
 
                 await userManager.CreateAsync(user, "Pa$$w0rd");

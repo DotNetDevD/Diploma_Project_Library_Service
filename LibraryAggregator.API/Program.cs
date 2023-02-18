@@ -10,7 +10,6 @@ using LibraryAggregator.DataLayer.Entities.Seed;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
 // Add services to the container.
 builder.Services.AddControllers().
     AddJsonOptions(options =>
@@ -31,19 +30,19 @@ builder.Services.AddDbContext<LibraryIdentityDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("IdentityConnection"));
 });
 
-//For identity
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
-    .AddEntityFrameworkStores<LibraryIdentityDbContext>()
-    .AddDefaultTokenProviders();
+////For identity
+//builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+//    .AddEntityFrameworkStores<LibraryIdentityDbContext>()
+//    .AddDefaultTokenProviders();
 
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-});
+//builder.Services.AddAuthentication(options =>
+//{
+//    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+//    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+//    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+//});
 
-builder.Services.AddIdentityServices();
+builder.Services.AddIdentityServices(builder.Configuration);
 builder.Services.AddDirectoryBrowser();
 builder.Services.AddRepositoriesDependecies();
 builder.Services.AddServicesDependecies();
@@ -79,15 +78,10 @@ app.UseStaticFiles(new StaticFileOptions
     RequestPath = requestPath
 });
 
-
-var userManager = app.Services.GetRequiredService<UserManager<AppUser>>();
-var identityContext = app.Services.GetRequiredService<LibraryIdentityDbContext>();
-await identityContext.Database.MigrateAsync();
-await LibraryIdentityDbContextSeed.SeedUserAsync(userManager);
-
+app.UseAuthentication();
 app.UseAuthorization();
  
 app.MapControllers();
-app.UseCors();
+app.UseCors(); 
 
 app.Run();

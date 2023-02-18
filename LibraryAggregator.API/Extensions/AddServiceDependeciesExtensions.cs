@@ -1,6 +1,4 @@
-﻿using LibraryAggregator.DataLayer.Repository.IRepository;
-using LibraryAggregator.DataLayer.Repository;
-using LibraryAggregator.Common.Interface;
+﻿using LibraryAggregator.Common.Interface;
 using LibraryAggregator.Common.Implementation;
 
 namespace LibraryAggregator.API.Extensions
@@ -14,6 +12,7 @@ namespace LibraryAggregator.API.Extensions
             services.AddScoped<IGenreService, GenreService>();
             services.AddScoped<ILibraryService, LibraryService>();
             services.AddScoped<IUrlProviderService, UrlProviderService>();
+            services.AddScoped<ITokenService, TokenService>();
         }
     }
 }
