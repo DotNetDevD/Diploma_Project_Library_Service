@@ -27,9 +27,6 @@ namespace LibraryAggregator.API.Controllers
             return await _bookService.GetBookByIdAsync(id);
         }
 
-
-       
-
         //TODO: POST UI and Attribute authorize
         [HttpPost]
         [Authorize]

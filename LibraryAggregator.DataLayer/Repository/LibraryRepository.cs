@@ -27,13 +27,13 @@ namespace LibraryAggregator.DataLayer.Repository
                               .FirstOrDefaultAsync(item => item.LibraryId == id);
         }
 
-        public async Task<IEnumerable<Library>> SearchSomeEntityByTitle(string title)
+        public async Task<IEnumerable<Library>> SearchTermByUserInput(string title)
         {
             return await dbSet.Include(item => item.BooksLibraries)
                                  .ThenInclude(item => item.Book)
                               .Include(item => item.ImagesForCarousel)
                               .Include(item => item.OperatingModes)
-                              .Where(item => item.Name == title)
+                              .Where(item => item.Name.Contains(title))
                               .ToListAsync();
         }
     }

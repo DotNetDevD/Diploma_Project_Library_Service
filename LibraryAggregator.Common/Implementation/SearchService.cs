@@ -25,7 +25,7 @@ namespace LibraryAggregator.Common.Implementation
 
         public async Task<IEnumerable<Author>> SearchAuthorsByFullName(string fullname)
         {
-            var authors = await _authorRepository.SearchSomeEntityByTitle(fullname);
+            var authors = await _authorRepository.SearchTermByUserInput(fullname);
             foreach (var author in authors)
             {
                 author.Url = _urlProviderService.ConcatHostUrl(author.CoverImgPath);
@@ -35,7 +35,7 @@ namespace LibraryAggregator.Common.Implementation
 
         public async Task<IEnumerable<Book>> SearchBooksByTitle(string title)
         {
-            IEnumerable<Book> books = await _bookRepository.SearchSomeEntityByTitle(title);
+            IEnumerable<Book> books = await _bookRepository.SearchTermByUserInput(title);
             foreach (var book in books)
             {
                 book.Url = _urlProviderService.ConcatHostUrl(book.CoverImgPath);
@@ -45,12 +45,12 @@ namespace LibraryAggregator.Common.Implementation
 
         public async Task<IEnumerable<Genre>> SearchGenreByType(string type)
         {
-            return await _genreRepository.SearchSomeEntityByTitle(type);
+            return await _genreRepository.SearchTermByUserInput(type);
         }
 
         public async Task<IEnumerable<Library>> SearchLibrariesByName(string name)
         {
-            IEnumerable<Library> libraries = await _libraryRepository.SearchSomeEntityByTitle(name);
+            IEnumerable<Library> libraries = await _libraryRepository.SearchTermByUserInput(name);
             foreach (var library in libraries)
             {
                 library.Url = _urlProviderService.ConcatHostUrl(library.CoverImgPath);

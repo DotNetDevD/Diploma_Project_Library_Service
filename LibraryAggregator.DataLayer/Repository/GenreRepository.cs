@@ -15,7 +15,7 @@ namespace LibraryAggregator.DataLayer.Repository
             return await dbSet.Include(u => u.BooksGenres).ToListAsync();
         }
 
-        public async Task<IEnumerable<Genre>> SearchSomeEntityByTitle(string title)
+        public async Task<IEnumerable<Genre>> SearchTermByUserInput(string title)
         {
             return await dbSet.Include(item => item.BooksGenres)
                                   .ThenInclude(item => item.Book)
