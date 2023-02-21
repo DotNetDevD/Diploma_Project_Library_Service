@@ -25,7 +25,7 @@ namespace LibraryAggregator.API.Extensions
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new RSACryptoServiceProvider(2048),
+                        //IssuerSigningKey = new RSACryptoServiceProvider(2048),
                         ValidIssuer = config["Token:Issuer"],
                         ValidateIssuer = true,
                         //ValidateAudience = false
