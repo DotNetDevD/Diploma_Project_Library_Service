@@ -43,6 +43,17 @@ namespace LibraryAggregator.Common.Implementation
             return books;
         }
 
+        public async Task<SearchBookLibraryAuthor> SearchBookLibraryAuthorByInput(string input)
+        {
+            SearchBookLibraryAuthor? searchResult = new()
+            {
+                Books = await SearchBooksByTitle(input),
+                Authors = await SearchAuthorsByFullName(input),
+                Libraries = await SearchLibrariesByName(input)
+            };
+            return searchResult;
+        }
+
         public async Task<IEnumerable<Genre>> SearchGenreByType(string type)
         {
             return await _genreRepository.SearchTermByUserInput(type);

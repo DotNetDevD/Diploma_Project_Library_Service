@@ -29,5 +29,11 @@ namespace LibraryAggregator.API.Controllers
         {
             return await _searchService.SearchLibrariesByName(name);
         }
+
+        [HttpGet("{input}")]
+        public async Task<SearchBookLibraryAuthor> SearchTermByInput(string input)
+        {
+            return await _searchService.SearchBookLibraryAuthorByInput(input);
+        }
     }
 }
