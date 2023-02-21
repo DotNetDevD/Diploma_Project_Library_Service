@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Author } from '../models/author';
 import { Book } from '../models/book';
+import { Library } from '../models/library';
 
 @Injectable({
     providedIn: 'root'
@@ -20,6 +21,11 @@ export class SearchApiService {
 
     // SearchAuthors
     searchSomeAuthors(partName: string): Observable<Author[]> {
-        return this.http.get<Author[]>(this.apiUrl + `/search/authors/${partName}`);
+        return this.http.get<Author[]>(this.apiUrl + `/search/author/${partName}`);
+    }
+
+    // SearchLibrary
+    searchLibrary(name: string): Observable<Library[]> {
+        return this.http.get<Library[]>(this.apiUrl + `/search/library/${name}`);
     }
 }
