@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-
-namespace LibraryAggregator.DataLayer.Entities;
+﻿namespace LibraryAggregator.DataLayer.Entities;
 
 public class BooksLibrary
 {
@@ -11,7 +8,8 @@ public class BooksLibrary
     public int Count { get; set; }
     public virtual Book Book { get; set; } 
     public virtual Library Library { get; set; }
-    public virtual ICollection<Booking> Boookings { get; set; }
+    public int BoookingId { get; set; }
+    public virtual Booking Boookings { get; set; }
     public int BookStatusId { get; set; }
     public virtual BookStatus BookStatus { get; set; } 
 }

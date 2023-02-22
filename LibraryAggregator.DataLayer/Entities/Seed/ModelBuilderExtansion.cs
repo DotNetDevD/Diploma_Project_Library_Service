@@ -348,6 +348,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                      BookId = 1,
                      LibraryId = 1,
                      BookStatusId = 1,
+                     BoookingId =1
 
                  },
 
@@ -357,6 +358,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                      BookId = 2,
                      LibraryId = 1,
                      BookStatusId = 2,
+                     BoookingId = 2
                  },
 
                  new BooksLibrary
@@ -365,6 +367,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                      BookId = 3,
                      LibraryId = 1,
                      BookStatusId = 3,
+                     BoookingId = 3
                  },
 
                  new BooksLibrary
@@ -373,6 +376,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                      BookId = 4,
                      LibraryId = 1,
                      BookStatusId = 4,
+                     BoookingId = 4
                  }
                 );
         }

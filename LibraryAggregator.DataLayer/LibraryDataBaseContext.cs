@@ -100,7 +100,7 @@ public partial class LibraryDataBaseContext : DbContext
            .WithOne(item => item.BooksLibrary)
            .OnDelete(DeleteBehavior.ClientSetNull);
 
-            entity.HasMany(item => item.Boookings)
+            entity.HasOne(item => item.Boookings)
              .WithOne(item => item.BooksLibrary)
              .OnDelete(DeleteBehavior.ClientSetNull);
 
