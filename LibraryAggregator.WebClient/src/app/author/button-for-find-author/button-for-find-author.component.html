@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm m-lg-3 mb-2">
+            <div class="label">
+                <input type="search" class="form-control" placeholder="Поиск авторов..." aria-label="Search"
+                    [(ngModel)]="partAuthorName">
+            </div>
+        </div>
+        <div class="col-sm m-lg-3 mb-2">
+            <div class="button">
+                <a><button type="button" class="btn btn-primary" (click)="search()">Поиск</button></a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3" *ngFor="let author of authorList">
+            <app-author-card [author]="author"></app-author-card>
+        </div>
+    </div>
+    <hr>
+</div>

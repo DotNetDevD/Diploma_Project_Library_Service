@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Library } from 'src/app/models/library';
 
 @Component({
     selector: 'app-library-card',
@@ -8,5 +9,5 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 export class LibraryCardComponent {
     @Input()
-    library!: any;
+    library?: Library;
 }

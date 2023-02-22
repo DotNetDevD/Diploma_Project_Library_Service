@@ -12,12 +12,28 @@ namespace LibraryAggregator.API.Controllers
             _searchService = searchService;
         }
 
-        [HttpGet("{title}")]
+        [HttpGet("book/{title}")]
         public async Task<IEnumerable<Book>> SearchListBookByTitle(string title)
         {
             return await _searchService.SearchBooksByTitle(title);
         }
 
+        [HttpGet("author/{fullName}")]
+        public async Task<IEnumerable<Author>> SearchAuthorsByFullName(string fullName)
+        {
+            return await _searchService.SearchAuthorsByFullName(fullName);
+        }
 
+        [HttpGet("library/{name}")]
+        public async Task<IEnumerable<Library>> SearchLibraryByName(string name)
+        {
+            return await _searchService.SearchLibrariesByName(name);
+        }
+
+        [HttpGet("{input}")]
+        public async Task<SearchBookLibraryAuthor> SearchTermByInput(string input)
+        {
+            return await _searchService.SearchBookLibraryAuthorByInput(input);
+        }
     }
 }

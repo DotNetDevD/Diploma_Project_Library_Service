@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { BookComponent } from './book/book.component';
 import { BookAddEditComponent } from './book/book-add-edit/book-add-edit.component';
 import { BookApiService } from './api-services/book-api.service';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MainContentComponent } from './main-content/main-content.component';
 import { LibraryComponent } from './library/library.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -28,7 +27,10 @@ import { BookInfoComponent } from './book/book-info/book-info.component';
 import { FoundBooksComponent } from "./book/found-books/found-books.component";
 import { ButtonForFindBookComponent } from './book/button-for-find-book/button-for-find-book.component';
 import { SearchApiService } from './api-services/search-api.service';
-
+import { ButtonForFindAuthorComponent } from './author/button-for-find-author/button-for-find-author.component';
+import { ButtonForFindLibraryComponent } from './library/button-for-find-library/button-for-find-library.component';
+import { SearchComponent } from './search/search.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 registerLocaleData(localeRu);
 
@@ -45,13 +47,16 @@ registerLocaleData(localeRu);
         BookCardComponent,
         BookInfoComponent,
         ButtonForFindBookComponent,
-        NavBarComponent,
+        ButtonForFindAuthorComponent,
+        ButtonForFindLibraryComponent,
         MainContentComponent,
         LibraryComponent,
         LibraryCardComponent,
         LibraryInfoComponent,
         PageNotFoundComponent,
         GenreShowComponent,
+        SearchComponent,
+        NavBarComponent
     ],
     imports: [
         AppRoutingModule,

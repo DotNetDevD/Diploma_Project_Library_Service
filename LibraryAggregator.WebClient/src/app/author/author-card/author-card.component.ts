@@ -8,5 +8,5 @@ import { Author } from 'src/app/models/author';
 })
 export class AuthorCardComponent {
 
-  @Input() author! : Author;
+  @Input() author? : Author;
 }
