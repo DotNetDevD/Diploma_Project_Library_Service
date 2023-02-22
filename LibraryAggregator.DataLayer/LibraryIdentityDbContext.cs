@@ -15,7 +15,6 @@ namespace LibraryAggregator.DataLayer
         {
             base.OnModelCreating(builder);
             SeedRole(builder);
-            SeedUser(builder);
         }
 
         private void SeedRole(ModelBuilder builder)
@@ -25,16 +24,6 @@ namespace LibraryAggregator.DataLayer
                 new IdentityRole { Name = "Admin", ConcurrencyStamp = "1", NormalizedName = "Admin" },
                 new IdentityRole { Name = "User", ConcurrencyStamp = "2", NormalizedName = "User" }
                 );
-        }
-        public void SeedUser(ModelBuilder builder)
-        {
-            var user = new AppUser()
-            {
-                DisplayName = "user",
-                Email = "user@user.com",
-                UserName = "user@user.com",
-            };
-            builder.Entity<AppUser>().HasData(user);
         }
     }
 }

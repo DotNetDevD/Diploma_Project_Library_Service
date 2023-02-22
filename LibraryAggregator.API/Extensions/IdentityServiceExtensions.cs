@@ -13,11 +13,13 @@ namespace LibraryAggregator.API.Extensions
         public static IServiceCollection AddIdentityServices(this IServiceCollection services,
             IConfiguration config)
         {
-            var builder = services.AddIdentityCore<AppUser>();
 
-            builder = new IdentityBuilder(builder.UserType, builder.Services);
-            builder.AddEntityFrameworkStores<LibraryIdentityDbContext>();
-            builder.AddSignInManager<SignInManager<AppUser>>();
+            services.AddIdentityCore<AppUser>(opt =>
+            {
+                // add identity options here
+            })
+            .AddEntityFrameworkStores<LibraryIdentityDbContext>()
+            .AddSignInManager<SignInManager<AppUser>>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
@@ -25,12 +27,14 @@ namespace LibraryAggregator.API.Extensions
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidateIssuerSigningKey = true,
-                        //IssuerSigningKey = new RSACryptoServiceProvider(2048),
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Token:Key"])),
                         ValidIssuer = config["Token:Issuer"],
                         ValidateIssuer = true,
-                        //ValidateAudience = false
+                        ValidateAudience = false
                     };
                 });
+
+            services.AddAuthorization();
 
             return services;
         }
