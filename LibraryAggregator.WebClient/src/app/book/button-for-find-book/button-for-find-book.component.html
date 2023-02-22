@@ -8,8 +8,10 @@
         </div>
         <div class="col-sm m-lg-3 mb-2 ">
             <div class="button">
-                <a><button [routerLink]="['/found-books']" type="button" class="btn btn-primary"
-                        (click)="search()">Поиск</button></a>
+                <button type="button" class="btn btn-primary"
+                        (click)="search()">Поиск</button>
             </div>
         </div>
+        <app-found-books [bookList]="bookList"></app-found-books>
+        <hr>
     </div>

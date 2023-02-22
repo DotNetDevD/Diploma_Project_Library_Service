@@ -8,10 +8,9 @@ import { Book } from 'src/app/models/book';
 })
 export class FoundBooksComponent implements OnInit{
   
-  @Input() bookList!: Book[];
+  @Input() bookList: Book[] =[];
 
   ngOnInit(): void {
-    
   }
 
 }
