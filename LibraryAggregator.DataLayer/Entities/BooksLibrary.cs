@@ -12,6 +12,4 @@ public class BooksLibrary
     public virtual Book Book { get; set; } 
     public virtual Library Library { get; set; }
     public virtual ICollection<Booking> Boookings { get; set; }
-    public int BookStatusId { get; set; }
-    public virtual BookStatus BookStatus { get; set; } 
 }

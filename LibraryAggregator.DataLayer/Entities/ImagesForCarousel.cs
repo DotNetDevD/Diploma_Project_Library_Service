@@ -13,5 +13,3 @@ namespace LibraryAggregator.DataLayer.Entities
         public Library Library { get; set; }
     }
 }
-
-        

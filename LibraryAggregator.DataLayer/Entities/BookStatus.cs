@@ -5,6 +5,6 @@
         public int BookStatusId { get; set; }
         public string StatusName { get; set; } = null!;
         public string? StatusDescription { get; set; }
-        public BooksLibrary? BooksLibrary { get; set; }
+        public Booking Booking { get; set; }
     }
 }
