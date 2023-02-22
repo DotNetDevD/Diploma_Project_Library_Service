@@ -12,16 +12,16 @@ public partial class LibraryDataBaseContext : DbContext
         Database.EnsureCreated();
     }
 
-    public virtual DbSet<Booking> Bookings { get; set; }
-    public virtual DbSet<BookStatus> BookStatuses { get; set; }
-    public virtual DbSet<Client> Clients { get; set; }
-    public virtual DbSet<Author> Authors { get; set; }
-    public virtual DbSet<AuthorsBook> AuthorsBooks { get; set; }
-    public virtual DbSet<Book> Books { get; set; }
-    public virtual DbSet<BooksGenre> BooksGenres { get; set; }
-    public virtual DbSet<BooksLibrary> BooksLibraries { get; set; }
-    public virtual DbSet<Genre> Genres { get; set; }
-    public virtual DbSet<Library> Libraries { get; set; }
+    public virtual DbSet<Booking> Booking { get; set; }
+    public virtual DbSet<BookStatus> BookStatus { get; set; }
+    public virtual DbSet<Client> Client { get; set; }
+    public virtual DbSet<Author> Author { get; set; }
+    public virtual DbSet<AuthorsBook> AuthorsBook { get; set; }
+    public virtual DbSet<Book> Book { get; set; }
+    public virtual DbSet<BooksGenre> BooksGenre { get; set; }
+    public virtual DbSet<BooksLibrary> BooksLibrarie { get; set; }
+    public virtual DbSet<Genre> Genre { get; set; }
+    public virtual DbSet<Library> Library { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

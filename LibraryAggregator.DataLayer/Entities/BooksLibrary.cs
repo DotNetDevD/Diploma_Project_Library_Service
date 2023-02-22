@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-
-namespace LibraryAggregator.DataLayer.Entities;
+﻿namespace LibraryAggregator.DataLayer.Entities;
 
 public class BooksLibrary
 {
