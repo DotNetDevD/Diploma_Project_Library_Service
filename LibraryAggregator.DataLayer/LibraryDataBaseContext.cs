@@ -16,10 +16,10 @@ public partial class LibraryDataBaseContext : DbContext
     public virtual DbSet<BookStatus> BookStatus { get; set; }
     public virtual DbSet<Client> Client { get; set; }
     public virtual DbSet<Author> Author { get; set; }
-    public virtual DbSet<AuthorsBook> AuthorsBook { get; set; }
+    public virtual DbSet<AuthorsBook> AuthorsBooks { get; set; }
     public virtual DbSet<Book> Book { get; set; }
-    public virtual DbSet<BooksGenre> BooksGenre { get; set; }
-    public virtual DbSet<BooksLibrary> BooksLibrarie { get; set; }
+    public virtual DbSet<BooksGenre> BooksGenres { get; set; }
+    public virtual DbSet<BooksLibrary> BooksLibraries { get; set; }
     public virtual DbSet<Genre> Genre { get; set; }
     public virtual DbSet<Library> Library { get; set; }
 
