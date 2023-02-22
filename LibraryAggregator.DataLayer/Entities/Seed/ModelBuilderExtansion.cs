@@ -347,6 +347,8 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                      BooksLibrariesId = 1,
                      BookId = 1,
                      LibraryId = 1,
+                     BookStatusId = 1,
+
                  },
 
                  new BooksLibrary
@@ -354,6 +356,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                      BooksLibrariesId = 2,
                      BookId = 2,
                      LibraryId = 1,
+                     BookStatusId = 2,
                  },
 
                  new BooksLibrary
@@ -361,6 +364,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                      BooksLibrariesId = 3,
                      BookId = 3,
                      LibraryId = 1,
+                     BookStatusId = 3,
                  },
 
                  new BooksLibrary
@@ -368,7 +372,85 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                      BooksLibrariesId = 4,
                      BookId = 4,
                      LibraryId = 1,
+                     BookStatusId = 4,
                  }
+                );
+        }
+
+        public static void SeedBooking(this ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Booking>().HasData(
+                    new Booking
+                    {
+                        BookingId = 1,
+                        Code = new Random().Next(100000, 999999),
+                        StartDate = new DateTime(2023, 01, 01),
+                        FinishDate = new DateTime(2023, 01, 03),
+                        BooksLibraryId = 1
+
+                    },
+                    new Booking
+                    {
+                        BookingId = 2,
+                        Code = new Random().Next(100000, 999999),
+                        StartDate = new DateTime(2023, 01, 01),
+                        FinishDate = new DateTime(2023, 01, 03),
+                        BooksLibraryId = 2
+
+                    },
+                    new Booking
+                    {
+                        BookingId = 3,
+                        Code = new Random().Next(100000, 999999),
+                        StartDate = new DateTime(2023, 01, 01),
+                        FinishDate = new DateTime(2023, 01, 03),
+                        BooksLibraryId = 3
+
+                    },
+                    new Booking
+                    {
+                        BookingId = 4,
+                        Code = new Random().Next(100000, 999999),
+                        StartDate = new DateTime(2023, 01, 01),
+                        FinishDate = new DateTime(2023, 01, 03),
+                        BooksLibraryId = 4
+
+                    }
+                );
+        }
+
+        public static void SeedBookStatuses(this ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<BookStatus>().HasData(
+                    new BookStatus
+                    {
+                        BookStatusId = 1,
+                        StatusName = "Отмена бронирования",
+                        StatusDescription = "Клиент не принес книгу к намеченому сроку"
+                    },
+                    new BookStatus
+                    {
+                        BookStatusId = 2,
+                        StatusName = "Отдана пользователю",
+                        StatusDescription = "Клиент получил книгу в библиотеке"
+                    }, new BookStatus
+                    {
+                        BookStatusId = 3,
+                        StatusName = "Пользователь отдал обратно",
+                        StatusDescription = "Клиент вернул книгу обратно"
+                    },
+                    new BookStatus
+                    {
+                        BookStatusId = 4,
+                        StatusName = "Книга доступна для бронированнию",
+                        StatusDescription = "Книгу можно забронировать"
+                    },
+                    new BookStatus
+                    {
+                        BookStatusId = 5,
+                        StatusName = "Книга в процессе бронирования",
+                        StatusDescription = "Книга нахидиться в процессе бронирования"
+                    }
                 );
         }
     }

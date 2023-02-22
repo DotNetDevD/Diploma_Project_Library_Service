@@ -17,7 +17,7 @@ export class SearchApiService {
 
     // SearchBooks
     searchSomeBooks(title: string): Observable<Book[]> {
-        return this.http.get<Book[]>(this.apiUrl + `/search/${title}`);
+        return this.http.get<Book[]>(this.apiUrl + `/search/book/${title}`);
     }
 
     // SearchAuthors

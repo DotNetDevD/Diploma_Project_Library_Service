@@ -12,6 +12,9 @@ public partial class LibraryDataBaseContext : DbContext
         Database.EnsureCreated();
     }
 
+    public virtual DbSet<Booking> Bookings { get; set; }
+    public virtual DbSet<BookStatus> BookStatuses { get; set; }
+    public virtual DbSet<Client> Clients { get; set; }
     public virtual DbSet<Author> Authors { get; set; }
     public virtual DbSet<AuthorsBook> AuthorsBooks { get; set; }
     public virtual DbSet<Book> Books { get; set; }
@@ -31,7 +34,7 @@ public partial class LibraryDataBaseContext : DbContext
             entity.Property(e => e.FirstName).HasMaxLength(50);
             entity.Property(e => e.LastName).HasMaxLength(50);
             entity.Property(e => e.MiddleName).HasMaxLength(50);
-        }); 
+        });
 
         modelBuilder.Entity<AuthorsBook>(entity =>
         {
@@ -92,6 +95,15 @@ public partial class LibraryDataBaseContext : DbContext
                 .HasForeignKey(d => d.LibraryId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__BooksLibr__Libra__4222D4EF");
+
+            entity.HasOne(item => item.BookStatus)
+           .WithOne(item => item.BooksLibrary)
+           .OnDelete(DeleteBehavior.ClientSetNull);
+
+            entity.HasMany(item => item.Boookings)
+             .WithOne(item => item.BooksLibrary)
+             .OnDelete(DeleteBehavior.ClientSetNull);
+
         });
 
         modelBuilder.Entity<Genre>(entity =>
@@ -114,6 +126,29 @@ public partial class LibraryDataBaseContext : DbContext
             entity.Property(e => e.PhoneNumber).HasMaxLength(50);
         });
 
+
+        modelBuilder.Entity<Client>(entity =>
+        {
+            entity.HasIndex(item => item.Email).IsUnique();
+            entity.HasIndex(item => item.PhoneNumber).IsUnique();
+
+        });
+
+        modelBuilder.Entity<BookStatus>(
+        entity =>
+        { 
+            entity.HasKey(item => item.BookStatusId).HasName("PK__BookStatus");
+        });
+
+        modelBuilder.Entity<Booking>(
+       entity =>
+       {
+           //entity.HasKey(item => item.BookingId).HasName("PK__Booking");
+           entity.Property(item => item.Code).HasMaxLength(6);
+          
+
+       });
+
         //it's Seed 
         modelBuilder.SeedAuthors();
         modelBuilder.SeedBooks();
@@ -124,6 +159,8 @@ public partial class LibraryDataBaseContext : DbContext
         modelBuilder.SeedOperatingModes();
         modelBuilder.SeedImagesFourCorusel();
         modelBuilder.SeedBooksLibrary();
+        modelBuilder.SeedBookStatuses();
+        modelBuilder.SeedBooking();
         OnModelCreatingPartial(modelBuilder);
     }
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
