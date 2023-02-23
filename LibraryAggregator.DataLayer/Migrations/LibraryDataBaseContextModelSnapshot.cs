@@ -124,7 +124,7 @@ namespace LibraryAggregator.DataLayer.Migrations
 
                     b.HasIndex("BookId");
 
-                    b.ToTable("AuthorsBook");
+                    b.ToTable("AuthorsBooks");
 
                     b.HasData(
                         new
@@ -341,12 +341,25 @@ namespace LibraryAggregator.DataLayer.Migrations
                     b.HasIndex("BookStatusId")
                         .IsUnique();
 
-                    b.HasIndex("BooksLibraryId");
+                    b.HasIndex("BooksLibraryId")
+                        .IsUnique();
 
                     b.HasIndex("ClientId")
                         .IsUnique();
 
-                    b.ToTable("Bookings");
+                    b.ToTable("Booking");
+
+                    b.HasData(
+                        new
+                        {
+                            BookingId = 1,
+                            BookStatusId = 2,
+                            BooksLibraryId = 1,
+                            ClientId = 1,
+                            Code = 808474,
+                            FinishDate = new DateTime(2023, 3, 2, 20, 12, 50, 331, DateTimeKind.Local).AddTicks(2144),
+                            StartDate = new DateTime(2023, 2, 23, 20, 12, 50, 331, DateTimeKind.Local).AddTicks(2131)
+                        });
                 });
 
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.BooksGenre", b =>
@@ -370,7 +383,7 @@ namespace LibraryAggregator.DataLayer.Migrations
 
                     b.HasIndex("GenreId");
 
-                    b.ToTable("BooksGenre");
+                    b.ToTable("BooksGenres");
 
                     b.HasData(
                         new
@@ -423,7 +436,7 @@ namespace LibraryAggregator.DataLayer.Migrations
 
                     b.HasIndex("LibraryId");
 
-                    b.ToTable("BooksLibrarie");
+                    b.ToTable("BooksLibraries");
 
                     b.HasData(
                         new
@@ -453,6 +466,13 @@ namespace LibraryAggregator.DataLayer.Migrations
                             BookId = 4,
                             Count = 2,
                             LibraryId = 1
+                        },
+                        new
+                        {
+                            BooksLibrariesId = 5,
+                            BookId = 2,
+                            Count = 2,
+                            LibraryId = 2
                         });
                 });
 
@@ -489,6 +509,16 @@ namespace LibraryAggregator.DataLayer.Migrations
                         .HasFilter("[PhoneNumber] IS NOT NULL");
 
                     b.ToTable("Client");
+
+                    b.HasData(
+                        new
+                        {
+                            ClientId = 1,
+                            Email = "test@test.com",
+                            Name = "Артур",
+                            PhoneNumber = "+375299999999",
+                            Surname = "Пирожков"
+                        });
                 });
 
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.Genre", b =>
@@ -761,12 +791,13 @@ namespace LibraryAggregator.DataLayer.Migrations
                     b.HasOne("LibraryAggregator.DataLayer.Entities.BookStatus", "BookStatus")
                         .WithOne("Booking")
                         .HasForeignKey("LibraryAggregator.DataLayer.Entities.Booking", "BookStatusId")
-                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("LibraryAggregator.DataLayer.Entities.BooksLibrary", "BooksLibrary")
-                        .WithMany("Boookings")
-                        .HasForeignKey("BooksLibraryId")
+                        .WithOne("Booking")
+                        .HasForeignKey("LibraryAggregator.DataLayer.Entities.Booking", "BooksLibraryId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("LibraryAggregator.DataLayer.Entities.Client", "Client")
@@ -860,7 +891,8 @@ namespace LibraryAggregator.DataLayer.Migrations
 
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.BooksLibrary", b =>
                 {
-                    b.Navigation("Boookings");
+                    b.Navigation("Booking")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.Client", b =>

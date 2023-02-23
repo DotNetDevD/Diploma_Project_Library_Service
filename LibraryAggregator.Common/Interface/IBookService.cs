@@ -9,6 +9,5 @@ namespace LibraryAggregator.Common.Interface
         Task<IEnumerable<Book>> GetBooksListAsync();
         Task<Book> GetBookByIdAsync(int id);
         Task UpdateBookAsync(int id);
-
     }
 }

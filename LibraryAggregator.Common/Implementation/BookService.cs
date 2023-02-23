@@ -1,8 +1,6 @@
 ﻿using LibraryAggregator.Common.Interface;
 using LibraryAggregator.DataLayer.Entities;
 using LibraryAggregator.DataLayer.Repository.IRepository;
-using Microsoft.Extensions.Configuration;
-using System.Security.Cryptography.X509Certificates;
 
 namespace LibraryAggregator.Common.Implementation
 {

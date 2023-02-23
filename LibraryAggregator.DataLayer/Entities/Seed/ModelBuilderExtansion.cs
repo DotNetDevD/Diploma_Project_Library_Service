@@ -372,51 +372,30 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                      BookId = 4,
                      LibraryId = 1,
                      Count = 2
+                 },
+
+                 new BooksLibrary
+                 {
+                     BooksLibrariesId = 5,
+                     BookId = 2,
+                     LibraryId = 2,
+                     Count = 2
                  }
                 );
         }
-
-        public static void SeedBooking(this ModelBuilder modelBuilder)
+        public static void SeedClient(this ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<Booking>().HasData(
-            //        new Booking
-            //        {
-            //            BookingId = 1,
-            //            Code = new Random().Next(100000, 999999),
-            //            StartDate = new DateTime(2023, 01, 01),
-            //            FinishDate = new DateTime(2023, 01, 03),
-            //            BooksLibraryId = 1,
-            //            BookStatusId = 2,
-            //        },
-            //        new Booking
-            //        {
-            //            BookingId = 2,
-            //            Code = new Random().Next(100000, 999999),
-            //            StartDate = new DateTime(2023, 01, 01),
-            //            FinishDate = new DateTime(2023, 01, 03),
-            //            BooksLibraryId = 2,
-            //            BookStatusId = 5
-            //        },
-            //        new Booking
-            //        {
-            //            BookingId = 3,
-            //            Code = new Random().Next(100000, 999999),
-            //            StartDate = new DateTime(2023, 01, 01),
-            //            FinishDate = new DateTime(2023, 01, 03),
-            //            BooksLibraryId = 1
-
-            //        },
-            //        new Booking
-            //        {
-            //            BookingId = 4,
-            //            Code = new Random().Next(100000, 999999),
-            //            StartDate = new DateTime(2023, 01, 01),
-            //            FinishDate = new DateTime(2023, 01, 03),
-            //            BooksLibraryId = 4
-            //        }
-            //    );
+            modelBuilder.Entity<Client>().HasData(
+                    new Client
+                    {
+                        ClientId = 1,
+                        Name = "Артур",
+                        Surname = "Пирожков",
+                        Email = "test@test.com",
+                        PhoneNumber = "+375299999999"
+                    }
+                );
         }
-
         public static void SeedBookStatuses(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<BookStatus>().HasData(
@@ -431,7 +410,8 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                         BookStatusId = 2,
                         StatusName = "Отдана пользователю",
                         StatusDescription = "Клиент получил книгу в библиотеке"
-                    }, new BookStatus
+                    }, 
+                    new BookStatus
                     {
                         BookStatusId = 3,
                         StatusName = "Пользователь отдал обратно",
@@ -448,6 +428,21 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                         BookStatusId = 5,
                         StatusName = "Книга в процессе бронирования",
                         StatusDescription = "Книга нахидиться в процессе бронирования"
+                    }
+                );
+        }
+        public static void SeedBooking(this ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Booking>().HasData(
+                    new Booking
+                    {
+                        BookingId = 1,
+                        Code = new Random().Next(100000, 999999),
+                        StartDate = DateTime.Now,
+                        FinishDate = DateTime.Now.AddDays(7),
+                        BooksLibraryId = 1,
+                        ClientId = 1,
+                        BookStatusId = 2,
                     }
                 );
         }

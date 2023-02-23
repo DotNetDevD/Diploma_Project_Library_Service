@@ -96,8 +96,8 @@ public partial class LibraryDataBaseContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__BooksLibr__Libra__4222D4EF");
 
-            entity.HasMany(item => item.Boookings).WithOne(item => item.BooksLibrary)
-                .OnDelete(DeleteBehavior.ClientSetNull);
+            //entity.HasMany(item => item.Boookings).WithOne(item => item.BooksLibrary)
+            //    .OnDelete(DeleteBehavior.ClientSetNull);
         });
 
         modelBuilder.Entity<Genre>(entity =>
@@ -138,9 +138,9 @@ public partial class LibraryDataBaseContext : DbContext
            //entity.HasKey(item => item.BookingId).HasName("PK__Booking");
            entity.Property(item => item.Code).HasMaxLength(6);
 
-           entity.HasOne(item => item.BookStatus)
-           .WithOne(item => item.Booking)
-           .OnDelete(DeleteBehavior.ClientCascade);
+           //entity.HasOne(item => item.BookStatus)
+           //.WithOne(item => item.Booking)
+           //.OnDelete(DeleteBehavior.ClientCascade);
        });
 
         //it's Seed 
@@ -154,6 +154,7 @@ public partial class LibraryDataBaseContext : DbContext
         modelBuilder.SeedImagesFourCorusel();
         modelBuilder.SeedBooksLibrary();
         modelBuilder.SeedBookStatuses();
+        modelBuilder.SeedClient();
         modelBuilder.SeedBooking();
         OnModelCreatingPartial(modelBuilder);
     }
