@@ -2,9 +2,9 @@
 
 namespace LibraryAggregator.DataLayer.Repository.IRepository
 {
-    public interface IBookingRepository : IRepository<Booking>, IGenericSearchRepository<Author>
+    public interface IBookingRepository : IRepository<Booking>
     {
-        Task<IEnumerable<Author>> GetFullInfoAuthorsAsync();
-        Task<Author> GetFullInfoAuthorAsync(int id);
+        Task<IEnumerable<Booking>> GetFullInfoBookingsAsync();
+        Task<Booking> GetFullInfoBookingAsync(int id);
     }
 }

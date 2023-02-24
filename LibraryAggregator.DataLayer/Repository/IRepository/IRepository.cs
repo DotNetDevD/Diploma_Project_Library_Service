@@ -3,11 +3,11 @@
     public interface IRepository<T>
         where T : class
     {
-        Task<IEnumerable<T>> GetListAsync(); // получение всех объектов
-        Task<T> GetByIdAsync(int id); // получение одного объекта по id
-        Task CreateAsync(T item); // создание объекта
-        Task UpdateAsync(int id); // обновление объекта
-        Task DeleteAsync(int id); // удаление объекта по id
-        Task SaveAsync();  // сохранение изменений
+        Task<IEnumerable<T>> GetListAsync();
+        Task<T> GetByIdAsync(int id);
+        Task CreateAsync(T item); 
+        Task UpdateAsync(int id); 
+        Task DeleteAsync(int id); 
+        Task SaveAsync();  
     }
 }

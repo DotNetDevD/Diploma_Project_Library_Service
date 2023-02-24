@@ -13,20 +13,20 @@ namespace LibraryAggregator.DataLayer.Repository
         public async Task<Author> GetFullInfoAuthorAsync(int id)
         {
             return await dbSet.Include(u => u.AuthorsBooks)
-                .ThenInclude(b => b.Book)
-                .FirstOrDefaultAsync(a => a.AuthorId == id);
+                              .ThenInclude(b => b.Book)
+                              .FirstOrDefaultAsync(a => a.AuthorId == id);
         }
 
         public async Task<IEnumerable<Author>> GetFullInfoAuthorsAsync()
         {
             return await dbSet.Include(u => u.AuthorsBooks)
-                .ToListAsync();
+                              .ToListAsync();
         }
 
         public async Task<IEnumerable<Author>> SearchTermByUserInput(string title)
         {
             return await dbSet.Include(item => item.AuthorsBooks)
-                                 .ThenInclude(item => item.Book)
+                              .ThenInclude(item => item.Book)
                               .Where(item => (item.FirstName + item.MiddleName + item.LastName).Contains(title))
                               .ToListAsync();
         }

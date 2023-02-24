@@ -96,8 +96,6 @@ public partial class LibraryDataBaseContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__BooksLibr__Libra__4222D4EF");
 
-            //entity.HasMany(item => item.Boookings).WithOne(item => item.BooksLibrary)
-            //    .OnDelete(DeleteBehavior.ClientSetNull);
         });
 
         modelBuilder.Entity<Genre>(entity =>
@@ -135,7 +133,7 @@ public partial class LibraryDataBaseContext : DbContext
 
         modelBuilder.Entity<Booking>(entity =>
        {
-           //entity.HasKey(item => item.BookingId).HasName("PK__Booking");
+           entity.HasKey(item => item.BookingId);
            entity.Property(item => item.Code).HasMaxLength(6);
 
            //entity.HasOne(item => item.BookStatus)
