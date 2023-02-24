@@ -380,6 +380,14 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                      BookId = 2,
                      LibraryId = 2,
                      Count = 2
+                 },
+
+                 new BooksLibrary
+                 {
+                     BooksLibrariesId = 6,
+                     BookId = 1,
+                     LibraryId = 2,
+                     Count = 3
                  }
                 );
         }

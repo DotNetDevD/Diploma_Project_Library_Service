@@ -14,7 +14,8 @@ namespace LibraryAggregator.DataLayer.Repository
         {
             return await dbSet.Include(bs => bs.BookingStatus)
                               .Include(c => c.Client)
-                              .Include(l => l.BooksLibrary)
+                              .Include(l => l.BooksLibrary).ThenInclude(l => l.Library)
+                              .Include(l => l.BooksLibrary).ThenInclude(l => l.Book)
                               .ToListAsync();
         }
 
@@ -22,7 +23,8 @@ namespace LibraryAggregator.DataLayer.Repository
         {
             return await dbSet.Include(bs => bs.BookingStatus)
                               .Include(c => c.Client)
-                              .Include(l => l.BooksLibrary)
+                              .Include(l => l.BooksLibrary).ThenInclude(l => l.Library)
+                              .Include(l => l.BooksLibrary).ThenInclude(l => l.Book)
                               .FirstOrDefaultAsync(b => b.BookingId == id);
         }
 

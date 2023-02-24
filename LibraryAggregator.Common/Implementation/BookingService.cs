@@ -7,10 +7,11 @@ namespace LibraryAggregator.Common.Implementation
     public class BookingService : IBookingService
     {
         private readonly IBookingRepository _bookingRepository;
-
-        public BookingService(IBookingRepository bookingRepository)
+        private readonly IBooksLibraryRepository _booksLibraryRepository;
+        public BookingService(IBookingRepository bookingRepository, IBooksLibraryRepository booksLibraryRepository)
         {
             _bookingRepository = bookingRepository;
+            _booksLibraryRepository = booksLibraryRepository;
         }
 
         public async Task CreateBookingAsync(Booking booking)
@@ -29,9 +30,14 @@ namespace LibraryAggregator.Common.Implementation
             await _bookingRepository.DeleteAsync(id);
         }
 
+        public async Task<IEnumerable<BooksLibrary>> GetAvailableBookingByBookIdAsync(int id)
+        {
+            return await _booksLibraryRepository.GetdLibraryListByBookIdAsync(id);
+        }
+
         public async Task<Booking> GetBookingByIdAsync(int id)
         {
-           return await _bookingRepository.GetFullInfoBookingAsync(id);
+            return await _bookingRepository.GetFullInfoBookingAsync(id);
         }
 
         public async Task<IEnumerable<Booking>> GetBookingListAsync()
@@ -39,9 +45,10 @@ namespace LibraryAggregator.Common.Implementation
             return await _bookingRepository.GetFullInfoBookingsAsync();
         }
 
-        public Task UpdateBookingAsync(int id)
+        //TODO: correct update Method
+        public async Task UpdateBookingAsync(int id)
         {
-            throw new NotImplementedException();
+            await _bookingRepository.UpdateAsync(id);
         }
     }
 }

@@ -15,7 +15,8 @@ namespace LibraryAggregator.DataLayer.Repository
                     .ThenInclude(bl => bl.Genre)
                     .Include(u => u.AuthorsBooks)
                     .ThenInclude(u => u.Author)
-                    .Include(l => l.BooksLibraries)
+                    .Include(lb => lb.BooksLibraries).ThenInclude(l =>l.Library)
+                    .Include(lb => lb.BooksLibraries).ThenInclude(b => b.Booking)
                     .FirstOrDefaultAsync(b => b.BookId == id);
         }
 
