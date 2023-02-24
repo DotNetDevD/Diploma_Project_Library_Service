@@ -1,7 +1,11 @@
-﻿namespace LibraryAggregator.DataLayer.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace LibraryAggregator.DataLayer.Entities
 {
     public class Booking
     {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int BookingId { get; set; }
         public int Code { get; set; }
         public DateTime StartDate { get; set; }

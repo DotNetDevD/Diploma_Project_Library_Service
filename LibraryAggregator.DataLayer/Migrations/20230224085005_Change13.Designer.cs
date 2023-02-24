@@ -4,6 +4,7 @@ using LibraryAggregator.DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryAggregator.DataLayer.Migrations
 {
     [DbContext(typeof(LibraryDataBaseContext))]
-    partial class LibraryDataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230224085005_Change13")]
+    partial class Change13
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -336,7 +339,8 @@ namespace LibraryAggregator.DataLayer.Migrations
 
                     b.HasKey("BookingId");
 
-                    b.HasIndex("BookStatusId");
+                    b.HasIndex("BookStatusId")
+                        .IsUnique();
 
                     b.HasIndex("BooksLibraryId");
 
@@ -772,8 +776,8 @@ namespace LibraryAggregator.DataLayer.Migrations
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.Booking", b =>
                 {
                     b.HasOne("LibraryAggregator.DataLayer.Entities.BookStatus", "BookStatus")
-                        .WithMany("Booking")
-                        .HasForeignKey("BookStatusId")
+                        .WithOne("Booking")
+                        .HasForeignKey("LibraryAggregator.DataLayer.Entities.Booking", "BookStatusId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -868,7 +872,8 @@ namespace LibraryAggregator.DataLayer.Migrations
 
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.BookStatus", b =>
                 {
-                    b.Navigation("Booking");
+                    b.Navigation("Booking")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.BooksLibrary", b =>

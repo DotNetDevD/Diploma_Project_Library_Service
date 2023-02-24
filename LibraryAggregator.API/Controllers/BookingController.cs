@@ -28,13 +28,14 @@ namespace LibraryAggregator.API.Controllers
         [HttpPost]
         public async Task CreateAsync(int booksLibraryId, int bookStatusId)
         {
+
             Booking booking = new Booking
             {
                 Code = new Random().Next(100000, 999999),
                 StartDate = DateTime.Now,
                 FinishDate = DateTime.Now.AddDays(7),
                 BooksLibraryId = booksLibraryId,
-                ClientId = 1,
+                ClientId = 2,
                 BookStatusId = bookStatusId,
             };
             await _bookingService.CreateBookingAsync(booking);

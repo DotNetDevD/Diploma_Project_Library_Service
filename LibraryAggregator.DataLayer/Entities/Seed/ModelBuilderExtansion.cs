@@ -395,6 +395,17 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                         PhoneNumber = "+375299999999"
                     }
                 );
+
+            modelBuilder.Entity<Client>().HasData(
+                   new Client
+                   {
+                       ClientId = 2,
+                       Name = "Артур",
+                       Surname = "Пирожков",
+                       Email = "tes2t@com.by",
+                       PhoneNumber = "+37529у9999999"
+                   }
+               );
         }
         public static void SeedBookStatuses(this ModelBuilder modelBuilder)
         {
@@ -431,20 +442,20 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                     }
                 );
         }
-        public static void SeedBooking(this ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Booking>().HasData(
-                    new Booking
-                    {
-                        BookingId = 1,
-                        Code = new Random().Next(100000, 999999),
-                        StartDate = DateTime.Now,
-                        FinishDate = DateTime.Now.AddDays(7),
-                        BooksLibraryId = 1,
-                        ClientId = 1,
-                        BookStatusId = 2,
-                    }
-                );
-        }
+        //public static void SeedBooking(this ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Booking>().HasData(
+        //            new Booking
+        //            {
+        //                BookingId =1,
+        //                Code = new Random().Next(100000, 999999),
+        //                StartDate = DateTime.Now,
+        //                FinishDate = DateTime.Now.AddDays(7),
+        //                BooksLibraryId = 1,
+        //                ClientId = 1,
+        //                BookStatusId = 2,
+        //            }
+        //        );
+        //}
     }
 }

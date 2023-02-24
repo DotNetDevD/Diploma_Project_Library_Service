@@ -4,6 +4,7 @@ using LibraryAggregator.DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryAggregator.DataLayer.Migrations
 {
     [DbContext(typeof(LibraryDataBaseContext))]
-    partial class LibraryDataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230224084603_Change11")]
+    partial class Change11
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -336,11 +339,13 @@ namespace LibraryAggregator.DataLayer.Migrations
 
                     b.HasKey("BookingId");
 
-                    b.HasIndex("BookStatusId");
+                    b.HasIndex("BookStatusId")
+                        .IsUnique();
 
                     b.HasIndex("BooksLibraryId");
 
-                    b.HasIndex("ClientId");
+                    b.HasIndex("ClientId")
+                        .IsUnique();
 
                     b.ToTable("Booking");
                 });
@@ -772,8 +777,8 @@ namespace LibraryAggregator.DataLayer.Migrations
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.Booking", b =>
                 {
                     b.HasOne("LibraryAggregator.DataLayer.Entities.BookStatus", "BookStatus")
-                        .WithMany("Booking")
-                        .HasForeignKey("BookStatusId")
+                        .WithOne("Booking")
+                        .HasForeignKey("LibraryAggregator.DataLayer.Entities.Booking", "BookStatusId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -784,8 +789,8 @@ namespace LibraryAggregator.DataLayer.Migrations
                         .IsRequired();
 
                     b.HasOne("LibraryAggregator.DataLayer.Entities.Client", "Client")
-                        .WithMany("Booking")
-                        .HasForeignKey("ClientId")
+                        .WithOne("Booking")
+                        .HasForeignKey("LibraryAggregator.DataLayer.Entities.Booking", "ClientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -868,7 +873,8 @@ namespace LibraryAggregator.DataLayer.Migrations
 
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.BookStatus", b =>
                 {
-                    b.Navigation("Booking");
+                    b.Navigation("Booking")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.BooksLibrary", b =>
@@ -878,7 +884,8 @@ namespace LibraryAggregator.DataLayer.Migrations
 
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.Client", b =>
                 {
-                    b.Navigation("Booking");
+                    b.Navigation("Booking")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.Genre", b =>

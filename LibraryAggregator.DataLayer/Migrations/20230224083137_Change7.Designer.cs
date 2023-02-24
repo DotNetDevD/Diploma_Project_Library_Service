@@ -4,6 +4,7 @@ using LibraryAggregator.DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryAggregator.DataLayer.Migrations
 {
     [DbContext(typeof(LibraryDataBaseContext))]
-    partial class LibraryDataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230224083137_Change7")]
+    partial class Change7
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -271,7 +274,8 @@ namespace LibraryAggregator.DataLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("BookStatusId");
+                    b.HasKey("BookStatusId")
+                        .HasName("PK__BookStatus");
 
                     b.ToTable("BookStatus");
 
@@ -326,6 +330,7 @@ namespace LibraryAggregator.DataLayer.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("Code")
+                        .HasMaxLength(6)
                         .HasColumnType("int");
 
                     b.Property<DateTime>("FinishDate")
@@ -336,11 +341,13 @@ namespace LibraryAggregator.DataLayer.Migrations
 
                     b.HasKey("BookingId");
 
-                    b.HasIndex("BookStatusId");
+                    b.HasIndex("BookStatusId")
+                        .IsUnique();
 
                     b.HasIndex("BooksLibraryId");
 
-                    b.HasIndex("ClientId");
+                    b.HasIndex("ClientId")
+                        .IsUnique();
 
                     b.ToTable("Booking");
                 });
@@ -468,20 +475,28 @@ namespace LibraryAggregator.DataLayer.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ClientId"));
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Surname")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ClientId");
+
+                    b.HasIndex("Email")
+                        .IsUnique()
+                        .HasFilter("[Email] IS NOT NULL");
+
+                    b.HasIndex("PhoneNumber")
+                        .IsUnique()
+                        .HasFilter("[PhoneNumber] IS NOT NULL");
 
                     b.ToTable("Client");
 
@@ -497,7 +512,7 @@ namespace LibraryAggregator.DataLayer.Migrations
                         new
                         {
                             ClientId = 2,
-                            Email = "tes2t@com.by",
+                            Email = "tes2t@test.com",
                             Name = "Артур",
                             PhoneNumber = "+37529у9999999",
                             Surname = "Пирожков"
@@ -772,20 +787,20 @@ namespace LibraryAggregator.DataLayer.Migrations
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.Booking", b =>
                 {
                     b.HasOne("LibraryAggregator.DataLayer.Entities.BookStatus", "BookStatus")
-                        .WithMany("Booking")
-                        .HasForeignKey("BookStatusId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .WithOne("Booking")
+                        .HasForeignKey("LibraryAggregator.DataLayer.Entities.Booking", "BookStatusId")
+                        .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
 
                     b.HasOne("LibraryAggregator.DataLayer.Entities.BooksLibrary", "BooksLibrary")
                         .WithMany("Booking")
                         .HasForeignKey("BooksLibraryId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
 
                     b.HasOne("LibraryAggregator.DataLayer.Entities.Client", "Client")
-                        .WithMany("Booking")
-                        .HasForeignKey("ClientId")
+                        .WithOne("Booking")
+                        .HasForeignKey("LibraryAggregator.DataLayer.Entities.Booking", "ClientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -878,7 +893,8 @@ namespace LibraryAggregator.DataLayer.Migrations
 
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.Client", b =>
                 {
-                    b.Navigation("Booking");
+                    b.Navigation("Booking")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.Genre", b =>

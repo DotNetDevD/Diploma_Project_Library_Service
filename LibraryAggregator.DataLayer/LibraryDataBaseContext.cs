@@ -118,28 +118,24 @@ public partial class LibraryDataBaseContext : DbContext
             entity.Property(e => e.PhoneNumber).HasMaxLength(50);
         });
 
+        //modelBuilder.Entity<BookStatus>(entity =>
+        //{
+        //    entity.HasKey(item => item.BookStatusId).HasName("PK__BookStatus");
+        //});
 
-        modelBuilder.Entity<Client>(entity =>
-        {
-            entity.HasIndex(item => item.Email).IsUnique();
-            entity.HasIndex(item => item.PhoneNumber).IsUnique();
+       // modelBuilder.Entity<Booking>(entity =>
+       //{
+       //    entity.HasKey(item => item.BookingId);
+       //    entity.Property(item => item.Code).HasMaxLength(6);
 
-        });
+       //    //entity.HasOne(item => item.BookStatus)
+       //    //.WithOne(item => item.Booking)
+       //    //.OnDelete(DeleteBehavior.ClientCascade);
 
-        modelBuilder.Entity<BookStatus>(entity =>
-        {
-            entity.HasKey(item => item.BookStatusId).HasName("PK__BookStatus");
-        });
-
-        modelBuilder.Entity<Booking>(entity =>
-       {
-           entity.HasKey(item => item.BookingId);
-           entity.Property(item => item.Code).HasMaxLength(6);
-
-           //entity.HasOne(item => item.BookStatus)
-           //.WithOne(item => item.Booking)
-           //.OnDelete(DeleteBehavior.ClientCascade);
-       });
+       //    //entity.HasOne(item => item.BooksLibrary)
+       //    //.WithMany(item => item.Booking)
+       //    //.OnDelete(DeleteBehavior.ClientCascade);
+       //});
 
         //it's Seed 
         modelBuilder.SeedAuthors();
@@ -153,7 +149,7 @@ public partial class LibraryDataBaseContext : DbContext
         modelBuilder.SeedBooksLibrary();
         modelBuilder.SeedBookStatuses();
         modelBuilder.SeedClient();
-        modelBuilder.SeedBooking();
+        //modelBuilder.SeedBooking();
         OnModelCreatingPartial(modelBuilder);
     }
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
