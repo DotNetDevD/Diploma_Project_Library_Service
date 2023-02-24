@@ -256,58 +256,6 @@ namespace LibraryAggregator.DataLayer.Migrations
                         });
                 });
 
-            modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.BookStatus", b =>
-                {
-                    b.Property<int>("BookStatusId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookStatusId"));
-
-                    b.Property<string>("StatusDescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("StatusName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("BookStatusId");
-
-                    b.ToTable("BookStatus");
-
-                    b.HasData(
-                        new
-                        {
-                            BookStatusId = 1,
-                            StatusDescription = "Клиент не принес книгу к намеченому сроку",
-                            StatusName = "Отмена бронирования"
-                        },
-                        new
-                        {
-                            BookStatusId = 2,
-                            StatusDescription = "Клиент получил книгу в библиотеке",
-                            StatusName = "Отдана пользователю"
-                        },
-                        new
-                        {
-                            BookStatusId = 3,
-                            StatusDescription = "Клиент вернул книгу обратно",
-                            StatusName = "Пользователь отдал обратно"
-                        },
-                        new
-                        {
-                            BookStatusId = 4,
-                            StatusDescription = "Книгу можно забронировать",
-                            StatusName = "Книга доступна для бронированнию"
-                        },
-                        new
-                        {
-                            BookStatusId = 5,
-                            StatusDescription = "Книга нахидиться в процессе бронирования",
-                            StatusName = "Книга в процессе бронирования"
-                        });
-                });
-
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.Booking", b =>
                 {
                     b.Property<int>("BookingId")
@@ -317,6 +265,9 @@ namespace LibraryAggregator.DataLayer.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookingId"));
 
                     b.Property<int>("BookStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("BookingStatusId")
                         .HasColumnType("int");
 
                     b.Property<int>("BooksLibraryId")
@@ -336,13 +287,77 @@ namespace LibraryAggregator.DataLayer.Migrations
 
                     b.HasKey("BookingId");
 
-                    b.HasIndex("BookStatusId");
+                    b.HasIndex("BookingStatusId");
 
                     b.HasIndex("BooksLibraryId");
 
                     b.HasIndex("ClientId");
 
                     b.ToTable("Booking");
+
+                    b.HasData(
+                        new
+                        {
+                            BookingId = 1,
+                            BookStatusId = 2,
+                            BooksLibraryId = 1,
+                            ClientId = 1,
+                            Code = 938838,
+                            FinishDate = new DateTime(2023, 3, 3, 13, 14, 49, 935, DateTimeKind.Local).AddTicks(4756),
+                            StartDate = new DateTime(2023, 2, 24, 13, 14, 49, 935, DateTimeKind.Local).AddTicks(4743)
+                        });
+                });
+
+            modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.BookingStatus", b =>
+                {
+                    b.Property<int>("BookingStatusId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookingStatusId"));
+
+                    b.Property<string>("StatusDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StatusName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("BookingStatusId");
+
+                    b.ToTable("BookStatus");
+
+                    b.HasData(
+                        new
+                        {
+                            BookingStatusId = 1,
+                            StatusDescription = "Клиент не принес книгу к намеченому сроку",
+                            StatusName = "Отмена бронирования"
+                        },
+                        new
+                        {
+                            BookingStatusId = 2,
+                            StatusDescription = "Клиент получил книгу в библиотеке",
+                            StatusName = "Отдана пользователю"
+                        },
+                        new
+                        {
+                            BookingStatusId = 3,
+                            StatusDescription = "Клиент вернул книгу обратно",
+                            StatusName = "Пользователь отдал обратно"
+                        },
+                        new
+                        {
+                            BookingStatusId = 4,
+                            StatusDescription = "Книгу можно забронировать",
+                            StatusName = "Книга доступна для бронированнию"
+                        },
+                        new
+                        {
+                            BookingStatusId = 5,
+                            StatusDescription = "Книга нахидиться в процессе бронирования",
+                            StatusName = "Книга в процессе бронирования"
+                        });
                 });
 
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.BooksGenre", b =>
@@ -771,11 +786,9 @@ namespace LibraryAggregator.DataLayer.Migrations
 
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.Booking", b =>
                 {
-                    b.HasOne("LibraryAggregator.DataLayer.Entities.BookStatus", "BookStatus")
+                    b.HasOne("LibraryAggregator.DataLayer.Entities.BookingStatus", "BookingStatus")
                         .WithMany("Booking")
-                        .HasForeignKey("BookStatusId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BookingStatusId");
 
                     b.HasOne("LibraryAggregator.DataLayer.Entities.BooksLibrary", "BooksLibrary")
                         .WithMany("Booking")
@@ -789,7 +802,7 @@ namespace LibraryAggregator.DataLayer.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("BookStatus");
+                    b.Navigation("BookingStatus");
 
                     b.Navigation("BooksLibrary");
 
@@ -866,7 +879,7 @@ namespace LibraryAggregator.DataLayer.Migrations
                     b.Navigation("BooksLibraries");
                 });
 
-            modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.BookStatus", b =>
+            modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.BookingStatus", b =>
                 {
                     b.Navigation("Booking");
                 });

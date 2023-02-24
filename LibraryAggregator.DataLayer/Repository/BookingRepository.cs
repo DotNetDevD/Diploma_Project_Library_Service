@@ -12,7 +12,7 @@ namespace LibraryAggregator.DataLayer.Repository
 
         public async Task<IEnumerable<Booking>> GetFullInfoBookingsAsync()
         {
-            return await dbSet.Include(bs => bs.BookStatus)
+            return await dbSet.Include(bs => bs.BookingStatus)
                               .Include(c => c.Client)
                               .Include(l => l.BooksLibrary)
                               .ToListAsync();
@@ -20,7 +20,7 @@ namespace LibraryAggregator.DataLayer.Repository
 
         public async Task<Booking> GetFullInfoBookingAsync(int id)
         {
-            return await dbSet.Include(bs => bs.BookStatus)
+            return await dbSet.Include(bs => bs.BookingStatus)
                               .Include(c => c.Client)
                               .Include(l => l.BooksLibrary)
                               .FirstOrDefaultAsync(b => b.BookingId == id);

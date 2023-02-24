@@ -409,53 +409,53 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
         }
         public static void SeedBookStatuses(this ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<BookStatus>().HasData(
-                    new BookStatus
+            modelBuilder.Entity<BookingStatus>().HasData(
+                    new BookingStatus
                     {
-                        BookStatusId = 1,
+                        BookingStatusId = 1,
                         StatusName = "Отмена бронирования",
                         StatusDescription = "Клиент не принес книгу к намеченому сроку"
                     },
-                    new BookStatus
+                    new BookingStatus
                     {
-                        BookStatusId = 2,
+                        BookingStatusId = 2,
                         StatusName = "Отдана пользователю",
                         StatusDescription = "Клиент получил книгу в библиотеке"
                     }, 
-                    new BookStatus
+                    new BookingStatus
                     {
-                        BookStatusId = 3,
+                        BookingStatusId = 3,
                         StatusName = "Пользователь отдал обратно",
                         StatusDescription = "Клиент вернул книгу обратно"
                     },
-                    new BookStatus
+                    new BookingStatus
                     {
-                        BookStatusId = 4,
+                        BookingStatusId = 4,
                         StatusName = "Книга доступна для бронированнию",
                         StatusDescription = "Книгу можно забронировать"
                     },
-                    new BookStatus
+                    new BookingStatus
                     {
-                        BookStatusId = 5,
+                        BookingStatusId = 5,
                         StatusName = "Книга в процессе бронирования",
                         StatusDescription = "Книга нахидиться в процессе бронирования"
                     }
                 );
         }
-        //public static void SeedBooking(this ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Booking>().HasData(
-        //            new Booking
-        //            {
-        //                BookingId =1,
-        //                Code = new Random().Next(100000, 999999),
-        //                StartDate = DateTime.Now,
-        //                FinishDate = DateTime.Now.AddDays(7),
-        //                BooksLibraryId = 1,
-        //                ClientId = 1,
-        //                BookStatusId = 2,
-        //            }
-        //        );
-        //}
+        public static void SeedBooking(this ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Booking>().HasData(
+                    new Booking
+                    {
+                        BookingId = 1,
+                        Code = new Random().Next(100000, 999999),
+                        StartDate = DateTime.Now,
+                        FinishDate = DateTime.Now.AddDays(7),
+                        BooksLibraryId = 1,
+                        ClientId = 1,
+                        BookStatusId = 2,
+                    }
+                );
+        }
     }
 }

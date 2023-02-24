@@ -13,7 +13,7 @@ public partial class LibraryDataBaseContext : DbContext
     }
 
     public virtual DbSet<Booking> Booking { get; set; }
-    public virtual DbSet<BookStatus> BookStatus { get; set; }
+    public virtual DbSet<BookingStatus> BookStatus { get; set; }
     public virtual DbSet<Client> Client { get; set; }
     public virtual DbSet<Author> Author { get; set; }
     public virtual DbSet<AuthorsBook> AuthorsBooks { get; set; }
@@ -118,25 +118,6 @@ public partial class LibraryDataBaseContext : DbContext
             entity.Property(e => e.PhoneNumber).HasMaxLength(50);
         });
 
-        //modelBuilder.Entity<BookStatus>(entity =>
-        //{
-        //    entity.HasKey(item => item.BookStatusId).HasName("PK__BookStatus");
-        //});
-
-       // modelBuilder.Entity<Booking>(entity =>
-       //{
-       //    entity.HasKey(item => item.BookingId);
-       //    entity.Property(item => item.Code).HasMaxLength(6);
-
-       //    //entity.HasOne(item => item.BookStatus)
-       //    //.WithOne(item => item.Booking)
-       //    //.OnDelete(DeleteBehavior.ClientCascade);
-
-       //    //entity.HasOne(item => item.BooksLibrary)
-       //    //.WithMany(item => item.Booking)
-       //    //.OnDelete(DeleteBehavior.ClientCascade);
-       //});
-
         //it's Seed 
         modelBuilder.SeedAuthors();
         modelBuilder.SeedBooks();
@@ -149,7 +130,7 @@ public partial class LibraryDataBaseContext : DbContext
         modelBuilder.SeedBooksLibrary();
         modelBuilder.SeedBookStatuses();
         modelBuilder.SeedClient();
-        //modelBuilder.SeedBooking();
+        modelBuilder.SeedBooking();
         OnModelCreatingPartial(modelBuilder);
     }
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
