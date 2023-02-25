@@ -302,9 +302,9 @@ namespace LibraryAggregator.DataLayer.Migrations
                             BookStatusId = 2,
                             BooksLibraryId = 1,
                             ClientId = 1,
-                            Code = 722049,
-                            FinishDate = new DateTime(2023, 3, 3, 15, 16, 21, 1, DateTimeKind.Local).AddTicks(4581),
-                            StartDate = new DateTime(2023, 2, 24, 15, 16, 21, 1, DateTimeKind.Local).AddTicks(4569)
+                            Code = 604839,
+                            FinishDate = new DateTime(2023, 3, 4, 21, 35, 54, 186, DateTimeKind.Local).AddTicks(5236),
+                            StartDate = new DateTime(2023, 2, 25, 21, 35, 54, 186, DateTimeKind.Local).AddTicks(5198)
                         });
                 });
 
