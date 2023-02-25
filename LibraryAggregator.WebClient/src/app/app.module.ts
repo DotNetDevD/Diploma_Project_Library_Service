@@ -31,6 +31,8 @@ import { ButtonForFindAuthorComponent } from './author/button-for-find-author/bu
 import { ButtonForFindLibraryComponent } from './library/button-for-find-library/button-for-find-library.component';
 import { SearchComponent } from './search/search.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { BookingApiService } from './api-services/booking-api.service';
+import { BookAvailableForBookingComponent } from './book/book-available-for-booking/book-available-for-booking.component';
 
 registerLocaleData(localeRu);
 
@@ -56,7 +58,8 @@ registerLocaleData(localeRu);
         PageNotFoundComponent,
         GenreShowComponent,
         SearchComponent,
-        NavBarComponent
+        NavBarComponent,
+        BookAvailableForBookingComponent
     ],
     imports: [
         AppRoutingModule,
@@ -71,6 +74,7 @@ registerLocaleData(localeRu);
         AuthorApiService,
         GenreApiService,
         SearchApiService,
+        BookingApiService,
         { provide: LOCALE_ID, useValue: 'ru' }
     ],
     bootstrap: [AppComponent]

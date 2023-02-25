@@ -19,8 +19,8 @@ export class BookingApiService {
     getBookingById(id: number): Observable<Booking> {
         return this.http.get<Booking>(this.APIUrl + `/booking/${id}`)
     }
-    GetAvailableBookingByBookId(id: number): Observable<BookLibrary> {
-      return this.http.get<BookLibrary>(this.APIUrl + `/booking/book/${id}`)
+    GetAvailableBookingByBookId(id: number): Observable<BookLibrary[]> {
+      return this.http.get<BookLibrary[]>(this.APIUrl + `/booking/book/${id}`)
   }
     addBooking(data: any) {
         return this.http.post(this.APIUrl + '/booking', data);

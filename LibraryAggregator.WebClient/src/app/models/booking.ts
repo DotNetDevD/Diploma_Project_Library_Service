@@ -1,6 +1,6 @@
 import { BookingStatus } from "./bookingStatus";
 import { BookLibrary } from "./bookLibrary";
-import { Client } from "./Client";
+import { Client } from "./client";
 
 export interface Booking {
     bookingId?: number;

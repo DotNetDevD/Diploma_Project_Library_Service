@@ -1,12 +1,8 @@
 ﻿using LibraryAggregator.DataLayer.Entities;
+using LibraryAggregator.DataLayer.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace LibraryAggregator.DataLayer.Repository.IRepository
+namespace LibraryAggregator.DataLayer.Repository
 {
     public class BooksLibraryRepository : BaseRepository<BooksLibrary>, IBooksLibraryRepository
     {
@@ -17,6 +13,7 @@ namespace LibraryAggregator.DataLayer.Repository.IRepository
         public async Task<IEnumerable<BooksLibrary>> GetdLibraryListByBookIdAsync(int id)
         {
             return await dbSet.Include(u => u.Book)
+                    .ThenInclude(a => a.AuthorsBooks).ThenInclude(a => a.Author)
                     .Include(u => u.Booking).ThenInclude(u => u.Client)
                     .Include(u => u.Booking).ThenInclude(u => u.BookingStatus)
                     .Include(l => l.Library)

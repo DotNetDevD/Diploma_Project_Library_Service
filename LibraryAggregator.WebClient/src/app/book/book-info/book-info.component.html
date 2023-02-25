@@ -46,6 +46,7 @@
                     </tr>
                 </thead>
             </table>
+            <a [routerLink]="['/book-available-for-booking', book.bookId]" class="btn btn-primary">заказать</a>
         </div>
         <div class="col-md-5">
             <img src="{{book.url}}" alt="" width="500px" height="500px">

@@ -9,7 +9,9 @@ import { Library } from 'src/app/models/library';
     styleUrls: ['./library-info.component.css']
 })
 export class LibraryInfoComponent {
+    
     library: Library = {};
+
     constructor(private readonly libraryService: LibraryApiService,
         private route: ActivatedRoute) { }
 
