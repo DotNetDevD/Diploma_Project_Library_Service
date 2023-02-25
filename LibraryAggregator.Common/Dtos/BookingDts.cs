@@ -2,6 +2,7 @@
 {
     public class BookingDts
     {
-        public int MyProperty { get; set; }
+        public int BookingBook { get; set; }
+        public int FreeBook { get; set; }
     }
 }
