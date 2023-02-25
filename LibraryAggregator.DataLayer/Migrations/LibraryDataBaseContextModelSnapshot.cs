@@ -264,10 +264,7 @@ namespace LibraryAggregator.DataLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookingId"));
 
-                    b.Property<int>("BookStatusId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("BookingStatusId")
+                    b.Property<int>("BookingStatusId")
                         .HasColumnType("int");
 
                     b.Property<int>("BooksLibraryId")
@@ -299,12 +296,12 @@ namespace LibraryAggregator.DataLayer.Migrations
                         new
                         {
                             BookingId = 1,
-                            BookStatusId = 2,
+                            BookingStatusId = 2,
                             BooksLibraryId = 1,
                             ClientId = 1,
-                            Code = 167401,
-                            FinishDate = new DateTime(2023, 3, 4, 22, 11, 31, 441, DateTimeKind.Local).AddTicks(8291),
-                            StartDate = new DateTime(2023, 2, 25, 22, 11, 31, 441, DateTimeKind.Local).AddTicks(8277)
+                            Code = 88889,
+                            FinishDate = new DateTime(2023, 3, 4, 22, 48, 28, 297, DateTimeKind.Local).AddTicks(4426),
+                            StartDate = new DateTime(2023, 2, 25, 22, 48, 28, 297, DateTimeKind.Local).AddTicks(4412)
                         });
                 });
 
@@ -804,7 +801,9 @@ namespace LibraryAggregator.DataLayer.Migrations
                 {
                     b.HasOne("LibraryAggregator.DataLayer.Entities.BookingStatus", "BookingStatus")
                         .WithMany("Booking")
-                        .HasForeignKey("BookingStatusId");
+                        .HasForeignKey("BookingStatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("LibraryAggregator.DataLayer.Entities.BooksLibrary", "BooksLibrary")
                         .WithMany("Booking")
