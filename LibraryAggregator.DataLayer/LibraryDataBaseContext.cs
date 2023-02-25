@@ -1,6 +1,8 @@
 ﻿using LibraryAggregator.DataLayer.Entities;
+using LibraryAggregator.DataLayer.Entities.Enum;
 using LibraryAggregator.DataLayer.Entities.Seed;
 using Microsoft.EntityFrameworkCore;
+using static LibraryAggregator.DataLayer.Entities.Booking;
 
 namespace LibraryAggregator.DataLayer;
 
@@ -13,7 +15,6 @@ public partial class LibraryDataBaseContext : DbContext
     }
 
     public virtual DbSet<Booking> Booking { get; set; }
-    public virtual DbSet<BookingStatus> BookStatus { get; set; }
     public virtual DbSet<Client> Client { get; set; }
     public virtual DbSet<Author> Author { get; set; }
     public virtual DbSet<AuthorsBook> AuthorsBooks { get; set; }
@@ -25,6 +26,11 @@ public partial class LibraryDataBaseContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Booking>()
+                    .Property(item => item.BookingStatus)
+                    .HasDefaultValue(BookingStatuses.Free)
+                    .HasConversion<int>(); ;
+
         modelBuilder.Entity<Author>(entity =>
         {
             entity.HasKey(e => e.AuthorId).HasName("PK__Author__70DAFC34E9BADC14");
@@ -128,7 +134,6 @@ public partial class LibraryDataBaseContext : DbContext
         modelBuilder.SeedOperatingModes();
         modelBuilder.SeedImagesFourCorusel();
         modelBuilder.SeedBooksLibrary();
-        modelBuilder.SeedBookStatuses();
         modelBuilder.SeedClient();
         modelBuilder.SeedBooking();
         OnModelCreatingPartial(modelBuilder);

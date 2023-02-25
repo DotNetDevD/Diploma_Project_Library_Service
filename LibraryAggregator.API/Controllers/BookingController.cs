@@ -1,5 +1,6 @@
 ﻿using LibraryAggregator.Common.Interface;
 using LibraryAggregator.DataLayer.Entities;
+using LibraryAggregator.DataLayer.Entities.Enum;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryAggregator.API.Controllers
@@ -45,9 +46,9 @@ namespace LibraryAggregator.API.Controllers
 
         //TODO: PUT and Attribute authorize
         [HttpPut]
-        public async Task UpdateAsync(int id)
+        public async Task UpdateAsync(int id , BookingStatuses bookingStatuses)
         {
-            await _bookingService.UpdateBookingAsync(id);
+            await _bookingService.UpdateBookingAsync(id , bookingStatuses);
         }
     }
 }

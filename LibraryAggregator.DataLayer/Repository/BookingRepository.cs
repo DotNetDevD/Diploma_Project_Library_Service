@@ -9,11 +9,10 @@ namespace LibraryAggregator.DataLayer.Repository
         public BookingRepository(LibraryDataBaseContext _db) : base(_db)
         {
         }
-
+        
         public async Task<IEnumerable<Booking>> GetFullInfoBookingsAsync()
         {
-            return await dbSet.Include(bs => bs.BookingStatus)
-                              .Include(c => c.Client)
+            return await dbSet.Include(c => c.Client)
                               .Include(l => l.BooksLibrary).ThenInclude(l => l.Library)
                               .Include(l => l.BooksLibrary).ThenInclude(l => l.Book)
                               .ToListAsync();
@@ -21,8 +20,7 @@ namespace LibraryAggregator.DataLayer.Repository
 
         public async Task<Booking> GetFullInfoBookingAsync(int id)
         {
-            return await dbSet.Include(bs => bs.BookingStatus)
-                              .Include(c => c.Client)
+            return await dbSet.Include(c => c.Client)
                               .Include(l => l.BooksLibrary).ThenInclude(l => l.Library)
                               .Include(l => l.BooksLibrary).ThenInclude(l => l.Book)
                               .FirstOrDefaultAsync(b => b.BookingId == id);

@@ -1,6 +1,7 @@
 ﻿using LibraryAggregator.Common.Interface;
 using LibraryAggregator.DataLayer.Entities;
 using LibraryAggregator.DataLayer.Repository.IRepository;
+using LibraryAggregator.DataLayer.Entities.Enum;
 
 namespace LibraryAggregator.Common.Implementation
 {
@@ -21,6 +22,7 @@ namespace LibraryAggregator.Common.Implementation
             {
                 booking.FinishDate = booking.StartDate.AddDays(21);
             }
+            booking.BookingStatus = BookingStatuses.Booked;
 
             await _bookingRepository.CreateAsync(booking);
         }
@@ -46,8 +48,10 @@ namespace LibraryAggregator.Common.Implementation
         }
 
         //TODO: correct update Method
-        public async Task UpdateBookingAsync(int id)
+        public async Task UpdateBookingAsync(int id , BookingStatuses bookingStatuses)
         {
+            Booking booking =  await GetBookingByIdAsync(id);
+            booking.BookingStatus = bookingStatuses;
             await _bookingRepository.UpdateAsync(id);
         }
     }

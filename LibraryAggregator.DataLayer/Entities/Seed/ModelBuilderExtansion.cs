@@ -415,41 +415,6 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                    }
                );
         }
-        public static void SeedBookStatuses(this ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<BookingStatus>().HasData(
-                    new BookingStatus
-                    {
-                        BookingStatusId = 1,
-                        StatusName = "Отмена бронирования",
-                        StatusDescription = "Клиент не принес книгу к намеченому сроку"
-                    },
-                    new BookingStatus
-                    {
-                        BookingStatusId = 2,
-                        StatusName = "Отдана пользователю",
-                        StatusDescription = "Клиент получил книгу в библиотеке"
-                    }, 
-                    new BookingStatus
-                    {
-                        BookingStatusId = 3,
-                        StatusName = "Пользователь отдал обратно",
-                        StatusDescription = "Клиент вернул книгу обратно"
-                    },
-                    new BookingStatus
-                    {
-                        BookingStatusId = 4,
-                        StatusName = "Книга доступна для бронированнию",
-                        StatusDescription = "Книгу можно забронировать"
-                    },
-                    new BookingStatus
-                    {
-                        BookingStatusId = 5,
-                        StatusName = "Книга в процессе бронирования",
-                        StatusDescription = "Книга нахидиться в процессе бронирования"
-                    }
-                );
-        }
         public static void SeedBooking(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Booking>().HasData(

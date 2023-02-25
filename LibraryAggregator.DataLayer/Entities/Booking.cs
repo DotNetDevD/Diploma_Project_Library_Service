@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using LibraryAggregator.DataLayer.Entities.Enum;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LibraryAggregator.DataLayer.Entities
@@ -15,6 +16,12 @@ namespace LibraryAggregator.DataLayer.Entities
         public int ClientId { get; set; }
         public virtual Client? Client { get; set; }
         public int BookingStatusId { get; set; }
-        public virtual BookingStatus? BookingStatus { get; set; }
+        public BookingStatuses BookingStatus
+        {
+            get => (BookingStatuses)BookingStatusId;
+            set => BookingStatusId = (int)value;
+        }
+
+
     }
 }
