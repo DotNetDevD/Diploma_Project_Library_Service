@@ -1,10 +1,13 @@
 import { Book } from "./book";
+import { Booking } from "./booking";
 import { Library } from "./library";
 
 export interface BookLibrary {
-    BooksLibrariesId?: number;
-    BookId?: number;
-    LibraryId?: number;
-    Book?: Book;
-    Library?: Library;
+    booksLibrariesId?: number;
+    bookId?: number;
+    libraryId?: number;
+    count?: number;
+    book?: Book;
+    library?: Library;
+    booking?: Booking[];
 }
