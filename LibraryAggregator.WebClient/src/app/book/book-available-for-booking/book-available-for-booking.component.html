@@ -29,7 +29,7 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let bookLibrary of bookLibraries">
-                        <td><a routerLink="library-info/{{bookLibrary.library?.libraryId}}">{{bookLibrary.library?.name}}</a></td>
+                        <td><a routerLink="/library-info/{{bookLibrary.library?.libraryId}}">{{bookLibrary.library?.name}}</a></td>
                         <td>{{bookLibrary.count}}</td>
                         <td>{{bookLibrary.count}}</td>
                         <td>{{bookLibrary.count}}</td>
