@@ -415,7 +415,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                    }
                );
         }
-        public static void SeedBookStatuses(this ModelBuilder modelBuilder)
+        public static void SeedBookingStatuses(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<BookingStatus>().HasData(
                     new BookingStatus
@@ -461,7 +461,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                         FinishDate = DateTime.Now.AddDays(7),
                         BooksLibraryId = 1,
                         ClientId = 1,
-                        BookStatusId = 2,
+                        BookingStatusId = 2,
                     }
                 );
         }

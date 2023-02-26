@@ -11,7 +11,9 @@ public class BooksLibrary
     public int LibraryId { get; set; }
     public int Count { get; set; }
     public int BookedBook { get; set; }
-    public virtual Book? Book { get; set; } 
+    public int FreeBook { get; set; }
+    public bool IsFreeBook { get; set; } = true;
+    public virtual Book? Book { get; set; }
     public virtual Library? Library { get; set; }
     public virtual ICollection<Booking> Booking { get; set; }
 }

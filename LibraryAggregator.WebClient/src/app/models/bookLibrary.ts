@@ -7,6 +7,9 @@ export interface BookLibrary {
     bookId?: number;
     libraryId?: number;
     count?: number;
+    bookedBook?: number;
+    freeBook?: number;
+    isFreeBook?: boolean;
     book?: Book;
     library?: Library;
     booking?: Booking[];

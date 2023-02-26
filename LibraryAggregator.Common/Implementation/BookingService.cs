@@ -32,7 +32,16 @@ namespace LibraryAggregator.Common.Implementation
 
         public async Task<IEnumerable<BooksLibrary>> GetAvailableBookingByBookIdAsync(int id)
         {
-            return await _booksLibraryRepository.GetdLibraryListByBookIdAsync(id);
+            IEnumerable<BooksLibrary> booksLibraries = await _booksLibraryRepository.GetdLibraryListByBookIdAsync(id);
+            foreach (BooksLibrary book in booksLibraries)
+            {
+                //TODO: magic number!!! => enum
+                book.BookedBook = book.Booking.Where(b => b.BookingStatusId == 2).Count();
+                book.FreeBook = book.Count - book.BookedBook;
+                if (book.FreeBook > 0)
+                    book.IsFreeBook = false;
+            }
+            return booksLibraries;
         }
 
         public async Task<Booking> GetBookingByIdAsync(int id)

@@ -31,9 +31,10 @@
                     <tr *ngFor="let bookLibrary of bookLibraries">
                         <td><a routerLink="/library-info/{{bookLibrary.library?.libraryId}}">{{bookLibrary.library?.name}}</a></td>
                         <td>{{bookLibrary.count}}</td>
-                        <td>{{bookLibrary.count}}</td>
-                        <td>{{bookLibrary.count}}</td>
-                        <td><a [routerLink]="" class="btn btn-primary">Забронировать</a></td>
+                        <td>{{bookLibrary.freeBook}}</td>
+                        <td>{{bookLibrary.bookedBook}}</td>
+                        <td><button type="button" [disabled]="bookLibrary.isFreeBook">Забронировать</button></td>
+                       <!-- <a [routerLink]="" href="javascript:void(0)" class="btn btn-primary">Забронировать</a> -->
                     </tr>
                 </tbody>
             </table>

@@ -13,7 +13,7 @@ public partial class LibraryDataBaseContext : DbContext
     }
 
     public virtual DbSet<Booking> Booking { get; set; }
-    public virtual DbSet<BookingStatus> BookStatus { get; set; }
+    public virtual DbSet<BookingStatus> BookingStatus { get; set; }
     public virtual DbSet<Client> Client { get; set; }
     public virtual DbSet<Author> Author { get; set; }
     public virtual DbSet<AuthorsBook> AuthorsBooks { get; set; }
@@ -128,7 +128,7 @@ public partial class LibraryDataBaseContext : DbContext
         modelBuilder.SeedOperatingModes();
         modelBuilder.SeedImagesFourCorusel();
         modelBuilder.SeedBooksLibrary();
-        modelBuilder.SeedBookStatuses();
+        modelBuilder.SeedBookingStatuses();
         modelBuilder.SeedClient();
         modelBuilder.SeedBooking();
         OnModelCreatingPartial(modelBuilder);
