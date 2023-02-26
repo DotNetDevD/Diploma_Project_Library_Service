@@ -16,6 +16,12 @@ namespace LibraryAggregator.DataLayer.Repository
                     .FirstOrDefaultAsync(i => i.ClientId == id);
         }
 
+        public async Task<int> GetClientIdByEmailAsync(string email)
+        {
+            Client client = await dbSet.FirstOrDefaultAsync(i => i.Email == email);
+            return client.ClientId;
+        }
+
         public async Task<IEnumerable<Client>> GetFullInfoClientsAsync()
         {
             return await dbSet.Include(b => b.Booking).ToListAsync();

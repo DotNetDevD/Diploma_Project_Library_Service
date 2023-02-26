@@ -6,5 +6,6 @@ namespace LibraryAggregator.DataLayer.Repository.IRepository
     {
         Task<Client> GetFullInfoClientAsync(int id);
         Task<IEnumerable<Client>> GetFullInfoClientsAsync();
+        Task<int> GetClientIdByEmailAsync(string email);
     }
 }

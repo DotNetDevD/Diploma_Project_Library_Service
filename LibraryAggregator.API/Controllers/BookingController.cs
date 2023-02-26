@@ -1,4 +1,5 @@
-﻿using LibraryAggregator.Common.Interface;
+﻿using LibraryAggregator.Common.Dtos;
+using LibraryAggregator.Common.Interface;
 using LibraryAggregator.DataLayer.Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,18 +14,6 @@ namespace LibraryAggregator.API.Controllers
             _bookingService = bookingService;
         }
 
-        [HttpGet(Name = "BookingList")]
-        public async Task<IEnumerable<Booking>> GetListAsync()
-        {
-            return await _bookingService.GetBookingListAsync();
-        }
-
-        [HttpGet("{id}")]
-        public async Task<Booking> GetByIdAsync(int id)
-        {
-            return await _bookingService.GetBookingByIdAsync(id);
-        }
-
         [HttpGet("book/{id}")]
         public async Task<IEnumerable<BooksLibrary>> GetAvailableBookingByBookIdAsync(int id)
         {
@@ -32,22 +21,9 @@ namespace LibraryAggregator.API.Controllers
         }
 
         [HttpPost]
-        public async Task CreateAsync(Booking booking)
+        public async Task CreateAsync(BookingDto bookingDto)
         {
-            await _bookingService.CreateBookingAsync(booking);
-        }
-
-        [HttpDelete("{id}")]
-        public async Task DeleteAsync(int id)
-        {
-            await _bookingService.DeleteBookingAsync(id);
-        }
-
-        //TODO: PUT and Attribute authorize
-        [HttpPut]
-        public async Task UpdateAsync(int id)
-        {
-            await _bookingService.UpdateBookingAsync(id);
+            await _bookingService.CreateBookingAsync(bookingDto);
         }
     }
 }

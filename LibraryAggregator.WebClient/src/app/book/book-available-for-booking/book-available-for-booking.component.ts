@@ -33,7 +33,7 @@ export class BookAvailableForBookingComponent {
     }
 
     getBookInLibraryByBookId(id: number): void {
-        this.bookingService.GetAvailableBookingByBookId(id)
+        this.bookingService.getAvailableBookingByBookId(id)
             .subscribe({
                 next: (data) => {
                     this.bookLibraries = data;
