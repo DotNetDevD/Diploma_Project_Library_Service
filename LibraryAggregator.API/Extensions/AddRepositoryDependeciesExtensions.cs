@@ -13,6 +13,7 @@ namespace LibraryAggregator.API.Extensions
             services.AddScoped<ILibraryRepository, LibraryRepository>();
             services.AddScoped<IBookingRepository, BookingRepository>();
             services.AddScoped<IBooksLibraryRepository, BooksLibraryRepository>();
+            services.AddScoped<IClientRepository, ClientRepository>();
         }
     }
 }
