@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using LibraryAggregator.DataLayer.Entities.Enum;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibraryAggregator.DataLayer.Entities.Seed
 {
@@ -426,7 +427,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                         FinishDate = DateTime.Now.AddDays(7),
                         BooksLibraryId = 1,
                         ClientId = 1,
-                        BookingStatusId = 2,
+                        BookingStatus = (BookingStatuses)2,
                     }
                 );
         }

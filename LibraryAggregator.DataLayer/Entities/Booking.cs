@@ -15,11 +15,9 @@ namespace LibraryAggregator.DataLayer.Entities
         public BooksLibrary? BooksLibrary { get; set; }
         public int ClientId { get; set; }
         public virtual Client? Client { get; set; }
-        public int BookingStatusId { get; set; }
         public BookingStatuses BookingStatus
         {
-            get => (BookingStatuses)BookingStatusId;
-            set => BookingStatusId = (int)value;
+            get; set;
         }
 
 
