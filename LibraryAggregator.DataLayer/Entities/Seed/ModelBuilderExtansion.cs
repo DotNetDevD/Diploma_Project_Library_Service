@@ -456,7 +456,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                     new Booking
                     {
                         BookingId = 1,
-                        Code = new Random().Next(100000, 999999),
+                        Code = 88889,
                         StartDate = DateTime.Now,
                         FinishDate = DateTime.Now.AddDays(7),
                         BooksLibraryId = 1,

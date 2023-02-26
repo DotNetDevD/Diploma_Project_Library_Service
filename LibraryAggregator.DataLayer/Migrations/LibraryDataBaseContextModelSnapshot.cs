@@ -299,9 +299,9 @@ namespace LibraryAggregator.DataLayer.Migrations
                             BookingStatusId = 2,
                             BooksLibraryId = 1,
                             ClientId = 1,
-                            Code = 179091,
-                            FinishDate = new DateTime(2023, 3, 5, 12, 59, 15, 442, DateTimeKind.Local).AddTicks(9411),
-                            StartDate = new DateTime(2023, 2, 26, 12, 59, 15, 442, DateTimeKind.Local).AddTicks(9398)
+                            Code = 88889,
+                            FinishDate = new DateTime(2023, 3, 4, 22, 48, 28, 297, DateTimeKind.Local).AddTicks(4426),
+                            StartDate = new DateTime(2023, 2, 25, 22, 48, 28, 297, DateTimeKind.Local).AddTicks(4412)
                         });
                 });
 
