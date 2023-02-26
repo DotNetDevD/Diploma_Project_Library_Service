@@ -29,7 +29,7 @@ public partial class LibraryDataBaseContext : DbContext
         modelBuilder.Entity<Booking>()
                     .Property(item => item.BookingStatus)
                     .HasDefaultValue(BookingStatuses.Free)
-                    .HasConversion<int>(); ;
+                    .HasConversion<int>(); 
 
         modelBuilder.Entity<Author>(entity =>
         {

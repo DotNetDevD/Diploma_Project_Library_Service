@@ -1,4 +1,5 @@
 ﻿using LibraryAggregator.DataLayer.Entities;
+using LibraryAggregator.DataLayer.Entities.Enum;
 
 namespace LibraryAggregator.Common.Interface
 {

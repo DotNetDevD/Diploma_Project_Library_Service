@@ -8,10 +8,12 @@ namespace LibraryAggregator.API.Controllers
     public class BookingController : ApiBaseController
     {
         private readonly IBookingService _bookingService;
+        private readonly IStateService _stateService;
 
-        public BookingController(IBookingService bookingService)
+        public BookingController(IBookingService bookingService, IStateService stateService)
         {
             _bookingService = bookingService;
+            _stateService = stateService;
         }
 
         [HttpGet(Name = "BookingList")]
@@ -44,11 +46,35 @@ namespace LibraryAggregator.API.Controllers
             await _bookingService.DeleteBookingAsync(id);
         }
 
-        //TODO: PUT and Attribute authorize
         [HttpPut]
-        public async Task UpdateAsync(int id , BookingStatuses bookingStatuses)
+        public async Task UpdateBookingStatusAsync(int id , BookingStatuses bookingStatus)
         {
-            await _bookingService.UpdateBookingAsync(id , bookingStatuses);
+            await _bookingService.UpdateBookingAsync(id , bookingStatus);
         }
+
+        [HttpPut("booking/{bookingStatus}")]
+        public async Task ChangeStatusBooking(int id, BookingStatuses bookingStatus)
+        {
+            await _stateService.BookingAsync(id, bookingStatus);
+        }
+
+        [HttpPut("returnedclient/{bookingStatus}")]
+        public async Task ChangeStatusReturnedClient(int id, BookingStatuses bookingStatus)
+        {
+            await _stateService.ReturnedClientAsync(id, bookingStatus);
+        }
+
+        [HttpPut("giventotheclient/{bookingStatus}")]
+        public async Task ChangeStatusGivenToTheClient(int id, BookingStatuses bookingStatus)
+        {
+            await _stateService.GivenToTheClientAsync(id, bookingStatus);
+        }
+
+        [HttpPut("cancell/{bookingStatus}")]
+        public async Task ChangeStatusCancell(int id, BookingStatuses bookingStatus)
+        {
+            await _stateService.CancellAsync(id, bookingStatus);
+        }
+
     }
 }

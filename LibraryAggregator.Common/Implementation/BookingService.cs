@@ -9,6 +9,7 @@ namespace LibraryAggregator.Common.Implementation
     {
         private readonly IBookingRepository _bookingRepository;
         private readonly IBooksLibraryRepository _booksLibraryRepository;
+
         public BookingService(IBookingRepository bookingRepository, IBooksLibraryRepository booksLibraryRepository)
         {
             _bookingRepository = bookingRepository;
@@ -22,8 +23,6 @@ namespace LibraryAggregator.Common.Implementation
             {
                 booking.FinishDate = booking.StartDate.AddDays(21);
             }
-            booking.BookingStatus = BookingStatuses.Booked;
-
             await _bookingRepository.CreateAsync(booking);
         }
 
@@ -48,11 +47,13 @@ namespace LibraryAggregator.Common.Implementation
         }
 
         //TODO: correct update Method
-        public async Task UpdateBookingAsync(int id , BookingStatuses bookingStatuses)
+        public async Task UpdateBookingAsync(int id, BookingStatuses bookingStatuses)
         {
-            Booking booking =  await GetBookingByIdAsync(id);
+            Booking booking = await GetBookingByIdAsync(id);
             booking.BookingStatus = bookingStatuses;
             await _bookingRepository.UpdateAsync(id);
         }
+
+
     }
 }
