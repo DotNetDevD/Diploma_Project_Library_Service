@@ -21,8 +21,6 @@ export class BookAvailableForBookingComponent {
         booksLibraries: []
     };
 
-    freeBook?: number;
-
     constructor(private readonly bookingService: BookingApiService,
         private readonly bookService: BookApiService,
         private route: ActivatedRoute) { }
@@ -54,9 +52,5 @@ export class BookAvailableForBookingComponent {
                 },
                 error: (e) => console.error(e)
             });
-    }
-
-    countFreeBook(count: any, booked: any): number {
-        return this.freeBook = count - booked;
     }
 }

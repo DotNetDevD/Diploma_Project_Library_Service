@@ -33,8 +33,7 @@
                         <td>{{bookLibrary.count}}</td>
                         <td>{{bookLibrary.freeBook}}</td>
                         <td>{{bookLibrary.bookedBook}}</td>
-                        <td><button type="button" [disabled]="bookLibrary.isFreeBook">Забронировать</button></td>
-                       <!-- <a [routerLink]="" href="javascript:void(0)" class="btn btn-primary">Забронировать</a> -->
+                        <td><a [routerLink]="['/booking', bookLibrary.booksLibrariesId]"><button type="button" [disabled]="bookLibrary.isFreeBook">Забронировать</button></a></td>
                     </tr>
                 </tbody>
             </table>

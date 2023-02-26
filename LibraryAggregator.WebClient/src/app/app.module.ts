@@ -33,6 +33,7 @@ import { SearchComponent } from './search/search.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { BookingApiService } from './api-services/booking-api.service';
 import { BookAvailableForBookingComponent } from './book/book-available-for-booking/book-available-for-booking.component';
+import { BookingComponent } from './book/booking/booking.component';
 
 registerLocaleData(localeRu);
 
@@ -59,7 +60,8 @@ registerLocaleData(localeRu);
         GenreShowComponent,
         SearchComponent,
         NavBarComponent,
-        BookAvailableForBookingComponent
+        BookAvailableForBookingComponent,
+        BookingComponent
     ],
     imports: [
         AppRoutingModule,
