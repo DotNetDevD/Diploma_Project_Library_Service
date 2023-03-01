@@ -14,6 +14,12 @@ namespace LibraryAggregator.API.Controllers
             _bookingService = bookingService;
         }
 
+        [HttpGet("bookLibrary/{id}")]
+        public async Task<BooksLibrary> GetFullBookLibraryInfoById(int id)
+        {
+            return await _bookingService.GetFullBookLibraryInfoById(id);
+        }
+
         [HttpGet("book/{id}")]
         public async Task<IEnumerable<BooksLibrary>> GetAvailableBookingByBookIdAsync(int id)
         {

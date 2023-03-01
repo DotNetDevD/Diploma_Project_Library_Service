@@ -15,10 +15,14 @@ export class BookingApiService {
     constructor(private http: HttpClient) { }
 
     getAvailableBookingByBookId(id: number): Observable<BookLibrary[]> {
-        return this.http.get<BookLibrary[]>(this.APIUrl + `/booking/book/${id}`)
+        return this.http.get<BookLibrary[]>(this.APIUrl + `/booking/book/${id}`);
     }
 
     addBooking(data: BookingDto) {
         return this.http.post(this.APIUrl + '/booking', data);
+    }
+
+    getBookLibraryById(id: number): Observable<BookLibrary> {
+        return this.http.get<BookLibrary>(this.APIUrl + `/booking/bookLibrary/${id}`)
     }
 }

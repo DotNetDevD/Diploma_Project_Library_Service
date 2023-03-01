@@ -3,3 +3,6 @@ img {
   width: 100%;
   display: block;
 }
+.margin-right{
+  margin-right: 30px !important;
+}

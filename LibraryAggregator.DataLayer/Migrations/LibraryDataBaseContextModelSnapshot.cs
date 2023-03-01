@@ -227,7 +227,7 @@ namespace LibraryAggregator.DataLayer.Migrations
                         new
                         {
                             BookId = 3,
-                            CoverImgPath = "Assets/Images/Books/CLR-via-C#-1.jpg",
+                            CoverImgPath = "Assets/Images/Books/CLR-via-C.jpg",
                             Description = "Эта книга, выходящая в третьем издании и уже ставшая классическим учебником по программированию,\r\n подробно описывает внутреннее устройство и функционирование общеязыковой исполняющей среды (CLR) Microsoft .NET Framework версии 4.0. \r\nНаписанная признанным экспертом в области программирования Джеффри Рихтером, много лет являющимся консультантом команды разработчиков .NET Framework компании Microsoft, \r\nкнига научит вас создавать по-настоящему надежные приложения любого вида, в том числе с использованием Microsoft Silverlight, ASP.NET, Windows Presentation Foundation и т.д.\r\nТретье издание полностью обновлено в соответствии со спецификацией платформы .NET Framework 4.0 и принципами многоядерного программирования.",
                             Isbn = "978-5-7502-0348-1",
                             PageCount = 896,
@@ -300,8 +300,8 @@ namespace LibraryAggregator.DataLayer.Migrations
                             BooksLibraryId = 1,
                             ClientId = 1,
                             Code = 88889,
-                            FinishDate = new DateTime(2023, 3, 5, 13, 43, 21, 265, DateTimeKind.Local).AddTicks(375),
-                            StartDate = new DateTime(2023, 2, 26, 13, 43, 21, 265, DateTimeKind.Local).AddTicks(343)
+                            FinishDate = new DateTime(2023, 2, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartDate = new DateTime(2023, 1, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 

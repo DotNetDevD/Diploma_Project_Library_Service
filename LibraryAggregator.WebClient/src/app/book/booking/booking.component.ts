@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { BookingApiService } from 'src/app/api-services/booking-api.service';
@@ -12,8 +12,9 @@ import { BookingDto } from 'src/app/models/Dtos/bookingDto';
 
 export class BookingComponent implements OnInit {
 
-    booking: BookingDto = {}
+    @Output() booking: BookingDto = {}
     bookingForm!: FormGroup;
+    isFormSent = false;
 
     constructor(private readonly bookingService: BookingApiService,
         private route: ActivatedRoute) {
@@ -29,12 +30,13 @@ export class BookingComponent implements OnInit {
     }
 
     submitBooking() {
+        this.isFormSent = true;
         this.booking.name = this.bookingForm.value.name;
         this.booking.surname = this.bookingForm.value.surname;
         this.booking.email = this.bookingForm.value.email;
         this.booking.phoneNumber = this.bookingForm.value.phone;
         this.booking.bookLibraryId = this.route.snapshot.params["id"];
         this.bookingService.addBooking(this.booking).subscribe();
-        console.log(this.booking)
+        //console.log(this.booking)
     }
 }

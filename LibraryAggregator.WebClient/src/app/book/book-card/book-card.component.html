@@ -3,10 +3,10 @@
     <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
       alt="{{book.title}}" src="{{book.url}}" data-holder-rendered="true">
     <div class="card-body">
-      <h5 class="card-title">Описание</h5>
+      <h5 class="card-title">{{book.title}}</h5>
       <!-- <h5 *ngFor="let item of book.booksGenres.genre.type"></h5> -->
-      <p class="card-text">{{book.title}}</p>
-      <a [routerLink]="['/book-info', book.bookId]" class="btn btn-primary">Подробнее</a>
+        <a [routerLink]="['/book-info', book.bookId]" class="btn btn-primary me-2">Подробнее</a>
+        <a [routerLink]="['/book-available-for-booking', book.bookId]" class="btn btn-primary">Забронировать</a>
     </div>
   </div>
 </div>

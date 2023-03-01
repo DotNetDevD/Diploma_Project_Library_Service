@@ -67,5 +67,10 @@ namespace LibraryAggregator.Common.Implementation
         {
             return await _bookingRepository.GetFullInfoBookingAsync(id);
         }
+
+        public async Task<BooksLibrary> GetFullBookLibraryInfoById(int id)
+        {
+            return await _booksLibraryRepository.GetFullBookLibraryInfoById(id);
+        }
     }
 }
