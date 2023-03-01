@@ -19,7 +19,5 @@ namespace LibraryAggregator.DataLayer.Entities
         {
             get; set;
         }
-
-
     }
 }

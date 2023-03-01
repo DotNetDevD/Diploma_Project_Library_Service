@@ -27,15 +27,12 @@ namespace LibraryAggregator.Common.Implementation
             Random random = new Random();
             Booking booking = new()
             {
-                booking.FinishDate = booking.StartDate.AddDays(21);
-            }
                 Code = random.Next(1, 10000),
                 StartDate = DateTime.Now,
                 FinishDate = DateTime.Now.AddDays(14),
                 BooksLibraryId = bookingDto.BookLibraryId,
                 ClientId = await _clientRepository.GetClientIdByEmailAsync(bookingDto.Email),
-                //TODO: code enum change 
-                BookingStatusId = 2
+                BookingStatus = BookingStatuses.Booked
             };
 
             await _bookingRepository.CreateAsync(booking);
@@ -58,8 +55,7 @@ namespace LibraryAggregator.Common.Implementation
             IEnumerable<BooksLibrary> booksLibraries = await _booksLibraryRepository.GetdLibraryListByBookIdAsync(id);
             foreach (BooksLibrary book in booksLibraries)
             {
-                //TODO: magic number!!! => enum
-                book.BookedBook = book.Booking.Where(b => b.BookingStatusId == 2).Count();
+                book.BookedBook = book.Booking.Where(b => b.BookingStatus == BookingStatuses.Booked).Count();
                 book.FreeBook = book.Count - book.BookedBook;
                 if (book.FreeBook > 0)
                     book.IsFreeBook = false;
@@ -72,13 +68,13 @@ namespace LibraryAggregator.Common.Implementation
             return await _bookingRepository.GetFullInfoBookingAsync(id);
         }
 
-        public async Task UpdateBookingAsync(int id, BookingStatuses bookingStatuses)
-        public async Task<BooksLibrary> GetFullBookLibraryInfoById(int id)
-        {
-            Booking booking = await GetBookingByIdAsync(id);
-            booking.BookingStatus = bookingStatuses;
-            await _bookingRepository.UpdateAsync(id);
-            return await _booksLibraryRepository.GetFullBookLibraryInfoById(id);
-        }
+        //public async Task UpdateBookingAsync(int id, BookingStatuses bookingStatuses)
+        //public async Task<BooksLibrary> GetFullBookLibraryInfoById(int id)
+        //{
+        //    Booking booking = await GetBookingByIdAsync(id);
+        //    booking.BookingStatus = bookingStatuses;
+        //    await _bookingRepository.UpdateAsync(id);
+        //    return await _booksLibraryRepository.GetFullBookLibraryInfoById(id);
+        //}
     }
 }

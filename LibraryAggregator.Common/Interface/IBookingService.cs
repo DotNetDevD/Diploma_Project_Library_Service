@@ -7,9 +7,8 @@ namespace LibraryAggregator.Common.Interface
     public interface IBookingService
     {
         Task CreateBookingAsync(BookingDto bookingDto);
-        Task<Booking> GetBookingByIdAsync(int id);
         Task<IEnumerable<BooksLibrary>> GetAvailableBookingByBookIdAsync(int id);
         Task<BooksLibrary> GetFullBookLibraryInfoById(int id);
-        Task UpdateBookingAsync(int id , BookingStatuses bookingStatuses);
+        Task UpdateBookingAsync(int id, BookingStatuses bookingStatuses);
     }
 }
