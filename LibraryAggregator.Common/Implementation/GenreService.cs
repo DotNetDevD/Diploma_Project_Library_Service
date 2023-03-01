@@ -1,7 +1,6 @@
 ﻿using LibraryAggregator.Common.Interface;
 using LibraryAggregator.DataLayer.Entities;
 using LibraryAggregator.DataLayer.Repository.IRepository;
-using Microsoft.Extensions.Configuration;
 
 namespace LibraryAggregator.Common.Implementation
 {

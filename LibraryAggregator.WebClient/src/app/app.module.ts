@@ -3,7 +3,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BookComponent } from './book/book.component';
-import { BookAddEditComponent } from './book/book-add-edit/book-add-edit.component';
 import { BookApiService } from './api-services/book-api.service';
 import { MainContentComponent } from './main-content/main-content.component';
 import { LibraryComponent } from './library/library.component';
@@ -33,6 +32,8 @@ import { SearchComponent } from './search/search.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { BookingApiService } from './api-services/booking-api.service';
 import { BookAvailableForBookingComponent } from './book/book-available-for-booking/book-available-for-booking.component';
+import { BookingComponent } from './book/booking/booking.component';
+import { SuccessBookingComponent } from './book/success-booking/success-booking.component';
 
 registerLocaleData(localeRu);
 
@@ -45,7 +46,6 @@ registerLocaleData(localeRu);
         AuthorPopularBooksComponent,
         FoundBooksComponent,
         BookComponent,
-        BookAddEditComponent,
         BookCardComponent,
         BookInfoComponent,
         ButtonForFindBookComponent,
@@ -59,7 +59,9 @@ registerLocaleData(localeRu);
         GenreShowComponent,
         SearchComponent,
         NavBarComponent,
-        BookAvailableForBookingComponent
+        BookAvailableForBookingComponent,
+        BookingComponent,
+        SuccessBookingComponent
     ],
     imports: [
         AppRoutingModule,

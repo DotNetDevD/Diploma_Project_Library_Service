@@ -11,6 +11,6 @@ export interface Booking {
     client?: Client;
     booksLibraryId: number;
     booksLibrary?: BookLibrary;
-    bookStatusId?: number;
+    bookingStatusId?: number;
     bookingStatus?: BookingStatus;
 }

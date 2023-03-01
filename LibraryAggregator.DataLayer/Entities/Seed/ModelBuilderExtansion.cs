@@ -35,7 +35,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                       BookId = 3,
                       Title = "CLR via C#",
                       Isbn = "978-5-7502-0348-1",
-                      CoverImgPath = "Assets/Images/Books/CLR-via-C#-1.jpg",
+                      CoverImgPath = "Assets/Images/Books/CLR-via-C.jpg",
                       Description = "Эта книга, выходящая в третьем издании и уже ставшая классическим учебником по программированию,\r\n подробно описывает внутреннее устройство и функционирование общеязыковой исполняющей среды (CLR) Microsoft .NET Framework версии 4.0. \r\nНаписанная признанным экспертом в области программирования Джеффри Рихтером, много лет являющимся консультантом команды разработчиков .NET Framework компании Microsoft, \r\nкнига научит вас создавать по-настоящему надежные приложения любого вида, в том числе с использованием Microsoft Silverlight, ASP.NET, Windows Presentation Foundation и т.д.\r\nТретье издание полностью обновлено в соответствии со спецификацией платформы .NET Framework 4.0 и принципами многоядерного программирования.",
                       PageCount = 896,
                       PublishDate = new DateTime(2008, 02, 11)
@@ -423,8 +423,8 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                     {
                         BookingId = 1,
                         Code = 88889,
-                        StartDate = DateTime.Now,
-                        FinishDate = DateTime.Now.AddDays(7),
+                        StartDate = new DateTime(2023, 1, 20),
+                        FinishDate = new DateTime(2023, 2, 20),
                         BooksLibraryId = 1,
                         ClientId = 1,
                         BookingStatus = (BookingStatuses)2,

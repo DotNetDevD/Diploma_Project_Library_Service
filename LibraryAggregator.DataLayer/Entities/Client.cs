@@ -1,7 +1,11 @@
-﻿namespace LibraryAggregator.DataLayer.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace LibraryAggregator.DataLayer.Entities
 {
     public class Client
     {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ClientId { get; set; }
         public string Name { get; set; } = null!;
         public string Surname { get; set; } = null!;

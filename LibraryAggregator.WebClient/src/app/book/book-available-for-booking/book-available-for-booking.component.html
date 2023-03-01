@@ -1,9 +1,7 @@
 <div class="container">
     <div class="row featurette">
         <div class="col-md-12">
-            <h2 class="featurette-heading">{{book?.title}}
-                <span class="text-muted">ISBN: {{book?.isbn}}</span>
-            </h2>
+            <h2 class="featurette-heading">{{book?.title}}</h2>
             <h4 class="flex-container">
                 Автор:
                 <div *ngFor="let authorsBooks of book?.authorsBooks">
@@ -11,6 +9,7 @@
                     {{authorsBooks.author?.middleName}}
                 </div>
             </h4>
+            <h6><span class="text-muted">ISBN: {{book?.isbn}}</span></h6>
             <h6 class="flex-container">
                 Жанр:&nbsp;
                 <div *ngFor="let booksGenres of book?.booksGenres">
@@ -29,11 +28,14 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let bookLibrary of bookLibraries">
-                        <td><a routerLink="/library-info/{{bookLibrary.library?.libraryId}}">{{bookLibrary.library?.name}}</a></td>
+                        <td><a
+                                routerLink="/library-info/{{bookLibrary.library?.libraryId}}">{{bookLibrary.library?.name}}</a>
+                        </td>
                         <td>{{bookLibrary.count}}</td>
-                        <td>{{bookLibrary.count}}</td>
-                        <td>{{bookLibrary.count}}</td>
-                        <td><a [routerLink]="" class="btn btn-primary">Забронировать</a></td>
+                        <td>{{bookLibrary.freeBook}}</td>
+                        <td>{{bookLibrary.bookedBook}}</td>
+                        <td><a [routerLink]="['/booking', bookLibrary.booksLibrariesId]"><button type="button"
+                                    [disabled]="bookLibrary.isFreeBook">Забронировать</button></a></td>
                     </tr>
                 </tbody>
             </table>

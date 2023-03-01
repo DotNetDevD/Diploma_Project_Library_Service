@@ -19,5 +19,13 @@ namespace LibraryAggregator.DataLayer.Repository
                     .Include(l => l.Library)
                     .Where(b => b.BookId == id).ToListAsync();
         }
+
+        public async Task<BooksLibrary> GetFullBookLibraryInfoById(int id)
+        {
+            return await dbSet.Include(u => u.Book)
+                   .ThenInclude(a => a.AuthorsBooks).ThenInclude(a => a.Author)
+                   .Include(l => l.Library)
+                   .FirstOrDefaultAsync(i => i.BooksLibrariesId == id);
+        }
     }
 }

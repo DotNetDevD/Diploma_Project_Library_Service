@@ -227,7 +227,7 @@ namespace LibraryAggregator.DataLayer.Migrations
                         new
                         {
                             BookId = 3,
-                            CoverImgPath = "Assets/Images/Books/CLR-via-C#-1.jpg",
+                            CoverImgPath = "Assets/Images/Books/CLR-via-C.jpg",
                             Description = "Эта книга, выходящая в третьем издании и уже ставшая классическим учебником по программированию,\r\n подробно описывает внутреннее устройство и функционирование общеязыковой исполняющей среды (CLR) Microsoft .NET Framework версии 4.0. \r\nНаписанная признанным экспертом в области программирования Джеффри Рихтером, много лет являющимся консультантом команды разработчиков .NET Framework компании Microsoft, \r\nкнига научит вас создавать по-настоящему надежные приложения любого вида, в том числе с использованием Microsoft Silverlight, ASP.NET, Windows Presentation Foundation и т.д.\r\nТретье издание полностью обновлено в соответствии со спецификацией платформы .NET Framework 4.0 и принципами многоядерного программирования.",
                             Isbn = "978-5-7502-0348-1",
                             PageCount = 896,
@@ -369,6 +369,12 @@ namespace LibraryAggregator.DataLayer.Migrations
                     b.Property<int>("Count")
                         .HasColumnType("int");
 
+                    b.Property<int>("FreeBook")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsFreeBook")
+                        .HasColumnType("bit");
+
                     b.Property<int>("LibraryId")
                         .HasColumnType("int");
 
@@ -386,7 +392,10 @@ namespace LibraryAggregator.DataLayer.Migrations
                         {
                             BooksLibrariesId = 1,
                             BookId = 1,
+                            BookedBook = 0,
                             Count = 2,
+                            FreeBook = 0,
+                            IsFreeBook = true,
                             LibraryId = 1
                         },
                         new
@@ -394,6 +403,8 @@ namespace LibraryAggregator.DataLayer.Migrations
                             BooksLibrariesId = 2,
                             BookId = 2,
                             Count = 3,
+                            FreeBook = 0,
+                            IsFreeBook = true,
                             LibraryId = 1
                         },
                         new
@@ -401,27 +412,38 @@ namespace LibraryAggregator.DataLayer.Migrations
                             BooksLibrariesId = 3,
                             BookId = 3,
                             Count = 1,
+                            FreeBook = 0,
+                            IsFreeBook = true,
                             LibraryId = 1
                         },
                         new
                         {
                             BooksLibrariesId = 4,
                             BookId = 4,
+                            BookedBook = 0,
                             Count = 2,
+                            FreeBook = 0,
+                            IsFreeBook = true,
                             LibraryId = 1
                         },
                         new
                         {
                             BooksLibrariesId = 5,
                             BookId = 2,
+                            BookedBook = 0,
                             Count = 2,
+                            FreeBook = 0,
+                            IsFreeBook = true,
                             LibraryId = 2
                         },
                         new
                         {
                             BooksLibrariesId = 6,
                             BookId = 1,
+                            BookedBook = 0,
                             Count = 3,
+                            FreeBook = 0,
+                            IsFreeBook = true,
                             LibraryId = 2
                         });
                 });

@@ -2,7 +2,10 @@
     <!-- START ОСОБЕННОСТИ -->
     <div class="row featurette">
         <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading">{{book.title}} <span class="text-muted">ISBN: {{book.isbn}}</span></h2>
+            <h2 class="featurette-heading">{{book.title}}
+                <a [routerLink]="['/book-available-for-booking', book.bookId]" class="btn btn-primary">Забронировать</a>
+            </h2>
+            <h5><span class="text-muted">ISBN: {{book.isbn}}</span></h5>
             <p class="lead">{{book.description}}</p>
         </div>
         <div class="col-md-5 order-md-1">
@@ -46,7 +49,6 @@
                     </tr>
                 </thead>
             </table>
-            <a [routerLink]="['/book-available-for-booking', book.bookId]" class="btn btn-primary">заказать</a>
         </div>
         <div class="col-md-5">
             <img src="{{book.url}}" alt="" width="500px" height="500px">

@@ -1,4 +1,5 @@
-﻿using LibraryAggregator.Common.Interface;
+﻿using LibraryAggregator.Common.Dtos;
+using LibraryAggregator.Common.Interface;
 using LibraryAggregator.DataLayer.Entities;
 using LibraryAggregator.DataLayer.Entities.Enum;
 using Microsoft.AspNetCore.Mvc;
@@ -16,16 +17,10 @@ namespace LibraryAggregator.API.Controllers
             _stateService = stateService;
         }
 
-        [HttpGet(Name = "BookingList")]
-        public async Task<IEnumerable<Booking>> GetListAsync()
+        [HttpGet("bookLibrary/{id}")]
+        public async Task<BooksLibrary> GetFullBookLibraryInfoById(int id)
         {
-            return await _bookingService.GetBookingListAsync();
-        }
-
-        [HttpGet("{id}")]
-        public async Task<Booking> GetByIdAsync(int id)
-        {
-            return await _bookingService.GetBookingByIdAsync(id);
+            return await _bookingService.GetFullBookLibraryInfoById(id);
         }
 
         [HttpGet("book/{id}")]
@@ -35,7 +30,7 @@ namespace LibraryAggregator.API.Controllers
         }
 
         [HttpPost]
-        public async Task CreateAsync(Booking booking)
+        public async Task CreateAsync(BookingDto bookingDto)
         {
             await _bookingService.CreateBookingAsync(booking);
         }

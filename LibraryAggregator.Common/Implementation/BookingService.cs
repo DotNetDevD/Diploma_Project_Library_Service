@@ -1,4 +1,5 @@
-﻿using LibraryAggregator.Common.Interface;
+﻿using LibraryAggregator.Common.Dtos;
+using LibraryAggregator.Common.Interface;
 using LibraryAggregator.DataLayer.Entities;
 using LibraryAggregator.DataLayer.Repository.IRepository;
 using LibraryAggregator.DataLayer.Entities.Enum;
@@ -9,31 +10,61 @@ namespace LibraryAggregator.Common.Implementation
     {
         private readonly IBookingRepository _bookingRepository;
         private readonly IBooksLibraryRepository _booksLibraryRepository;
+        private readonly IClientRepository _clientRepository;
 
-        public BookingService(IBookingRepository bookingRepository, IBooksLibraryRepository booksLibraryRepository)
+        public BookingService(IBookingRepository bookingRepository, IBooksLibraryRepository booksLibraryRepository, 
+            IClientRepository clientRepository)
         {
             _bookingRepository = bookingRepository;
             _booksLibraryRepository = booksLibraryRepository;
+            _clientRepository = clientRepository;
         }
 
-        public async Task CreateBookingAsync(Booking booking)
+        public async Task CreateBookingAsync(BookingDto bookingDto)
         {
-            var difBookingTime = booking.FinishDate - booking.StartDate;
-            if (difBookingTime.Days > 21)
+            await CreateClient(bookingDto);
+
+            Random random = new Random();
+            Booking booking = new()
             {
                 booking.FinishDate = booking.StartDate.AddDays(21);
             }
+                Code = random.Next(1, 10000),
+                StartDate = DateTime.Now,
+                FinishDate = DateTime.Now.AddDays(14),
+                BooksLibraryId = bookingDto.BookLibraryId,
+                ClientId = await _clientRepository.GetClientIdByEmailAsync(bookingDto.Email),
+                //TODO: code enum change 
+                BookingStatusId = 2
+            };
+
             await _bookingRepository.CreateAsync(booking);
         }
 
-        public async Task DeleteBookingAsync(int id)
+        private async Task CreateClient(BookingDto bookingDto)
         {
-            await _bookingRepository.DeleteAsync(id);
+            Client client = new()
+            {
+                Name = bookingDto.Name,
+                Surname = bookingDto.Surname,
+                PhoneNumber = bookingDto.PhoneNumber,
+                Email = bookingDto.Email
+            };
+            await _clientRepository.CreateAsync(client);
         }
 
         public async Task<IEnumerable<BooksLibrary>> GetAvailableBookingByBookIdAsync(int id)
         {
-            return await _booksLibraryRepository.GetdLibraryListByBookIdAsync(id);
+            IEnumerable<BooksLibrary> booksLibraries = await _booksLibraryRepository.GetdLibraryListByBookIdAsync(id);
+            foreach (BooksLibrary book in booksLibraries)
+            {
+                //TODO: magic number!!! => enum
+                book.BookedBook = book.Booking.Where(b => b.BookingStatusId == 2).Count();
+                book.FreeBook = book.Count - book.BookedBook;
+                if (book.FreeBook > 0)
+                    book.IsFreeBook = false;
+            }
+            return booksLibraries;
         }
 
         public async Task<Booking> GetBookingByIdAsync(int id)
@@ -41,19 +72,13 @@ namespace LibraryAggregator.Common.Implementation
             return await _bookingRepository.GetFullInfoBookingAsync(id);
         }
 
-        public async Task<IEnumerable<Booking>> GetBookingListAsync()
-        {
-            return await _bookingRepository.GetFullInfoBookingsAsync();
-        }
-
-        //TODO: correct update Method
         public async Task UpdateBookingAsync(int id, BookingStatuses bookingStatuses)
+        public async Task<BooksLibrary> GetFullBookLibraryInfoById(int id)
         {
             Booking booking = await GetBookingByIdAsync(id);
             booking.BookingStatus = bookingStatuses;
             await _bookingRepository.UpdateAsync(id);
+            return await _booksLibraryRepository.GetFullBookLibraryInfoById(id);
         }
-
-
     }
 }
