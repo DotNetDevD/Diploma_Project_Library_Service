@@ -15,7 +15,7 @@ namespace LibraryAggregator.DataLayer.Repository
             return await dbSet.Include(u => u.Book)
                     .ThenInclude(a => a.AuthorsBooks).ThenInclude(a => a.Author)
                     .Include(u => u.Booking).ThenInclude(u => u.Client)
-                    .Include(u => u.Booking).ThenInclude(u => u.BookingStatus)
+                    .Include(u => u.Booking)
                     .Include(l => l.Library)
                     .Where(b => b.BookId == id).ToListAsync();
         }

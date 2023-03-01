@@ -12,7 +12,7 @@ namespace LibraryAggregator.Common.Implementation
         private readonly IBooksLibraryRepository _booksLibraryRepository;
         private readonly IClientRepository _clientRepository;
 
-        public BookingService(IBookingRepository bookingRepository, IBooksLibraryRepository booksLibraryRepository, 
+        public BookingService(IBookingRepository bookingRepository, IBooksLibraryRepository booksLibraryRepository,
             IClientRepository clientRepository)
         {
             _bookingRepository = bookingRepository;
@@ -24,10 +24,9 @@ namespace LibraryAggregator.Common.Implementation
         {
             await CreateClient(bookingDto);
 
-            Random random = new Random();
             Booking booking = new()
             {
-                Code = random.Next(1, 10000),
+                Code = new Random().Next(10000),
                 StartDate = DateTime.Now,
                 FinishDate = DateTime.Now.AddDays(14),
                 BooksLibraryId = bookingDto.BookLibraryId,
@@ -68,13 +67,16 @@ namespace LibraryAggregator.Common.Implementation
             return await _bookingRepository.GetFullInfoBookingAsync(id);
         }
 
-        //public async Task UpdateBookingAsync(int id, BookingStatuses bookingStatuses)
-        //public async Task<BooksLibrary> GetFullBookLibraryInfoById(int id)
-        //{
-        //    Booking booking = await GetBookingByIdAsync(id);
-        //    booking.BookingStatus = bookingStatuses;
-        //    await _bookingRepository.UpdateAsync(id);
-        //    return await _booksLibraryRepository.GetFullBookLibraryInfoById(id);
-        //}
+        public async Task<BooksLibrary> GetFullBookLibraryInfoById(int id)
+        {
+            return await _booksLibraryRepository.GetFullBookLibraryInfoById(id);
+        }
+
+        public async Task UpdateBookingAsync(int id, BookingStatuses bookingStatuses)
+        {
+            Booking booking = await GetBookingByIdAsync(id);
+            booking.BookingStatus = bookingStatuses;
+            await _bookingRepository.UpdateAsync(id);
+        }
     }
 }

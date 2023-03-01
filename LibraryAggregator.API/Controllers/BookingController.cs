@@ -32,20 +32,9 @@ namespace LibraryAggregator.API.Controllers
         [HttpPost]
         public async Task CreateAsync(BookingDto bookingDto)
         {
-            await _bookingService.CreateBookingAsync(booking);
+            await _bookingService.CreateBookingAsync(bookingDto);
         }
 
-        [HttpDelete("{id}")]
-        public async Task DeleteAsync(int id)
-        {
-            await _bookingService.DeleteBookingAsync(id);
-        }
-
-        [HttpPut]
-        public async Task UpdateBookingStatusAsync(int id , BookingStatuses bookingStatus)
-        {
-            await _bookingService.UpdateBookingAsync(id , bookingStatus);
-        }
 
         [HttpPut("booking/{bookingStatus}")]
         public async Task ChangeStatusBooking(int id, BookingStatuses bookingStatus)

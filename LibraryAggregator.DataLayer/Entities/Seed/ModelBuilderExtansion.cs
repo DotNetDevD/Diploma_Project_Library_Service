@@ -347,6 +347,8 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                  {
                      BooksLibrariesId = 1,
                      BookId = 1,
+                     BookedBook = 0,
+                     IsFreeBook = true,
                      LibraryId = 1,
                      Count = 2
                  },
@@ -356,6 +358,8 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                      BooksLibrariesId = 2,
                      BookId = 2,
                      LibraryId = 1,
+                     BookedBook = 0,
+                     IsFreeBook = true,
                      Count = 3
                  },
 
@@ -364,6 +368,8 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                      BooksLibrariesId = 3,
                      BookId = 3,
                      LibraryId = 1,
+                     BookedBook = 0,
+                     IsFreeBook = true,
                      Count = 1
                  },
 
@@ -372,6 +378,8 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                      BooksLibrariesId = 4,
                      BookId = 4,
                      LibraryId = 1,
+                     BookedBook = 0,
+                     IsFreeBook = true,
                      Count = 2
                  },
 
@@ -380,6 +388,8 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                      BooksLibrariesId = 5,
                      BookId = 2,
                      LibraryId = 2,
+                     BookedBook = 0,
+                     IsFreeBook = true,
                      Count = 2
                  },
 
@@ -388,6 +398,8 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                      BooksLibrariesId = 6,
                      BookId = 1,
                      LibraryId = 2,
+                     BookedBook = 0,
+                     IsFreeBook = true,
                      Count = 3
                  }
                 );

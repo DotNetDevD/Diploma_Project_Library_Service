@@ -4,6 +4,7 @@ using LibraryAggregator.DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryAggregator.DataLayer.Migrations
 {
     [DbContext(typeof(LibraryDataBaseContext))]
-    partial class LibraryDataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230301195909_FIX")]
+    partial class FIX
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -389,68 +392,6 @@ namespace LibraryAggregator.DataLayer.Migrations
                     b.HasIndex("LibraryId");
 
                     b.ToTable("BooksLibraries");
-
-                    b.HasData(
-                        new
-                        {
-                            BooksLibrariesId = 1,
-                            BookId = 1,
-                            BookedBook = 0,
-                            Count = 2,
-                            FreeBook = 0,
-                            IsFreeBook = true,
-                            LibraryId = 1
-                        },
-                        new
-                        {
-                            BooksLibrariesId = 2,
-                            BookId = 2,
-                            BookedBook = 0,
-                            Count = 3,
-                            FreeBook = 0,
-                            IsFreeBook = true,
-                            LibraryId = 1
-                        },
-                        new
-                        {
-                            BooksLibrariesId = 3,
-                            BookId = 3,
-                            BookedBook = 0,
-                            Count = 1,
-                            FreeBook = 0,
-                            IsFreeBook = true,
-                            LibraryId = 1
-                        },
-                        new
-                        {
-                            BooksLibrariesId = 4,
-                            BookId = 4,
-                            BookedBook = 0,
-                            Count = 2,
-                            FreeBook = 0,
-                            IsFreeBook = true,
-                            LibraryId = 1
-                        },
-                        new
-                        {
-                            BooksLibrariesId = 5,
-                            BookId = 2,
-                            BookedBook = 0,
-                            Count = 2,
-                            FreeBook = 0,
-                            IsFreeBook = true,
-                            LibraryId = 2
-                        },
-                        new
-                        {
-                            BooksLibrariesId = 6,
-                            BookId = 1,
-                            BookedBook = 0,
-                            Count = 3,
-                            FreeBook = 0,
-                            IsFreeBook = true,
-                            LibraryId = 2
-                        });
                 });
 
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.Client", b =>
