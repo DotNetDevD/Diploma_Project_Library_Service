@@ -28,7 +28,6 @@ namespace LibraryAggregator.API.Controllers
 
         //TODO: POST UI and Attribute authorize
         [HttpPost]
-        [Authorize]
         public async Task CreateAsync(Book book)
         {
             await _bookService.CreateBookAsync(book);
