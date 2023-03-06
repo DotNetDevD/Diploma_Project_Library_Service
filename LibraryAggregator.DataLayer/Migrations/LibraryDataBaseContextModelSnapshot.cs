@@ -744,6 +744,34 @@ namespace LibraryAggregator.DataLayer.Migrations
                         });
                 });
 
+            modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.User", b =>
+                {
+                    b.Property<int>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<Guid>("RefreshToken")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("User");
+                });
+
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.AuthorsBook", b =>
                 {
                     b.HasOne("LibraryAggregator.DataLayer.Entities.Author", "Author")

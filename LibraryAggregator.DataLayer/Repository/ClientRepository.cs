@@ -1,4 +1,4 @@
-﻿using LibraryAggregator.DataLayer.Entities;
+using LibraryAggregator.DataLayer.Entities;
 using LibraryAggregator.DataLayer.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,5 +26,11 @@ namespace LibraryAggregator.DataLayer.Repository
         {
             return await dbSet.Include(b => b.Booking).ToListAsync();
         }
+
+   public async Task<Client> GetClientByEmailAsync(string email)
+    {
+      Client client = await dbSet.FirstOrDefaultAsync(i => i.Email == email);
+      return client;
     }
+  }
 }

@@ -1,4 +1,4 @@
-﻿using LibraryAggregator.DataLayer.Entities;
+using LibraryAggregator.DataLayer.Entities;
 
 namespace LibraryAggregator.DataLayer.Repository.IRepository
 {
@@ -7,5 +7,6 @@ namespace LibraryAggregator.DataLayer.Repository.IRepository
         Task<Client> GetFullInfoClientAsync(int id);
         Task<IEnumerable<Client>> GetFullInfoClientsAsync();
         Task<int> GetClientIdByEmailAsync(string email);
-    }
+        Task<Client>    GetClientByEmailAsync(string email);
+  }
 }

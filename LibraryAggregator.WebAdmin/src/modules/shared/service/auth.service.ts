@@ -17,7 +17,7 @@ export class AuthService {
 
 
     login(loginForm: any) {
-        return this.rb.setEndpoint('user/login')
+        return this.rb.setEndpoint('client/login')
             .post(loginForm)
             .pipe(
                 tap((r: any) => {

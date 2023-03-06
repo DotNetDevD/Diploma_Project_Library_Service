@@ -1,4 +1,4 @@
-﻿using LibraryAggregator.Common.Dtos;
+using LibraryAggregator.Common.Dtos;
 using LibraryAggregator.DataLayer.Entities;
 
 namespace LibraryAggregator.Common.Interface
@@ -10,5 +10,6 @@ namespace LibraryAggregator.Common.Interface
         Task<IEnumerable<Client>> GetClientListAsync();
         Task<Client> GetClientByIdAsync(int id);
         Task UpdateClientAsync(int id);
+        Task<Client> GetClientByEmail(string email);
     }
 }
