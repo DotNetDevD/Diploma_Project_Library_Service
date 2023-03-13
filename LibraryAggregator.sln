@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryAggregator.DataLayer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryAggregator.Common", "LibraryAggregator.Common\LibraryAggregator.Common.csproj", "{572604E3-C5B9-4724-80F9-9307C1875C30}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryAggregtor.AdminAPI", "LibraryAggregtor.AdminAPI\LibraryAggregtor.AdminAPI.csproj", "{AFBA50DE-2256-4FA5-B03C-04B715F03CFF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{572604E3-C5B9-4724-80F9-9307C1875C30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{572604E3-C5B9-4724-80F9-9307C1875C30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{572604E3-C5B9-4724-80F9-9307C1875C30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFBA50DE-2256-4FA5-B03C-04B715F03CFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFBA50DE-2256-4FA5-B03C-04B715F03CFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFBA50DE-2256-4FA5-B03C-04B715F03CFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFBA50DE-2256-4FA5-B03C-04B715F03CFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

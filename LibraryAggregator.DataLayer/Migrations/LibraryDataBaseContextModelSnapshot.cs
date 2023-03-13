@@ -22,6 +22,42 @@ namespace LibraryAggregator.DataLayer.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.Admin", b =>
+                {
+                    b.Property<int>("AdminId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AdminId"));
+
+                    b.Property<int>("LibraryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Login")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AdminId");
+
+                    b.HasIndex("LibraryId")
+                        .IsUnique();
+
+                    b.ToTable("Admin");
+
+                    b.HasData(
+                        new
+                        {
+                            AdminId = 1,
+                            LibraryId = 1,
+                            Login = "National",
+                            Password = "9379992"
+                        });
+                });
+
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.Author", b =>
                 {
                     b.Property<int>("AuthorId")
@@ -744,6 +780,17 @@ namespace LibraryAggregator.DataLayer.Migrations
                         });
                 });
 
+            modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.Admin", b =>
+                {
+                    b.HasOne("LibraryAggregator.DataLayer.Entities.Library", "Library")
+                        .WithOne("Admin")
+                        .HasForeignKey("LibraryAggregator.DataLayer.Entities.Admin", "LibraryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Library");
+                });
+
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.AuthorsBook", b =>
                 {
                     b.HasOne("LibraryAggregator.DataLayer.Entities.Author", "Author")
@@ -869,6 +916,9 @@ namespace LibraryAggregator.DataLayer.Migrations
 
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.Library", b =>
                 {
+                    b.Navigation("Admin")
+                        .IsRequired();
+
                     b.Navigation("BooksLibraries");
 
                     b.Navigation("ImagesForCarousel");

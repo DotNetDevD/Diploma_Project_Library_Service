@@ -1,7 +1,8 @@
-﻿using LibraryAggregator.DataLayer.Entities;
+using LibraryAggregator.DataLayer.Entities;
 using LibraryAggregator.DataLayer.Entities.Enum;
 using LibraryAggregator.DataLayer.Entities.Seed;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using static LibraryAggregator.DataLayer.Entities.Booking;
 
 namespace LibraryAggregator.DataLayer;
@@ -23,8 +24,9 @@ public partial class LibraryDataBaseContext : DbContext
     public virtual DbSet<BooksLibrary> BooksLibraries { get; set; }
     public virtual DbSet<Genre> Genre { get; set; }
     public virtual DbSet<Library> Library { get; set; }
+    public virtual DbSet<Admin> Admin { get; set; }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+  protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Booking>()
                     .Property(item => item.BookingStatus)
@@ -136,6 +138,7 @@ public partial class LibraryDataBaseContext : DbContext
         modelBuilder.SeedBooksLibrary();
         modelBuilder.SeedClient();
         modelBuilder.SeedBooking();
+        modelBuilder.SeedAdmin();
         OnModelCreatingPartial(modelBuilder);
     }
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
