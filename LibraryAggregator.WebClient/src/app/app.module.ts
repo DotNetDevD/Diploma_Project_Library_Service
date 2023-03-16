@@ -63,7 +63,7 @@ registerLocaleData(localeRu);
         BookAvailableForBookingComponent,
         BookingComponent,
         SuccessBookingComponent,
-        GenreComponent
+        GenreComponent,
     ],
     imports: [
         AppRoutingModule,
