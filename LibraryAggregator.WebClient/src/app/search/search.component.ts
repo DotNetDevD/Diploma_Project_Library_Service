@@ -21,13 +21,12 @@ export class SearchComponent implements OnInit {
                     this.query = queryParam['query'];
                 }
             );
-            this.searchBookLibraryAuthor(this.query)
     }
     ngOnChanges(): void{
-        
+
     }
     ngOnInit(): void {
-       
+        this.searchBookLibraryAuthor(this.query)
     }
 
     searchBookLibraryAuthor(input: string): void {
