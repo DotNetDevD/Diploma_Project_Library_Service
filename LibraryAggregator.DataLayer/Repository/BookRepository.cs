@@ -9,13 +9,14 @@ namespace LibraryAggregator.DataLayer.Repository
         public BookRepository(LibraryDataBaseContext _db) : base(_db)
         {
         }
+
         public async Task<Book> GetFullInfoBookAsync(int id)
         {
             return await dbSet.Include(u => u.BooksGenres)
                     .ThenInclude(bl => bl.Genre)
                     .Include(u => u.AuthorsBooks)
                     .ThenInclude(u => u.Author)
-                    .Include(lb => lb.BooksLibraries).ThenInclude(l =>l.Library)
+                    .Include(lb => lb.BooksLibraries).ThenInclude(l => l.Library)
                     .Include(lb => lb.BooksLibraries).ThenInclude(b => b.Booking)
                     .FirstOrDefaultAsync(b => b.BookId == id);
         }

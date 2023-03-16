@@ -8,18 +8,18 @@
       </a>
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 link-secondary">Главная</a></li>
-        <li><a routerLink="/library" routerActiveLink="active" class="nav-link px-2 link-dark">Библиотеки</a></li>
-        <li><a routerLink="/book" routerActiveLink="active" class="nav-link px-2 link-dark">Книги</a></li>
-        <li><a routerLink="/author" routerActiveLink="active" class="nav-link px-2 link-dark">Авторы</a></li>
-        <li><a routerLink="/genre/genre-show" routerActiveLink="active" class="nav-link px-2 link-dark">Жанры</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Что почитать?</a></li>
+        <li><a routerLink="/index" [routerLinkActive]="['active']"
+            class="nav-link px-2 link-dark">Главная</a></li>
+        <li><a routerLink="/library" routerLinkActive="active" class="nav-link px-2 link-dark">Библиотеки</a></li>
+        <li><a routerLink="/book" routerLinkActive="active" class="nav-link px-2 link-dark">Книги</a></li>
+        <li><a routerLink="/author" routerLinkActive="active" class="nav-link px-2 link-dark">Авторы</a></li>
+        <li><a routerLink="/genre" routerLinkActive="active" class="nav-link px-2 link-dark">Жанры</a></li>
+        <li><a href="#" routerLinkActive="active" class="nav-link px-2 link-dark">Рекомендации</a></li>
       </ul>
 
       <div class="col-sm m-lg-2">
         <div class="label">
-          <input type="search" class="form-control" placeholder="Поиск..." aria-label="Search"
-            [(ngModel)]="name">
+          <input type="search" class="form-control" placeholder="Поиск..." aria-label="Search" [(ngModel)]="name">
         </div>
       </div>
       <div class="col-sm">

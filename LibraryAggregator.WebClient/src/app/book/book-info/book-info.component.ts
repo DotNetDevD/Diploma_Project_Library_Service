@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BookApiService } from 'src/app/api-services/book-api.service';
 import { Book } from 'src/app/models/book';
 
-
 @Component({
   selector: 'app-book-info',
   templateUrl: './book-info.component.html',

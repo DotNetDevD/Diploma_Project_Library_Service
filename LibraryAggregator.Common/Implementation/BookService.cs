@@ -24,6 +24,25 @@ namespace LibraryAggregator.Common.Implementation
             return books;
         }
 
+        public async Task<IEnumerable<Book>> GetBooksListByGenreAsync(int genreId)
+        {
+            var books = await _bookRepository.GetFullInfoBooksAsync();
+            var result = new List<Book>();
+            foreach (var book in books)
+            {
+                book.Url = _urlProviderService.ConcatHostUrl(book.CoverImgPath);
+                foreach (var g in book.BooksGenres)
+                {
+                    if (g.GenreId == genreId)
+                    {
+                        result.Add(book);
+                        break;
+                    }
+                }
+            }
+            return result;
+        }
+
         public async Task<Book> GetBookByIdAsync(int id)
         {
             Book book = await _bookRepository.GetFullInfoBookAsync(id);

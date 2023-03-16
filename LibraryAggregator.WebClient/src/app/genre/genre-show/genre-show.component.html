@@ -1,14 +1,7 @@
 <div class="container">
-  <table class="table table-striped">
-    <thead>
-      <th>Номер</th>
-      <th>Название</th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of genreList$|async">
-        <td>{{item.genreId}}</td>
-        <td>{{item.type}}</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="row">
+  <div class="col-md-4" *ngFor="let book of bookGenreList">
+    <app-book-card [book]="book"></app-book-card>
+  </div>
+</div>
 </div>
