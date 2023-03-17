@@ -15,18 +15,16 @@ export class SearchComponent implements OnInit {
     private querySubscription: Subscription = new Subscription;
 
     constructor(private readonly searchService: SearchApiService,
-        private route: ActivatedRoute) {
-            this.querySubscription = this.route.queryParams.subscribe(
-                (queryParam: any) => {
-                    this.query = queryParam['query'];
-                }
-            );
+        private route: ActivatedRoute) {     
     }
-    ngOnChanges(): void{
-
-    }
+    
     ngOnInit(): void {
-        this.searchBookLibraryAuthor(this.query)
+        this.querySubscription = this.route.queryParams.subscribe(
+            (queryParam: any) => {
+                this.query = queryParam['query'];
+                this.searchBookLibraryAuthor(this.query)
+            }
+        );
     }
 
     searchBookLibraryAuthor(input: string): void {
