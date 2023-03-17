@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.9" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\LibraryAggregator.API\LibraryAggregator.API.csproj" />
+    <ProjectReference Include="..\LibraryAggregator.Common\LibraryAggregator.Common.csproj" />
+    <ProjectReference Include="..\LibraryAggregator.DataLayer\LibraryAggregator.DataLayer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LibraryAggregator.Common\LibraryAggregator.Common.csproj" />
+    <ProjectReference Include="..\LibraryAggregator.DataLayer\LibraryAggregator.DataLayer.csproj" />
+  </ItemGroup>
+
+</Project>
