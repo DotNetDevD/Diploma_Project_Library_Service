@@ -18,6 +18,7 @@ public class Library
     public string? CoverImgPath { get; set; }
     public string? Url { get; set; }
     public string? HistoryOfLibrary { get; set; }
+    public string? Transport { get; set; }
     public virtual ICollection<ImagesForCarousel> ImagesForCarousel { get; set; } = new List<ImagesForCarousel>();
     public virtual ICollection<OperatingModes> OperatingModes { get; set; } = new List<OperatingModes>();
     public virtual ICollection<BooksLibrary> BooksLibraries { get; } = new List<BooksLibrary>();

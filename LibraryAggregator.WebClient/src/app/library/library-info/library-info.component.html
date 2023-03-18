@@ -8,7 +8,7 @@
                     <div class="carousel-inner">
                         <div class="carousel-item" *ngFor="let result of library.imagesForCarousel; let i = index"
                             [ngClass]="{'active': i === 1}">
-                            <img src={{result.url}} />
+                            <a href="{{result.url}}"><img src={{result.url}} /></a>
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -49,9 +49,8 @@
                 </div>
                 <div class="b_page_block_left">
                     <h6 class="title mb-2"><span class="d-block text-dark">Контакты</span></h6>
-                    <p><strong>E-mail:</strong> {{library.email}}<br><strong>Тел.:</strong> {{library.phoneNumber}}</p>
+                    <p><strong>Сайт: </strong><a href="{{library.email}}">{{library.email}}</a><br><strong>Тел.:</strong> {{library.phoneNumber}}</p>
                 </div>
-
                 <div class="row">
                     <div class="col-lg-6 pt-2">
                         <div class="media align-items-center rounded shadow p-3">
@@ -84,8 +83,7 @@
                     <br>
                     <h5 class="card-label"><span class="d-block text-dark">Как до нас доехать:</span></h5>
                     <p></p>
-                    <p>Проезд на автобусе №32 от метро "Рассказовка": 20 минут до остановки "Гостиница" или "Аэропорт
-                        Внуково"</p>
+                    <p>{{library.transport}}</p>
                     <p></p>
                     <p><iframe
                             [src]="library.mapLink"

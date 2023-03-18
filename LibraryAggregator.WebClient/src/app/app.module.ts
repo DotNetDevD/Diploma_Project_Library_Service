@@ -32,6 +32,7 @@ import { BookAvailableForBookingComponent } from './book/book-available-for-book
 import { BookingComponent } from './book/booking/booking.component';
 import { SuccessBookingComponent } from './book/success-booking/success-booking.component';
 import { GenreComponent } from './genre/genre.component';
+import { AuthorBooksComponent } from './book/author-books/author-books.component';
 
 registerLocaleData(localeRu);
 
@@ -58,7 +59,8 @@ registerLocaleData(localeRu);
         BookingComponent,
         SuccessBookingComponent,
         GenreComponent,
-    ],
+        AuthorBooksComponent,
+        ],
     imports: [
         AppRoutingModule,
         BrowserModule,

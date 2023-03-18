@@ -20,6 +20,10 @@ namespace LibraryAggregator.Common.Implementation
             IEnumerable<Author> authors = await _authorRepository.GetFullInfoAuthorsAsync();
             foreach (var author in authors)
             {
+                if (author.MiddleName == null)
+                {
+                    author.MiddleName = String.Empty;
+                }
                 author.Url = _urlProviderService.ConcatHostUrl(author.CoverImgPath);
             }
             return authors;
@@ -31,6 +35,10 @@ namespace LibraryAggregator.Common.Implementation
             foreach (var books in author.AuthorsBooks)
             {
                 books.Book.Url = _urlProviderService.ConcatHostUrl(books.Book.CoverImgPath);
+            }
+            if (author.MiddleName == null)
+            {
+                author.MiddleName = String.Empty;
             }
             return author;
         }

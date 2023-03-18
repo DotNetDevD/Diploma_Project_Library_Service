@@ -9,6 +9,7 @@ namespace LibraryAggregator.Common.Interface
         Task DeleteBookAsync(int id);
         Task<IEnumerable<Book>> GetBooksListAsync();
         Task<IEnumerable<Book>> GetBooksListByGenreAsync(int genreId);
+        Task<IEnumerable<Book>> GetBookListByAuthorIdAsync(int authorId);
         Task<Book> GetBookByIdAsync(int id);
         Task UpdateBookAsync(int id);
     }

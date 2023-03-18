@@ -3,6 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { AuthorCardComponent } from "./author/author-card/author-card.component";
 import { AuthorInfoComponent } from "./author/author-info/author-info.component";
 import { AuthorComponent } from "./author/author.component";
+import { AuthorBooksComponent } from "./book/author-books/author-books.component";
 import { BookAvailableForBookingComponent } from "./book/book-available-for-booking/book-available-for-booking.component";
 import { BookCardComponent } from "./book/book-card/book-card.component";
 import { BookInfoComponent } from "./book/book-info/book-info.component";
@@ -33,6 +34,7 @@ const appRoutes: Routes = [
     { path: 'author-card', component: AuthorCardComponent },
     { path: 'genre', component: GenreComponent },
     { path: 'genre-show/:id', component: GenreShowComponent },
+    { path: 'author-books/:id', component: AuthorBooksComponent },
     { path: 'book-available-for-booking/:id', component: BookAvailableForBookingComponent },
     { path: 'index', component: MainContentComponent },
     { path: 'search', component: SearchComponent },

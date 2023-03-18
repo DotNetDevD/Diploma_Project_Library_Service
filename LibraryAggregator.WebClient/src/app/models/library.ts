@@ -12,5 +12,6 @@ export interface Library {
     coverImagePath?: string;
     url?: string;
     historyOfLibrary?: string;
+    transport?: string;
     imagesForCarousel?: imagesForCarousel[];
 }

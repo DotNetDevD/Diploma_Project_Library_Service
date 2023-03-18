@@ -58,7 +58,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                        Title = "Смерть Ивана Ильича",
                        Isbn = "978-5-699-15152-2",
                        CoverImgPath = "Assets/Images/Books/The%20death%20of%20Ivan%20Ilyich.jpeg",
-                       Description = "Повесть Л. Н. Толстого, над которой он работал с 1882 по 1886 год, внПовесть широко признана одной из вершин мировой литературы[1] и величайшим свершением Толстого в области малой литературной формы.Входит во Всемирную библиотеку(серия книг Норвежского книжного клуба)",
+                       Description = "Повесть Л. Н. Толстого, над которой он работал с 1882 по 1886 год. Повесть широко признана одной из вершин мировой литературы и величайшим свершением Толстого в области малой литературной формы.Входит во Всемирную библиотеку (серия книг Норвежского книжного клуба)",
                        PageCount = 543,
                        PublishDate = new DateTime(1886, 10, 12)
                    }
@@ -207,25 +207,41 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                     BookId = 1,
                     GenreId = 4
                 },
+
                 new BooksGenre
                 {
                     BooksGenresId = 2,
                     BookId = 2,
                     GenreId = 5
                 },
+
                 new BooksGenre
                 {
                     BooksGenresId = 3,
                     BookId = 4,
                     GenreId = 1
                 },
+
                 new BooksGenre
                 {
                     BooksGenresId = 4,
                     BookId = 4,
                     GenreId = 2
-                }
+                },
 
+                new BooksGenre
+                {
+                    BooksGenresId = 5,
+                    BookId = 3,
+                    GenreId = 3
+                },
+
+                new BooksGenre
+                {
+                    BooksGenresId = 6,
+                    BookId = 5,
+                    GenreId = 6
+                }
             );
         }// BooksGenre
 
@@ -246,7 +262,9 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                     DirectorPhotoLink = "Assets/Images/Libraries/natsionalnaya_biblioteka.jpg",
                     AgeGroup = "Нет ограничений ",
                     HistoryOfLibrary = "Национальная библиотека Беларуси (НББ) была основана постановлением Совета народных комиссаров БССР в 1922 году как Белорусская государственная и университетская библиотека Белорусского государственного университета (БГУ). На момент открытия фонды библиотеки насчитывали всего 60 тысяч экземпляров, которыми пользовались 1,1 тысячи человек. Первым собственным зданием библиотеки стал Юбилейный дом на Захарьевской улице (ныне — проспект Независимости). Постановлением СНК БССР от 14 мая 1926 году библиотека была выведена из состава БГУ и реорганизована в Белорусскую государственную библиотеку. В 1932 году библиотеке было присвоено имя В. И. Ленина. В тот же год библиотека получила новое здание архитектора Г. Лаврова в конструктивистском стиле. ",
+                    Transport = "Автобус: 113С, 27, 87С, 91. Поезд : МІНСК - ЧЫРВОНЫ СЦЯГ. Троллейбус: 41, 61"
                 },
+
                  new Library
                  {
                      LibraryId = 2,
@@ -254,14 +272,15 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                      Address = "Улица Веры Хоружей 16",
                      PhoneNumber = "8 017 242-21-15",
                      Email = "www.publib.by/",
-                     MapLink = "https://yandex.by/maps/org/natsionalnaya_biblioteka_belarusi/1087338903/?ll=27.647557%2C53.930867&z=16.48",
+                     MapLink = "https://yandex.by/maps/org/tsentralnaya_biblioteka_imeni_yanki_kupaly/1048737828/?ll=27.570994%2C53.921319&z=16.67",
                      ShortDiscription = "Цэнтральная бібліятэка імя Янкі Купалы",
                      CoverImgPath = "Assets/Images/Libraries/czentralnaya-biblioteka-imeni-yanki-kupaly.jpg",
                      DirectorPhotoLink = "Assets/Images/Libraries/czentralnaya-biblioteka-imeni-yanki-kupaly.jpg",
                      AgeGroup = "Нет ограничений",
-                     HistoryOfLibrary = "Сёння Цэнтральная бібліятэка імя Янкі Купалы – гэта: ТРАДЫЦЫЯ БЫЦЬ ПАТРЭБНАЙ",
+                     HistoryOfLibrary = "Вас приветствует Центральная библиотека имени Янки Купалы! Сегодня Центральная библиотека имени Янки Купалы - это: Одна из крупнейших библиотек города; На сайте библиотеки можно посмотреть ролик, сделанный к юбилею сотрудниками. Он рассказывает, что открылась библиотека 29 июля 1949 года, представляет на черно-белом снимке первое здание – Летнюю читальню парка имени М. Горького. Следующий адрес – ул. Карла Маркса, 8, сюда библиотека переехала в 1952-м. А на своем нынешнем месте прописалась в 1976-м. Первым директором стала Лидия Поградная, на снимке она – еще в солдатской шинели. В 1992 году библиотеке было присвоен награда Ленина. В тот же год библиотека получила новый ремонт от архитектора Г. Лазерева в конструктивистском стиле.",
+                     Transport = "Автобус: 19, 24, 29, 59, 91. Троллейбус: 37 53",
                  }
-                );
+                );;
         } // Library
 
         public static void SeedImagesFourCorusel(this ModelBuilder modelBuilder)
@@ -274,30 +293,35 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                         CoverImgPath = "Assets/Images/Libraries/Carousel/natsionalnaya_biblioteka-1.jpg",
                         LibraryId = 1
                     },
+
                     new ImagesForCarousel
                     {
                         ImagesForCarouselId = 2,
                         CoverImgPath = "Assets/Images/Libraries/Carousel/natsionalnaya_biblioteka-2.jpg",
                         LibraryId = 1
                     },
+
                     new ImagesForCarousel
                     {
                         ImagesForCarouselId = 3,
                         CoverImgPath = "Assets/Images/Libraries/Carousel/natsionalnaya_biblioteka-3.jpg",
                         LibraryId = 1
                     },
+
                     new ImagesForCarousel
                     {
                         ImagesForCarouselId = 4,
                         CoverImgPath = "Assets/Images/Libraries/Carousel/imeni-yanki-kupaly-3.jpg",
                         LibraryId = 2
                     },
+
                     new ImagesForCarousel
                     {
                         ImagesForCarouselId = 5,
                         CoverImgPath = "Assets/Images/Libraries/Carousel/imeni-yanki-kupaly-2.jpg",
                         LibraryId = 2
                     },
+
                     new ImagesForCarousel
                     {
                         ImagesForCarouselId = 6,

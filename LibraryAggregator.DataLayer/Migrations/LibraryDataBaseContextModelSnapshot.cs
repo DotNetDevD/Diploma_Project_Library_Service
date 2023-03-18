@@ -248,7 +248,7 @@ namespace LibraryAggregator.DataLayer.Migrations
                         {
                             BookId = 5,
                             CoverImgPath = "Assets/Images/Books/The%20death%20of%20Ivan%20Ilyich.jpeg",
-                            Description = "Повесть Л. Н. Толстого, над которой он работал с 1882 по 1886 год, внПовесть широко признана одной из вершин мировой литературы[1] и величайшим свершением Толстого в области малой литературной формы.Входит во Всемирную библиотеку(серия книг Норвежского книжного клуба)",
+                            Description = "Повесть Л. Н. Толстого, над которой он работал с 1882 по 1886 год. Повесть широко признана одной из вершин мировой литературы и величайшим свершением Толстого в области малой литературной формы.Входит во Всемирную библиотеку (серия книг Норвежского книжного клуба)",
                             Isbn = "978-5-699-15152-2",
                             PageCount = 543,
                             PublishDate = new DateTime(1886, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -352,6 +352,18 @@ namespace LibraryAggregator.DataLayer.Migrations
                             BooksGenresId = 4,
                             BookId = 4,
                             GenreId = 2
+                        },
+                        new
+                        {
+                            BooksGenresId = 5,
+                            BookId = 3,
+                            GenreId = 3
+                        },
+                        new
+                        {
+                            BooksGenresId = 6,
+                            BookId = 5,
+                            GenreId = 6
                         });
                 });
 
@@ -652,6 +664,9 @@ namespace LibraryAggregator.DataLayer.Migrations
                     b.Property<string>("ShortDiscription")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Transport")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Url")
                         .HasColumnType("nvarchar(max)");
 
@@ -673,7 +688,8 @@ namespace LibraryAggregator.DataLayer.Migrations
                             MapLink = "https://yandex.by/maps/org/natsionalnaya_biblioteka_belarusi/1087338903/?ll=27.647557%2C53.930867&z=16.48",
                             Name = "Национальная библиотека Минска",
                             PhoneNumber = "+375 17 368-37-37",
-                            ShortDiscription = "Национальная библиотека Беларуси (НББ)"
+                            ShortDiscription = "Национальная библиотека Беларуси (НББ)",
+                            Transport = "Автобус: 113С, 27, 87С, 91. Поезд : МІНСК - ЧЫРВОНЫ СЦЯГ. Троллейбус: 41, 61"
                         },
                         new
                         {
@@ -683,11 +699,12 @@ namespace LibraryAggregator.DataLayer.Migrations
                             CoverImgPath = "Assets/Images/Libraries/czentralnaya-biblioteka-imeni-yanki-kupaly.jpg",
                             DirectorPhotoLink = "Assets/Images/Libraries/czentralnaya-biblioteka-imeni-yanki-kupaly.jpg",
                             Email = "www.publib.by/",
-                            HistoryOfLibrary = "Сёння Цэнтральная бібліятэка імя Янкі Купалы – гэта: ТРАДЫЦЫЯ БЫЦЬ ПАТРЭБНАЙ",
-                            MapLink = "https://yandex.by/maps/org/natsionalnaya_biblioteka_belarusi/1087338903/?ll=27.647557%2C53.930867&z=16.48",
+                            HistoryOfLibrary = "Вас приветствует Центральная библиотека имени Янки Купалы! Сегодня Центральная библиотека имени Янки Купалы - это: Одна из крупнейших библиотек города; На сайте библиотеки можно посмотреть ролик, сделанный к юбилею сотрудниками. Он рассказывает, что открылась библиотека 29 июля 1949 года, представляет на черно-белом снимке первое здание – Летнюю читальню парка имени М. Горького. Следующий адрес – ул. Карла Маркса, 8, сюда библиотека переехала в 1952-м. А на своем нынешнем месте прописалась в 1976-м. Первым директором стала Лидия Поградная, на снимке она – еще в солдатской шинели. В 1992 году библиотеке было присвоен награда Ленина. В тот же год библиотека получила новый ремонт от архитектора Г. Лазерева в конструктивистском стиле.",
+                            MapLink = "https://yandex.by/maps/org/tsentralnaya_biblioteka_imeni_yanki_kupaly/1048737828/?ll=27.570994%2C53.921319&z=16.67",
                             Name = "Библиотека им. Янки Купалы",
                             PhoneNumber = "8 017 242-21-15",
-                            ShortDiscription = "Цэнтральная бібліятэка імя Янкі Купалы"
+                            ShortDiscription = "Цэнтральная бібліятэка імя Янкі Купалы",
+                            Transport = "Автобус: 19, 24, 29, 59, 91. Троллейбус: 37 53"
                         });
                 });
 

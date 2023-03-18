@@ -3,13 +3,13 @@
     <div class="row featurette">
         <div class="col-md-7 order-md-2">
             <h2 class="featurette-heading">{{book.title}}
-                <a [routerLink]="['/book-available-for-booking', book.bookId]" class="btn btn-primary">Забронировать</a>
+                <a [routerLink]="['/book-available-for-booking', book.bookId]" class="btn btn-success">Забронировать</a>
             </h2>
             <h5><span class="text-muted">ISBN: {{book.isbn}}</span></h5>
             <p class="lead">{{book.description}}</p>
         </div>
         <div class="col-md-5 order-md-1">
-            <img src="{{book.url}}" alt="" width="500px" height="500px">
+            <a href="{{book.url}}"><img src="{{book.url}}" alt="" width="500px" height="500px"></a>
         </div>
     </div>
     <hr class="featurette-divider">
@@ -29,18 +29,22 @@
                         <th>Дата Публикации</th>
                         <td>{{book.publishDate| date: 'longDate'}}</td>
                     </tr>
-                    <tr >
+                    <tr>
                         <th>Автор</th>
-                        <td *ngFor="let book of book.authorsBooks">
-                          {{book.author?.lastName}} {{book.author?.firstName}} {{book.author?.middleName}}
+                        <td class="flex-container">
+                            <div *ngFor="let book of book.authorsBooks">
+                                <a [routerLink]="['/author-books', book.authorId]"
+                                    class="link-secondary">{{book.author?.lastName}} {{book.author?.firstName}} {{book.author?.middleName}}</a> | &nbsp;
+                            </div>
                         </td>
                     </tr>
-                    <tr> 
+                    <tr>
                         <th>Жанр</th>
-                        <td>
-                        <select name="" id="">
-                        <option *ngFor="let book of book.booksGenres">{{book.genre?.type}}</option> 
-                        </select>
+                        <td class="flex-container">
+                            <div *ngFor="let booksGenres of book?.booksGenres">
+                                <a [routerLink]="['/genre-show', booksGenres.genre?.genreId]"
+                                    class="link-secondary">{{booksGenres.genre?.type}}</a> | &nbsp;
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -49,9 +53,6 @@
                     </tr>
                 </thead>
             </table>
-        </div>
-        <div class="col-md-5">
-            <img src="{{book.url}}" alt="" width="500px" height="500px">
         </div>
     </div>
     <!-- /END ОСОБЕННОСТИ -->
