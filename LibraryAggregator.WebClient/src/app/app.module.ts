@@ -24,10 +24,7 @@ import localeRu from '@angular/common/locales/ru';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BookInfoComponent } from './book/book-info/book-info.component';
 import { FoundBooksComponent } from "./book/found-books/found-books.component";
-import { ButtonForFindBookComponent } from './book/button-for-find-book/button-for-find-book.component';
 import { SearchApiService } from './api-services/search-api.service';
-import { ButtonForFindAuthorComponent } from './author/button-for-find-author/button-for-find-author.component';
-import { ButtonForFindLibraryComponent } from './library/button-for-find-library/button-for-find-library.component';
 import { SearchComponent } from './search/search.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { BookingApiService } from './api-services/booking-api.service';
@@ -49,9 +46,6 @@ registerLocaleData(localeRu);
         BookComponent,
         BookCardComponent,
         BookInfoComponent,
-        ButtonForFindBookComponent,
-        ButtonForFindAuthorComponent,
-        ButtonForFindLibraryComponent,
         MainContentComponent,
         LibraryComponent,
         LibraryCardComponent,

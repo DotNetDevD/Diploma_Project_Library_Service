@@ -4,30 +4,35 @@ import { Observable } from 'rxjs';
 import { Book } from '../models/book';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class BookApiService {
 
-  readonly APIUrl = "https://localhost:7072/api";
+    readonly APIUrl = "https://localhost:7072/api";
 
-  constructor(private http:HttpClient) { }
+    constructor(private http: HttpClient) { }
 
-  getBookList():Observable<any[]> {
-    return this.http.get<any>(this.APIUrl + '/books');
-  }
-  getBookById(id: number): Observable<Book> {
-    return this.http.get<Book>(this.APIUrl + `/books/${id}`)
-  }
-  getBookListByGenreId(id: number): Observable<Book[]> {
-    return this.http.get<Book[]>(this.APIUrl + `/books/booksListByGenreId/${id}`)
-  }
-  addBook(data:any) {
-    return this.http.post(this.APIUrl + '/book', data);
-  }
-  updateBook(id:number|string, data:any) {
-    return this.http.put(this.APIUrl + `/books/${id}`, data);
-  }
-  deleteBook(id:number|string) {
-    return this.http.delete(this.APIUrl + `/books/${id}`);
-  }
+    getBookList(): Observable<any[]> {
+        return this.http.get<any>(this.APIUrl + '/books');
+    }
+
+    getBookById(id: number): Observable<Book> {
+        return this.http.get<Book>(this.APIUrl + `/books/${id}`)
+    }
+
+    getBookListByGenreId(id: number): Observable<Book[]> {
+        return this.http.get<Book[]>(this.APIUrl + `/books/booksListByGenreId/${id}`)
+    }
+
+    addBook(data: any) {
+        return this.http.post(this.APIUrl + '/book', data);
+    }
+
+    updateBook(id: number | string, data: any) {
+        return this.http.put(this.APIUrl + `/books/${id}`, data);
+    }
+
+    deleteBook(id: number | string) {
+        return this.http.delete(this.APIUrl + `/books/${id}`);
+    }
 }
