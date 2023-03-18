@@ -60,7 +60,7 @@ registerLocaleData(localeRu);
         SuccessBookingComponent,
         GenreComponent,
         AuthorBooksComponent,
-        ],
+    ],
     imports: [
         AppRoutingModule,
         BrowserModule,

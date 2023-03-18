@@ -1,9 +1,9 @@
 <div class="container">
     <div class="card mb-4 box-shadow">
         <a [routerLink]="['/author-info', author?.authorId]"><img class="card-img-top"
-            data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-            alt="{{author?.lastName + ' ' + author?.firstName +' '+  author?.middleName}}" src="{{author?.url}}"
-            data-holder-rendered="true"></a>
+                data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                alt="{{author?.lastName + ' ' + author?.firstName +' '+  author?.middleName}}" src="{{author?.url}}"
+                data-holder-rendered="true"></a>
         <div class="card-body">
             <h5 class="card-title">{{author?.lastName + ' ' + author?.firstName +' '+ author?.middleName}}</h5>
             <a [routerLink]="['/author-info', author?.authorId]" class="btn btn-light">Подробнее</a>

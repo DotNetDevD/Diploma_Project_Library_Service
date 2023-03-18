@@ -18,7 +18,7 @@ export class NavBarComponent implements OnInit {
         if (!this.searchTerm.trim()) {
             return
         }
-        this.router.navigate(['/search'], { queryParams: { query: this.searchTerm} })
+        this.router.navigate(['/search'], { queryParams: { query: this.searchTerm } })
         this.searchTerm = '';
     }
 }

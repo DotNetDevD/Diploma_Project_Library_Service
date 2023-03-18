@@ -24,7 +24,7 @@ const appRoutes: Routes = [
     { path: 'book', component: BookComponent },
     { path: 'book-info/:id', component: BookInfoComponent },
     { path: 'book-card', component: BookCardComponent },
-    { path: 'found-books', component: FoundBooksComponent},
+    { path: 'found-books', component: FoundBooksComponent },
     { path: 'library', component: LibraryComponent },
     { path: 'library-info/:id', component: LibraryInfoComponent },
     { path: 'library-card', component: LibraryCardComponent },
@@ -40,7 +40,7 @@ const appRoutes: Routes = [
     { path: 'search', component: SearchComponent },
     { path: '', redirectTo: '/index', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
-    
+
 ];
 
 @NgModule({

@@ -34,7 +34,8 @@
                         <td class="flex-container">
                             <div *ngFor="let book of book.authorsBooks">
                                 <a [routerLink]="['/author-books', book.authorId]"
-                                    class="link-secondary">{{book.author?.lastName}} {{book.author?.firstName}} {{book.author?.middleName}}</a> | &nbsp;
+                                    class="link-secondary">{{book.author?.lastName}} {{book.author?.firstName}}
+                                    {{book.author?.middleName}}</a> | &nbsp;
                             </div>
                         </td>
                     </tr>
