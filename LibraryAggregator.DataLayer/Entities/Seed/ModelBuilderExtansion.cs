@@ -311,7 +311,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                     new ImagesForCarousel
                     {
                         ImagesForCarouselId = 4,
-                        CoverImgPath = "Assets/Images/Libraries/Carousel/imeni-yanki-kupaly-3.jpg",
+                        CoverImgPath = "Assets/Images/Libraries/Carousel/imeni-yanki-kupaly-1.jpg",
                         LibraryId = 2
                     },
 
