@@ -450,11 +450,12 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
         {
           AdminId = 1,
           Login = "National",
-          Password = "9379992",
-          LibraryId =1
+          Password = "4FCBFF10B8CC9DCD5FB2D3B5D5C186C2",
+          Message = "Admin",
+          LibraryId = 1
 
         }
-        );
+        ); 
     }
   }
 }

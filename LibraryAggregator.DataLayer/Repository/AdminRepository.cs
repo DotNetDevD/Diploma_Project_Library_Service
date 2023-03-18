@@ -12,9 +12,9 @@ public class AdminRepository : IAdminRepository
     _libraryDataBaseContext = libraryDataBaseContext;
   }
 
-  public async Task<Admin> GetAdmin(string password , string login)
+  public async Task<Admin> GetAdmin(RequestLogin request)
   {
-    return await _libraryDataBaseContext.Admin.FirstOrDefaultAsync(item => item.Password == password && item.Login==login);
+    return await _libraryDataBaseContext.Admin.FirstOrDefaultAsync(item => item.Password == request.Password && item.Login== request.adminName);
   }
 }
 

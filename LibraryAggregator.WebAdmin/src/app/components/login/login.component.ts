@@ -1,5 +1,8 @@
+import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import ValidateForm from 'src/app/helpers/validateForm';
 import { AuthAdminService } from 'src/app/service/auth-admin.service';
 
@@ -15,8 +18,12 @@ export class LoginComponent implements OnInit {
     isText: boolean = false;
     eyeIcon: string = "fa-eye-slash";
     loginForm!: FormGroup;
+    data!: any;
 
-    constructor(private Fb: FormBuilder, private auth: AuthAdminService) { }
+    constructor(private Fb: FormBuilder, 
+                private auth: AuthAdminService , 
+                private router:Router,
+                private NgToast:NgToastService) { }
 
     ngOnInit(): void {
         this.loginForm = this.Fb.group({
@@ -33,14 +40,21 @@ export class LoginComponent implements OnInit {
 
     onLogin() {
         if (this.loginForm.valid) {
-            console.log(this.loginForm.value);
             this.auth.login(this.loginForm.value)
                 .subscribe({
                     next: (data) => {
-                        console.log(data)
+                        if(data.message == "Admin"){
+                            this.loginForm.reset();
+                            this.NgToast.success({ detail: "SUCCESS", summary: "Authorization Success", duration: 5000 })
+                            this.router.navigate(['dashboard'])
+                        }
+                        else{
+                            this.NgToast.error({ detail: "Error", summary: "Something when wrong", duration: 5000 })
+                        }
+                            
                     },
                     error: (err) => {
-                        alert(err.error.message);
+                        this.NgToast.error({ detail: "Error", summary: "Something when wrong", duration: 5000 })
                     }
                 })
         }

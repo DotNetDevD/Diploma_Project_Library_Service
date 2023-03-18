@@ -16,9 +16,9 @@ namespace LibraryAggregator.AdminAPI.Controllers
     }
 
     [HttpPost("authenticate")]
-    public async Task<Admin> GetManager(string password , string login)
+    public async Task<Admin> GetManager(RequestLogin request)
     {
-      return await _adminService.AdminAuth(password , login);
+      return await _adminService.AdminAuth(request);
     }
   }
 }

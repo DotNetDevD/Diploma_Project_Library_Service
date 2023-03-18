@@ -1,6 +1,7 @@
 using LibraryAggregator.DataLayer.Entities;
 namespace LibraryAggregator.Common.Interface;
-public interface IAdminService 
+public interface IAdminService
 {
-  Task<Admin> AdminAuth(string password , string login);
+  Task<Admin> AdminAuth(RequestLogin request);
+
 }
