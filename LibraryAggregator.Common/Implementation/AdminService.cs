@@ -1,9 +1,8 @@
 using LibraryAggregator.Common.Helpers;
 using LibraryAggregator.Common.Interface;
 using LibraryAggregator.DataLayer.Entities;
+using LibraryAggregator.DataLayer.Entities.Enum;
 using LibraryAggregator.DataLayer.Repository.IRepository;
-using System.Web.Http.Results;
-
 namespace LibraryAggregator.Common.Implementation;
 
 public class AdminService : IAdminService
@@ -21,12 +20,16 @@ public class AdminService : IAdminService
     var admin = await _adminRepository.GetAdmin(request);
     if(admin is null)
     {
-      var noAdmin = new Admin() { Message = "NoAdmin" };
+      var noAdmin = new Admin() { Message = nameof(AdminEnum.NoAdmin)};
       return noAdmin;
     }
     admin.Token = new JwtToken().CreateToken(admin);
     return admin;
-   
+  }
+
+  public async Task<Admin> GetAdminByLogin(int id)
+  {
+     return await _adminRepository.GetAdminByLogin(id);
   }
 }
 

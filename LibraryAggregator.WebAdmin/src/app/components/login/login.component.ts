@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
                     next: (data) => {
                         if(data.message == "Admin"){
                             this.loginForm.reset();
+                            this.auth.storeToken(data.token)
                             this.NgToast.success({ detail: "SUCCESS", summary: "Authorization Success", duration: 5000 })
                             this.router.navigate(['dashboard'])
                         }

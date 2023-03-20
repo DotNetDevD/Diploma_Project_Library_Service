@@ -2,8 +2,6 @@ using LibraryAggregator.DataLayer.Entities;
 using LibraryAggregator.DataLayer.Entities.Enum;
 using LibraryAggregator.DataLayer.Entities.Seed;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using static LibraryAggregator.DataLayer.Entities.Booking;
 
 namespace LibraryAggregator.DataLayer;
 

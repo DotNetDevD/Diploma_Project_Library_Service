@@ -451,7 +451,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
           AdminId = 1,
           Login = "National",
           Password = "4FCBFF10B8CC9DCD5FB2D3B5D5C186C2",
-          Message = "Admin",
+          Message = nameof(AdminEnum.Admin),
           LibraryId = 1
 
         }

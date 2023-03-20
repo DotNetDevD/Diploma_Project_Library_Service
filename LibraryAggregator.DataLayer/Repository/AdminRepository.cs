@@ -1,7 +1,6 @@
 using LibraryAggregator.DataLayer.Entities;
 using LibraryAggregator.DataLayer.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
-using System.ComponentModel;
 
 namespace LibraryAggregator.DataLayer.Repository;
 public class AdminRepository : IAdminRepository
@@ -15,6 +14,12 @@ public class AdminRepository : IAdminRepository
   public async Task<Admin> GetAdmin(RequestLogin request)
   {
     return await _libraryDataBaseContext.Admin.FirstOrDefaultAsync(item => item.Password == request.Password && item.Login== request.adminName);
+  }
+
+  public async Task<Admin> GetAdminByLogin(int id)
+  {
+    return await _libraryDataBaseContext.Admin.Where(item => item.AdminId == id)
+                                              .FirstOrDefaultAsync();
   }
 }
 

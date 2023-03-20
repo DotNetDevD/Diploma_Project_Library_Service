@@ -1,3 +1,5 @@
+using LibraryAggregator.DataLayer.Entities.Enum;
+
 namespace LibraryAggregator.DataLayer.Entities
 {
   public class Admin
@@ -7,7 +9,7 @@ namespace LibraryAggregator.DataLayer.Entities
     public string Password { get; set; }
     public int LibraryId { get; set; }
     public  Library Library { get; set; }
-    public string Message { get; set; } = string.Empty;
+    public string Message { get; set; } = nameof(AdminEnum.Admin);
     public string Token { get; set; } = string.Empty;
   }
 }
