@@ -21,5 +21,10 @@ public class AdminRepository : IAdminRepository
     return await _libraryDataBaseContext.Admin.Where(item => item.AdminId == id)
                                               .FirstOrDefaultAsync();
   }
+
+  public async Task<bool> RefreshToken(string refreshToken)
+  {
+    return await _libraryDataBaseContext.Admin.AnyAsync(item => item.RefreshToken == refreshToken);
+  }
 }
 

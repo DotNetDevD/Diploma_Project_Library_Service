@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import ValidateForm from 'src/app/helpers/validateForm';
+import { AdminJwtService } from 'src/app/service/admin-jwt.service';
 import { AuthAdminService } from 'src/app/service/auth-admin.service';
 
 @Component({
@@ -23,7 +24,8 @@ export class LoginComponent implements OnInit {
     constructor(private Fb: FormBuilder, 
                 private auth: AuthAdminService , 
                 private router:Router,
-                private NgToast:NgToastService) { }
+                private NgToast:NgToastService,
+                private adminJwt: AdminJwtService) { }
 
     ngOnInit(): void {
         this.loginForm = this.Fb.group({
@@ -46,6 +48,8 @@ export class LoginComponent implements OnInit {
                         if(data.message == "Admin"){
                             this.loginForm.reset();
                             this.auth.storeToken(data.token)
+                            const tokenPayload = this.auth.decodedToken();
+                            this.adminJwt.setName(tokenPayload.unique_name)
                             this.NgToast.success({ detail: "SUCCESS", summary: "Authorization Success", duration: 5000 })
                             this.router.navigate(['dashboard'])
                         }

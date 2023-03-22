@@ -16,7 +16,7 @@ namespace LibraryAggregator.AdminAPI.Controllers
       _adminService = adminService;
     }
     [Authorize]
-    [HttpGet("Admin")]
+    [HttpGet("{id}")]
     public async Task<Admin> GetAdmin(int id)
     {
       return await _adminService.GetAdminByLogin(id);

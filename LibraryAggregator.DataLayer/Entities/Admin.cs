@@ -11,5 +11,7 @@ namespace LibraryAggregator.DataLayer.Entities
     public  Library Library { get; set; }
     public string Message { get; set; } = nameof(AdminEnum.Admin);
     public string Token { get; set; } = string.Empty;
+    public string RefreshToken { get; set; } = string.Empty;
+    public DateTime RefreshTokenExpireTime { get; set; }
   }
 }

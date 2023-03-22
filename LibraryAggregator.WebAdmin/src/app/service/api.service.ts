@@ -1,14 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Login } from '../models/Login';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  private BaseUrl: string = 'https://localhost:7091/api/Admin/Admin' 
+  private BaseUrl: string = 'https://localhost:7091/api/' 
   constructor(private http: HttpClient) { }
 
-  getAdmin(number:number){
-    return this.http.get<any>(this.BaseUrl)
+  getAdmin(id: number): Observable<Login>{
+    return this.http.get<Login>(this.BaseUrl + `Admin/${id}`)
   }
 }

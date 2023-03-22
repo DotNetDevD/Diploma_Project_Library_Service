@@ -31,5 +31,16 @@ public class AdminService : IAdminService
   {
      return await _adminRepository.GetAdminByLogin(id);
   }
+
+  public async Task<string> NewRefreshToken()
+  {
+    var jwt = new JwtToken().CreateRefreshToken();
+    var cheakToken  = await _adminRepository.RefreshToken(jwt);
+    if (cheakToken)
+    {
+       await NewRefreshToken();
+    }
+    return jwt;
+  }
 }
 

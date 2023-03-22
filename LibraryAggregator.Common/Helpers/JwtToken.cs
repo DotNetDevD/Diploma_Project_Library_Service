@@ -4,6 +4,7 @@ using System;
 using System.Text;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
+using System.Security.Cryptography;
 
 namespace LibraryAggregator.Common.Helpers
 {
@@ -23,12 +24,33 @@ namespace LibraryAggregator.Common.Helpers
       var tokenDescriptor = new SecurityTokenDescriptor
       {
         Subject = identity,
-        Expires = DateTime.Now.AddMinutes(15),
+        Expires = DateTime.Now.AddSeconds(10),
         SigningCredentials = credentionals
       };
 
       var token = jwtTokenHandler.CreateToken(tokenDescriptor);
       return jwtTokenHandler.WriteToken(token);
     }
+    public string CreateRefreshToken()
+    {
+      var tokenBytes = RandomNumberGenerator.GetBytes(64);
+      var refreshToken = Convert.ToBase64String(tokenBytes);
+      return refreshToken;
+    }
+
+    public ClaimsPrincipal GetPrincipaleFromExpiredToken(string token)
+    {
+      var key = Encoding.ASCII.GetBytes("SuperSecretCode.............");
+      var tokenValidationParametrs = new TokenValidationParameters
+      {
+        ValidateAudience = false,
+        ValidateIssuer = false,
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(key),
+        ValidateLifetime = false
+      };
+    }
   }
+
+ 
 }

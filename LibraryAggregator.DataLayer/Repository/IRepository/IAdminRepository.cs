@@ -6,5 +6,6 @@ namespace LibraryAggregator.DataLayer.Repository.IRepository
   {
     Task<Admin> GetAdmin(RequestLogin request);
     Task<Admin> GetAdminByLogin(int id);
+    Task<bool> RefreshToken(string refreshToken);
   }
 }
