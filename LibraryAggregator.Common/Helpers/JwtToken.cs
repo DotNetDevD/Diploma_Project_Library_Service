@@ -38,18 +38,18 @@ namespace LibraryAggregator.Common.Helpers
       return refreshToken;
     }
 
-    public ClaimsPrincipal GetPrincipaleFromExpiredToken(string token)
-    {
-      var key = Encoding.ASCII.GetBytes("SuperSecretCode.............");
-      var tokenValidationParametrs = new TokenValidationParameters
-      {
-        ValidateAudience = false,
-        ValidateIssuer = false,
-        ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(key),
-        ValidateLifetime = false
-      };
-    }
+    //public ClaimsPrincipal GetPrincipaleFromExpiredToken(string token)
+    //{
+    //  var key = Encoding.ASCII.GetBytes("SuperSecretCode.............");
+    //  var tokenValidationParametrs = new TokenValidationParameters
+    //  {
+    //    ValidateAudience = false,
+    //    ValidateIssuer = false,
+    //    ValidateIssuerSigningKey = true,
+    //    IssuerSigningKey = new SymmetricSecurityKey(key),
+    //    ValidateLifetime = false
+    //  };
+    //}
   }
 
  
