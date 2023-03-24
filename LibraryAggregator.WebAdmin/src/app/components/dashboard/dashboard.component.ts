@@ -12,7 +12,8 @@ import { AuthAdminService } from 'src/app/service/auth-admin.service';
 })
 export class DashboardComponent implements OnInit {
   public admin :Login  = {
-    token: '' 
+    accessToken: '',
+    refreshToken: ''
   };
   public Name : string ="";
   constructor(private auth: AuthAdminService ,
@@ -40,9 +41,6 @@ export class DashboardComponent implements OnInit {
     this.auth.singOut();
   }
    
-  onBooked(){
-    this.router.navigate(['booked'])
-  }
   
 
 }

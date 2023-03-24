@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Login } from '../models/Login';
 import { Router } from '@angular/router';
 import{ JwtHelperService } from '@auth0/angular-jwt'
+import { TokenModel } from '../models/TokenModel';
 @Injectable({
   providedIn: 'root'
 })
@@ -25,8 +26,16 @@ export class AuthAdminService {
     localStorage.setItem('token',tokenValue)
   }
 
+  storeRefreshToken(tokenValue: string) {
+    localStorage.setItem('refreshToken', tokenValue)
+  }
+
   getToken(){
     return localStorage.getItem('token')
+  }
+
+  getRefreshToken() {
+    return localStorage.getItem('refreshToken')
   }
 
   isLoggedIn(): boolean{
@@ -48,5 +57,9 @@ export class AuthAdminService {
   getAdminNameFromToken(){
     if(this.adminPayload)
       return this.adminPayload.unique_name;
+  }
+
+  newToken(tokenModel : TokenModel){
+    return this.http.post<TokenModel>(`${this.BaseUrl}refresh`, tokenModel)
   }
 }

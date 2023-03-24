@@ -1,3 +1,4 @@
+using LibraryAggregator.Common.Dtos;
 using LibraryAggregator.Common.Interface;
 using LibraryAggregator.DataLayer.Entities;
 using Microsoft.AspNetCore.Authorization;
@@ -19,7 +20,12 @@ namespace LibraryAggregator.AdminAPI.Controllers
     [HttpGet("{id}")]
     public async Task<Admin> GetAdmin(int id)
     {
-      return await _adminService.GetAdminByLogin(id);
+      return await _adminService.GetAdminById(id);
+    }
+    [HttpPost("refresh")]
+    public async Task<TokenDto> RefreshToken(TokenDto tokenDto)
+    {
+      return  await _adminService.Refresh(tokenDto);
     }
   }
 }

@@ -1,3 +1,4 @@
+using LibraryAggregator.Common.Dtos;
 using LibraryAggregator.Common.Interface;
 using LibraryAggregator.DataLayer.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -16,7 +17,7 @@ namespace LibraryAggregator.AdminAPI.Controllers
     }
 
     [HttpPost("authenticate")]
-    public async Task<Admin> GetManager(RequestLogin request)
+    public async Task<TokenDto> GetManager(RequestLogin request)
     {
       return await _adminService.AdminAuth(request);
     }

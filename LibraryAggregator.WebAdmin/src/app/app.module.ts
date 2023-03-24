@@ -10,6 +10,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NgToastModule } from 'ng-angular-popup'
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { BookedComponent } from './components/menu/status booked/booked/booked.component';
+import { FreeComponent } from './components/menu/status free/free/free.component';
+import { GivenToTheClientComponent } from './components/menu/status given to the client/given-to-the-client/given-to-the-client.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { BookedComponent } from './components/menu/status booked/booked/booked.c
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    BookedComponent
+    BookedComponent,
+    FreeComponent,
+    GivenToTheClientComponent
   ],
   imports: [
     BrowserModule,

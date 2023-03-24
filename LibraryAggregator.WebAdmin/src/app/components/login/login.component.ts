@@ -47,7 +47,8 @@ export class LoginComponent implements OnInit {
                     next: (data) => {
                         if(data.message == "Admin"){
                             this.loginForm.reset();
-                            this.auth.storeToken(data.token)
+                            this.auth.storeToken(data.accessToken)
+                            this.auth.storeRefreshToken(data.refreshToken)
                             const tokenPayload = this.auth.decodedToken();
                             this.adminJwt.setName(tokenPayload.unique_name)
                             this.NgToast.success({ detail: "SUCCESS", summary: "Authorization Success", duration: 5000 })
