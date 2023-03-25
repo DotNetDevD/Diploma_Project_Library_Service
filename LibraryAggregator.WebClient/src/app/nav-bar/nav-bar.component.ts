@@ -11,8 +11,7 @@ export class NavBarComponent implements OnInit {
 
     constructor(private readonly router: Router) { }
 
-    ngOnInit() {
-    }
+    ngOnInit() { }
 
     search() {
         if (!this.searchTerm.trim()) {

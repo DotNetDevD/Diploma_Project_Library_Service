@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row">
+        <h2>Топ 3 детективов</h2>
+        <div class="col-md-3" *ngFor="let deteciveBook of topDetectiveBooks  | slice:0:3">
+            <app-book-card [book]="deteciveBook"></app-book-card>
+        </div>
+        <h2>Топ 3 технической литеаратуры</h2>
+        <div class="col-md-3" *ngFor="let technicalBook of topTechnicalBooks | slice:0:3">
+            <app-book-card [book]="technicalBook"></app-book-card>
+        </div>
+    </div>
+</div>

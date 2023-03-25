@@ -17,6 +17,7 @@ import { LibraryInfoComponent } from "./library/library-info/library-info.compon
 import { LibraryComponent } from "./library/library.component";
 import { MainContentComponent } from "./main-content/main-content.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
+import { RecommendComponent } from "./recommend/recommend.component";
 import { SearchComponent } from "./search/search.component";
 
 const appRoutes: Routes = [
@@ -37,6 +38,7 @@ const appRoutes: Routes = [
     { path: 'author-books/:id', component: AuthorBooksComponent },
     { path: 'book-available-for-booking/:id', component: BookAvailableForBookingComponent },
     { path: 'index', component: MainContentComponent },
+    {path: 'recommend', component: RecommendComponent},
     { path: 'search', component: SearchComponent },
     { path: '', redirectTo: '/index', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
