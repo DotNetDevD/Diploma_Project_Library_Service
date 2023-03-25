@@ -40,17 +40,21 @@
                 </div>
                 <div class="b_page_block_left">
                     <h6 class="title mb-2"><span class="d-block text-dark">Режим работы</span></h6>
-                    <p>Вторник - Суббота: 8:00 20:00
-                        <br>Воскресенье: 12.00-20.00
-                        <br>Понедельник: выходной день.
+                    <p>
+                        Понедельник: {{library.operatingModes?.monday}}<br>
+                        Вторник: {{library.operatingModes?.tuesday}}<br>
+                        Среда: {{library.operatingModes?.wednesday}}<br>
+                        Четверг: {{library.operatingModes?.thursday}}<br>
+                        Пятница: {{library.operatingModes?.friday}}<br>
+                        Суббота: {{library.operatingModes?.saturday}}<br>
+                        Воскресенье: {{library.operatingModes?.sunday}}<br>
                     </p>
-                    <p>Последняя пятница месяца: санитарный день</p>
                     <hr>
                 </div>
                 <div class="b_page_block_left">
                     <h6 class="title mb-2"><span class="d-block text-dark">Контакты</span></h6>
-                    <p><strong>Сайт: </strong><a
-                            href="{{library.email}}">{{library.email}}</a><br><strong>Тел.:</strong>
+                    <p><strong>Сайт: </strong><a href="{{library.site}}">{{library.site |
+                            slice:12}}</a><br><strong>Тел.:</strong>
                         {{library.phoneNumber}}</p>
                 </div>
                 <div class="row">

@@ -255,7 +255,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                     Name = "Национальная библиотека Минска",
                     Address = "просп.Независимости, 11б",
                     PhoneNumber = "+375 17 368-37-37",
-                    Email = "www.nlb.by",
+                    Site = "https://www.nlb.by",
                     MapLink = "https://yandex.by/maps/org/natsionalnaya_biblioteka_belarusi/1087338903/?ll=27.647557%2C53.930867&z=16.48",
                     ShortDiscription = "Национальная библиотека Беларуси (НББ)",
                     CoverImgPath = "Assets/Images/Libraries/natsionalnaya_biblioteka.jpg",
@@ -271,7 +271,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                      Name = "Библиотека им. Янки Купалы",
                      Address = "Улица Веры Хоружей 16",
                      PhoneNumber = "8 017 242-21-15",
-                     Email = "www.publib.by/",
+                     Site = "https://www.publib.by",
                      MapLink = "https://yandex.by/maps/org/tsentralnaya_biblioteka_imeni_yanki_kupaly/1048737828/?ll=27.570994%2C53.921319&z=16.67",
                      ShortDiscription = "Цэнтральная бібліятэка імя Янкі Купалы",
                      CoverImgPath = "Assets/Images/Libraries/czentralnaya-biblioteka-imeni-yanki-kupaly.jpg",
@@ -338,28 +338,27 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                     new OperatingModes
                     {
                         OperatingModeId = 1,
-                        StartWork = "8:00",
-                        EndWork = "20:00",
-                        CleanUpDay = "Понедельник",
+                        Monday = "10:00–21:00",
+                        Tuesday = "10:00–21:00",
+                        Wednesday = "10:00–21:00",
+                        Thursday = "10:00–21:00",
+                        Friday  = "10:00–21:00",
+                        Saturday = "10:00–16:00",
+                        Sunday = "10:00–16:00",
                         LibraryId = 1
                     },
 
                     new OperatingModes
                     {
                         OperatingModeId = 2,
-                        StartWork = "10:00",
-                        EndWork = "22:00",
-                        CleanUpDay = "Пятница",
-                        LibraryId = 1
-                    },
-
-                    new OperatingModes
-                    {
-                        OperatingModeId = 3,
-                        StartWork = "10:00",
-                        EndWork = "22:00",
-                        CleanUpDay = "Среда",
-                        LibraryId = 1
+                        Monday = "09:00–17:00",
+                        Tuesday = "09:00–17:00",
+                        Wednesday = "09:00–17:00",
+                        Thursday = "09:00–17:00",
+                        Friday = "09:00–17:00",
+                        Saturday = "Выходной",
+                        Sunday = "Выходной",
+                        LibraryId = 2
                     }
                 );
         }  // OperatingModes

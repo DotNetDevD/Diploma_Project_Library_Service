@@ -4,6 +4,8 @@
             <h2 class="featurette-heading">{{author.lastName + ' ' + author.firstName +' '+ author.middleName}}<span
                     class="text-muted"></span></h2>
             <p>Дата рождения: {{author.dateOfBirth | date: 'longDate'}}</p>
+            <p><a [routerLink]="['/author-books', author.authorId]"
+                class="link-secondary">Список книг</a></p>
             <p class="lead">{{author.biography}}</p>
         </div>
         <div class="col-md-5 order-md-1">

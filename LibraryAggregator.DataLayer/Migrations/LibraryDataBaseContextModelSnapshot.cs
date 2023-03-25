@@ -643,10 +643,6 @@ namespace LibraryAggregator.DataLayer.Migrations
                     b.Property<string>("DirectorPhotoLink")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Email")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
                     b.Property<string>("HistoryOfLibrary")
                         .HasColumnType("nvarchar(max)");
 
@@ -663,6 +659,10 @@ namespace LibraryAggregator.DataLayer.Migrations
 
                     b.Property<string>("ShortDiscription")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Site")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Transport")
                         .HasColumnType("nvarchar(max)");
@@ -683,12 +683,12 @@ namespace LibraryAggregator.DataLayer.Migrations
                             AgeGroup = "Нет ограничений ",
                             CoverImgPath = "Assets/Images/Libraries/natsionalnaya_biblioteka.jpg",
                             DirectorPhotoLink = "Assets/Images/Libraries/natsionalnaya_biblioteka.jpg",
-                            Email = "www.nlb.by",
                             HistoryOfLibrary = "Национальная библиотека Беларуси (НББ) была основана постановлением Совета народных комиссаров БССР в 1922 году как Белорусская государственная и университетская библиотека Белорусского государственного университета (БГУ). На момент открытия фонды библиотеки насчитывали всего 60 тысяч экземпляров, которыми пользовались 1,1 тысячи человек. Первым собственным зданием библиотеки стал Юбилейный дом на Захарьевской улице (ныне — проспект Независимости). Постановлением СНК БССР от 14 мая 1926 году библиотека была выведена из состава БГУ и реорганизована в Белорусскую государственную библиотеку. В 1932 году библиотеке было присвоено имя В. И. Ленина. В тот же год библиотека получила новое здание архитектора Г. Лаврова в конструктивистском стиле. ",
                             MapLink = "https://yandex.by/maps/org/natsionalnaya_biblioteka_belarusi/1087338903/?ll=27.647557%2C53.930867&z=16.48",
                             Name = "Национальная библиотека Минска",
                             PhoneNumber = "+375 17 368-37-37",
                             ShortDiscription = "Национальная библиотека Беларуси (НББ)",
+                            Site = "https://www.nlb.by",
                             Transport = "Автобус: 113С, 27, 87С, 91. Поезд : МІНСК - ЧЫРВОНЫ СЦЯГ. Троллейбус: 41, 61"
                         },
                         new
@@ -698,12 +698,12 @@ namespace LibraryAggregator.DataLayer.Migrations
                             AgeGroup = "Нет ограничений",
                             CoverImgPath = "Assets/Images/Libraries/czentralnaya-biblioteka-imeni-yanki-kupaly.jpg",
                             DirectorPhotoLink = "Assets/Images/Libraries/czentralnaya-biblioteka-imeni-yanki-kupaly.jpg",
-                            Email = "www.publib.by/",
                             HistoryOfLibrary = "Вас приветствует Центральная библиотека имени Янки Купалы! Сегодня Центральная библиотека имени Янки Купалы - это: Одна из крупнейших библиотек города; На сайте библиотеки можно посмотреть ролик, сделанный к юбилею сотрудниками. Он рассказывает, что открылась библиотека 29 июля 1949 года, представляет на черно-белом снимке первое здание – Летнюю читальню парка имени М. Горького. Следующий адрес – ул. Карла Маркса, 8, сюда библиотека переехала в 1952-м. А на своем нынешнем месте прописалась в 1976-м. Первым директором стала Лидия Поградная, на снимке она – еще в солдатской шинели. В 1992 году библиотеке было присвоен награда Ленина. В тот же год библиотека получила новый ремонт от архитектора Г. Лазерева в конструктивистском стиле.",
                             MapLink = "https://yandex.by/maps/org/tsentralnaya_biblioteka_imeni_yanki_kupaly/1048737828/?ll=27.570994%2C53.921319&z=16.67",
                             Name = "Библиотека им. Янки Купалы",
                             PhoneNumber = "8 017 242-21-15",
                             ShortDiscription = "Цэнтральная бібліятэка імя Янкі Купалы",
+                            Site = "https://www.publib.by",
                             Transport = "Автобус: 19, 24, 29, 59, 91. Троллейбус: 37 53"
                         });
                 });
@@ -716,21 +716,35 @@ namespace LibraryAggregator.DataLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OperatingModeId"));
 
-                    b.Property<string>("CleanUpDay")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EndWork")
+                    b.Property<string>("Friday")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("LibraryId")
                         .HasColumnType("int");
 
-                    b.Property<string>("StartWork")
+                    b.Property<string>("Monday")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Saturday")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Sunday")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Thursday")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Tuesday")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Wednesday")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("OperatingModeId");
 
-                    b.HasIndex("LibraryId");
+                    b.HasIndex("LibraryId")
+                        .IsUnique()
+                        .HasFilter("[LibraryId] IS NOT NULL");
 
                     b.ToTable("OperatingModes");
 
@@ -738,26 +752,26 @@ namespace LibraryAggregator.DataLayer.Migrations
                         new
                         {
                             OperatingModeId = 1,
-                            CleanUpDay = "Понедельник",
-                            EndWork = "20:00",
+                            Friday = "10:00–21:00",
                             LibraryId = 1,
-                            StartWork = "8:00"
+                            Monday = "10:00–21:00",
+                            Saturday = "10:00–16:00",
+                            Sunday = "10:00–16:00",
+                            Thursday = "10:00–21:00",
+                            Tuesday = "10:00–21:00",
+                            Wednesday = "10:00–21:00"
                         },
                         new
                         {
                             OperatingModeId = 2,
-                            CleanUpDay = "Пятница",
-                            EndWork = "22:00",
-                            LibraryId = 1,
-                            StartWork = "10:00"
-                        },
-                        new
-                        {
-                            OperatingModeId = 3,
-                            CleanUpDay = "Среда",
-                            EndWork = "22:00",
-                            LibraryId = 1,
-                            StartWork = "10:00"
+                            Friday = "09:00–17:00",
+                            LibraryId = 2,
+                            Monday = "09:00–17:00",
+                            Saturday = "Выходной",
+                            Sunday = "Выходной",
+                            Thursday = "09:00–17:00",
+                            Tuesday = "09:00–17:00",
+                            Wednesday = "09:00–17:00"
                         });
                 });
 
@@ -849,8 +863,8 @@ namespace LibraryAggregator.DataLayer.Migrations
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.OperatingModes", b =>
                 {
                     b.HasOne("LibraryAggregator.DataLayer.Entities.Library", "Libraries")
-                        .WithMany("OperatingModes")
-                        .HasForeignKey("LibraryId");
+                        .WithOne("OperatingModes")
+                        .HasForeignKey("LibraryAggregator.DataLayer.Entities.OperatingModes", "LibraryId");
 
                     b.Navigation("Libraries");
                 });
@@ -890,7 +904,8 @@ namespace LibraryAggregator.DataLayer.Migrations
 
                     b.Navigation("ImagesForCarousel");
 
-                    b.Navigation("OperatingModes");
+                    b.Navigation("OperatingModes")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
