@@ -34,6 +34,7 @@ import { SuccessBookingComponent } from './book/success-booking/success-booking.
 import { GenreComponent } from './genre/genre.component';
 import { AuthorBooksComponent } from './book/author-books/author-books.component';
 import { RecommendComponent } from './recommend/recommend.component';
+import { LibraryBooksComponent } from './library/library-books/library-books.component';
 
 registerLocaleData(localeRu);
 
@@ -61,7 +62,8 @@ registerLocaleData(localeRu);
         SuccessBookingComponent,
         GenreComponent,
         AuthorBooksComponent,
-        RecommendComponent
+        RecommendComponent,
+        LibraryBooksComponent
     ],
     imports: [
         AppRoutingModule,

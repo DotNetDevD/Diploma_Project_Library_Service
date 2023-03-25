@@ -61,7 +61,52 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                        Description = "Повесть Л. Н. Толстого, над которой он работал с 1882 по 1886 год. Повесть широко признана одной из вершин мировой литературы и величайшим свершением Толстого в области малой литературной формы.Входит во Всемирную библиотеку (серия книг Норвежского книжного клуба)",
                        PageCount = 543,
                        PublishDate = new DateTime(1886, 10, 12)
+                   },
+
+                   new Book
+                   {
+                       BookId = 6,
+                       Title = "Чистый код",
+                       Isbn = "978-5-4461-0960-9",
+                       CoverImgPath = "Assets/Images/Books/clean-code.jpg",
+                       Description = "Плохой код может работать, но он будет мешать развитию проекта и компании-разработчика, требуя дополнительные ресурсы на поддержку и \"укрощение\". Каким же должен быть код? Эта книга полна реальных примеров, позволяющих взглянуть на код с различных направлений: сверху вниз, снизу вверх и даже изнутри. Вы узнаете много нового о коде.",
+                       PageCount = 464,
+                       PublishDate = new DateTime(2021, 10, 12)
+                   },
+
+                   new Book
+                   {
+                       BookId = 7,
+                       Title = "Чистая архитектура",
+                       Isbn = "978-5-4461-0772-8",
+                       CoverImgPath = "Assets/Images/Books/clean-architecture.jpg",
+                       Description = "Всех программистов, которые добиваются успеха в мире разработки ПО, отличает один общий признак: они больше всего заботятся о качестве создаваемого программного обеспечения. Это – основа для них. Потому что они являются профессионалами своего дела.",
+                       PageCount = 352,
+                       PublishDate = new DateTime(2020, 10, 11)
+                   },
+
+                   new Book
+                   {
+                       BookId = 8,
+                       Title = "Совершенный код",
+                       Isbn = "978-5-9909805-1-8",
+                       CoverImgPath = "Assets/Images/Books/code-complete.jpg",
+                       Description = "Более 10 лет первое издание этой книги считалось одним из лучших практических руководств по программированию. Сейчас эта книга полностью обновлена с учетом современных тенденций и технологий и дополнена сотнями новых примеров, иллюстрирующих искусство и науку программирования.",
+                       PageCount = 896,
+                       PublishDate = new DateTime(2019, 11, 12)
+                   },
+
+                   new Book
+                   {
+                       BookId = 9,
+                       Title = "Затерянный мир",
+                       Isbn = "978-5-04-160964-1",
+                       CoverImgPath = "Assets/Images/Books/Lost-World.jpg",
+                       Description = "\"Затерянный мир\" – захватывающий научно-фантастический роман английского писателя Артура Конан Дойла. Гениальный и известный своей эксцентричностью профессор Челленджер заявляет, что во время путешествия по Южной Америке обнаружил район, где до сих пор сохранились доисторические формы жизни.",
+                       PageCount = 320,
+                       PublishDate = new DateTime(2023, 11, 12)
                    }
+
                );
         } // Books
 
@@ -111,7 +156,39 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                     DateOfBirth = new DateTime(1891, 05, 03),
                     Biography = "Учился в Первой Киевской гимназии, позднее — на медицинском факультете Киевского университета. Первую пробу пера совершил в семилетнем возрасте, написав рассказ «Похождения Светланы».",
                     CoverImgPath = "Assets/Images/Authors/mikhail-bulgakov.jpg"
-                }
+                },
+
+                 new Author
+                 {
+                     AuthorId = 5,
+                     FirstName = "Роберт",
+                     LastName = "Мартин",
+                     DateOfBirth = new DateTime(1952, 04, 04),
+                     Biography = "Роберт Мартин — профессиональный разработчик ПО, международный консультант, автор книг по программированию. Известен также под псевдонимом Дядюшка Боб.",
+                     CoverImgPath = "Assets/Images/Authors/robert-matrin.jpg"
+                 },
+
+                 new Author
+                 {
+                     AuthorId = 6,
+                     FirstName = "Стив",
+                     LastName = "МакКоннел",
+                     DateOfBirth = new DateTime(1952, 04, 04),
+                     Biography = "Стив Макконнелл — американский программист, автор нескольких книгпо разработке ПО, в том числе бестселера \"Совершенный код\"",
+                     CoverImgPath = "Assets/Images/Authors/McConnell.jpg"
+                 },
+
+                 new Author
+                 {
+                     AuthorId = 7,
+                     FirstName = "Артур",
+                     MiddleName = "Конан",
+                     LastName = "Дойл",
+                     DateOfBirth = new DateTime(1859, 05, 22),
+                     Biography = "Английский писатель (по образованию врач), автор многочисленных приключенческих, исторических, публицистических, фантастических и юмористических произведений. Создатель классических персонажей детективной, научно-фантастической и историко-приключенческой литературы — гениального сыщика Шерлока Холмса",
+                     CoverImgPath = "Assets/Images/Authors/Conan-Doyle.jpg"
+                 }
+
             );
         }  // Authors
 
@@ -151,6 +228,34 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                         AuthorsBooksId = 5,
                         AuthorId = 1,
                         BookId = 5
+                    },
+
+                    new AuthorsBook
+                    {
+                        AuthorsBooksId = 6,
+                        AuthorId = 5,
+                        BookId = 6
+                    },
+
+                    new AuthorsBook
+                    {
+                        AuthorsBooksId = 7,
+                        AuthorId = 5,
+                        BookId = 7
+                    },
+
+                    new AuthorsBook
+                    {
+                        AuthorsBooksId = 8,
+                        AuthorId = 6,
+                        BookId = 8
+                    },
+
+                    new AuthorsBook
+                    {
+                        AuthorsBooksId = 9,
+                        AuthorId = 7,
+                        BookId = 9
                     }
                 );
         } // AuthorsBook
@@ -241,6 +346,41 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                     BooksGenresId = 6,
                     BookId = 5,
                     GenreId = 6
+                },
+
+                new BooksGenre
+                {
+                    BooksGenresId = 7,
+                    BookId = 6,
+                    GenreId = 3
+                },
+
+                new BooksGenre
+                {
+                    BooksGenresId = 8,
+                    BookId = 7,
+                    GenreId = 3
+                },
+
+                new BooksGenre
+                {
+                    BooksGenresId = 9,
+                    BookId = 8,
+                    GenreId = 3
+                },
+
+                new BooksGenre
+                {
+                    BooksGenresId = 10,
+                    BookId = 4,
+                    GenreId = 6
+                },
+
+                new BooksGenre
+                {
+                    BooksGenresId = 11,
+                    BookId = 9,
+                    GenreId = 6
                 }
             );
         }// BooksGenre
@@ -280,7 +420,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                      HistoryOfLibrary = "Вас приветствует Центральная библиотека имени Янки Купалы! Сегодня Центральная библиотека имени Янки Купалы - это: Одна из крупнейших библиотек города; На сайте библиотеки можно посмотреть ролик, сделанный к юбилею сотрудниками. Он рассказывает, что открылась библиотека 29 июля 1949 года, представляет на черно-белом снимке первое здание – Летнюю читальню парка имени М. Горького. Следующий адрес – ул. Карла Маркса, 8, сюда библиотека переехала в 1952-м. А на своем нынешнем месте прописалась в 1976-м. Первым директором стала Лидия Поградная, на снимке она – еще в солдатской шинели. В 1992 году библиотеке было присвоен награда Ленина. В тот же год библиотека получила новый ремонт от архитектора Г. Лазерева в конструктивистском стиле.",
                      Transport = "Автобус: 19, 24, 29, 59, 91. Троллейбус: 37 53",
                  }
-                );;
+                ); ;
         } // Library
 
         public static void SeedImagesFourCorusel(this ModelBuilder modelBuilder)
@@ -342,7 +482,7 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                         Tuesday = "10:00–21:00",
                         Wednesday = "10:00–21:00",
                         Thursday = "10:00–21:00",
-                        Friday  = "10:00–21:00",
+                        Friday = "10:00–21:00",
                         Saturday = "10:00–16:00",
                         Sunday = "10:00–16:00",
                         LibraryId = 1
@@ -424,7 +564,88 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                      BookedBook = 0,
                      IsFreeBook = true,
                      Count = 3
+                 },
+
+                 new BooksLibrary
+                 {
+                     BooksLibrariesId = 7,
+                     BookId = 6,
+                     LibraryId = 2,
+                     BookedBook = 0,
+                     IsFreeBook = true,
+                     Count = 5
+                 },
+
+                 new BooksLibrary
+                 {
+                     BooksLibrariesId = 8,
+                     BookId = 6,
+                     LibraryId = 1,
+                     BookedBook = 0,
+                     IsFreeBook = true,
+                     Count = 4
+                 },
+
+                 new BooksLibrary
+                 {
+                     BooksLibrariesId = 9,
+                     BookId = 7,
+                     LibraryId = 2,
+                     BookedBook = 0,
+                     IsFreeBook = true,
+                     Count = 4
+                 },
+
+                 new BooksLibrary
+                 {
+                     BooksLibrariesId = 10,
+                     BookId = 7,
+                     LibraryId = 1,
+                     BookedBook = 0,
+                     IsFreeBook = true,
+                     Count = 4
+                 },
+
+                 new BooksLibrary
+                 {
+                     BooksLibrariesId = 11,
+                     BookId = 8,
+                     LibraryId = 1,
+                     BookedBook = 0,
+                     IsFreeBook = true,
+                     Count = 6
+                 },
+
+                 new BooksLibrary
+                 {
+                     BooksLibrariesId = 12,
+                     BookId = 8,
+                     LibraryId = 2,
+                     BookedBook = 0,
+                     IsFreeBook = true,
+                     Count = 4
+                 },
+
+                 new BooksLibrary
+                 {
+                     BooksLibrariesId = 13,
+                     BookId = 9,
+                     LibraryId = 1,
+                     BookedBook = 0,
+                     IsFreeBook = true,
+                     Count = 4
+                 },
+
+                 new BooksLibrary
+                 {
+                     BooksLibrariesId = 14,
+                     BookId = 9,
+                     LibraryId = 2,
+                     BookedBook = 0,
+                     IsFreeBook = true,
+                     Count = 6
                  }
+
                 );
         }
         public static void SeedClient(this ModelBuilder modelBuilder)

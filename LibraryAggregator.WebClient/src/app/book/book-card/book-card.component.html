@@ -4,7 +4,15 @@
                 data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
                 alt="{{book.title}}" src="{{book.url}}" data-holder-rendered="true"></a>
         <div class="card-body">
-            <h5 class="card-title">{{book.title}}</h5>
+            <h5 class="card-title"><a [routerLink]="['/book-info', book.bookId]" class="link-dark"
+                    style="text-decoration:none;">{{book.title}}</a></h5>
+            <h6>
+                <div *ngFor="let book of book.authorsBooks">
+                    <a [routerLink]="['/author-info', book.authorId]" class="link-secondary">{{book.author?.lastName}}
+                        {{book.author?.firstName}}
+                        {{book.author?.middleName}}</a>
+                </div>
+            </h6>
             <a [routerLink]="['/book-info', book.bookId]" class="btn btn-light me-2">Подробнее</a>
             <a [routerLink]="['/book-available-for-booking', book.bookId]" class="btn btn-light">Бронировать</a>
         </div>

@@ -5,7 +5,8 @@
                 alt="{{library?.name}}" src="{{library?.url}}" data-holder-rendered="true"></a>
         <div class="card-body">
             <h5 class="card-text">{{library?.shortDiscription}}</h5>
-            <a [routerLink]="['/library-info', library?.libraryId]" class="btn btn-light">Подробнее</a>
+            <a [routerLink]="['/library-info', library?.libraryId]" class="btn btn-light me-2">Подробнее</a>
+            <a [routerLink]="['/library/library-books', library?.libraryId]" class="btn btn-light">Книжный фонд</a>
         </div>
     </div>
 </div>

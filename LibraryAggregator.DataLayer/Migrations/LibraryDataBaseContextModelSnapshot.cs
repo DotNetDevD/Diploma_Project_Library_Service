@@ -100,6 +100,34 @@ namespace LibraryAggregator.DataLayer.Migrations
                             FirstName = "Михаил",
                             LastName = "Булгаков",
                             MiddleName = "Афанасьевич"
+                        },
+                        new
+                        {
+                            AuthorId = 5,
+                            Biography = "Роберт Мартин — профессиональный разработчик ПО, международный консультант, автор книг по программированию. Известен также под псевдонимом Дядюшка Боб.",
+                            CoverImgPath = "Assets/Images/Authors/robert-matrin.jpg",
+                            DateOfBirth = new DateTime(1952, 4, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Роберт",
+                            LastName = "Мартин"
+                        },
+                        new
+                        {
+                            AuthorId = 6,
+                            Biography = "Стив Макконнелл — американский программист, автор нескольких книгпо разработке ПО, в том числе бестселера \"Совершенный код\"",
+                            CoverImgPath = "Assets/Images/Authors/McConnell.jpg",
+                            DateOfBirth = new DateTime(1952, 4, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Стив",
+                            LastName = "МакКоннел"
+                        },
+                        new
+                        {
+                            AuthorId = 7,
+                            Biography = "Английский писатель (по образованию врач), автор многочисленных приключенческих, исторических, публицистических, фантастических и юмористических произведений. Создатель классических персонажей детективной, научно-фантастической и историко-приключенческой литературы — гениального сыщика Шерлока Холмса",
+                            CoverImgPath = "Assets/Images/Authors/Conan-Doyle.jpg",
+                            DateOfBirth = new DateTime(1859, 5, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Артур",
+                            LastName = "Дойл",
+                            MiddleName = "Конан"
                         });
                 });
 
@@ -156,6 +184,30 @@ namespace LibraryAggregator.DataLayer.Migrations
                             AuthorsBooksId = 5,
                             AuthorId = 1,
                             BookId = 5
+                        },
+                        new
+                        {
+                            AuthorsBooksId = 6,
+                            AuthorId = 5,
+                            BookId = 6
+                        },
+                        new
+                        {
+                            AuthorsBooksId = 7,
+                            AuthorId = 5,
+                            BookId = 7
+                        },
+                        new
+                        {
+                            AuthorsBooksId = 8,
+                            AuthorId = 6,
+                            BookId = 8
+                        },
+                        new
+                        {
+                            AuthorsBooksId = 9,
+                            AuthorId = 7,
+                            BookId = 9
                         });
                 });
 
@@ -253,6 +305,46 @@ namespace LibraryAggregator.DataLayer.Migrations
                             PageCount = 543,
                             PublishDate = new DateTime(1886, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Смерть Ивана Ильича"
+                        },
+                        new
+                        {
+                            BookId = 6,
+                            CoverImgPath = "Assets/Images/Books/clean-code.jpg",
+                            Description = "Плохой код может работать, но он будет мешать развитию проекта и компании-разработчика, требуя дополнительные ресурсы на поддержку и \"укрощение\". Каким же должен быть код? Эта книга полна реальных примеров, позволяющих взглянуть на код с различных направлений: сверху вниз, снизу вверх и даже изнутри. Вы узнаете много нового о коде.",
+                            Isbn = "978-5-4461-0960-9",
+                            PageCount = 464,
+                            PublishDate = new DateTime(2021, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Чистый код"
+                        },
+                        new
+                        {
+                            BookId = 7,
+                            CoverImgPath = "Assets/Images/Books/clean-architecture.jpg",
+                            Description = "Всех программистов, которые добиваются успеха в мире разработки ПО, отличает один общий признак: они больше всего заботятся о качестве создаваемого программного обеспечения. Это – основа для них. Потому что они являются профессионалами своего дела.",
+                            Isbn = "978-5-4461-0772-8",
+                            PageCount = 352,
+                            PublishDate = new DateTime(2020, 10, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Чистая архитектура"
+                        },
+                        new
+                        {
+                            BookId = 8,
+                            CoverImgPath = "Assets/Images/Books/code-complete.jpg",
+                            Description = "Более 10 лет первое издание этой книги считалось одним из лучших практических руководств по программированию. Сейчас эта книга полностью обновлена с учетом современных тенденций и технологий и дополнена сотнями новых примеров, иллюстрирующих искусство и науку программирования.",
+                            Isbn = "978-5-9909805-1-8",
+                            PageCount = 896,
+                            PublishDate = new DateTime(2019, 11, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Совершенный код"
+                        },
+                        new
+                        {
+                            BookId = 9,
+                            CoverImgPath = "Assets/Images/Books/Lost-World.jpg",
+                            Description = "\"Затерянный мир\" – захватывающий научно-фантастический роман английского писателя Артура Конан Дойла. Гениальный и известный своей эксцентричностью профессор Челленджер заявляет, что во время путешествия по Южной Америке обнаружил район, где до сих пор сохранились доисторические формы жизни.",
+                            Isbn = "978-5-04-160964-1",
+                            PageCount = 320,
+                            PublishDate = new DateTime(2023, 11, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Затерянный мир"
                         });
                 });
 
@@ -364,6 +456,36 @@ namespace LibraryAggregator.DataLayer.Migrations
                             BooksGenresId = 6,
                             BookId = 5,
                             GenreId = 6
+                        },
+                        new
+                        {
+                            BooksGenresId = 7,
+                            BookId = 6,
+                            GenreId = 3
+                        },
+                        new
+                        {
+                            BooksGenresId = 8,
+                            BookId = 7,
+                            GenreId = 3
+                        },
+                        new
+                        {
+                            BooksGenresId = 9,
+                            BookId = 8,
+                            GenreId = 3
+                        },
+                        new
+                        {
+                            BooksGenresId = 10,
+                            BookId = 4,
+                            GenreId = 6
+                        },
+                        new
+                        {
+                            BooksGenresId = 11,
+                            BookId = 9,
+                            GenreId = 6
                         });
                 });
 
@@ -459,6 +581,86 @@ namespace LibraryAggregator.DataLayer.Migrations
                             BookId = 1,
                             BookedBook = 0,
                             Count = 3,
+                            FreeBook = 0,
+                            IsFreeBook = true,
+                            LibraryId = 2
+                        },
+                        new
+                        {
+                            BooksLibrariesId = 7,
+                            BookId = 6,
+                            BookedBook = 0,
+                            Count = 5,
+                            FreeBook = 0,
+                            IsFreeBook = true,
+                            LibraryId = 2
+                        },
+                        new
+                        {
+                            BooksLibrariesId = 8,
+                            BookId = 6,
+                            BookedBook = 0,
+                            Count = 4,
+                            FreeBook = 0,
+                            IsFreeBook = true,
+                            LibraryId = 1
+                        },
+                        new
+                        {
+                            BooksLibrariesId = 9,
+                            BookId = 7,
+                            BookedBook = 0,
+                            Count = 4,
+                            FreeBook = 0,
+                            IsFreeBook = true,
+                            LibraryId = 2
+                        },
+                        new
+                        {
+                            BooksLibrariesId = 10,
+                            BookId = 7,
+                            BookedBook = 0,
+                            Count = 4,
+                            FreeBook = 0,
+                            IsFreeBook = true,
+                            LibraryId = 1
+                        },
+                        new
+                        {
+                            BooksLibrariesId = 11,
+                            BookId = 8,
+                            BookedBook = 0,
+                            Count = 6,
+                            FreeBook = 0,
+                            IsFreeBook = true,
+                            LibraryId = 1
+                        },
+                        new
+                        {
+                            BooksLibrariesId = 12,
+                            BookId = 8,
+                            BookedBook = 0,
+                            Count = 4,
+                            FreeBook = 0,
+                            IsFreeBook = true,
+                            LibraryId = 2
+                        },
+                        new
+                        {
+                            BooksLibrariesId = 13,
+                            BookId = 9,
+                            BookedBook = 0,
+                            Count = 4,
+                            FreeBook = 0,
+                            IsFreeBook = true,
+                            LibraryId = 1
+                        },
+                        new
+                        {
+                            BooksLibrariesId = 14,
+                            BookId = 9,
+                            BookedBook = 0,
+                            Count = 6,
                             FreeBook = 0,
                             IsFreeBook = true,
                             LibraryId = 2

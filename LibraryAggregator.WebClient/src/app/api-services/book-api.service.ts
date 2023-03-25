@@ -28,6 +28,10 @@ export class BookApiService {
         return this.http.get<Book[]>(this.APIUrl + `/books/booksListByAuthorId/${id}`)
     }
 
+    getBookListByLibraryId(id: number): Observable<Book[]> {
+        return this.http.get<Book[]>(this.APIUrl + `/books/booksListByLibraryId/${id}`)
+    }
+
     addBook(data: any) {
         return this.http.post(this.APIUrl + '/book', data);
     }

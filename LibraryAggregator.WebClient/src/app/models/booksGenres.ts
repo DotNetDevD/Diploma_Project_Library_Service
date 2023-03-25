@@ -4,7 +4,7 @@ import { Genre } from "./genre";
 export interface BooksGenres {
     booksGenresId?: number;
     bookId?: number;
-    genresId?: number;
+    genreId?: number;
     book?: Book;
     genre?: Genre;
 }

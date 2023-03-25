@@ -12,6 +12,7 @@ import { BookingComponent } from "./book/booking/booking.component";
 import { FoundBooksComponent } from "./book/found-books/found-books.component";
 import { GenreShowComponent } from "./genre/genre-show/genre-show.component";
 import { GenreComponent } from "./genre/genre.component";
+import { LibraryBooksComponent } from "./library/library-books/library-books.component";
 import { LibraryCardComponent } from "./library/library-card/library-card.component";
 import { LibraryInfoComponent } from "./library/library-info/library-info.component";
 import { LibraryComponent } from "./library/library.component";
@@ -28,6 +29,7 @@ const appRoutes: Routes = [
     { path: 'found-books', component: FoundBooksComponent },
     { path: 'library', component: LibraryComponent },
     { path: 'library-info/:id', component: LibraryInfoComponent },
+    { path: 'library/library-books/:id', component: LibraryBooksComponent },
     { path: 'library-card', component: LibraryCardComponent },
     { path: 'author', component: AuthorComponent },
     { path: 'author-info/:id', component: AuthorInfoComponent },
