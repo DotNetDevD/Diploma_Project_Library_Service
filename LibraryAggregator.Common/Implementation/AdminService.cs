@@ -11,20 +11,22 @@ namespace LibraryAggregator.Common.Implementation;
 public class AdminService : IAdminService
 {
   private readonly IAdminRepository _adminRepository;
+  private readonly ILibraryRepository _libraryRepository;
 
-  public AdminService(IAdminRepository adminRepository)
+  public AdminService(IAdminRepository adminRepository, ILibraryRepository libraryRepository)
   {
     _adminRepository = adminRepository;
+    _libraryRepository = libraryRepository;
   }
 
-  public async Task<TokenDto> AdminAuth(RequestLogin request)
+  public async Task<TokenDto> AdminAuth(RequestData request)
   {
     request.Password = PasswordHasher.HashPassword(request.Password);
     var admin = await _adminRepository.GetAdmin(request);
-    if(admin is null)
+    if (admin is null)
     {
       throw new Exception(nameof(AdminEnum.NoAdmin));
-      
+
     }
     admin.Token = new JwtToken().CreateToken(admin);
     TokenDto tokenDto = await new JwtToken().GetTokens(admin);
@@ -34,15 +36,15 @@ public class AdminService : IAdminService
 
   public async Task<Admin> GetAdminById(int id)
   {
-     return await _adminRepository.GetAdminById(id);
+    return await _adminRepository.GetAdminById(id);
   }
   public async Task<string> NewRefreshToken()
   {
     var jwt = new JwtToken().CreateRefreshToken();
-    var cheakToken  = await _adminRepository.RefreshToken(jwt);
+    var cheakToken = await _adminRepository.RefreshToken(jwt);
     if (cheakToken)
     {
-       await NewRefreshToken();
+      await NewRefreshToken();
     }
     return jwt;
   }
@@ -50,7 +52,7 @@ public class AdminService : IAdminService
   public async Task<TokenDto> Refresh(TokenDto tokenDto)
   {
     if (tokenDto is null)
-      throw new Exception("Invalid REquest");
+      throw new Exception("Invalid Request");
     string accessToken = tokenDto.AccessToken;
     string refreshToken = tokenDto.RefreshToken;
     var principal = new JwtToken().GetPrincipaleFromExpiredToken(accessToken);
@@ -64,9 +66,16 @@ public class AdminService : IAdminService
     _adminRepository.SaveChanges();
     return new TokenDto
     {
-      AccessToken = newAccessToken,
-      RefreshToken = admin.RefreshToken
+      AccessToken = admin.RefreshToken,
+      RefreshToken = newAccessToken
     };
+  }
+
+  public async Task<Library> GetListBooks(string adminNAme)
+  {
+    var BookInLibraries = new List<BookInLibraries>();
+    return  await _libraryRepository.GetCurrentBooksInLibrary(adminNAme);
+   
   }
 }
 

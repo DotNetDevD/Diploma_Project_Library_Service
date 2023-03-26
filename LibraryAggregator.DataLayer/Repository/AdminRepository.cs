@@ -11,9 +11,9 @@ public class AdminRepository : IAdminRepository
     _libraryDataBaseContext = libraryDataBaseContext;
   }
 
-  public async Task<Admin> GetAdmin(RequestLogin request)
+  public async Task<Admin> GetAdmin(RequestData request)
   {
-    return await _libraryDataBaseContext.Admin.FirstOrDefaultAsync(item => item.Password == request.Password && item.Login== request.adminName);
+    return await _libraryDataBaseContext.Admin.FirstOrDefaultAsync(item => item.Password == request.Password && item.Login== request.AdminName);
   }
 
   public async Task<Admin> GetAdminById(int id)

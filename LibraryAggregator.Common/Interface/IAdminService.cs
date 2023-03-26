@@ -3,7 +3,8 @@ using LibraryAggregator.DataLayer.Entities;
 namespace LibraryAggregator.Common.Interface;
 public interface IAdminService
 {
-  Task<TokenDto> AdminAuth(RequestLogin request);
+  Task<TokenDto> AdminAuth(RequestData request);
   Task<Admin> GetAdminById(int id);
   Task<TokenDto> Refresh(TokenDto tokenDto);
+  Task<Library> GetListBooks(string adminNAme);
 }

@@ -1,4 +1,4 @@
-﻿using LibraryAggregator.DataLayer.Entities;
+using LibraryAggregator.DataLayer.Entities;
 using LibraryAggregator.DataLayer.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,6 +25,8 @@ namespace LibraryAggregator.DataLayer.Repository
                               .Include(l => l.BooksLibrary).ThenInclude(l => l.Book)
                               .FirstOrDefaultAsync(b => b.BookingId == id);
         }
+
+        
 
     }
 }

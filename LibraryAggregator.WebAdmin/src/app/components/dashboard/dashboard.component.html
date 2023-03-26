@@ -1,6 +1,6 @@
 <nav class="navbar navbar-light bg-light fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Навигационное меню</a>
+        <button class="btn btn-dark" [routerLink]="''">Sing out</button>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -17,13 +17,13 @@
                       <a class="nav-link" [routerLink]="'/dashboard'">Главная</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a  class="nav-link" href="/free">Статус книги Свободный</a>
+                        <a  class="nav-link" [routerLink]="'/free'">Статус книги Свободный</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/booked">Статус книги Забронированная</a>
+                        <a class="nav-link" [routerLink]="'/booked'">Статус книги Забронированная</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="/given-to-the-client">Статус книги Отданы клиенту</a>
+                        <a class="nav-link" [routerLink]="'/given-to-the-client'">Статус книги Отданы клиенту</a>
                     </li>
                 </ul>
             </div>

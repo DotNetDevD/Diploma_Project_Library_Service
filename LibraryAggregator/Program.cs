@@ -6,11 +6,16 @@ using LibraryAggregator.API.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddControllers().
+    AddJsonOptions(options =>
+    {
+      options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+    });
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

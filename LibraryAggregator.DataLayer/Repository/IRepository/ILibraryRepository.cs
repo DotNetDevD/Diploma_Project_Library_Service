@@ -1,4 +1,4 @@
-﻿using LibraryAggregator.DataLayer.Entities;
+using LibraryAggregator.DataLayer.Entities;
 
 namespace LibraryAggregator.DataLayer.Repository.IRepository
 {
@@ -6,5 +6,6 @@ namespace LibraryAggregator.DataLayer.Repository.IRepository
     {
         Task<IEnumerable<Library>> GetFullInfoLibrariesAsync();
         Task<Library> GetFullInfoLibraryAsync(int id);
+         Task<Library> GetCurrentBooksInLibrary(string adminNAme);
     }
 }

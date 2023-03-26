@@ -1,8 +1,8 @@
 namespace LibraryAggregator.DataLayer.Entities;
 
-public class RequestLogin
+public class RequestData
 {
-  public string adminName { get; set; } = null!;
+  public string AdminName { get; set; } = null!;
   public string Password { get; set; } = null!;
 }
 

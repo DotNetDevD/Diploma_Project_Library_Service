@@ -11,9 +11,9 @@ const routes: Routes = [
   { path:'' , redirectTo:'login',pathMatch:'full'},
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent , canActivate:[AuthGuard]},
-  { path: 'booked', component:BookedComponent},
-  { path: 'free' , component:FreeComponent},
-  { path: 'given-to-the-client' , component:GivenToTheClientComponent}
+  { path: 'booked', component: BookedComponent, canActivate: [AuthGuard] },
+  { path: 'free', component: FreeComponent, canActivate: [AuthGuard] },
+  { path: 'given-to-the-client', component: GivenToTheClientComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

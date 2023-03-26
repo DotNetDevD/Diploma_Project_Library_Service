@@ -25,7 +25,14 @@ namespace LibraryAggregator.AdminAPI.Controllers
     [HttpPost("refresh")]
     public async Task<TokenDto> RefreshToken(TokenDto tokenDto)
     {
-      return  await _adminService.Refresh(tokenDto);
+      return await _adminService.Refresh(tokenDto);
     }
+
+    [HttpGet("adminName")]
+    public async Task<Library> GetLibrary(string  adminNAme)
+    {
+      return await _adminService.GetListBooks(adminNAme);
+    }
+
   }
 }
