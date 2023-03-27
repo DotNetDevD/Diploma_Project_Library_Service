@@ -56,7 +56,6 @@ app.UseStaticFiles(new StaticFileOptions
     RequestPath = requestPath
 });
 
-
 app.UseAuthorization();
 
 app.MapControllers();

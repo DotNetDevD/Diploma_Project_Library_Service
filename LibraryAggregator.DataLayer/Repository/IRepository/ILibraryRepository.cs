@@ -2,7 +2,7 @@
 
 namespace LibraryAggregator.DataLayer.Repository.IRepository
 {
-    public interface ILibraryRepository : IRepository<Library> , IGenericSearchRepository<Library>
+    public interface ILibraryRepository : IRepository<Library>, IGenericSearchRepository<Library>
     {
         Task<IEnumerable<Library>> GetFullInfoLibrariesAsync();
         Task<Library> GetFullInfoLibraryAsync(int id);
