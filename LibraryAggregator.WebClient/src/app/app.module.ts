@@ -35,6 +35,7 @@ import { GenreComponent } from './genre/genre.component';
 import { AuthorBooksComponent } from './book/author-books/author-books.component';
 import { RecommendComponent } from './recommend/recommend.component';
 import { LibraryBooksComponent } from './library/library-books/library-books.component';
+import { FooterComponent } from './footer/footer.component';
 
 registerLocaleData(localeRu);
 
@@ -57,6 +58,7 @@ registerLocaleData(localeRu);
         GenreShowComponent,
         SearchComponent,
         NavBarComponent,
+        FooterComponent,
         BookAvailableForBookingComponent,
         BookingComponent,
         SuccessBookingComponent,

@@ -34,7 +34,30 @@ namespace LibraryAggregator.Common.Implementation
                 BookingStatus = BookingStatuses.Booked
             };
 
-            await _bookingRepository.CreateAsync(booking);
+            if (await CheckDoubleBooking(bookingDto))
+            {
+                // logic
+                throw new Exception();
+            }
+            else
+            {
+                await _bookingRepository.CreateAsync(booking);
+            }
+        }
+
+        private async Task<bool> CheckDoubleBooking(BookingDto bookingDto)
+        {
+            bool isClientAlreadyBooking = false;
+            var bookings = await _bookingRepository.GetFullInfoBookingsAsync();
+            foreach (var booking in bookings)
+            {
+                if (booking.BooksLibraryId == bookingDto.BookLibraryId && booking.Client.Email == bookingDto.Email)
+                {
+                    isClientAlreadyBooking = true;
+                    break;
+                }
+            }
+            return isClientAlreadyBooking;
         }
 
         private async Task CreateClient(BookingDto bookingDto)
