@@ -26,14 +26,14 @@ namespace LibraryAggregator.DataLayer.Repository
                         .FirstOrDefaultAsync(b => b.BookingId == id);
     }
 
-
     public async Task<IEnumerable<Booking>> GetFullBookingBooks()
     {
       return await dbSet.ToListAsync();
     }
 
-    public async Task DeleteRecord(Booking booking)
+    public async Task DeleteRecord(int id)
     {
+      var booking = dbSet.Find(id);
       dbSet.Remove(booking);
       _db.SaveChanges();
     }

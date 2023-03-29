@@ -115,5 +115,10 @@ public class AdminService : IAdminService
     }
     return booksLibraries;
   }
+
+  public async Task DeleteRecord(int id)
+  {
+    await _bookingRepository.DeleteRecord(id);
+  }
 }
 

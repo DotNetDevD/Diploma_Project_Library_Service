@@ -33,8 +33,5 @@ namespace LibraryAggregator.API.Controllers
             await _bookingService.CreateBookingAsync(bookingDto);
         }
 
-
-       
-
     }
 }

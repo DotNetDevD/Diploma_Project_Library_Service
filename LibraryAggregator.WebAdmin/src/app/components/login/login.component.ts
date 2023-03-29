@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
                             const tokenPayload = this.auth.decodedToken();
                             this.adminJwt.setName(tokenPayload.unique_name)
                             this.NgToast.success({ detail: "SUCCESS", summary: "Authorization Success", duration: 5000 })
-                            this.router.navigate(['dashboard'])
+                            this.router.navigate(['free'])
                         }
                         else{
                             this.NgToast.error({ detail: "Error", summary: "Something when wrong", duration: 5000 })

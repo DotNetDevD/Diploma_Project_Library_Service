@@ -3,6 +3,7 @@ using LibraryAggregator.Common.Interface;
 using LibraryAggregator.DataLayer.Entities;
 using LibraryAggregator.DataLayer.Repository.IRepository;
 using LibraryAggregator.DataLayer.Entities.Enum;
+using System.Security.Cryptography.X509Certificates;
 
 namespace LibraryAggregator.Common.Implementation
 {
@@ -84,5 +85,9 @@ namespace LibraryAggregator.Common.Implementation
       return  await _bookingRepository.GetFullBookingBooks();
     }
 
+    public async Task DeleteRecord(int id)
+    {
+      await _bookingRepository.DeleteRecord(id);
+    }
   }
 }

@@ -7,4 +7,5 @@ public interface IAdminService
   Task<Admin> GetAdminById(int id);
   Task<TokenDto> Refresh(TokenDto tokenDto);
   Task<IEnumerable<LibraryDto>> GetListBooks(int id);
+  Task DeleteRecord(int id);
 }

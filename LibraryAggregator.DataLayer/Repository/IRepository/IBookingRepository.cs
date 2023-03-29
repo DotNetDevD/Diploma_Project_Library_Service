@@ -7,6 +7,6 @@ namespace LibraryAggregator.DataLayer.Repository.IRepository
         Task<IEnumerable<Booking>> GetFullInfoBookingsAsync();
         Task<Booking> GetFullInfoBookingAsync(int id);
         Task<IEnumerable<Booking>> GetFullBookingBooks();
-        Task DeleteRecord(Booking booking);
+        Task DeleteRecord(int  id);
     }
 }

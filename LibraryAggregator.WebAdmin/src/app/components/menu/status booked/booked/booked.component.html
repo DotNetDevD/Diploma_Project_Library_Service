@@ -11,20 +11,12 @@
         </thead>
         <tbody>
           <tr *ngFor="let book of BooksBooking">
-            <!-- <td><a
-                                    routerLink="/library-info/{{bookLibrary.library?.libraryId}}">{{bookLibrary.library?.name}}</a>
-                            </td>
-                            <td>{{bookLibrary.count}}</td>
-                            <td>{{bookLibrary.freeBook}}</td>
-                            <td>{{bookLibrary.bookedBook}}</td>
-                            <td><a [routerLink]="['/booking', bookLibrary.booksLibrariesId]"><button type="button"
-                                        [disabled]="bookLibrary.isFreeBook">Забронировать</button></a></td> -->
             <td>{{book.bookingId}}</td>
             <td>{{book.code}}</td>
             <td>{{book.startDate}}</td>
             <td>{{book.finishDate}}</td>
             <td>{{book.bookingStatus}}</td>
-            <td><button class="btn btn-info">Отмена бронирования</button></td>
+            <td><button (click)="onDelete()" class="btn btn-info">Отмена бронирования</button></td>
           </tr>
         </tbody>
       </table>

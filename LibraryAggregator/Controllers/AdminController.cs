@@ -42,16 +42,17 @@ namespace LibraryAggregator.AdminAPI.Controllers
       return await _bookingService.GetBooks();
     }
 
-    [HttpGet("book/{id}")]
-    public async Task<IEnumerable<BooksLibrary>> GetAvailableBookingByBookIdAsync(int id)
-    {
-      return await _bookingService.GetAvailableBookingByBookIdAsync(id);
-    }
-
-    [HttpPost]
-    public async Task CreateAsync(BookingDto bookingDto)
+    [HttpPost("booking")]
+    public async Task AddBooking(BookingDto bookingDto)
     {
       await _bookingService.CreateBookingAsync(bookingDto);
+    }
+
+    [HttpDelete("delete{id}")]
+
+    public async Task DeleteBooking(int id)
+    {
+      await _bookingService.DeleteRecord(id);
     }
   }
 }

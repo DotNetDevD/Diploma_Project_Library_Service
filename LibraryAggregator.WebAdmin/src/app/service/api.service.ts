@@ -27,6 +27,10 @@ export class ApiService {
   }
 
   addBooking(data: BookingDto) {
-    return this.http.post(this.BaseUrl + 'booking', data);
+    return this.http.post(this.BaseUrl + 'Admin/booking', data);
+  }
+
+  deleteRecord(id: number){
+    return this.http.delete(this.BaseUrl +`Admin/delete${id}`)
   }
 }
