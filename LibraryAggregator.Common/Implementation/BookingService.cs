@@ -3,7 +3,6 @@ using LibraryAggregator.Common.Interface;
 using LibraryAggregator.DataLayer.Entities;
 using LibraryAggregator.DataLayer.Repository.IRepository;
 using LibraryAggregator.DataLayer.Entities.Enum;
-using System.Security.Cryptography.X509Certificates;
 
 namespace LibraryAggregator.Common.Implementation
 {
