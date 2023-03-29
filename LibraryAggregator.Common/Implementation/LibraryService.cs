@@ -34,7 +34,6 @@ namespace LibraryAggregator.Common.Implementation
             // TODO: extension method 
             Library library = await _libraryRepository.GetFullInfoLibraryAsync(id);
             library.Url = _urlProviderService.ConcatHostUrl(library.CoverImgPath);
-            library.DirectorPhotoLink = _urlProviderService.ConcatHostUrl(library.DirectorPhotoLink);
             foreach (var imagesForCarousel in library.ImagesForCarousel)
             {
                 imagesForCarousel.Url = _urlProviderService.ConcatHostUrl(imagesForCarousel.CoverImgPath);
@@ -48,7 +47,6 @@ namespace LibraryAggregator.Common.Implementation
             foreach (var library in libraries)
             {
                 library.Url = _urlProviderService.ConcatHostUrl(library.CoverImgPath);
-                library.DirectorPhotoLink = _urlProviderService.ConcatHostUrl(library.DirectorPhotoLink);
                 foreach (var imagesForCarousel in library.ImagesForCarousel)
                 {
                     imagesForCarousel.Url = _urlProviderService.ConcatHostUrl(imagesForCarousel.CoverImgPath);

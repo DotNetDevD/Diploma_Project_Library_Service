@@ -12,7 +12,5 @@ namespace LibraryAggregator.Common.Interface
         Task UpdateBookingAsync(int id, BookingStatuses bookingStatuses);
         Task<IEnumerable<Booking>> GetBooks();
         Task DeleteRecord(int id);
-
-
-  }
+    }
 }

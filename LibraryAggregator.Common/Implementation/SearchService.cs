@@ -28,7 +28,7 @@ namespace LibraryAggregator.Common.Implementation
             var authors = await _authorRepository.SearchTermByUserInput(fullname);
             foreach (var author in authors)
             {
-                if (author.MiddleName == null)
+                if (author.MiddleName is null)
                 {
                     author.MiddleName = String.Empty;
                 }
@@ -69,7 +69,6 @@ namespace LibraryAggregator.Common.Implementation
             foreach (var library in libraries)
             {
                 library.Url = _urlProviderService.ConcatHostUrl(library.CoverImgPath);
-                library.DirectorPhotoLink = _urlProviderService.ConcatHostUrl(library.DirectorPhotoLink);
                 foreach (var imagesForCarousel in library.ImagesForCarousel)
                 {
                     imagesForCarousel.Url = _urlProviderService.ConcatHostUrl(imagesForCarousel.CoverImgPath);
