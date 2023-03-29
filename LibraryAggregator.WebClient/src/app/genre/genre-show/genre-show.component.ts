@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, tap } from 'rxjs';
-import { GenreApiService } from 'src/app/api-services/genre-api.service';
+import { ActivatedRoute } from '@angular/router';
+import { BookApiService } from 'src/app/api-services/book-api.service';
+import { Book } from 'src/app/models/book';
 
 @Component({
   selector: 'app-genre-show',
@@ -8,11 +9,24 @@ import { GenreApiService } from 'src/app/api-services/genre-api.service';
   styleUrls: ['./genre-show.component.css']
 })
 export class GenreShowComponent implements OnInit {
-  genreList$!: Observable<any>;
 
-  constructor(private service: GenreApiService) { }
+  bookGenreList: Book[] = [];
 
+  constructor(private readonly bookService: BookApiService,
+    private route: ActivatedRoute) { }
+  
   ngOnInit(): void {
-    this.genreList$ = this.service.getGenreList();
+    this.retrievebBookGenreList(this.route.snapshot.params["id"]);
+  }
+
+  retrievebBookGenreList(id: number): void {
+    this.bookService.getBookListByGenreId(id)
+      .subscribe({
+        next: (data) => {
+          this.bookGenreList = data;
+          console.log(data);
+        },
+        error: (e) => console.error(e)
+      });
   }
 }

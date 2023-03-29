@@ -7,7 +7,7 @@ import { BookingDto } from 'src/app/models/Dtos/bookingDto';
     styleUrls: ['./success-booking.component.css']
 })
 export class SuccessBookingComponent implements OnInit {
-   
+
     @Input() booking: BookingDto = {}
 
     ngOnInit(): void {

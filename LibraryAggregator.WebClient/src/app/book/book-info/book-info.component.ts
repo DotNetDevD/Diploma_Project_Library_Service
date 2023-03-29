@@ -3,33 +3,32 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BookApiService } from 'src/app/api-services/book-api.service';
 import { Book } from 'src/app/models/book';
 
-
 @Component({
-  selector: 'app-book-info',
-  templateUrl: './book-info.component.html',
-  styleUrls: ['./book-info.component.css']
+    selector: 'app-book-info',
+    templateUrl: './book-info.component.html',
+    styleUrls: ['./book-info.component.css']
 })
 export class BookInfoComponent {
-  book: Book = {
-    authorsBooks: [],
-    booksGenres: [],
-    booksLibraries: []
-  };
-  constructor(private readonly bookService: BookApiService,
-    private route: ActivatedRoute) { }
+    book: Book = {
+        authorsBooks: [],
+        booksGenres: [],
+        booksLibraries: []
+    };
+    constructor(private readonly bookService: BookApiService,
+        private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
-    this.getTutorial(this.route.snapshot.params["id"]);
-  }
+    ngOnInit(): void {
+        this.getTutorial(this.route.snapshot.params["id"]);
+    }
 
-  getTutorial(id: number): void {
-    this.bookService.getBookById(id)
-      .subscribe({
-        next: (data) => {
-          this.book = data;
-          console.log(data);
-        },
-        error: (e) => console.error(e)
-      });
-  }
+    getTutorial(id: number): void {
+        this.bookService.getBookById(id)
+            .subscribe({
+                next: (data) => {
+                    this.book = data;
+                    console.log(data);
+                },
+                error: (e) => console.error(e)
+            });
+    }
 }

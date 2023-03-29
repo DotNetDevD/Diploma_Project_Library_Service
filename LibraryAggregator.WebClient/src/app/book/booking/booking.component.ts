@@ -37,6 +37,5 @@ export class BookingComponent implements OnInit {
         this.booking.phoneNumber = this.bookingForm.value.phone;
         this.booking.bookLibraryId = this.route.snapshot.params["id"];
         this.bookingService.addBooking(this.booking).subscribe();
-        //console.log(this.booking)
     }
 }

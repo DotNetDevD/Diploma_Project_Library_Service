@@ -52,18 +52,63 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                PublishDate = new DateTime(1966, 12, 03)
              },
 
-             new Book
-             {
-               BookId = 5,
-               Title = "Смерть Ивана Ильича",
-               Isbn = "978-5-699-15152-2",
-               CoverImgPath = "Assets/Images/Books/The%20death%20of%20Ivan%20Ilyich.jpeg",
-               Description = "Повесть Л. Н. Толстого, над которой он работал с 1882 по 1886 год, внПовесть широко признана одной из вершин мировой литературы[1] и величайшим свершением Толстого в области малой литературной формы.Входит во Всемирную библиотеку(серия книг Норвежского книжного клуба)",
-               PageCount = 543,
-               PublishDate = new DateTime(1886, 10, 12)
-             }
-         );
-    } // Books
+                   new Book
+                   {
+                       BookId = 5,
+                       Title = "Смерть Ивана Ильича",
+                       Isbn = "978-5-699-15152-2",
+                       CoverImgPath = "Assets/Images/Books/The%20death%20of%20Ivan%20Ilyich.jpeg",
+                       Description = "Повесть Л. Н. Толстого, над которой он работал с 1882 по 1886 год. Повесть широко признана одной из вершин мировой литературы и величайшим свершением Толстого в области малой литературной формы.Входит во Всемирную библиотеку (серия книг Норвежского книжного клуба)",
+                       PageCount = 543,
+                       PublishDate = new DateTime(1886, 10, 12)
+                   },
+
+                   new Book
+                   {
+                       BookId = 6,
+                       Title = "Чистый код",
+                       Isbn = "978-5-4461-0960-9",
+                       CoverImgPath = "Assets/Images/Books/clean-code.jpg",
+                       Description = "Плохой код может работать, но он будет мешать развитию проекта и компании-разработчика, требуя дополнительные ресурсы на поддержку и \"укрощение\". Каким же должен быть код? Эта книга полна реальных примеров, позволяющих взглянуть на код с различных направлений: сверху вниз, снизу вверх и даже изнутри. Вы узнаете много нового о коде.",
+                       PageCount = 464,
+                       PublishDate = new DateTime(2021, 10, 12)
+                   },
+
+                   new Book
+                   {
+                       BookId = 7,
+                       Title = "Чистая архитектура",
+                       Isbn = "978-5-4461-0772-8",
+                       CoverImgPath = "Assets/Images/Books/clean-architecture.jpg",
+                       Description = "Всех программистов, которые добиваются успеха в мире разработки ПО, отличает один общий признак: они больше всего заботятся о качестве создаваемого программного обеспечения. Это – основа для них. Потому что они являются профессионалами своего дела.",
+                       PageCount = 352,
+                       PublishDate = new DateTime(2020, 10, 11)
+                   },
+
+                   new Book
+                   {
+                       BookId = 8,
+                       Title = "Совершенный код",
+                       Isbn = "978-5-9909805-1-8",
+                       CoverImgPath = "Assets/Images/Books/code-complete.jpg",
+                       Description = "Более 10 лет первое издание этой книги считалось одним из лучших практических руководств по программированию. Сейчас эта книга полностью обновлена с учетом современных тенденций и технологий и дополнена сотнями новых примеров, иллюстрирующих искусство и науку программирования.",
+                       PageCount = 896,
+                       PublishDate = new DateTime(2019, 11, 12)
+                   },
+
+                   new Book
+                   {
+                       BookId = 9,
+                       Title = "Затерянный мир",
+                       Isbn = "978-5-04-160964-1",
+                       CoverImgPath = "Assets/Images/Books/Lost-World.jpg",
+                       Description = "\"Затерянный мир\" – захватывающий научно-фантастический роман английского писателя Артура Конан Дойла. Гениальный и известный своей эксцентричностью профессор Челленджер заявляет, что во время путешествия по Южной Америке обнаружил район, где до сих пор сохранились доисторические формы жизни.",
+                       PageCount = 320,
+                       PublishDate = new DateTime(2023, 11, 12)
+                   }
+
+               );
+        } // Books
 
     public static void SeedAuthors(this ModelBuilder modelBuilder)
     {
@@ -102,18 +147,50 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
             CoverImgPath = "Assets/Images/Authors/dzheffri-rihter.jpg",
           },
 
-          new Author
-          {
-            AuthorId = 4,
-            FirstName = "Михаил",
-            LastName = "Булгаков",
-            MiddleName = "Афанасьевич",
-            DateOfBirth = new DateTime(1891, 05, 03),
-            Biography = "Учился в Первой Киевской гимназии, позднее — на медицинском факультете Киевского университета. Первую пробу пера совершил в семилетнем возрасте, написав рассказ «Похождения Светланы».",
-            CoverImgPath = "Assets/Images/Authors/mikhail-bulgakov.jpg"
-          }
-      );
-    }  // Authors
+                new Author
+                {
+                    AuthorId = 4,
+                    FirstName = "Михаил",
+                    LastName = "Булгаков",
+                    MiddleName = "Афанасьевич",
+                    DateOfBirth = new DateTime(1891, 05, 03),
+                    Biography = "Учился в Первой Киевской гимназии, позднее — на медицинском факультете Киевского университета. Первую пробу пера совершил в семилетнем возрасте, написав рассказ «Похождения Светланы».",
+                    CoverImgPath = "Assets/Images/Authors/mikhail-bulgakov.jpg"
+                },
+
+                 new Author
+                 {
+                     AuthorId = 5,
+                     FirstName = "Роберт",
+                     LastName = "Мартин",
+                     DateOfBirth = new DateTime(1952, 04, 04),
+                     Biography = "Роберт Мартин — профессиональный разработчик ПО, международный консультант, автор книг по программированию. Известен также под псевдонимом Дядюшка Боб.",
+                     CoverImgPath = "Assets/Images/Authors/robert-matrin.jpg"
+                 },
+
+                 new Author
+                 {
+                     AuthorId = 6,
+                     FirstName = "Стив",
+                     LastName = "МакКоннел",
+                     DateOfBirth = new DateTime(1952, 04, 04),
+                     Biography = "Стив Макконнелл — американский программист, автор нескольких книгпо разработке ПО, в том числе бестселера \"Совершенный код\"",
+                     CoverImgPath = "Assets/Images/Authors/McConnell.jpg"
+                 },
+
+                 new Author
+                 {
+                     AuthorId = 7,
+                     FirstName = "Артур",
+                     MiddleName = "Конан",
+                     LastName = "Дойл",
+                     DateOfBirth = new DateTime(1859, 05, 22),
+                     Biography = "Английский писатель (по образованию врач), автор многочисленных приключенческих, исторических, публицистических, фантастических и юмористических произведений. Создатель классических персонажей детективной, научно-фантастической и историко-приключенческой литературы — гениального сыщика Шерлока Холмса",
+                     CoverImgPath = "Assets/Images/Authors/Conan-Doyle.jpg"
+                 }
+
+            );
+        }  // Authors
 
     public static void SeedAuthorsBook(this ModelBuilder modelBuilder)
     {
@@ -146,14 +223,42 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
                 BookId = 4
               },
 
-              new AuthorsBook
-              {
-                AuthorsBooksId = 5,
-                AuthorId = 1,
-                BookId = 5
-              }
-          );
-    } // AuthorsBook
+                    new AuthorsBook
+                    {
+                        AuthorsBooksId = 5,
+                        AuthorId = 1,
+                        BookId = 5
+                    },
+
+                    new AuthorsBook
+                    {
+                        AuthorsBooksId = 6,
+                        AuthorId = 5,
+                        BookId = 6
+                    },
+
+                    new AuthorsBook
+                    {
+                        AuthorsBooksId = 7,
+                        AuthorId = 5,
+                        BookId = 7
+                    },
+
+                    new AuthorsBook
+                    {
+                        AuthorsBooksId = 8,
+                        AuthorId = 6,
+                        BookId = 8
+                    },
+
+                    new AuthorsBook
+                    {
+                        AuthorsBooksId = 9,
+                        AuthorId = 7,
+                        BookId = 9
+                    }
+                );
+        } // AuthorsBook
 
     public static void SeedGenre(this ModelBuilder modelBuilder)
     {
@@ -201,144 +306,202 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
     {
       modelBuilder.Entity<BooksGenre>().HasData(
 
-          new BooksGenre
-          {
-            BooksGenresId = 1,
-            BookId = 1,
-            GenreId = 4
-          },
-          new BooksGenre
-          {
-            BooksGenresId = 2,
-            BookId = 2,
-            GenreId = 5
-          },
-          new BooksGenre
-          {
-            BooksGenresId = 3,
-            BookId = 4,
-            GenreId = 1
-          },
-          new BooksGenre
-          {
-            BooksGenresId = 4,
-            BookId = 4,
-            GenreId = 2
-          }
+                new BooksGenre
+                {
+                    BooksGenresId = 1,
+                    BookId = 1,
+                    GenreId = 4
+                },
 
-      );
-    }// BooksGenre
+                new BooksGenre
+                {
+                    BooksGenresId = 2,
+                    BookId = 2,
+                    GenreId = 5
+                },
+
+                new BooksGenre
+                {
+                    BooksGenresId = 3,
+                    BookId = 4,
+                    GenreId = 1
+                },
+
+                new BooksGenre
+                {
+                    BooksGenresId = 4,
+                    BookId = 4,
+                    GenreId = 2
+                },
+
+                new BooksGenre
+                {
+                    BooksGenresId = 5,
+                    BookId = 3,
+                    GenreId = 3
+                },
+
+                new BooksGenre
+                {
+                    BooksGenresId = 6,
+                    BookId = 5,
+                    GenreId = 6
+                },
+
+                new BooksGenre
+                {
+                    BooksGenresId = 7,
+                    BookId = 6,
+                    GenreId = 3
+                },
+
+                new BooksGenre
+                {
+                    BooksGenresId = 8,
+                    BookId = 7,
+                    GenreId = 3
+                },
+
+                new BooksGenre
+                {
+                    BooksGenresId = 9,
+                    BookId = 8,
+                    GenreId = 3
+                },
+
+                new BooksGenre
+                {
+                    BooksGenresId = 10,
+                    BookId = 4,
+                    GenreId = 6
+                },
+
+                new BooksGenre
+                {
+                    BooksGenresId = 11,
+                    BookId = 9,
+                    GenreId = 6
+                }
+            );
+        }// BooksGenre
 
     public static void SeedLibraries(this ModelBuilder modelBuilder)
     {
       modelBuilder.Entity<Library>().HasData(
 
-          new Library
-          {
-            LibraryId = 1,
-            Name = "Национальная библиотека Минска",
-            Address = "просп.Независимости, 11б",
-            PhoneNumber = "+375 17 368-37-37",
-            Email = "www.nlb.by",
-            MapLink = "https://yandex.by/maps/org/natsionalnaya_biblioteka_belarusi/1087338903/?ll=27.647557%2C53.930867&z=16.48",
-            ShortDiscription = "Национальная библиотека Беларуси (НББ)",
-            CoverImgPath = "Assets/Images/Libraries/natsionalnaya_biblioteka.jpg",
-            DirectorPhotoLink = "Assets/Images/Libraries/natsionalnaya_biblioteka.jpg",
-            AgeGroup = "Нет ограничений ",
-            HistoryOfLibrary = "Национальная библиотека Беларуси (НББ) была основана постановлением Совета народных комиссаров БССР в 1922 году как Белорусская государственная и университетская библиотека Белорусского государственного университета (БГУ). На момент открытия фонды библиотеки насчитывали всего 60 тысяч экземпляров, которыми пользовались 1,1 тысячи человек. Первым собственным зданием библиотеки стал Юбилейный дом на Захарьевской улице (ныне — проспект Независимости). Постановлением СНК БССР от 14 мая 1926 году библиотека была выведена из состава БГУ и реорганизована в Белорусскую государственную библиотеку. В 1932 году библиотеке было присвоено имя В. И. Ленина. В тот же год библиотека получила новое здание архитектора Г. Лаврова в конструктивистском стиле. ",
-          },
-           new Library
-           {
-             LibraryId = 2,
-             Name = "Библиотека им. Янки Купалы",
-             Address = "Улица Веры Хоружей 16",
-             PhoneNumber = "8 017 242-21-15",
-             Email = "www.publib.by/",
-             MapLink = "https://yandex.by/maps/org/natsionalnaya_biblioteka_belarusi/1087338903/?ll=27.647557%2C53.930867&z=16.48",
-             ShortDiscription = "Цэнтральная бібліятэка імя Янкі Купалы",
-             CoverImgPath = "Assets/Images/Libraries/czentralnaya-biblioteka-imeni-yanki-kupaly.jpg",
-             DirectorPhotoLink = "Assets/Images/Libraries/czentralnaya-biblioteka-imeni-yanki-kupaly.jpg",
-             AgeGroup = "Нет ограничений",
-             HistoryOfLibrary = "Сёння Цэнтральная бібліятэка імя Янкі Купалы – гэта: ТРАДЫЦЫЯ БЫЦЬ ПАТРЭБНАЙ",
-           }
-          );
-    } // Library
+                new Library
+                {
+                    LibraryId = 1,
+                    Name = "Национальная библиотека Минска",
+                    Address = "просп.Независимости, 11б",
+                    PhoneNumber = "+375 17 368-37-37",
+                    Site = "https://www.nlb.by",
+                    MapLink = "https://yandex.by/maps/org/natsionalnaya_biblioteka_belarusi/1087338903/?ll=27.647557%2C53.930867&z=16.48",
+                    ShortDiscription = "Национальная библиотека Беларуси (НББ)",
+                    CoverImgPath = "Assets/Images/Libraries/natsionalnaya_biblioteka.jpg",
+                    DirectorPhotoLink = "Assets/Images/Libraries/natsionalnaya_biblioteka.jpg",
+                    AgeGroup = "Нет ограничений ",
+                    HistoryOfLibrary = "Национальная библиотека Беларуси (НББ) была основана постановлением Совета народных комиссаров БССР в 1922 году как Белорусская государственная и университетская библиотека Белорусского государственного университета (БГУ). На момент открытия фонды библиотеки насчитывали всего 60 тысяч экземпляров, которыми пользовались 1,1 тысячи человек. Первым собственным зданием библиотеки стал Юбилейный дом на Захарьевской улице (ныне — проспект Независимости). Постановлением СНК БССР от 14 мая 1926 году библиотека была выведена из состава БГУ и реорганизована в Белорусскую государственную библиотеку. В 1932 году библиотеке было присвоено имя В. И. Ленина. В тот же год библиотека получила новое здание архитектора Г. Лаврова в конструктивистском стиле. ",
+                    Transport = "Автобус: 113С, 27, 87С, 91. Поезд : МІНСК - ЧЫРВОНЫ СЦЯГ. Троллейбус: 41, 61"
+                },
+
+                 new Library
+                 {
+                     LibraryId = 2,
+                     Name = "Библиотека им. Янки Купалы",
+                     Address = "Улица Веры Хоружей 16",
+                     PhoneNumber = "8 017 242-21-15",
+                     Site = "https://www.publib.by",
+                     MapLink = "https://yandex.by/maps/org/tsentralnaya_biblioteka_imeni_yanki_kupaly/1048737828/?ll=27.570994%2C53.921319&z=16.67",
+                     ShortDiscription = "Цэнтральная бібліятэка імя Янкі Купалы",
+                     CoverImgPath = "Assets/Images/Libraries/czentralnaya-biblioteka-imeni-yanki-kupaly.jpg",
+                     DirectorPhotoLink = "Assets/Images/Libraries/czentralnaya-biblioteka-imeni-yanki-kupaly.jpg",
+                     AgeGroup = "Нет ограничений",
+                     HistoryOfLibrary = "Вас приветствует Центральная библиотека имени Янки Купалы! Сегодня Центральная библиотека имени Янки Купалы - это: Одна из крупнейших библиотек города; На сайте библиотеки можно посмотреть ролик, сделанный к юбилею сотрудниками. Он рассказывает, что открылась библиотека 29 июля 1949 года, представляет на черно-белом снимке первое здание – Летнюю читальню парка имени М. Горького. Следующий адрес – ул. Карла Маркса, 8, сюда библиотека переехала в 1952-м. А на своем нынешнем месте прописалась в 1976-м. Первым директором стала Лидия Поградная, на снимке она – еще в солдатской шинели. В 1992 году библиотеке было присвоен награда Ленина. В тот же год библиотека получила новый ремонт от архитектора Г. Лазерева в конструктивистском стиле.",
+                     Transport = "Автобус: 19, 24, 29, 59, 91. Троллейбус: 37 53",
+                 }
+                ); ;
+        } // Library
 
     public static void SeedImagesFourCorusel(this ModelBuilder modelBuilder)
     {
       modelBuilder.Entity<ImagesForCarousel>().HasData(
 
-              new ImagesForCarousel
-              {
-                ImagesForCarouselId = 1,
-                CoverImgPath = "Assets/Images/Libraries/Carousel/natsionalnaya_biblioteka-1.jpg",
-                LibraryId = 1
-              },
-              new ImagesForCarousel
-              {
-                ImagesForCarouselId = 2,
-                CoverImgPath = "Assets/Images/Libraries/Carousel/natsionalnaya_biblioteka-2.jpg",
-                LibraryId = 1
-              },
-              new ImagesForCarousel
-              {
-                ImagesForCarouselId = 3,
-                CoverImgPath = "Assets/Images/Libraries/Carousel/natsionalnaya_biblioteka-3.jpg",
-                LibraryId = 1
-              },
-              new ImagesForCarousel
-              {
-                ImagesForCarouselId = 4,
-                CoverImgPath = "Assets/Images/Libraries/Carousel/imeni-yanki-kupaly-3.jpg",
-                LibraryId = 2
-              },
-              new ImagesForCarousel
-              {
-                ImagesForCarouselId = 5,
-                CoverImgPath = "Assets/Images/Libraries/Carousel/imeni-yanki-kupaly-2.jpg",
-                LibraryId = 2
-              },
-              new ImagesForCarousel
-              {
-                ImagesForCarouselId = 6,
-                CoverImgPath = "Assets/Images/Libraries/Carousel/imeni-yanki-kupaly-3.jpg",
-                LibraryId = 2
-              }
-          );
-    } // ImagesFourCorusel
+                    new ImagesForCarousel
+                    {
+                        ImagesForCarouselId = 1,
+                        CoverImgPath = "Assets/Images/Libraries/Carousel/natsionalnaya_biblioteka-1.jpg",
+                        LibraryId = 1
+                    },
+
+                    new ImagesForCarousel
+                    {
+                        ImagesForCarouselId = 2,
+                        CoverImgPath = "Assets/Images/Libraries/Carousel/natsionalnaya_biblioteka-2.jpg",
+                        LibraryId = 1
+                    },
+
+                    new ImagesForCarousel
+                    {
+                        ImagesForCarouselId = 3,
+                        CoverImgPath = "Assets/Images/Libraries/Carousel/natsionalnaya_biblioteka-3.jpg",
+                        LibraryId = 1
+                    },
+
+                    new ImagesForCarousel
+                    {
+                        ImagesForCarouselId = 4,
+                        CoverImgPath = "Assets/Images/Libraries/Carousel/imeni-yanki-kupaly-1.jpg",
+                        LibraryId = 2
+                    },
+
+                    new ImagesForCarousel
+                    {
+                        ImagesForCarouselId = 5,
+                        CoverImgPath = "Assets/Images/Libraries/Carousel/imeni-yanki-kupaly-2.jpg",
+                        LibraryId = 2
+                    },
+
+                    new ImagesForCarousel
+                    {
+                        ImagesForCarouselId = 6,
+                        CoverImgPath = "Assets/Images/Libraries/Carousel/imeni-yanki-kupaly-3.jpg",
+                        LibraryId = 2
+                    }
+                );
+        } // ImagesFourCorusel
 
     public static void SeedOperatingModes(this ModelBuilder modelBuilder)
     {
       modelBuilder.Entity<OperatingModes>().HasData(
 
-              new OperatingModes
-              {
-                OperatingModeId = 1,
-                StartWork = "8:00",
-                EndWork = "20:00",
-                CleanUpDay = "Понедельник",
-                LibraryId = 1
-              },
+                    new OperatingModes
+                    {
+                        OperatingModeId = 1,
+                        Monday = "10:00–21:00",
+                        Tuesday = "10:00–21:00",
+                        Wednesday = "10:00–21:00",
+                        Thursday = "10:00–21:00",
+                        Friday = "10:00–21:00",
+                        Saturday = "10:00–16:00",
+                        Sunday = "10:00–16:00",
+                        LibraryId = 1
+                    },
 
-              new OperatingModes
-              {
-                OperatingModeId = 2,
-                StartWork = "10:00",
-                EndWork = "22:00",
-                CleanUpDay = "Пятница",
-                LibraryId = 1
-              },
-
-              new OperatingModes
-              {
-                OperatingModeId = 3,
-                StartWork = "10:00",
-                EndWork = "22:00",
-                CleanUpDay = "Среда",
-                LibraryId = 1
-              }
-          );
-    }  // OperatingModes
+                    new OperatingModes
+                    {
+                        OperatingModeId = 2,
+                        Monday = "09:00–17:00",
+                        Tuesday = "09:00–17:00",
+                        Wednesday = "09:00–17:00",
+                        Thursday = "09:00–17:00",
+                        Friday = "09:00–17:00",
+                        Saturday = "Выходной",
+                        Sunday = "Выходной",
+                        LibraryId = 2
+                    }
+                );
+        }  // OperatingModes
 
     public static void SeedBooksLibrary(this ModelBuilder modelBuilder)
     {
@@ -393,29 +556,110 @@ namespace LibraryAggregator.DataLayer.Entities.Seed
              Count = 2
            },
 
-           new BooksLibrary
-           {
-             BooksLibrariesId = 6,
-             BookId = 1,
-             LibraryId = 2,
-             BookedBook = 0,
-             IsFreeBook = true,
-             Count = 3
-           }
-          );
-    }
-    public static void SeedClient(this ModelBuilder modelBuilder)
-    {
-      modelBuilder.Entity<Client>().HasData(
-              new Client
-              {
-                ClientId = 1,
-                Name = "Артур",
-                Surname = "Пирожков",
-                Email = "test@test.com",
-                PhoneNumber = "+375299999999"
-              }
-          );
+                 new BooksLibrary
+                 {
+                     BooksLibrariesId = 6,
+                     BookId = 1,
+                     LibraryId = 2,
+                     BookedBook = 0,
+                     IsFreeBook = true,
+                     Count = 3
+                 },
+
+                 new BooksLibrary
+                 {
+                     BooksLibrariesId = 7,
+                     BookId = 6,
+                     LibraryId = 2,
+                     BookedBook = 0,
+                     IsFreeBook = true,
+                     Count = 5
+                 },
+
+                 new BooksLibrary
+                 {
+                     BooksLibrariesId = 8,
+                     BookId = 6,
+                     LibraryId = 1,
+                     BookedBook = 0,
+                     IsFreeBook = true,
+                     Count = 4
+                 },
+
+                 new BooksLibrary
+                 {
+                     BooksLibrariesId = 9,
+                     BookId = 7,
+                     LibraryId = 2,
+                     BookedBook = 0,
+                     IsFreeBook = true,
+                     Count = 4
+                 },
+
+                 new BooksLibrary
+                 {
+                     BooksLibrariesId = 10,
+                     BookId = 7,
+                     LibraryId = 1,
+                     BookedBook = 0,
+                     IsFreeBook = true,
+                     Count = 4
+                 },
+
+                 new BooksLibrary
+                 {
+                     BooksLibrariesId = 11,
+                     BookId = 8,
+                     LibraryId = 1,
+                     BookedBook = 0,
+                     IsFreeBook = true,
+                     Count = 6
+                 },
+
+                 new BooksLibrary
+                 {
+                     BooksLibrariesId = 12,
+                     BookId = 8,
+                     LibraryId = 2,
+                     BookedBook = 0,
+                     IsFreeBook = true,
+                     Count = 4
+                 },
+
+                 new BooksLibrary
+                 {
+                     BooksLibrariesId = 13,
+                     BookId = 9,
+                     LibraryId = 1,
+                     BookedBook = 0,
+                     IsFreeBook = true,
+                     Count = 4
+                 },
+
+                 new BooksLibrary
+                 {
+                     BooksLibrariesId = 14,
+                     BookId = 9,
+                     LibraryId = 2,
+                     BookedBook = 0,
+                     IsFreeBook = true,
+                     Count = 6
+                 }
+
+                );
+        }
+        public static void SeedClient(this ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Client>().HasData(
+                    new Client
+                    {
+                        ClientId = 1,
+                        Name = "Артур",
+                        Surname = "Пирожков",
+                        Email = "test@test.com",
+                        PhoneNumber = "+375299999999"
+                    }
+                );
 
       modelBuilder.Entity<Client>().HasData(
              new Client

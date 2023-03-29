@@ -20,6 +20,24 @@ namespace LibraryAggregator.API.Controllers
             return await _bookService.GetBooksListAsync();
         }
 
+        [HttpGet("BooksListByGenreId/{genreId}")]
+        public async Task<IEnumerable<Book>> GetListAsync(int genreId)
+        {
+            return await _bookService.GetBooksListByGenreAsync(genreId);
+        }
+
+        [HttpGet("BooksListByAuthorId/{authorId}")]
+        public async Task<IEnumerable<Book>> GetBookListByAuthorIdAsync(int authorId)
+        {
+            return await _bookService.GetBookListByAuthorIdAsync(authorId);
+        }
+
+        [HttpGet("BooksListByLibraryId/{libraryId}")]
+        public async Task<IEnumerable<Book>> GetBookListByLibraryIdAsync(int libraryId)
+        {
+            return await _bookService.GetBookListByLibraryIdAsync(libraryId);
+        }
+
         [HttpGet("{id}")]
         public async Task<Book> GetByIdAsync(int id)
         {

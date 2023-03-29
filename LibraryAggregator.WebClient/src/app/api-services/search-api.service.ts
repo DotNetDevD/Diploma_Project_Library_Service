@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Author } from '../models/author';
 import { Book } from '../models/book';
-import { BookLibraryAuthor } from '../models/bookLibraryAuthor';
+import { AllEntity } from '../models/allEntity';
 import { Library } from '../models/library';
 
 @Injectable({
@@ -30,8 +30,7 @@ export class SearchApiService {
         return this.http.get<Library[]>(this.apiUrl + `/search/library/${name}`);
     }
 
-    // SearchBookLibraryAuthor
-    searchBookLibraryAuthor(input: string): Observable<BookLibraryAuthor> {
-        return this.http.get<BookLibraryAuthor>(this.apiUrl + `/search/${input}`);
+    globalSearch(input: string): Observable<AllEntity> {
+        return this.http.get<AllEntity>(this.apiUrl + `/search/${input}`);
     }
 }

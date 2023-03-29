@@ -1,35 +1,23 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { SearchApiService } from '../api-services/search-api.service';
-import { BookLibraryAuthor } from '../models/bookLibraryAuthor';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-nav-bar',
-  templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.css']
+    selector: 'app-nav-bar',
+    templateUrl: './nav-bar.component.html',
+    styleUrls: ['./nav-bar.component.css']
 })
-export class NavBarComponent implements OnInit{
-  @Output()
-  bookLibraryAuthor?: BookLibraryAuthor;
+export class NavBarComponent implements OnInit {
+    searchTerm = '';
 
-  name = '';
-  constructor(private readonly searchService: SearchApiService){ }
+    constructor(private readonly router: Router) { }
 
-  ngOnInit() {
-    this.searchService.searchBookLibraryAuthor(this.name)
-  }
-  search(){
-    if(!this.name.trim()){
-      return 
+    ngOnInit() { }
+
+    search() {
+        if (!this.searchTerm.trim()) {
+            return
+        }
+        this.router.navigate(['/search'], { queryParams: { query: this.searchTerm } })
+        this.searchTerm = '';
     }
-    this.searchService.searchBookLibraryAuthor(this.name)
-      .subscribe({
-        next: (data) => {
-          this.bookLibraryAuthor = data;
-          console.log(data);
-        },
-        error: (e) => console.error(e)
-      });
-    
-      this.name = '';
-  }
 }

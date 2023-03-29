@@ -119,7 +119,7 @@ public partial class LibraryDataBaseContext : DbContext
 
             entity.ToTable("Library");
             entity.Property(e => e.Address).HasMaxLength(50);
-            entity.Property(e => e.Email).HasMaxLength(50);
+            entity.Property(e => e.Site).HasMaxLength(50);
             entity.Property(e => e.Name).HasMaxLength(50);
             entity.Property(e => e.PhoneNumber).HasMaxLength(50);
         });
