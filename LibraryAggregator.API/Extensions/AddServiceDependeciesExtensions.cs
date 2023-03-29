@@ -1,4 +1,4 @@
-﻿using LibraryAggregator.Common.Interface;
+using LibraryAggregator.Common.Interface;
 using LibraryAggregator.Common.Implementation;
 
 namespace LibraryAggregator.API.Extensions
@@ -16,6 +16,7 @@ namespace LibraryAggregator.API.Extensions
             services.AddScoped<IBookingService, BookingService>();
             services.AddScoped<IStateService, StateService>();
             services.AddScoped<IClientService, ClientService>();
+            services.AddScoped<IAdminService, AdminService>(); 
         }
     }
 }

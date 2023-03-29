@@ -1,0 +1,23 @@
+<app-dashboard></app-dashboard>
+    <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <th>Номер Забронированной книги</th>
+          <th>Сode книги</th>
+          <th>Дата бронирования книги </th>
+          <th>Дата Возврощения книги</th>
+          <th>Статус книги</th>
+          <th>Действие</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let book of BooksBooking">
+            <td>{{book.bookingId}}</td>
+            <td>{{book.code}}</td>
+            <td>{{book.startDate}}</td>
+            <td>{{book.finishDate}}</td>
+            <td>{{book.bookingStatus}}</td>
+            <td><button (click)="onDelete()" class="btn btn-info">Отмена бронирования</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>

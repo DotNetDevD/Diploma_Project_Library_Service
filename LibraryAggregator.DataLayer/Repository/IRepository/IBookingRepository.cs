@@ -1,4 +1,4 @@
-﻿using LibraryAggregator.DataLayer.Entities;
+using LibraryAggregator.DataLayer.Entities;
 
 namespace LibraryAggregator.DataLayer.Repository.IRepository
 {
@@ -6,5 +6,7 @@ namespace LibraryAggregator.DataLayer.Repository.IRepository
     {
         Task<IEnumerable<Booking>> GetFullInfoBookingsAsync();
         Task<Booking> GetFullInfoBookingAsync(int id);
+        Task<IEnumerable<Booking>> GetFullBookingBooks();
+        Task DeleteRecord(int  id);
     }
 }

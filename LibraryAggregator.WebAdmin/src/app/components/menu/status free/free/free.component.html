@@ -1,0 +1,29 @@
+<app-dashboard></app-dashboard>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <th>Номер книги</th>
+            <th>Общие количество книг</th>
+            <th>Количество свободных книг</th>
+            <th>Название книги</th>
+         
+        </thead>
+        <tbody>
+            <tr *ngFor="let bookLibrary of library">
+                <!-- <td><a
+                                routerLink="/library-info/{{bookLibrary.library?.libraryId}}">{{bookLibrary.library?.name}}</a>
+                        </td>
+                        <td>{{bookLibrary.count}}</td>
+                        <td>{{bookLibrary.freeBook}}</td>
+                        <td>{{bookLibrary.bookedBook}}</td>
+                        <td><a [routerLink]="['/booking', bookLibrary.booksLibrariesId]"><button type="button"
+                                    [disabled]="bookLibrary.isFreeBook">Забронировать</button></a></td> -->
+                <td>{{bookLibrary.booksLibrariesId}}</td>
+                <td>{{bookLibrary.count}}</td>
+                <td>{{bookLibrary.freeBook}}</td>
+                <td>{{bookLibrary.title}}</td>
+                <td *ngIf=" bookLibrary.isFreeBook"><a [routerLink]="['/booking', bookLibrary.booksLibrariesId]"><button type="button">Забронировать</button></a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

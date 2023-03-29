@@ -1,4 +1,4 @@
-﻿using LibraryAggregator.Common.Interface;
+using LibraryAggregator.Common.Interface;
 using LibraryAggregator.DataLayer.Entities.Enum;
 using LibraryAggregator.DataLayer.Repository.IRepository;
 
@@ -6,12 +6,11 @@ namespace LibraryAggregator.Common.Implementation
 {
     public class StateService : IStateService 
     {
-        private readonly IBookingRepository _bookingRepository;
+        
         private readonly IBookingService _bookingService;
 
-        public StateService(IBookingRepository bookingRepository , IBookingService bookingService)
+        public StateService(IBookingService bookingService)
         {
-            _bookingRepository = bookingRepository;
             _bookingService = bookingService;
         }
 

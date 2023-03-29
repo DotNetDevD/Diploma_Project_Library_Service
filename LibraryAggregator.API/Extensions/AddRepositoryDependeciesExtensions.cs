@@ -1,4 +1,4 @@
-﻿using LibraryAggregator.DataLayer.Repository;
+using LibraryAggregator.DataLayer.Repository;
 using LibraryAggregator.DataLayer.Repository.IRepository;
 
 namespace LibraryAggregator.API.Extensions
@@ -14,6 +14,7 @@ namespace LibraryAggregator.API.Extensions
             services.AddScoped<IBookingRepository, BookingRepository>();
             services.AddScoped<IBooksLibraryRepository, BooksLibraryRepository>();
             services.AddScoped<IClientRepository, ClientRepository>();
+            services.AddScoped<IAdminRepository, AdminRepository>();
         }
     }
 }

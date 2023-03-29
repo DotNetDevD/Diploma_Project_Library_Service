@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryAggregator.DataLayer.Migrations
 {
     [DbContext(typeof(LibraryDataBaseContext))]
-    [Migration("20230301195909_FIX")]
-    partial class FIX
+    [Migration("20230318120940_v3")]
+    partial class v3
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,47 @@ namespace LibraryAggregator.DataLayer.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.Admin", b =>
+                {
+                    b.Property<int>("AdminId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AdminId"));
+
+                    b.Property<int>("LibraryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Login")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AdminId");
+
+                    b.HasIndex("LibraryId")
+                        .IsUnique();
+
+                    b.ToTable("Admin");
+
+                    b.HasData(
+                        new
+                        {
+                            AdminId = 1,
+                            LibraryId = 1,
+                            Login = "National",
+                            Message = "Admin",
+                            Password = "4FCBFF10B8CC9DCD5FB2D3B5D5C186C2"
+                        });
+                });
 
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.Author", b =>
                 {
@@ -392,6 +433,68 @@ namespace LibraryAggregator.DataLayer.Migrations
                     b.HasIndex("LibraryId");
 
                     b.ToTable("BooksLibraries");
+
+                    b.HasData(
+                        new
+                        {
+                            BooksLibrariesId = 1,
+                            BookId = 1,
+                            BookedBook = 0,
+                            Count = 2,
+                            FreeBook = 0,
+                            IsFreeBook = true,
+                            LibraryId = 1
+                        },
+                        new
+                        {
+                            BooksLibrariesId = 2,
+                            BookId = 2,
+                            BookedBook = 0,
+                            Count = 3,
+                            FreeBook = 0,
+                            IsFreeBook = true,
+                            LibraryId = 1
+                        },
+                        new
+                        {
+                            BooksLibrariesId = 3,
+                            BookId = 3,
+                            BookedBook = 0,
+                            Count = 1,
+                            FreeBook = 0,
+                            IsFreeBook = true,
+                            LibraryId = 1
+                        },
+                        new
+                        {
+                            BooksLibrariesId = 4,
+                            BookId = 4,
+                            BookedBook = 0,
+                            Count = 2,
+                            FreeBook = 0,
+                            IsFreeBook = true,
+                            LibraryId = 1
+                        },
+                        new
+                        {
+                            BooksLibrariesId = 5,
+                            BookId = 2,
+                            BookedBook = 0,
+                            Count = 2,
+                            FreeBook = 0,
+                            IsFreeBook = true,
+                            LibraryId = 2
+                        },
+                        new
+                        {
+                            BooksLibrariesId = 6,
+                            BookId = 1,
+                            BookedBook = 0,
+                            Count = 3,
+                            FreeBook = 0,
+                            IsFreeBook = true,
+                            LibraryId = 2
+                        });
                 });
 
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.Client", b =>
@@ -685,6 +788,17 @@ namespace LibraryAggregator.DataLayer.Migrations
                         });
                 });
 
+            modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.Admin", b =>
+                {
+                    b.HasOne("LibraryAggregator.DataLayer.Entities.Library", "Library")
+                        .WithOne("Admin")
+                        .HasForeignKey("LibraryAggregator.DataLayer.Entities.Admin", "LibraryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Library");
+                });
+
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.AuthorsBook", b =>
                 {
                     b.HasOne("LibraryAggregator.DataLayer.Entities.Author", "Author")
@@ -810,6 +924,9 @@ namespace LibraryAggregator.DataLayer.Migrations
 
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.Library", b =>
                 {
+                    b.Navigation("Admin")
+                        .IsRequired();
+
                     b.Navigation("BooksLibraries");
 
                     b.Navigation("ImagesForCarousel");
