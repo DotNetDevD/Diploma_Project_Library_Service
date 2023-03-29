@@ -6,6 +6,6 @@ namespace LibraryAggregator.DataLayer.Repository.IRepository
     {
         Task<IEnumerable<Library>> GetFullInfoLibrariesAsync();
         Task<Library> GetFullInfoLibraryAsync(int id);
-         Task<Library> GetCurrentBooksInLibrary(string adminNAme);
+        Task<Library> GetCurrentBooksInLibrary(int id);
     }
 }

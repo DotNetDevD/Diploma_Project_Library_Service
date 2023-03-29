@@ -3,6 +3,7 @@ using LibraryAggregator.Common.Helpers;
 using LibraryAggregator.Common.Interface;
 using LibraryAggregator.DataLayer.Entities;
 using LibraryAggregator.DataLayer.Entities.Enum;
+using LibraryAggregator.DataLayer.Repository;
 using LibraryAggregator.DataLayer.Repository.IRepository;
 
 
@@ -12,11 +13,18 @@ public class AdminService : IAdminService
 {
   private readonly IAdminRepository _adminRepository;
   private readonly ILibraryRepository _libraryRepository;
+  private readonly IBookingRepository _bookingRepository;
+  private readonly IBooksLibraryRepository _booksLibraryRepository;
 
-  public AdminService(IAdminRepository adminRepository, ILibraryRepository libraryRepository)
+  public AdminService(IAdminRepository adminRepository,
+                      ILibraryRepository libraryRepository,
+                      IBooksLibraryRepository booksLibraryRepository,
+                      IBookingRepository bookingRepository )
   {
     _adminRepository = adminRepository;
     _libraryRepository = libraryRepository;
+    _booksLibraryRepository = booksLibraryRepository;
+    _bookingRepository = bookingRepository;
   }
 
   public async Task<TokenDto> AdminAuth(RequestData request)
@@ -71,11 +79,41 @@ public class AdminService : IAdminService
     };
   }
 
-  public async Task<Library> GetListBooks(string adminNAme)
+  public async Task<IEnumerable<LibraryDto>> GetListBooks(int id)
   {
-    var BookInLibraries = new List<BookInLibraries>();
-    return  await _libraryRepository.GetCurrentBooksInLibrary(adminNAme);
+    List<LibraryDto> ListLibrary = new List<LibraryDto>();
+    var booksInlibrary = await _libraryRepository.GetCurrentBooksInLibrary(id);
+   foreach (var item in booksInlibrary.BooksLibraries)
+    {
+      ListLibrary.Add(new LibraryDto
+      {
+        Id = item.BookId,
+        Title = item.Book.Title,
+        Count = item.Count,
+        Status = nameof(BookingStatuses.Free),
+        booksLibrariesId = item.BooksLibrariesId,
+        Booked = item.Booking.Where(b => b.BookingStatus == BookingStatuses.Booked).Count(),
+        FreeBook = item.Count - item.Booking.Where(b => b.BookingStatus == BookingStatuses.Booked).Count(),
+        isFreeBook = item.IsFreeBook
+      }
+      ); 
+      
+    }
+    return ListLibrary;
    
+  }
+
+  public async Task<IEnumerable<BooksLibrary>> GetAvailableBookingByBookIdAsync(int id)
+  {
+    IEnumerable<BooksLibrary> booksLibraries = await _booksLibraryRepository.GetdLibraryListByBookIdAsync(id);
+    foreach (BooksLibrary book in booksLibraries)
+    {
+      book.BookedBook = book.Booking.Where(b => b.BookingStatus == BookingStatuses.Booked).Count();
+      book.FreeBook = book.Count - book.BookedBook;
+      if (book.FreeBook > 0)
+        book.IsFreeBook = false;
+    }
+    return booksLibraries;
   }
 }
 

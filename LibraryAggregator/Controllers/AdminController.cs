@@ -11,10 +11,12 @@ namespace LibraryAggregator.AdminAPI.Controllers
   public class AdminController : Controller
   {
     private readonly IAdminService _adminService;
+    private readonly IBookingService _bookingService;
 
-    public AdminController(IAdminService adminService)
+    public AdminController(IAdminService adminService, IBookingService bookingService)
     {
       _adminService = adminService;
+      _bookingService = bookingService;
     }
     [Authorize]
     [HttpGet("{id}")]
@@ -28,11 +30,28 @@ namespace LibraryAggregator.AdminAPI.Controllers
       return await _adminService.Refresh(tokenDto);
     }
 
-    [HttpGet("adminName")]
-    public async Task<Library> GetLibrary(string  adminNAme)
+    [HttpGet("Library")]
+    public async Task<IEnumerable<LibraryDto>> GetLibrary(int id)
     {
-      return await _adminService.GetListBooks(adminNAme);
+      return await _adminService.GetListBooks(id);
     }
 
+    [HttpGet("BooksBooking")]
+    public async Task<IEnumerable<Booking>> getBooksBooking()
+    {
+      return await _bookingService.GetBooks();
+    }
+
+    [HttpGet("book/{id}")]
+    public async Task<IEnumerable<BooksLibrary>> GetAvailableBookingByBookIdAsync(int id)
+    {
+      return await _bookingService.GetAvailableBookingByBookIdAsync(id);
+    }
+
+    [HttpPost]
+    public async Task CreateAsync(BookingDto bookingDto)
+    {
+      await _bookingService.CreateBookingAsync(bookingDto);
+    }
   }
 }

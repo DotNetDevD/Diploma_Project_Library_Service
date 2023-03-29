@@ -62,4 +62,6 @@ export class AuthAdminService {
   newToken(tokenModel : TokenModel){
     return this.http.post<TokenModel>(`${this.BaseUrl}refresh`, tokenModel)
   }
+
+  
 }

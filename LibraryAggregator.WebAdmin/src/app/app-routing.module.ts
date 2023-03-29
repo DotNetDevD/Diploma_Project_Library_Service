@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { BookedComponent } from './components/menu/status booked/booked/booked.component';
 import { FreeComponent } from './components/menu/status free/free/free.component';
-import { GivenToTheClientComponent } from './components/menu/status given to the client/given-to-the-client/given-to-the-client.component';
 import { AuthGuard } from './guards/auth.guard';
+import { RouterModule } from "@angular/router";
+import { BookingComponent } from './components/booking/booking.component';
 
 const routes: Routes = [
   { path:'' , redirectTo:'login',pathMatch:'full'},
@@ -13,7 +14,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent , canActivate:[AuthGuard]},
   { path: 'booked', component: BookedComponent, canActivate: [AuthGuard] },
   { path: 'free', component: FreeComponent, canActivate: [AuthGuard] },
-  { path: 'given-to-the-client', component: GivenToTheClientComponent, canActivate: [AuthGuard] }
+  { path: 'booking/:id', component: BookingComponent , canActivate:[AuthGuard]}
 ];
 
 @NgModule({

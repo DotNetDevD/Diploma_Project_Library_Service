@@ -15,11 +15,12 @@ export class DashboardComponent implements OnInit {
     accessToken: '',
     refreshToken: ''
   };
+
+  
   public Name : string ="";
   constructor(private auth: AuthAdminService ,
                private api: ApiService ,
-               private adminJwt: AdminJwtService,
-               private router: Router){}
+               private adminJwt: AdminJwtService,){}
   ngOnInit(){
     this.api.getAdmin(1)
     .subscribe({
@@ -29,6 +30,7 @@ export class DashboardComponent implements OnInit {
       }
       }
     )
+   
 
     this.adminJwt.getName()
     .subscribe(res =>{

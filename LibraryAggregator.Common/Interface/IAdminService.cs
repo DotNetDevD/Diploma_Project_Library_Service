@@ -6,5 +6,5 @@ public interface IAdminService
   Task<TokenDto> AdminAuth(RequestData request);
   Task<Admin> GetAdminById(int id);
   Task<TokenDto> Refresh(TokenDto tokenDto);
-  Task<Library> GetListBooks(string adminNAme);
+  Task<IEnumerable<LibraryDto>> GetListBooks(int id);
 }

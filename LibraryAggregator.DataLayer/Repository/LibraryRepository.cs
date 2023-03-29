@@ -37,11 +37,13 @@ namespace LibraryAggregator.DataLayer.Repository
                         .ToListAsync();
     }
 
-    public async Task<Library> GetCurrentBooksInLibrary(string adminNAme)
+    public async Task<Library> GetCurrentBooksInLibrary(int id)
     {
       return await dbSet.Include(item => item.BooksLibraries)
-                             .ThenInclude(item => item.Book)
-                             .FirstOrDefaultAsync(item => item.Admin.Login == adminNAme);
+                            .ThenInclude(item => item.Book)
+                        .Include(item => item.BooksLibraries)
+                            .ThenInclude(item => item.Booking)
+                        .FirstOrDefaultAsync(item => item.LibraryId == id);
     }
   }
 }
