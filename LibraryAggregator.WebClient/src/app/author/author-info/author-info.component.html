@@ -4,24 +4,24 @@
             <h2 class="featurette-heading">{{author.lastName + ' ' + author.firstName +' '+ author.middleName}}<span
                     class="text-muted"></span></h2>
             <p>Дата рождения: {{author.dateOfBirth | date: 'longDate'}}</p>
+            <p><a [routerLink]="['/author-books', author.authorId]"
+                class="link-secondary">Список книг</a></p>
             <p class="lead">{{author.biography}}</p>
         </div>
         <div class="col-md-5 order-md-1">
-            <img src="{{author.url}}" alt="" width="500px" height="500px">
+            <a href="{{author.url}}"><img src="{{author.url}}" alt="" width="500px" height="500px"></a>
         </div>
     </div>
 </section>
 <div class="container">
-    <div class="row no-gutters justify-content-center pb-5">
+    <div class="row no-gutters justify-content-center mt-2">
         <div class="col-md-12 heading-section text-center ftco-animate fadeInUp ftco-animated">
             <h2 class="mb-4">Популярные книги автора</h2>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-3" *ngFor="let authorBook of author.authorsBooks">
+        <div class="col-md-3" *ngFor="let authorBook of author.authorsBooks | slice:0:6">
             <app-author-popular-books [authorBook]="authorBook"></app-author-popular-books>
-            <div>
-            </div>
         </div>
     </div>
 </div>

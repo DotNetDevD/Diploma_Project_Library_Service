@@ -8,7 +8,7 @@
                     <div class="carousel-inner">
                         <div class="carousel-item" *ngFor="let result of library.imagesForCarousel; let i = index"
                             [ngClass]="{'active': i === 1}">
-                            <img src={{result.url}} />
+                            <a href="{{result.url}}"><img src={{result.url}} /></a>
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -40,23 +40,28 @@
                 </div>
                 <div class="b_page_block_left">
                     <h6 class="title mb-2"><span class="d-block text-dark">Режим работы</span></h6>
-                    <p>Вторник - Суббота: 8:00 20:00
-                        <br>Воскресенье: 12.00-20.00
-                        <br>Понедельник: выходной день.
+                    <p>
+                        Понедельник: {{library.operatingModes?.monday}}<br>
+                        Вторник: {{library.operatingModes?.tuesday}}<br>
+                        Среда: {{library.operatingModes?.wednesday}}<br>
+                        Четверг: {{library.operatingModes?.thursday}}<br>
+                        Пятница: {{library.operatingModes?.friday}}<br>
+                        Суббота: {{library.operatingModes?.saturday}}<br>
+                        Воскресенье: {{library.operatingModes?.sunday}}<br>
                     </p>
-                    <p>Последняя пятница месяца: санитарный день</p>
                     <hr>
                 </div>
                 <div class="b_page_block_left">
                     <h6 class="title mb-2"><span class="d-block text-dark">Контакты</span></h6>
-                    <p><strong>E-mail:</strong> {{library.email}}<br><strong>Тел.:</strong> {{library.phoneNumber}}</p>
+                    <p><strong>Сайт: </strong><a href="{{library.site}}">{{library.site |
+                            slice:12}}</a><br><strong>Тел.:</strong>
+                        {{library.phoneNumber}}</p>
                 </div>
-
                 <div class="row">
                     <div class="col-lg-6 pt-2">
                         <div class="media align-items-center rounded shadow p-3">
                             <i class="fa fa-play h4 mb-0 text-custom"></i>
-                            <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-dark">Книжный фонд</a></h6>
+                            <h6 class="ml-3 mb-0"><a [routerLink]="['/library/library-books', library.libraryId]" class="text-dark">Книжный фонд</a></h6>
                         </div>
                     </div>
                     <div class="col-lg-6 pt-2">
@@ -68,14 +73,14 @@
                     <div class="col-lg-6 pt-2">
                         <div class="media align-items-center rounded shadow p-3">
                             <i class="fa fa-user h4 mb-0 text-custom"></i>
-                            <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-dark">Поиск по авторам</a>
+                            <h6 class="ml-3 mb-0"><a routerLink="/author" class="text-dark">Поиск по авторам</a>
                             </h6>
                         </div>
                     </div>
                     <div class="col-lg-6 pt-2">
                         <div class="media align-items-center rounded shadow p-3">
                             <i class="fa fa-image h4 mb-0 text-custom"></i>
-                            <h6 class="ml-3 mb-0"><a href="javascript:void(0)" class="text-dark">Поиск по жанрам</a>
+                            <h6 class="ml-3 mb-0"><a routerLink="/genre" class="text-dark">Поиск по жанрам</a>
                             </h6>
                         </div>
                     </div>
@@ -84,13 +89,10 @@
                     <br>
                     <h5 class="card-label"><span class="d-block text-dark">Как до нас доехать:</span></h5>
                     <p></p>
-                    <p>Проезд на автобусе №32 от метро "Рассказовка": 20 минут до остановки "Гостиница" или "Аэропорт
-                        Внуково"</p>
+                    <p>{{library.transport}}</p>
                     <p></p>
-                    <p><iframe
-                            [src]="library.mapLink"
-                            frameborder="0" allowfullscreen="true" width="600px" height="350px"
-                            style="display: block;"></iframe></p>
+                    <p><iframe [src]="library.mapLink" frameborder="0" allowfullscreen="true" width="600px"
+                            height="350px" style="display: block;"></iframe></p>
                 </div>
             </div>
         </div>

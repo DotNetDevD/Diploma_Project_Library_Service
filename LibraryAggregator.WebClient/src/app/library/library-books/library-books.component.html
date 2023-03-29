@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row featurette">
+        <div class="col-md-12">
+            <h4>Достпуно в библиотеке</h4>
+            <table class="table table-striped">
+                <thead>
+                    <th>Автор(ы)</th>
+                    <th>Название</th>
+                    <th>Жанры</th>
+                    <th>Забронировать</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let book of books">
+                        <td>{{book.title}}</td>
+                        <td class="flex-container">
+                            <div *ngFor="let auth of book.authorsBooks">
+                                <a style="text-decoration:none;" [routerLink]="['/author-books', auth.authorId]"
+                                    class="link-secondary">{{auth.author?.lastName}} {{auth.author?.firstName}}
+                                    {{auth.author?.middleName}}</a>
+                            </div>
+                        </td>
+                        <td class="flex-container">
+                            <div *ngFor="let g of book.booksGenres">
+                                <a style="text-decoration:none;" [routerLink]="['/genre-show', g.genreId]"
+                                    class="link-dark">{{g.genre?.type}}</a>
+                            </div>
+                        </td>
+                        <td><a [routerLink]="['/book-available-for-booking', book.bookId]">Забронировать</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

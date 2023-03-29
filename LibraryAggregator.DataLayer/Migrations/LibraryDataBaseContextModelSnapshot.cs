@@ -155,6 +155,34 @@ namespace LibraryAggregator.DataLayer.Migrations
                             FirstName = "Михаил",
                             LastName = "Булгаков",
                             MiddleName = "Афанасьевич"
+                        },
+                        new
+                        {
+                            AuthorId = 5,
+                            Biography = "Роберт Мартин — профессиональный разработчик ПО, международный консультант, автор книг по программированию. Известен также под псевдонимом Дядюшка Боб.",
+                            CoverImgPath = "Assets/Images/Authors/robert-matrin.jpg",
+                            DateOfBirth = new DateTime(1952, 4, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Роберт",
+                            LastName = "Мартин"
+                        },
+                        new
+                        {
+                            AuthorId = 6,
+                            Biography = "Стив Макконнелл — американский программист, автор нескольких книгпо разработке ПО, в том числе бестселера \"Совершенный код\"",
+                            CoverImgPath = "Assets/Images/Authors/McConnell.jpg",
+                            DateOfBirth = new DateTime(1952, 4, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Стив",
+                            LastName = "МакКоннел"
+                        },
+                        new
+                        {
+                            AuthorId = 7,
+                            Biography = "Английский писатель (по образованию врач), автор многочисленных приключенческих, исторических, публицистических, фантастических и юмористических произведений. Создатель классических персонажей детективной, научно-фантастической и историко-приключенческой литературы — гениального сыщика Шерлока Холмса",
+                            CoverImgPath = "Assets/Images/Authors/Conan-Doyle.jpg",
+                            DateOfBirth = new DateTime(1859, 5, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Артур",
+                            LastName = "Дойл",
+                            MiddleName = "Конан"
                         });
                 });
 
@@ -211,6 +239,30 @@ namespace LibraryAggregator.DataLayer.Migrations
                             AuthorsBooksId = 5,
                             AuthorId = 1,
                             BookId = 5
+                        },
+                        new
+                        {
+                            AuthorsBooksId = 6,
+                            AuthorId = 5,
+                            BookId = 6
+                        },
+                        new
+                        {
+                            AuthorsBooksId = 7,
+                            AuthorId = 5,
+                            BookId = 7
+                        },
+                        new
+                        {
+                            AuthorsBooksId = 8,
+                            AuthorId = 6,
+                            BookId = 8
+                        },
+                        new
+                        {
+                            AuthorsBooksId = 9,
+                            AuthorId = 7,
+                            BookId = 9
                         });
                 });
 
@@ -303,11 +355,51 @@ namespace LibraryAggregator.DataLayer.Migrations
                         {
                             BookId = 5,
                             CoverImgPath = "Assets/Images/Books/The%20death%20of%20Ivan%20Ilyich.jpeg",
-                            Description = "Повесть Л. Н. Толстого, над которой он работал с 1882 по 1886 год, внПовесть широко признана одной из вершин мировой литературы[1] и величайшим свершением Толстого в области малой литературной формы.Входит во Всемирную библиотеку(серия книг Норвежского книжного клуба)",
+                            Description = "Повесть Л. Н. Толстого, над которой он работал с 1882 по 1886 год. Повесть широко признана одной из вершин мировой литературы и величайшим свершением Толстого в области малой литературной формы.Входит во Всемирную библиотеку (серия книг Норвежского книжного клуба)",
                             Isbn = "978-5-699-15152-2",
                             PageCount = 543,
                             PublishDate = new DateTime(1886, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Смерть Ивана Ильича"
+                        },
+                        new
+                        {
+                            BookId = 6,
+                            CoverImgPath = "Assets/Images/Books/clean-code.jpg",
+                            Description = "Плохой код может работать, но он будет мешать развитию проекта и компании-разработчика, требуя дополнительные ресурсы на поддержку и \"укрощение\". Каким же должен быть код? Эта книга полна реальных примеров, позволяющих взглянуть на код с различных направлений: сверху вниз, снизу вверх и даже изнутри. Вы узнаете много нового о коде.",
+                            Isbn = "978-5-4461-0960-9",
+                            PageCount = 464,
+                            PublishDate = new DateTime(2021, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Чистый код"
+                        },
+                        new
+                        {
+                            BookId = 7,
+                            CoverImgPath = "Assets/Images/Books/clean-architecture.jpg",
+                            Description = "Всех программистов, которые добиваются успеха в мире разработки ПО, отличает один общий признак: они больше всего заботятся о качестве создаваемого программного обеспечения. Это – основа для них. Потому что они являются профессионалами своего дела.",
+                            Isbn = "978-5-4461-0772-8",
+                            PageCount = 352,
+                            PublishDate = new DateTime(2020, 10, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Чистая архитектура"
+                        },
+                        new
+                        {
+                            BookId = 8,
+                            CoverImgPath = "Assets/Images/Books/code-complete.jpg",
+                            Description = "Более 10 лет первое издание этой книги считалось одним из лучших практических руководств по программированию. Сейчас эта книга полностью обновлена с учетом современных тенденций и технологий и дополнена сотнями новых примеров, иллюстрирующих искусство и науку программирования.",
+                            Isbn = "978-5-9909805-1-8",
+                            PageCount = 896,
+                            PublishDate = new DateTime(2019, 11, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Совершенный код"
+                        },
+                        new
+                        {
+                            BookId = 9,
+                            CoverImgPath = "Assets/Images/Books/Lost-World.jpg",
+                            Description = "\"Затерянный мир\" – захватывающий научно-фантастический роман английского писателя Артура Конан Дойла. Гениальный и известный своей эксцентричностью профессор Челленджер заявляет, что во время путешествия по Южной Америке обнаружил район, где до сих пор сохранились доисторические формы жизни.",
+                            Isbn = "978-5-04-160964-1",
+                            PageCount = 320,
+                            PublishDate = new DateTime(2023, 11, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Затерянный мир"
                         });
                 });
 
@@ -407,6 +499,48 @@ namespace LibraryAggregator.DataLayer.Migrations
                             BooksGenresId = 4,
                             BookId = 4,
                             GenreId = 2
+                        },
+                        new
+                        {
+                            BooksGenresId = 5,
+                            BookId = 3,
+                            GenreId = 3
+                        },
+                        new
+                        {
+                            BooksGenresId = 6,
+                            BookId = 5,
+                            GenreId = 6
+                        },
+                        new
+                        {
+                            BooksGenresId = 7,
+                            BookId = 6,
+                            GenreId = 3
+                        },
+                        new
+                        {
+                            BooksGenresId = 8,
+                            BookId = 7,
+                            GenreId = 3
+                        },
+                        new
+                        {
+                            BooksGenresId = 9,
+                            BookId = 8,
+                            GenreId = 3
+                        },
+                        new
+                        {
+                            BooksGenresId = 10,
+                            BookId = 4,
+                            GenreId = 6
+                        },
+                        new
+                        {
+                            BooksGenresId = 11,
+                            BookId = 9,
+                            GenreId = 6
                         });
                 });
 
@@ -502,6 +636,86 @@ namespace LibraryAggregator.DataLayer.Migrations
                             BookId = 1,
                             BookedBook = 0,
                             Count = 3,
+                            FreeBook = 0,
+                            IsFreeBook = true,
+                            LibraryId = 2
+                        },
+                        new
+                        {
+                            BooksLibrariesId = 7,
+                            BookId = 6,
+                            BookedBook = 0,
+                            Count = 5,
+                            FreeBook = 0,
+                            IsFreeBook = true,
+                            LibraryId = 2
+                        },
+                        new
+                        {
+                            BooksLibrariesId = 8,
+                            BookId = 6,
+                            BookedBook = 0,
+                            Count = 4,
+                            FreeBook = 0,
+                            IsFreeBook = true,
+                            LibraryId = 1
+                        },
+                        new
+                        {
+                            BooksLibrariesId = 9,
+                            BookId = 7,
+                            BookedBook = 0,
+                            Count = 4,
+                            FreeBook = 0,
+                            IsFreeBook = true,
+                            LibraryId = 2
+                        },
+                        new
+                        {
+                            BooksLibrariesId = 10,
+                            BookId = 7,
+                            BookedBook = 0,
+                            Count = 4,
+                            FreeBook = 0,
+                            IsFreeBook = true,
+                            LibraryId = 1
+                        },
+                        new
+                        {
+                            BooksLibrariesId = 11,
+                            BookId = 8,
+                            BookedBook = 0,
+                            Count = 6,
+                            FreeBook = 0,
+                            IsFreeBook = true,
+                            LibraryId = 1
+                        },
+                        new
+                        {
+                            BooksLibrariesId = 12,
+                            BookId = 8,
+                            BookedBook = 0,
+                            Count = 4,
+                            FreeBook = 0,
+                            IsFreeBook = true,
+                            LibraryId = 2
+                        },
+                        new
+                        {
+                            BooksLibrariesId = 13,
+                            BookId = 9,
+                            BookedBook = 0,
+                            Count = 4,
+                            FreeBook = 0,
+                            IsFreeBook = true,
+                            LibraryId = 1
+                        },
+                        new
+                        {
+                            BooksLibrariesId = 14,
+                            BookId = 9,
+                            BookedBook = 0,
+                            Count = 6,
                             FreeBook = 0,
                             IsFreeBook = true,
                             LibraryId = 2
@@ -648,7 +862,7 @@ namespace LibraryAggregator.DataLayer.Migrations
                         new
                         {
                             ImagesForCarouselId = 4,
-                            CoverImgPath = "Assets/Images/Libraries/Carousel/imeni-yanki-kupaly-3.jpg",
+                            CoverImgPath = "Assets/Images/Libraries/Carousel/imeni-yanki-kupaly-1.jpg",
                             LibraryId = 2
                         },
                         new
@@ -686,10 +900,6 @@ namespace LibraryAggregator.DataLayer.Migrations
                     b.Property<string>("DirectorPhotoLink")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Email")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
                     b.Property<string>("HistoryOfLibrary")
                         .HasColumnType("nvarchar(max)");
 
@@ -705,6 +915,13 @@ namespace LibraryAggregator.DataLayer.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("ShortDiscription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Site")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Transport")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Url")
@@ -723,12 +940,13 @@ namespace LibraryAggregator.DataLayer.Migrations
                             AgeGroup = "Нет ограничений ",
                             CoverImgPath = "Assets/Images/Libraries/natsionalnaya_biblioteka.jpg",
                             DirectorPhotoLink = "Assets/Images/Libraries/natsionalnaya_biblioteka.jpg",
-                            Email = "www.nlb.by",
                             HistoryOfLibrary = "Национальная библиотека Беларуси (НББ) была основана постановлением Совета народных комиссаров БССР в 1922 году как Белорусская государственная и университетская библиотека Белорусского государственного университета (БГУ). На момент открытия фонды библиотеки насчитывали всего 60 тысяч экземпляров, которыми пользовались 1,1 тысячи человек. Первым собственным зданием библиотеки стал Юбилейный дом на Захарьевской улице (ныне — проспект Независимости). Постановлением СНК БССР от 14 мая 1926 году библиотека была выведена из состава БГУ и реорганизована в Белорусскую государственную библиотеку. В 1932 году библиотеке было присвоено имя В. И. Ленина. В тот же год библиотека получила новое здание архитектора Г. Лаврова в конструктивистском стиле. ",
                             MapLink = "https://yandex.by/maps/org/natsionalnaya_biblioteka_belarusi/1087338903/?ll=27.647557%2C53.930867&z=16.48",
                             Name = "Национальная библиотека Минска",
                             PhoneNumber = "+375 17 368-37-37",
-                            ShortDiscription = "Национальная библиотека Беларуси (НББ)"
+                            ShortDiscription = "Национальная библиотека Беларуси (НББ)",
+                            Site = "https://www.nlb.by",
+                            Transport = "Автобус: 113С, 27, 87С, 91. Поезд : МІНСК - ЧЫРВОНЫ СЦЯГ. Троллейбус: 41, 61"
                         },
                         new
                         {
@@ -737,12 +955,13 @@ namespace LibraryAggregator.DataLayer.Migrations
                             AgeGroup = "Нет ограничений",
                             CoverImgPath = "Assets/Images/Libraries/czentralnaya-biblioteka-imeni-yanki-kupaly.jpg",
                             DirectorPhotoLink = "Assets/Images/Libraries/czentralnaya-biblioteka-imeni-yanki-kupaly.jpg",
-                            Email = "www.publib.by/",
-                            HistoryOfLibrary = "Сёння Цэнтральная бібліятэка імя Янкі Купалы – гэта: ТРАДЫЦЫЯ БЫЦЬ ПАТРЭБНАЙ",
-                            MapLink = "https://yandex.by/maps/org/natsionalnaya_biblioteka_belarusi/1087338903/?ll=27.647557%2C53.930867&z=16.48",
+                            HistoryOfLibrary = "Вас приветствует Центральная библиотека имени Янки Купалы! Сегодня Центральная библиотека имени Янки Купалы - это: Одна из крупнейших библиотек города; На сайте библиотеки можно посмотреть ролик, сделанный к юбилею сотрудниками. Он рассказывает, что открылась библиотека 29 июля 1949 года, представляет на черно-белом снимке первое здание – Летнюю читальню парка имени М. Горького. Следующий адрес – ул. Карла Маркса, 8, сюда библиотека переехала в 1952-м. А на своем нынешнем месте прописалась в 1976-м. Первым директором стала Лидия Поградная, на снимке она – еще в солдатской шинели. В 1992 году библиотеке было присвоен награда Ленина. В тот же год библиотека получила новый ремонт от архитектора Г. Лазерева в конструктивистском стиле.",
+                            MapLink = "https://yandex.by/maps/org/tsentralnaya_biblioteka_imeni_yanki_kupaly/1048737828/?ll=27.570994%2C53.921319&z=16.67",
                             Name = "Библиотека им. Янки Купалы",
                             PhoneNumber = "8 017 242-21-15",
-                            ShortDiscription = "Цэнтральная бібліятэка імя Янкі Купалы"
+                            ShortDiscription = "Цэнтральная бібліятэка імя Янкі Купалы",
+                            Site = "https://www.publib.by",
+                            Transport = "Автобус: 19, 24, 29, 59, 91. Троллейбус: 37 53"
                         });
                 });
 
@@ -754,21 +973,35 @@ namespace LibraryAggregator.DataLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OperatingModeId"));
 
-                    b.Property<string>("CleanUpDay")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EndWork")
+                    b.Property<string>("Friday")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("LibraryId")
                         .HasColumnType("int");
 
-                    b.Property<string>("StartWork")
+                    b.Property<string>("Monday")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Saturday")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Sunday")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Thursday")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Tuesday")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Wednesday")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("OperatingModeId");
 
-                    b.HasIndex("LibraryId");
+                    b.HasIndex("LibraryId")
+                        .IsUnique()
+                        .HasFilter("[LibraryId] IS NOT NULL");
 
                     b.ToTable("OperatingModes");
 
@@ -776,26 +1009,26 @@ namespace LibraryAggregator.DataLayer.Migrations
                         new
                         {
                             OperatingModeId = 1,
-                            CleanUpDay = "Понедельник",
-                            EndWork = "20:00",
+                            Friday = "10:00–21:00",
                             LibraryId = 1,
-                            StartWork = "8:00"
+                            Monday = "10:00–21:00",
+                            Saturday = "10:00–16:00",
+                            Sunday = "10:00–16:00",
+                            Thursday = "10:00–21:00",
+                            Tuesday = "10:00–21:00",
+                            Wednesday = "10:00–21:00"
                         },
                         new
                         {
                             OperatingModeId = 2,
-                            CleanUpDay = "Пятница",
-                            EndWork = "22:00",
-                            LibraryId = 1,
-                            StartWork = "10:00"
-                        },
-                        new
-                        {
-                            OperatingModeId = 3,
-                            CleanUpDay = "Среда",
-                            EndWork = "22:00",
-                            LibraryId = 1,
-                            StartWork = "10:00"
+                            Friday = "09:00–17:00",
+                            LibraryId = 2,
+                            Monday = "09:00–17:00",
+                            Saturday = "Выходной",
+                            Sunday = "Выходной",
+                            Thursday = "09:00–17:00",
+                            Tuesday = "09:00–17:00",
+                            Wednesday = "09:00–17:00"
                         });
                 });
 
@@ -898,8 +1131,8 @@ namespace LibraryAggregator.DataLayer.Migrations
             modelBuilder.Entity("LibraryAggregator.DataLayer.Entities.OperatingModes", b =>
                 {
                     b.HasOne("LibraryAggregator.DataLayer.Entities.Library", "Libraries")
-                        .WithMany("OperatingModes")
-                        .HasForeignKey("LibraryId");
+                        .WithOne("OperatingModes")
+                        .HasForeignKey("LibraryAggregator.DataLayer.Entities.OperatingModes", "LibraryId");
 
                     b.Navigation("Libraries");
                 });
@@ -942,7 +1175,8 @@ namespace LibraryAggregator.DataLayer.Migrations
 
                     b.Navigation("ImagesForCarousel");
 
-                    b.Navigation("OperatingModes");
+                    b.Navigation("OperatingModes")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

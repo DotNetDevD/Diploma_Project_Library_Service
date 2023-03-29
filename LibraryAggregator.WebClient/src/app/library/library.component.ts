@@ -10,21 +10,21 @@ import { Library } from '../models/library';
 export class LibraryComponent implements OnInit {
 
     libraryList: Library[] = [];
-    
+
     constructor(private readonly libraryService: LibraryApiService) { }
 
     ngOnInit(): void {
         this.retrievelibraryList();
     }
-    
+
     retrievelibraryList(): void {
         this.libraryService.getLibraryList()
-          .subscribe({
-            next: (data) => {
-              this.libraryList = data;
-              console.log(data);
-            },
-            error: (e) => console.error(e)
-          });
-      }
+            .subscribe({
+                next: (data) => {
+                    this.libraryList = data;
+                    console.log(data);
+                },
+                error: (e) => console.error(e)
+            });
+    }
 }

@@ -1,9 +1,10 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6" style="float:none;margin:auto;">
-            <form [formGroup]="bookingForm" *ngIf="!isFormSent" (ngSubmit)="submitBooking()" data-toggle="validator" role="form">
+            <form [formGroup]="bookingForm" *ngIf="!isFormSent" (ngSubmit)="submitBooking()" data-toggle="validator"
+                role="form">
                 <div class="form-group">
-                    <label for="inputName" class="control-label" required >Ваше имя*</label>
+                    <label for="inputName" class="control-label" required>Ваше имя*</label>
                     <input formControlName="name" type="text" maxlength="20" class="form-control" id="inputName"
                         placeholder="Введите Ваше имя" required>
                     <p *ngIf="this.bookingForm.get('name')?.invalid"><small class="form-text text-muted">*Данное поле
@@ -11,15 +12,15 @@
                 </div>
                 <div class="form-group">
                     <label for="inputSurname" class="control-label">Ваша фамилия*</label>
-                    <input formControlName="surname" type="text" maxlength="20" class="form-control"
-                        id="inputSurname" placeholder="Введите Вашу Фамилию">
+                    <input formControlName="surname" type="text" maxlength="20" class="form-control" id="inputSurname"
+                        placeholder="Введите Вашу Фамилию">
                     <p *ngIf="this.bookingForm.get('surname')?.invalid"><small class="form-text text-muted">*Данное
                             поле обязательно!</small></p>
                 </div>
                 <div class="form-group">
                     <label for="inputEmail" class="control-label">Ваш E-mail*</label>
-                    <input formControlName="email" type="email" class="form-control" id="inputEmail"
-                        placeholder="Email" data-error="Вы не правильно ввели Ваш E-mail" required>
+                    <input formControlName="email" type="email" class="form-control" id="inputEmail" placeholder="Email"
+                        data-error="Вы не правильно ввели Ваш E-mail" required>
                     <div class="help-block with-errors"></div>
                     <p *ngIf="this.bookingForm.get('email')?.invalid"><small class="form-text text-muted">*Данное
                             поле обязательно!</small></p>
@@ -50,10 +51,10 @@
                     </div>
                 </div> -->
                 <div class="form-group">
-                    <button [disabled]="bookingForm.invalid" type="submit" class="btn btn-primary">Отправить</button>
+                    <button [disabled]="bookingForm.invalid" type="submit" class="btn btn-success">Отправить</button>
                 </div>
             </form>
-            <app-success-booking *ngIf="isFormSent" [booking] = "booking"></app-success-booking>
+            <app-success-booking *ngIf="isFormSent" [booking]="booking"></app-success-booking>
         </div>
     </div>
 </div>

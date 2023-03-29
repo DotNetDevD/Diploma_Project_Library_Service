@@ -24,6 +24,41 @@ namespace LibraryAggregator.Common.Implementation
     {
       await CreateClient(bookingDto);
 
+            Booking booking = new()
+            {
+                Code = new Random().Next(10000),
+                StartDate = DateTime.Now,
+                FinishDate = DateTime.Now.AddDays(14),
+                BooksLibraryId = bookingDto.BookLibraryId,
+                ClientId = await _clientRepository.GetClientIdByEmailAsync(bookingDto.Email),
+                BookingStatus = BookingStatuses.Booked
+            };
+
+            if (await CheckDoubleBooking(bookingDto))
+            {
+                // logic
+                throw new Exception();
+            }
+            else
+            {
+                await _bookingRepository.CreateAsync(booking);
+            }
+        }
+
+        private async Task<bool> CheckDoubleBooking(BookingDto bookingDto)
+        {
+            bool isClientAlreadyBooking = false;
+            var bookings = await _bookingRepository.GetFullInfoBookingsAsync();
+            foreach (var booking in bookings)
+            {
+                if (booking.BooksLibraryId == bookingDto.BookLibraryId && booking.Client.Email == bookingDto.Email)
+                {
+                    isClientAlreadyBooking = true;
+                    break;
+                }
+            }
+            return isClientAlreadyBooking;
+        }
       Booking booking = new()
       {
         Code = new Random().Next(10000),

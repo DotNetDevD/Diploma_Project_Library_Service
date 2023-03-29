@@ -24,16 +24,18 @@ import localeRu from '@angular/common/locales/ru';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BookInfoComponent } from './book/book-info/book-info.component';
 import { FoundBooksComponent } from "./book/found-books/found-books.component";
-import { ButtonForFindBookComponent } from './book/button-for-find-book/button-for-find-book.component';
 import { SearchApiService } from './api-services/search-api.service';
-import { ButtonForFindAuthorComponent } from './author/button-for-find-author/button-for-find-author.component';
-import { ButtonForFindLibraryComponent } from './library/button-for-find-library/button-for-find-library.component';
 import { SearchComponent } from './search/search.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { BookingApiService } from './api-services/booking-api.service';
 import { BookAvailableForBookingComponent } from './book/book-available-for-booking/book-available-for-booking.component';
 import { BookingComponent } from './book/booking/booking.component';
 import { SuccessBookingComponent } from './book/success-booking/success-booking.component';
+import { GenreComponent } from './genre/genre.component';
+import { AuthorBooksComponent } from './book/author-books/author-books.component';
+import { RecommendComponent } from './recommend/recommend.component';
+import { LibraryBooksComponent } from './library/library-books/library-books.component';
+import { FooterComponent } from './footer/footer.component';
 
 registerLocaleData(localeRu);
 
@@ -48,9 +50,6 @@ registerLocaleData(localeRu);
         BookComponent,
         BookCardComponent,
         BookInfoComponent,
-        ButtonForFindBookComponent,
-        ButtonForFindAuthorComponent,
-        ButtonForFindLibraryComponent,
         MainContentComponent,
         LibraryComponent,
         LibraryCardComponent,
@@ -59,9 +58,14 @@ registerLocaleData(localeRu);
         GenreShowComponent,
         SearchComponent,
         NavBarComponent,
+        FooterComponent,
         BookAvailableForBookingComponent,
         BookingComponent,
-        SuccessBookingComponent
+        SuccessBookingComponent,
+        GenreComponent,
+        AuthorBooksComponent,
+        RecommendComponent,
+        LibraryBooksComponent
     ],
     imports: [
         AppRoutingModule,
